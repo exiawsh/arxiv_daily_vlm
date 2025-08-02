@@ -2,6 +2,7 @@ import os
 import json
 import logging
 import argparse
+import sys
 from datetime import date, datetime, timedelta
 
 # 确保 src 目录在 Python 路径中，以便导入其他模块
@@ -10,6 +11,10 @@ from datetime import date, datetime, timedelta
 from scraper import fetch_cv_papers
 from filter import filter_papers_by_topic, rate_papers
 from html_generator import generate_html_from_json, generate_multi_day_html_with_cleanup
+
+# 添加项目根目录到路径，以便导入 fix_reports_json
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import fix_reports_json
 
 # 配置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -136,6 +141,14 @@ def main(target_date: date):
                 logging.info("已创建空的 reports.json。")
         except Exception as e:
             logging.error(f"更新 reports.json 时发生错误: {e}", exc_info=True)
+
+        # --- 6. 修复 reports.json (确保数据一致性) --- #
+        logging.info("步骤 6: 修复 reports.json 文件，确保只包含实际存在的HTML文件...")
+        try:
+            fix_reports_json.fix_reports_json()
+            logging.info("reports.json 修复完成")
+        except Exception as e:
+            logging.error(f"修复 reports.json 时发生错误: {e}", exc_info=True)
 
     except FileNotFoundError:
         logging.error(f"模板文件 '{DEFAULT_TEMPLATE_NAME}' 未在 '{DEFAULT_TEMPLATE_DIR}' 中找到。")
