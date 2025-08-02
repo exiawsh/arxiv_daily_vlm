@@ -10,12 +10,12 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # 从环境变量中获取 OpenRouter API Key
 # 在 GitHub Actions 中，这应该设置为 Secret
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_API_URL = "https://api5.xhub.chat/v1/chat/completions"
 
 # 可以选择一个合适的模型，例如免费或低成本的模型进行分类任务
 # 查阅 OpenRouter 文档获取可用模型列表: https://openrouter.ai/docs#models
 # 例如使用 'mistralai/mistral-7b-instruct:free'
-MODEL_NAME = "google/gemini-2.0-flash-001"
+MODEL_NAME = "google/gemini-2.0-flash"
 
 def call_openrouter_api(prompt: str, max_tokens: int = 5) -> str | None:
     """调用 OpenRouter API 并返回模型的响应。
@@ -117,7 +117,7 @@ Paper Title: %s
 Paper Abstract: %s
 
 # My Research Interests
-image generation, video generation, multimodal generation
+long video generation, video generation, camera control, motion control, world model
 
 # Output Requirements
 Output should always be in JSON format, strictly compliant with RFC8259.
