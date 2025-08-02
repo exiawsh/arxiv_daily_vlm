@@ -37,6 +37,18 @@ def main():
     logging.info("开始清理旧的多日HTML文件（保留所有单日文件）...")
     cleanup_old_html_files(html_dir, keep_days=[10, 20, 30])
     
+    # 清理完成后更新 reports.json
+    try:
+        reports_json_path = os.path.join(project_root, 'reports.json')
+        if os.path.exists(html_dir) and os.path.isdir(html_dir):
+            html_files = [f for f in os.listdir(html_dir) if f.endswith('.html')]
+            html_files.sort(reverse=True)
+            with open(reports_json_path, 'w', encoding='utf-8') as f:
+                json.dump(html_files, f, indent=4, ensure_ascii=False)
+            logging.info(f"清理后已更新 reports.json，包含 {len(html_files)} 个文件")
+    except Exception as e:
+        logging.error(f"更新 reports.json 时发生错误: {e}")
+    
     # 显示清理后的文件信息
     remaining_files = [f for f in os.listdir(html_dir) if f.endswith('.html')]
     logging.info(f"清理后HTML文件数量: {len(remaining_files)}")

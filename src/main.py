@@ -117,7 +117,7 @@ def main(target_date: date):
         except Exception as e:
             logging.error(f"生成多天HTML或清理时发生错误: {e}", exc_info=True)
 
-        # --- 5. 更新 reports.json --- #
+        # --- 5. 更新 reports.json (在清理之后) --- #
         logging.info("步骤 5: 更新根目录下的 reports.json 文件...")
         reports_json_path = os.path.join(PROJECT_ROOT, 'reports.json')
         try:

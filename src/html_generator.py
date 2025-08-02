@@ -261,6 +261,20 @@ def generate_multi_day_html_with_cleanup(json_dir: str, template_dir: str, templ
     if cleanup:
         logging.info("开始清理旧的HTML文件...")
         cleanup_old_html_files(output_dir)
+        
+        # 清理完成后更新 reports.json
+        try:
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            reports_json_path = os.path.join(project_root, 'reports.json')
+            
+            if os.path.exists(output_dir) and os.path.isdir(output_dir):
+                html_files = [f for f in os.listdir(output_dir) if f.endswith('.html')]
+                html_files.sort(reverse=True)
+                with open(reports_json_path, 'w', encoding='utf-8') as f:
+                    json.dump(html_files, f, indent=4, ensure_ascii=False)
+                logging.info(f"清理后已更新 reports.json，包含 {len(html_files)} 个文件")
+        except Exception as e:
+            logging.error(f"更新 reports.json 时发生错误: {e}")
 
 
 # Example usage (for testing purposes):

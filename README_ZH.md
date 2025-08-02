@@ -58,6 +58,12 @@ python src/main.py
 
 # 单独清理HTML文件
 python cleanup_html.py
+
+# 修复 reports.json 文件（移除不存在的文件引用）
+python fix_reports_json.py
+
+# 检查网页缓存问题
+python check_web_cache.py
 ```
 
 运行成功后：
@@ -91,6 +97,8 @@ python cleanup_html.py
 │   ├── filter.py            # OpenRouter 过滤模块
 │   └── html_generator.py    # HTML 生成模块
 ├── cleanup_html.py          # HTML文件清理脚本
+├── fix_reports_json.py      # 修复reports.json文件脚本
+├── check_web_cache.py       # 检查网页缓存问题脚本
 ├── templates/               # HTML 模板目录
 │   └── paper_template.html
 ├── daily_json/              # 存放每日 JSON 结果
