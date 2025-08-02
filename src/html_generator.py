@@ -35,12 +35,12 @@ def generate_html_from_json(json_file_path: str, template_dir: str, template_nam
         date_str = filename.split('.')[0]
         report_date = date.fromisoformat(date_str)
         formatted_date = report_date.strftime("%Y_%m_%d")
-        page_title = f"ArXiv CS.CV Papers (Image/Video Generation) - {report_date.strftime('%B %d, %Y')}"
+        page_title = f"ArXiv CS.CV Papers (Visual Language Model) - {report_date.strftime('%B %d, %Y')}"
     except (IndexError, ValueError):
         logging.warning(f"Could not extract date from filename {filename}. Using default.")
         today = date.today()
         formatted_date = today.strftime("%Y_%m_%d")
-        page_title = f"ArXiv CS.CV Papers (Image/Video Generation) - {today.strftime('%B %d, %Y')}"
+        page_title = f"ArXiv CS.CV Papers (Visual Language Model) - {today.strftime('%B %d, %Y')}"
 
 
     generation_time = datetime.now(timezone.utc)
