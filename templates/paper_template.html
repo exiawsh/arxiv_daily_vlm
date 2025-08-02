@@ -199,7 +199,12 @@
     >
         <h1>AIGC Daily Papers</h1>
         <p>Daily papers related to Image/Video/Multimodal Generation from cs.CV</p>
-        <p>{{ report_date.strftime('%B %d, %Y') }}</p>
+        {% if date_range and date_range|length > 1 %}
+            <p>{{ date_range|length }} days: {{ date_range[0].strftime('%B %d, %Y') }} - {{ date_range[-1].strftime('%B %d, %Y') }}</p>
+            <p>Total: {{ total_papers }} papers</p>
+        {% else %}
+            <p>{{ report_date.strftime('%B %d, %Y') }}</p>
+        {% endif %}
         <div class="line-graphic mt-4 mb-8 mx-auto w-1/4"></div> <!-- Added line graphic -->
     </motion.div>
 
@@ -214,6 +219,11 @@
             data-motion-element
         >
             <h2 class="paper-title">{{ paper.title }}</h2>
+            {% if paper.source_date_formatted %}
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> {{ paper.source_date_formatted }}
+            </p>
+            {% endif %}
             <p class="paper-summary">{{ paper.summary }}</p>
             {% if paper.tldr %}
             <p class="paper-tldr"><strong>TLDR</strong>: {{ paper.tldr }}</p>
