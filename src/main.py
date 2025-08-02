@@ -51,7 +51,7 @@ def main(target_date: date):
         # --- 2. 过滤论文、论文打分 --- #
         logging.info("步骤 2: 使用 AI 过滤论文并打分 (主题: image/video/multimodal generation)...")
         # 注意：filter_papers_by_topic 依赖 OPENROUTER_API_KEY 环境变量
-        filtered_papers = filter_papers_by_topic(raw_papers, topic="general image/video/multimodal generation")
+        filtered_papers = filter_papers_by_topic(raw_papers, topic="long video generation, video generation, camera control, motion control, world model")
         filtered_papers = rate_papers(filtered_papers)
         # 将filtered_papers按照overall_priority_score降序排序
         filtered_papers.sort(key=lambda x: x.get('overall_priority_score', 0), reverse=True)
@@ -161,6 +161,6 @@ if __name__ == '__main__':
         # 可以考虑在这里创建默认模板或退出
 
     # 检查过去两天的报告，避免遗漏，并生成当天的报告
-    main(target_date=run_date - timedelta(days=2))
-    main(target_date=run_date - timedelta(days=1))
-    main(target_date=run_date)
+    # 检查过去14天的报告
+    for i in range(14, -1, -1):
+        main(target_date=run_date - timedelta(days=i))
