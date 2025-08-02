@@ -117,7 +117,7 @@ Paper Title: %s
 Paper Abstract: %s
 
 # My Research Interests
-long video generation, video generation, camera control, motion control, world model
+Personalized VLM, Distributed VLM, VLM, Federated Learning, Vision Language Model
 
 # Output Requirements
 Output should always be in JSON format, strictly compliant with RFC8259.
