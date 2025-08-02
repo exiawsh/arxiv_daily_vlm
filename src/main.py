@@ -9,7 +9,7 @@ from datetime import date, datetime, timedelta
 # 或者更好的方式是使用相对导入（如果结构允许）或将项目作为包安装
 from scraper import fetch_cv_papers
 from filter import filter_papers_by_topic, rate_papers
-from html_generator import generate_html_from_json, generate_multi_day_html
+from html_generator import generate_html_from_json, generate_multi_day_html_with_cleanup
 
 # 配置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -102,19 +102,20 @@ def main(target_date: date):
         )
         logging.info(f"HTML 报告已生成在: {DEFAULT_HTML_DIR}")
 
-        # --- 4.1 生成多天HTML报告 (最近10天) --- #
-        logging.info("步骤 4.1: 生成包含最近10天论文的多天HTML报告...")
+        # --- 4.1 生成多天HTML报告 (最近10天) 并清理旧文件 --- #
+        logging.info("步骤 4.1: 生成包含最近10天论文的多天HTML报告并清理旧文件...")
         try:
-            generate_multi_day_html(
+            generate_multi_day_html_with_cleanup(
                 json_dir=DEFAULT_JSON_DIR,
                 template_dir=DEFAULT_TEMPLATE_DIR,
                 template_name=DEFAULT_TEMPLATE_NAME,
                 output_dir=DEFAULT_HTML_DIR,
-                days=10
+                days=10,
+                cleanup=True
             )
-            logging.info("多天HTML报告生成完成")
+            logging.info("多天HTML报告生成和清理完成")
         except Exception as e:
-            logging.error(f"生成多天HTML时发生错误: {e}", exc_info=True)
+            logging.error(f"生成多天HTML或清理时发生错误: {e}", exc_info=True)
 
         # --- 5. 更新 reports.json --- #
         logging.info("步骤 5: 更新根目录下的 reports.json 文件...")

@@ -92,9 +92,26 @@ def generate_multi_day_html(json_dir: str, template_dir: str, template_name: str
         logging.warning("No valid JSON files found for multi-day HTML generation.")
         return
     
+    # Calculate the date range for this generation
+    date_range = [file_date for file_date, _ in json_files]
+    start_date = min(date_range)
+    end_date = max(date_range)
+    
+    # Generate the expected output filename
+    if len(date_range) == 1:
+        output_filename = f"{date_range[0].strftime('%Y_%m_%d')}.html"
+    else:
+        output_filename = f"{start_date.strftime('%Y_%m_%d')}_to_{end_date.strftime('%Y_%m_%d')}.html"
+    
+    output_filepath = os.path.join(output_dir, output_filename)
+    
+    # Check if the file already exists
+    if os.path.exists(output_filepath):
+        logging.info(f"Multi-day HTML file already exists: {output_filepath}. Skipping generation.")
+        return
+    
     # Load and combine papers from all selected days
     all_papers = []
-    date_range = []
     
     for file_date, filename in json_files:
         json_filepath = os.path.join(json_dir, filename)
@@ -106,7 +123,6 @@ def generate_multi_day_html(json_dir: str, template_dir: str, template_name: str
                     paper['source_date'] = file_date.isoformat()
                     paper['source_date_formatted'] = file_date.strftime('%B %d, %Y')
                 all_papers.extend(papers)
-                date_range.append(file_date)
         except (FileNotFoundError, json.JSONDecodeError) as e:
             logging.warning(f"Error reading {json_filepath}: {e}")
             continue
@@ -122,8 +138,6 @@ def generate_multi_day_html(json_dir: str, template_dir: str, template_name: str
     if len(date_range) == 1:
         date_range_str = date_range[0].strftime('%B %d, %Y')
     else:
-        start_date = min(date_range)
-        end_date = max(date_range)
         if start_date == end_date:
             date_range_str = start_date.strftime('%B %d, %Y')
         else:
@@ -145,15 +159,6 @@ def generate_multi_day_html(json_dir: str, template_dir: str, template_name: str
         total_papers=len(all_papers)
     )
     
-    # Generate output filename
-    if len(date_range) == 1:
-        output_filename = f"{date_range[0].strftime('%Y_%m_%d')}.html"
-    else:
-        start_date = min(date_range)
-        end_date = max(date_range)
-        output_filename = f"{start_date.strftime('%Y_%m_%d')}_to_{end_date.strftime('%Y_%m_%d')}.html"
-    
-    output_filepath = os.path.join(output_dir, output_filename)
     os.makedirs(output_dir, exist_ok=True)
     
     try:
@@ -163,6 +168,99 @@ def generate_multi_day_html(json_dir: str, template_dir: str, template_name: str
         logging.info(f"Included {len(all_papers)} papers from {len(date_range)} days")
     except IOError as e:
         logging.error(f"Error writing HTML file {output_filepath}: {e}")
+
+
+def cleanup_old_html_files(html_dir: str, keep_days: list = [10, 20, 30]):
+    """定期清理旧的HTML文件，保留所有单日文件，只清理多日文件。
+    
+    Args:
+        html_dir: HTML文件目录
+        keep_days: 要保留的多日文件天数列表，默认保留最近10天、10-20天、20-30天的多日文件
+    """
+    if not os.path.exists(html_dir):
+        logging.warning(f"HTML目录不存在: {html_dir}")
+        return
+    
+    today = date.today()
+    single_day_files = []
+    multi_day_files = []
+    
+    # 收集所有HTML文件及其日期
+    for filename in os.listdir(html_dir):
+        if filename.endswith('.html'):
+            try:
+                # 处理单日文件 (YYYY_MM_DD.html)
+                if '_to_' not in filename:
+                    date_str = filename.replace('.html', '').replace('_', '-')
+                    file_date = date.fromisoformat(date_str)
+                    single_day_files.append((file_date, filename))
+                # 处理多日文件 (YYYY_MM_DD_to_YYYY_MM_DD.html)
+                else:
+                    # 提取结束日期作为文件日期
+                    end_date_str = filename.split('_to_')[-1].replace('.html', '').replace('_', '-')
+                    file_date = date.fromisoformat(end_date_str)
+                    multi_day_files.append((file_date, filename))
+            except (ValueError, IndexError):
+                logging.warning(f"无法解析文件名中的日期: {filename}")
+                continue
+    
+    # 保留所有单日文件
+    files_to_keep = set()
+    for file_date, filename in single_day_files:
+        files_to_keep.add(filename)
+    
+    logging.info(f"保留所有单日文件: {len(single_day_files)} 个")
+    
+    # 处理多日文件
+    if multi_day_files:
+        # 按日期排序
+        multi_day_files.sort(key=lambda x: x[0], reverse=True)
+        
+        # 计算要保留的多日文件
+        for keep_day in keep_days:
+            cutoff_date = today - timedelta(days=keep_day)
+            for file_date, filename in multi_day_files:
+                if file_date >= cutoff_date:
+                    files_to_keep.add(filename)
+        
+        logging.info(f"保留多日文件: {len([f for f in files_to_keep if '_to_' in f])} 个")
+    else:
+        logging.info("没有找到多日文件")
+    
+    # 删除不在保留列表中的文件（只删除多日文件）
+    deleted_count = 0
+    for file_date, filename in multi_day_files:
+        if filename not in files_to_keep:
+            file_path = os.path.join(html_dir, filename)
+            try:
+                os.remove(file_path)
+                logging.info(f"已删除旧的多日文件: {filename} (日期: {file_date})")
+                deleted_count += 1
+            except OSError as e:
+                logging.error(f"删除文件失败 {filename}: {e}")
+    
+    logging.info(f"清理完成: 删除了 {deleted_count} 个多日文件，保留了 {len(files_to_keep)} 个文件（包含所有单日文件）")
+
+
+def generate_multi_day_html_with_cleanup(json_dir: str, template_dir: str, template_name: str, 
+                                        output_dir: str, days: int = 10, cleanup: bool = True):
+    """生成多天HTML文件并可选地清理旧文件。
+    
+    Args:
+        json_dir: JSON文件目录
+        template_dir: 模板目录
+        template_name: 模板文件名
+        output_dir: 输出目录
+        days: 包含的天数
+        cleanup: 是否在生成后清理旧文件
+    """
+    # 生成多天HTML
+    generate_multi_day_html(json_dir, template_dir, template_name, output_dir, days)
+    
+    # 如果需要清理，则执行清理
+    if cleanup:
+        logging.info("开始清理旧的HTML文件...")
+        cleanup_old_html_files(output_dir)
 
 
 # Example usage (for testing purposes):

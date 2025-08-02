@@ -9,6 +9,7 @@
 3.  **数据存储**: 将筛选后的论文信息（标题、摘要、链接等）保存为日期命名的 JSON 文件（存放于 `daily_json/` 目录）。
 4.  **网页生成**: 根据 JSON 数据，使用预设模板生成每日的 HTML 报告（存放于 `daily_html/` 目录），并更新主入口页面 `index.html`。
 5.  **自动化部署**: 通过 GitHub Actions 实现每日定时执行抓取、筛选、生成和部署到 GitHub Pages 的完整流程。
+6.  **文件清理**: 自动清理30天前的旧多日HTML文件，保留所有单日HTML文件。
 
 ## 技术栈
 
@@ -54,6 +55,9 @@ python src/main.py
 
 # (可选) 指定日期运行
 # python src/main.py --date YYYY-MM-DD
+
+# 单独清理HTML文件
+python cleanup_html.py
 ```
 
 运行成功后：
@@ -86,6 +90,7 @@ python src/main.py
 │   ├── scraper.py           # ArXiv 爬虫模块
 │   ├── filter.py            # OpenRouter 过滤模块
 │   └── html_generator.py    # HTML 生成模块
+├── cleanup_html.py          # HTML文件清理脚本
 ├── templates/               # HTML 模板目录
 │   └── paper_template.html
 ├── daily_json/              # 存放每日 JSON 结果
