@@ -1,0 +1,626 @@
+[
+    {
+        "title": "Uni-cot: Towards Unified Chain-of-Thought Reasoning Across Text and Vision",
+        "summary": "Chain-of-Thought (CoT) reasoning has been widely adopted to enhance Large\nLanguage Models (LLMs) by decomposing complex tasks into simpler, sequential\nsubtasks. However, extending CoT to vision-language reasoning tasks remains\nchallenging, as it often requires interpreting transitions of visual states to\nsupport reasoning. Existing methods often struggle with this due to limited\ncapacity of modeling visual state transitions or incoherent visual trajectories\ncaused by fragmented architectures.\n  To overcome these limitations, we propose Uni-CoT, a Unified Chain-of-Thought\nframework that enables coherent and grounded multimodal reasoning within a\nsingle unified model. The key idea is to leverage a model capable of both image\nunderstanding and generation to reason over visual content and model evolving\nvisual states. However, empowering a unified model to achieve that is\nnon-trivial, given the high computational cost and the burden of training. To\naddress this, Uni-CoT introduces a novel two-level reasoning paradigm: A\nMacro-Level CoT for high-level task planning and A Micro-Level CoT for subtask\nexecution. This design significantly reduces the computational overhead.\nFurthermore, we introduce a structured training paradigm that combines\ninterleaved image-text supervision for macro-level CoT with multi-task\nobjectives for micro-level CoT. Together, these innovations allow Uni-CoT to\nperform scalable and coherent multi-modal reasoning. Furthermore, thanks to our\ndesign, all experiments can be efficiently completed using only 8 A100 GPUs\nwith 80GB VRAM each. Experimental results on reasoning-driven image generation\nbenchmark (WISE) and editing benchmarks (RISE and KRIS) indicates that Uni-CoT\ndemonstrates SOTA performance and strong generalization, establishing Uni-CoT\nas a promising solution for multi-modal reasoning. Project Page and Code:\nhttps://sais-fuxi.github.io/projects/uni-cot/",
+        "url": "http://arxiv.org/abs/2508.05606v1",
+        "published_date": "2025-08-07T17:45:17+00:00",
+        "updated_date": "2025-08-07T17:45:17+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Luozheng Qin",
+            "Jia Gong",
+            "Yuqing Sun",
+            "Tianjiao Li",
+            "Mengping Yang",
+            "Xiaomeng Yang",
+            "Chao Qu",
+            "Zhiyu Tan",
+            "Hao Li"
+        ],
+        "tldr": "The paper introduces Uni-CoT, a unified framework for coherent multimodal reasoning in vision-language tasks, using a two-level chain-of-thought approach and structured training for improved performance and scalability.",
+        "tldr_zh": "该论文介绍了一种名为Uni-CoT的统一框架，用于视觉语言任务中连贯的多模态推理。它采用两级思维链方法和结构化训练，以提高性能和可扩展性。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "LLaVA-RE: Binary Image-Text Relevancy Evaluation with Multimodal Large Language Model",
+        "summary": "Multimodal generative AI usually involves generating image or text responses\ngiven inputs in another modality. The evaluation of image-text relevancy is\nessential for measuring response quality or ranking candidate responses. In\nparticular, binary relevancy evaluation, i.e., ``Relevant'' vs. ``Not\nRelevant'', is a fundamental problem. However, this is a challenging task\nconsidering that texts have diverse formats and the definition of relevancy\nvaries in different scenarios. We find that Multimodal Large Language Models\n(MLLMs) are an ideal choice to build such evaluators, as they can flexibly\nhandle complex text formats and take in additional task information. In this\npaper, we present LLaVA-RE, a first attempt for binary image-text relevancy\nevaluation with MLLM. It follows the LLaVA architecture and adopts detailed\ntask instructions and multimodal in-context samples. In addition, we propose a\nnovel binary relevancy data set that covers various tasks. Experimental results\nvalidate the effectiveness of our framework.",
+        "url": "http://arxiv.org/abs/2508.05602v1",
+        "published_date": "2025-08-07T17:42:44+00:00",
+        "updated_date": "2025-08-07T17:42:44+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Tao Sun",
+            "Oliver Liu",
+            "JinJin Li",
+            "Lan Ma"
+        ],
+        "tldr": "This paper introduces LLaVA-RE, a Multimodal Large Language Model (MLLM) based framework for binary image-text relevancy evaluation, along with a new dataset for this task, demonstrating its effectiveness.",
+        "tldr_zh": "本文介绍了 LLaVA-RE，一个基于多模态大型语言模型 (MLLM) 的二元图像-文本相关性评估框架，并为此任务创建了一个新的数据集，证明了其有效性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "DART: Dual Adaptive Refinement Transfer for Open-Vocabulary Multi-Label Recognition",
+        "summary": "Open-Vocabulary Multi-Label Recognition (OV-MLR) aims to identify multiple\nseen and unseen object categories within an image, requiring both precise\nintra-class localization to pinpoint objects and effective inter-class\nreasoning to model complex category dependencies. While Vision-Language\nPre-training (VLP) models offer a strong open-vocabulary foundation, they often\nstruggle with fine-grained localization under weak supervision and typically\nfail to explicitly leverage structured relational knowledge beyond basic\nsemantics, limiting performance especially for unseen classes. To overcome\nthese limitations, we propose the Dual Adaptive Refinement Transfer (DART)\nframework. DART enhances a frozen VLP backbone via two synergistic adaptive\nmodules. For intra-class refinement, an Adaptive Refinement Module (ARM)\nrefines patch features adaptively, coupled with a novel Weakly Supervised Patch\nSelecting (WPS) loss that enables discriminative localization using only\nimage-level labels. Concurrently, for inter-class transfer, an Adaptive\nTransfer Module (ATM) leverages a Class Relationship Graph (CRG), constructed\nusing structured knowledge mined from a Large Language Model (LLM), and employs\ngraph attention network to adaptively transfer relational information between\nclass representations. DART is the first framework, to our knowledge, to\nexplicitly integrate external LLM-derived relational knowledge for adaptive\ninter-class transfer while simultaneously performing adaptive intra-class\nrefinement under weak supervision for OV-MLR. Extensive experiments on\nchallenging benchmarks demonstrate that our DART achieves new state-of-the-art\nperformance, validating its effectiveness.",
+        "url": "http://arxiv.org/abs/2508.05585v1",
+        "published_date": "2025-08-07T17:22:33+00:00",
+        "updated_date": "2025-08-07T17:22:33+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Haijing Liu",
+            "Tao Pu",
+            "Hefeng Wu",
+            "Keze Wang",
+            "Liang Lin"
+        ],
+        "tldr": "The paper introduces DART, a framework for Open-Vocabulary Multi-Label Recognition that adaptively refines intra-class localization and transfers inter-class relational knowledge using a VLP backbone enhanced with LLM-derived knowledge. It achieves state-of-the-art results on challenging benchmarks.",
+        "tldr_zh": "该论文提出了DART，一个用于开放词汇多标签识别的框架，它利用LLM衍生的知识增强的VLP主干，自适应地细化类内定位并传递类间关系知识。在具有挑战性的基准测试中，该框架取得了最先进的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Follow-Your-Instruction: A Comprehensive MLLM Agent for World Data Synthesis",
+        "summary": "With the growing demands of AI-generated content (AIGC), the need for\nhigh-quality, diverse, and scalable data has become increasingly crucial.\nHowever, collecting large-scale real-world data remains costly and\ntime-consuming, hindering the development of downstream applications. While\nsome works attempt to collect task-specific data via a rendering process, most\napproaches still rely on manual scene construction, limiting their scalability\nand accuracy. To address these challenges, we propose Follow-Your-Instruction,\na Multimodal Large Language Model (MLLM)-driven framework for automatically\nsynthesizing high-quality 2D, 3D, and 4D data. Our\n\\textbf{Follow-Your-Instruction} first collects assets and their associated\ndescriptions through multimodal inputs using the MLLM-Collector. Then it\nconstructs 3D layouts, and leverages Vision-Language Models (VLMs) for semantic\nrefinement through multi-view scenes with the MLLM-Generator and\nMLLM-Optimizer, respectively. Finally, it uses MLLM-Planner to generate\ntemporally coherent future frames. We evaluate the quality of the generated\ndata through comprehensive experiments on the 2D, 3D, and 4D generative tasks.\nThe results show that our synthetic data significantly boosts the performance\nof existing baseline models, demonstrating Follow-Your-Instruction's potential\nas a scalable and effective data engine for generative intelligence.",
+        "url": "http://arxiv.org/abs/2508.05580v1",
+        "published_date": "2025-08-07T17:12:54+00:00",
+        "updated_date": "2025-08-07T17:12:54+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Kunyu Feng",
+            "Yue Ma",
+            "Xinhua Zhang",
+            "Boshi Liu",
+            "Yikuang Yuluo",
+            "Yinhan Zhang",
+            "Runtao Liu",
+            "Hongyu Liu",
+            "Zhiyuan Qin",
+            "Shanhui Mo",
+            "Qifeng Chen",
+            "Zeyu Wang"
+        ],
+        "tldr": "The paper proposes a MLLM-driven framework, Follow-Your-Instruction, for automatically synthesizing high-quality 2D, 3D, and 4D data to address the limitations of manual data collection, showing improved performance on downstream tasks.",
+        "tldr_zh": "该论文提出了一个MLLM驱动的框架Follow-Your-Instruction，用于自动合成高质量的2D、3D和4D数据，以解决手动数据收集的局限性，并在下游任务上表现出性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Adapting Vision-Language Models Without Labels: A Comprehensive Survey",
+        "summary": "Vision-Language Models (VLMs) have demonstrated remarkable generalization\ncapabilities across a wide range of tasks. However, their performance often\nremains suboptimal when directly applied to specific downstream scenarios\nwithout task-specific adaptation. To enhance their utility while preserving\ndata efficiency, recent research has increasingly focused on unsupervised\nadaptation methods that do not rely on labeled data. Despite the growing\ninterest in this area, there remains a lack of a unified, task-oriented survey\ndedicated to unsupervised VLM adaptation. To bridge this gap, we present a\ncomprehensive and structured overview of the field. We propose a taxonomy based\non the availability and nature of unlabeled visual data, categorizing existing\napproaches into four key paradigms: Data-Free Transfer (no data), Unsupervised\nDomain Transfer (abundant data), Episodic Test-Time Adaptation (batch data),\nand Online Test-Time Adaptation (streaming data). Within this framework, we\nanalyze core methodologies and adaptation strategies associated with each\nparadigm, aiming to establish a systematic understanding of the field.\nAdditionally, we review representative benchmarks across diverse applications\nand highlight open challenges and promising directions for future research. An\nactively maintained repository of relevant literature is available at\nhttps://github.com/tim-learn/Awesome-LabelFree-VLMs.",
+        "url": "http://arxiv.org/abs/2508.05547v1",
+        "published_date": "2025-08-07T16:27:37+00:00",
+        "updated_date": "2025-08-07T16:27:37+00:00",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Hao Dong",
+            "Lijun Sheng",
+            "Jian Liang",
+            "Ran He",
+            "Eleni Chatzi",
+            "Olga Fink"
+        ],
+        "tldr": "This paper surveys unsupervised adaptation methods for Vision-Language Models (VLMs), categorizing them based on unlabeled data availability and highlighting future research directions.",
+        "tldr_zh": "本文综述了视觉语言模型（VLM）的无监督适应方法，根据未标记数据的可用性对其进行分类，并强调了未来的研究方向。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Explaining Similarity in Vision-Language Encoders with Weighted Banzhaf Interactions",
+        "summary": "Language-image pre-training (LIP) enables the development of vision-language\nmodels capable of zero-shot classification, localization, multimodal retrieval,\nand semantic understanding. Various explanation methods have been proposed to\nvisualize the importance of input image-text pairs on the model's similarity\noutputs. However, popular saliency maps are limited by capturing only\nfirst-order attributions, overlooking the complex cross-modal interactions\nintrinsic to such encoders. We introduce faithful interaction explanations of\nLIP models (FIxLIP) as a unified approach to decomposing the similarity in\nvision-language encoders. FIxLIP is rooted in game theory, where we analyze how\nusing the weighted Banzhaf interaction index offers greater flexibility and\nimproves computational efficiency over the Shapley interaction quantification\nframework. From a practical perspective, we propose how to naturally extend\nexplanation evaluation metrics, like the pointing game and area between the\ninsertion/deletion curves, to second-order interaction explanations.\nExperiments on MS COCO and ImageNet-1k benchmarks validate that second-order\nmethods like FIxLIP outperform first-order attribution methods. Beyond\ndelivering high-quality explanations, we demonstrate the utility of FIxLIP in\ncomparing different models like CLIP vs. SigLIP-2 and ViT-B/32 vs. ViT-L/16.",
+        "url": "http://arxiv.org/abs/2508.05430v1",
+        "published_date": "2025-08-07T14:18:56+00:00",
+        "updated_date": "2025-08-07T14:18:56+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Hubert Baniecki",
+            "Maximilian Muschalik",
+            "Fabian Fumagalli",
+            "Barbara Hammer",
+            "Eyke Hüllermeier",
+            "Przemyslaw Biecek"
+        ],
+        "tldr": "The paper introduces FIxLIP, a game theory-based approach using the weighted Banzhaf interaction index to provide more faithful and efficient second-order explanations for vision-language encoders, outperforming first-order methods.",
+        "tldr_zh": "该论文介绍了FIxLIP，一种基于博弈论的方法，使用加权Banzhaf交互索引为视觉语言编码器提供更忠实和高效的二阶解释，优于一阶方法。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Textual Inversion for Efficient Adaptation of Open-Vocabulary Object Detectors Without Forgetting",
+        "summary": "Recent progress in large pre-trained vision language models (VLMs) has\nreached state-of-the-art performance on several object detection benchmarks and\nboasts strong zero-shot capabilities, but for optimal performance on specific\ntargets some form of finetuning is still necessary. While the initial VLM\nweights allow for great few-shot transfer learning, this usually involves the\nloss of the original natural language querying and zero-shot capabilities.\nInspired by the success of Textual Inversion (TI) in personalizing\ntext-to-image diffusion models, we propose a similar formulation for\nopen-vocabulary object detection. TI allows extending the VLM vocabulary by\nlearning new or improving existing tokens to accurately detect novel or\nfine-grained objects from as little as three examples. The learned tokens are\ncompletely compatible with the original VLM weights while keeping them frozen,\nretaining the original model's benchmark performance, and leveraging its\nexisting capabilities such as zero-shot domain transfer (e.g., detecting a\nsketch of an object after training only on real photos). The storage and\ngradient calculations are limited to the token embedding dimension, requiring\nsignificantly less compute than full-model fine-tuning. We evaluated whether\nthe method matches or outperforms the baseline methods that suffer from\nforgetting in a wide variety of quantitative and qualitative experiments.",
+        "url": "http://arxiv.org/abs/2508.05323v1",
+        "published_date": "2025-08-07T12:28:08+00:00",
+        "updated_date": "2025-08-07T12:28:08+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Frank Ruis",
+            "Gertjan Burghouts",
+            "Hugo Kuijf"
+        ],
+        "tldr": "This paper proposes a Textual Inversion (TI) approach for open-vocabulary object detection to efficiently adapt VLMs to new objects with few examples, while preserving original zero-shot capabilities and requiring less computation than full fine-tuning.",
+        "tldr_zh": "本文提出了一种用于开放词汇目标检测的文本反演（TI）方法，旨在以少量示例有效地将VLM适应于新对象，同时保留原始的零样本能力，并且比完全微调所需的计算量更少。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "mKG-RAG: Multimodal Knowledge Graph-Enhanced RAG for Visual Question Answering",
+        "summary": "Recently, Retrieval-Augmented Generation (RAG) has been proposed to expand\ninternal knowledge of Multimodal Large Language Models (MLLMs) by incorporating\nexternal knowledge databases into the generation process, which is widely used\nfor knowledge-based Visual Question Answering (VQA) tasks. Despite impressive\nadvancements, vanilla RAG-based VQA methods that rely on unstructured documents\nand overlook the structural relationships among knowledge elements frequently\nintroduce irrelevant or misleading content, reducing answer accuracy and\nreliability. To overcome these challenges, a promising solution is to integrate\nmultimodal knowledge graphs (KGs) into RAG-based VQA frameworks to enhance the\ngeneration by introducing structured multimodal knowledge. Therefore, in this\npaper, we propose a novel multimodal knowledge-augmented generation framework\n(mKG-RAG) based on multimodal KGs for knowledge-intensive VQA tasks.\nSpecifically, our approach leverages MLLM-powered keyword extraction and\nvision-text matching to distill semantically consistent and modality-aligned\nentities/relationships from multimodal documents, constructing high-quality\nmultimodal KGs as structured knowledge representations. In addition, a\ndual-stage retrieval strategy equipped with a question-aware multimodal\nretriever is introduced to improve retrieval efficiency while refining\nprecision. Comprehensive experiments demonstrate that our approach\nsignificantly outperforms existing methods, setting a new state-of-the-art for\nknowledge-based VQA.",
+        "url": "http://arxiv.org/abs/2508.05318v1",
+        "published_date": "2025-08-07T12:22:50+00:00",
+        "updated_date": "2025-08-07T12:22:50+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Xu Yuan",
+            "Liangbo Ning",
+            "Wenqi Fan",
+            "Qing Li"
+        ],
+        "tldr": "The paper introduces mKG-RAG, a multimodal knowledge graph-enhanced RAG framework for VQA that uses MLLMs to construct multimodal KGs and employs a dual-stage retrieval strategy, achieving state-of-the-art results.",
+        "tldr_zh": "该论文介绍了 mKG-RAG，一种用于视觉问答的多模态知识图增强的 RAG 框架，它使用 MLLM 构建多模态知识图，并采用双阶段检索策略，实现了最先进的结果。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "RegionMed-CLIP: A Region-Aware Multimodal Contrastive Learning Pre-trained Model for Medical Image Understanding",
+        "summary": "Medical image understanding plays a crucial role in enabling automated\ndiagnosis and data-driven clinical decision support. However, its progress is\nimpeded by two primary challenges: the limited availability of high-quality\nannotated medical data and an overreliance on global image features, which\noften miss subtle but clinically significant pathological regions. To address\nthese issues, we introduce RegionMed-CLIP, a region-aware multimodal\ncontrastive learning framework that explicitly incorporates localized\npathological signals along with holistic semantic representations. The core of\nour method is an innovative region-of-interest (ROI) processor that adaptively\nintegrates fine-grained regional features with the global context, supported by\na progressive training strategy that enhances hierarchical multimodal\nalignment. To enable large-scale region-level representation learning, we\nconstruct MedRegion-500k, a comprehensive medical image-text corpus that\nfeatures extensive regional annotations and multilevel clinical descriptions.\nExtensive experiments on image-text retrieval, zero-shot classification, and\nvisual question answering tasks demonstrate that RegionMed-CLIP consistently\nexceeds state-of-the-art vision language models by a wide margin. Our results\nhighlight the critical importance of region-aware contrastive pre-training and\nposition RegionMed-CLIP as a robust foundation for advancing multimodal medical\nimage understanding.",
+        "url": "http://arxiv.org/abs/2508.05244v1",
+        "published_date": "2025-08-07T10:32:03+00:00",
+        "updated_date": "2025-08-07T10:32:03+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Tianchen Fang",
+            "Guiru Liu"
+        ],
+        "tldr": "The paper introduces RegionMed-CLIP, a region-aware multimodal contrastive learning framework for medical image understanding, utilizing a newly constructed MedRegion-500k dataset with region-level annotations. It outperforms existing vision-language models on several tasks.",
+        "tldr_zh": "该论文介绍了 RegionMed-CLIP，一种区域感知的多模态对比学习框架，用于医学图像理解，并利用了新构建的 MedRegion-500k 数据集，该数据集具有区域级别的标注。它在多个任务上优于现有的视觉语言模型。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "VFlowOpt: A Token Pruning Framework for LMMs with Visual Information Flow-Guided Optimization",
+        "summary": "Large Multimodal Models (LMMs) excel in visual-language tasks by leveraging\nnumerous visual tokens for fine-grained visual information, but this token\nredundancy results in significant computational costs. Previous research aimed\nat reducing visual tokens during inference typically leverages importance maps\nderived from attention scores among vision-only tokens or vision-language\ntokens to prune tokens across one or multiple pruning stages. Despite this\nprogress, pruning frameworks and strategies remain simplistic and\ninsufficiently explored, often resulting in substantial performance\ndegradation. In this paper, we propose VFlowOpt, a token pruning framework that\nintroduces an importance map derivation process and a progressive pruning\nmodule with a recycling mechanism. The hyperparameters of its pruning strategy\nare further optimized by a visual information flow-guided method. Specifically,\nwe compute an importance map for image tokens based on their attention-derived\ncontext relevance and patch-level information entropy. We then decide which\ntokens to retain or prune and aggregate the pruned ones as recycled tokens to\navoid potential information loss. Finally, we apply a visual information\nflow-guided method that regards the last token in the LMM as the most\nrepresentative signal of text-visual interactions. This method minimizes the\ndiscrepancy between token representations in LMMs with and without pruning,\nthereby enabling superior pruning strategies tailored to different LMMs.\nExperiments demonstrate that VFlowOpt can prune 90% of visual tokens while\nmaintaining comparable performance, leading to an 89% reduction in KV-Cache\nmemory and 3.8 times faster inference.",
+        "url": "http://arxiv.org/abs/2508.05211v1",
+        "published_date": "2025-08-07T09:47:21+00:00",
+        "updated_date": "2025-08-07T09:47:21+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Sihan Yang",
+            "Runsen Xu",
+            "Chenhang Cui",
+            "Tai Wang",
+            "Dahua Lin",
+            "Jiangmiao Pang"
+        ],
+        "tldr": "The paper introduces VFlowOpt, a token pruning framework for LMMs that uses visual information flow-guided optimization to prune 90% of visual tokens while maintaining comparable performance and significantly reducing memory usage and inference time.",
+        "tldr_zh": "该论文介绍了VFlowOpt，一个用于LMM的token剪枝框架，它使用视觉信息流引导优化来剪枝90%的视觉token，同时保持相当的性能，并显著减少内存使用和推理时间。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SPEX: A Vision-Language Model for Land Cover Extraction on Spectral Remote Sensing Images",
+        "summary": "Spectral information has long been recognized as a critical cue in remote\nsensing observations. Although numerous vision-language models have been\ndeveloped for pixel-level interpretation, spectral information remains\nunderutilized, resulting in suboptimal performance, particularly in\nmultispectral scenarios. To address this limitation, we construct a\nvision-language instruction-following dataset named SPIE, which encodes\nspectral priors of land-cover objects into textual attributes recognizable by\nlarge language models (LLMs), based on classical spectral index computations.\nLeveraging this dataset, we propose SPEX, a multimodal LLM designed for\ninstruction-driven land cover extraction. To this end, we introduce several\ncarefully designed components and training strategies, including multiscale\nfeature aggregation, token context condensation, and multispectral visual\npre-training, to achieve precise and flexible pixel-level interpretation. To\nthe best of our knowledge, SPEX is the first multimodal vision-language model\ndedicated to land cover extraction in spectral remote sensing imagery.\nExtensive experiments on five public multispectral datasets demonstrate that\nSPEX consistently outperforms existing state-of-the-art methods in extracting\ntypical land cover categories such as vegetation, buildings, and water bodies.\nMoreover, SPEX is capable of generating textual explanations for its\npredictions, thereby enhancing interpretability and user-friendliness. Code\nwill be released at: https://github.com/MiliLab/SPEX.",
+        "url": "http://arxiv.org/abs/2508.05202v1",
+        "published_date": "2025-08-07T09:37:45+00:00",
+        "updated_date": "2025-08-07T09:37:45+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Dongchen Si",
+            "Di Wang",
+            "Erzhong Gao",
+            "Xiaolei Qin",
+            "Liu Zhao",
+            "Jing Zhang",
+            "Minqiang Xu",
+            "Jianbo Zhan",
+            "Jianshe Wang",
+            "Lin Liu",
+            "Bo Du",
+            "Liangpei Zhang"
+        ],
+        "tldr": "The paper introduces SPEX, a vision-language model tailored for land cover extraction from spectral remote sensing images, utilizing a new dataset (SPIE) and novel training strategies to outperform existing methods.",
+        "tldr_zh": "该论文介绍了一种名为SPEX的视觉语言模型，专门用于从光谱遥感图像中提取土地覆盖信息。该模型利用了一个新的数据集 (SPIE) 和创新的训练策略，性能优于现有方法。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "QA-Dragon: Query-Aware Dynamic RAG System for Knowledge-Intensive Visual Question Answering",
+        "summary": "Retrieval-Augmented Generation (RAG) has been introduced to mitigate\nhallucinations in Multimodal Large Language Models (MLLMs) by incorporating\nexternal knowledge into the generation process, and it has become a widely\nadopted approach for knowledge-intensive Visual Question Answering (VQA).\nHowever, existing RAG methods typically retrieve from either text or images in\nisolation, limiting their ability to address complex queries that require\nmulti-hop reasoning or up-to-date factual knowledge. To address this\nlimitation, we propose QA-Dragon, a Query-Aware Dynamic RAG System for\nKnowledge-Intensive VQA. Specifically, QA-Dragon introduces a domain router to\nidentify the query's subject domain for domain-specific reasoning, along with a\nsearch router that dynamically selects optimal retrieval strategies. By\norchestrating both text and image search agents in a hybrid setup, our system\nsupports multimodal, multi-turn, and multi-hop reasoning, enabling it to tackle\ncomplex VQA tasks effectively. We evaluate our QA-Dragon on the Meta CRAG-MM\nChallenge at KDD Cup 2025, where it significantly enhances the reasoning\nperformance of base models under challenging scenarios. Our framework achieves\nsubstantial improvements in both answer accuracy and knowledge overlap scores,\noutperforming baselines by 5.06% on the single-source task, 6.35% on the\nmulti-source task, and 5.03% on the multi-turn task.",
+        "url": "http://arxiv.org/abs/2508.05197v1",
+        "published_date": "2025-08-07T09:32:49+00:00",
+        "updated_date": "2025-08-07T09:32:49+00:00",
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.CV"
+        ],
+        "authors": [
+            "Zhuohang Jiang",
+            "Pangjing Wu",
+            "Xu Yuan",
+            "Wenqi Fan",
+            "Qing Li"
+        ],
+        "tldr": "The paper introduces QA-Dragon, a query-aware dynamic RAG system for knowledge-intensive VQA that uses domain and search routers to combine text and image retrieval for improved performance on complex reasoning tasks. It achieves significant improvements in answer accuracy and knowledge overlap on the Meta CRAG-MM Challenge.",
+        "tldr_zh": "该论文介绍了QA-Dragon，一个用于知识密集型视觉问答的查询感知动态RAG系统，它使用领域和搜索路由器结合文本和图像检索，以提高复杂推理任务的性能。该系统在Meta CRAG-MM挑战赛中显著提高了答案准确性和知识重叠度。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Multimodal Causal-Driven Representation Learning for Generalizable Medical Image Segmentation",
+        "summary": "Vision-Language Models (VLMs), such as CLIP, have demonstrated remarkable\nzero-shot capabilities in various computer vision tasks. However, their\napplication to medical imaging remains challenging due to the high variability\nand complexity of medical data. Specifically, medical images often exhibit\nsignificant domain shifts caused by various confounders, including equipment\ndifferences, procedure artifacts, and imaging modes, which can lead to poor\ngeneralization when models are applied to unseen domains. To address this\nlimitation, we propose Multimodal Causal-Driven Representation Learning\n(MCDRL), a novel framework that integrates causal inference with the VLM to\ntackle domain generalization in medical image segmentation. MCDRL is\nimplemented in two steps: first, it leverages CLIP's cross-modal capabilities\nto identify candidate lesion regions and construct a confounder dictionary\nthrough text prompts, specifically designed to represent domain-specific\nvariations; second, it trains a causal intervention network that utilizes this\ndictionary to identify and eliminate the influence of these domain-specific\nvariations while preserving the anatomical structural information critical for\nsegmentation tasks. Extensive experiments demonstrate that MCDRL consistently\noutperforms competing methods, yielding superior segmentation accuracy and\nexhibiting robust generalizability.",
+        "url": "http://arxiv.org/abs/2508.05008v1",
+        "published_date": "2025-08-07T03:41:41+00:00",
+        "updated_date": "2025-08-07T03:41:41+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Xusheng Liang",
+            "Lihua Zhou",
+            "Nianxin Li",
+            "Miao Xu",
+            "Ziyang Song",
+            "Dong Yi",
+            "Jinlin Wu",
+            "Hongbin Liu",
+            "Jiebo Luo",
+            "Zhen Lei"
+        ],
+        "tldr": "The paper introduces Multimodal Causal-Driven Representation Learning (MCDRL), a framework that combines causal inference and VLMs to improve the generalizability of medical image segmentation across different domains by mitigating the influence of domain-specific confounders.",
+        "tldr_zh": "该论文介绍了多模态因果驱动表征学习 (MCDRL)，它结合了因果推理和视觉语言模型，通过减轻领域特定混淆因素的影响，提高医学图像分割在不同领域之间的泛化能力。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Accelerating Conditional Prompt Learning via Masked Image Modeling for Vision-Language Models",
+        "summary": "Vision-language models (VLMs) like CLIP excel in zero-shot learning but often\nrequire resource-intensive training to adapt to new tasks. Prompt learning\ntechniques, such as CoOp and CoCoOp, offer efficient adaptation but tend to\noverfit to known classes, limiting generalization to unseen categories. We\nintroduce ProMIM, a plug-and-play framework that enhances conditional prompt\nlearning by integrating masked image modeling (MIM) into existing VLM\npipelines. ProMIM leverages a simple yet effective masking strategy to generate\nrobust, instance-conditioned prompts, seamlessly augmenting methods like CoOp\nand CoCoOp without altering their core architectures. By masking only visible\nimage patches and using these representations to guide prompt generation,\nProMIM improves feature robustness and mitigates overfitting, all while\nintroducing negligible additional computational cost. Extensive experiments\nacross zero-shot and few-shot classification tasks demonstrate that ProMIM\nconsistently boosts generalization performance when plugged into existing\napproaches, providing a practical, lightweight solution for real-world\nvision-language applications.",
+        "url": "http://arxiv.org/abs/2508.04942v1",
+        "published_date": "2025-08-07T00:08:31+00:00",
+        "updated_date": "2025-08-07T00:08:31+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Phuoc-Nguyen Bui",
+            "Khanh-Binh Nguyen",
+            "Hyunseung Choo"
+        ],
+        "tldr": "The paper introduces ProMIM, a masked image modeling-based framework to improve the generalization performance of conditional prompt learning in VLMs without significant computational overhead, showing improved results in zero-shot and few-shot classification.",
+        "tldr_zh": "该论文介绍了ProMIM，一个基于掩码图像建模的框架，旨在提升视觉语言模型中条件提示学习的泛化性能，且无需显著的计算开销，并在零样本和少样本分类任务中展示了改进的结果。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Test-Time Reinforcement Learning for GUI Grounding via Region Consistency",
+        "summary": "Graphical User Interface (GUI) grounding, the task of mapping natural\nlanguage instructions to precise screen coordinates, is fundamental to\nautonomous GUI agents. While existing methods achieve strong performance\nthrough extensive supervised training or reinforcement learning with labeled\nrewards, they remain constrained by the cost and availability of pixel-level\nannotations. We observe that when models generate multiple predictions for the\nsame GUI element, the spatial overlap patterns reveal implicit confidence\nsignals that can guide more accurate localization. Leveraging this insight, we\npropose GUI-RC (Region Consistency), a test-time scaling method that constructs\nspatial voting grids from multiple sampled predictions to identify consensus\nregions where models show highest agreement. Without any training, GUI-RC\nimproves accuracy by 2-3% across various architectures on ScreenSpot\nbenchmarks. We further introduce GUI-RCPO (Region Consistency Policy\nOptimization), which transforms these consistency patterns into rewards for\ntest-time reinforcement learning. By computing how well each prediction aligns\nwith the collective consensus, GUI-RCPO enables models to iteratively refine\ntheir outputs on unlabeled data during inference. Extensive experiments\ndemonstrate the generality of our approach: GUI-RC boosts\nQwen2.5-VL-3B-Instruct from 80.11% to 83.57% on ScreenSpot-v2, while GUI-RCPO\nfurther improves it to 85.14% through self-supervised optimization. Our\napproach reveals the untapped potential of test-time scaling and test-time\nreinforcement learning for GUI grounding, offering a promising path toward more\nrobust and data-efficient GUI agents.",
+        "url": "http://arxiv.org/abs/2508.05615v1",
+        "published_date": "2025-08-07T17:54:27+00:00",
+        "updated_date": "2025-08-07T17:54:27+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL"
+        ],
+        "authors": [
+            "Yong Du",
+            "Yuchen Yan",
+            "Fei Tang",
+            "Zhengxi Lu",
+            "Chang Zong",
+            "Weiming Lu",
+            "Shengpei Jiang",
+            "Yongliang Shen"
+        ],
+        "tldr": "The paper introduces GUI-RC and GUI-RCPO, test-time scaling and reinforcement learning methods that leverage spatial consistency of GUI element predictions to improve grounding accuracy without additional training data, achieving significant gains on ScreenSpot benchmarks.",
+        "tldr_zh": "该论文介绍了GUI-RC和GUI-RCPO，这是一种测试时缩放和强化学习方法，利用GUI元素预测的空间一致性来提高定位精度，无需额外的训练数据，并在ScreenSpot基准测试中取得了显著成果。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "AI vs. Human Moderators: A Comparative Evaluation of Multimodal LLMs in Content Moderation for Brand Safety",
+        "summary": "As the volume of video content online grows exponentially, the demand for\nmoderation of unsafe videos has surpassed human capabilities, posing both\noperational and mental health challenges. While recent studies demonstrated the\nmerits of Multimodal Large Language Models (MLLMs) in various video\nunderstanding tasks, their application to multimodal content moderation, a\ndomain that requires nuanced understanding of both visual and textual cues,\nremains relatively underexplored. In this work, we benchmark the capabilities\nof MLLMs in brand safety classification, a critical subset of content\nmoderation for safe-guarding advertising integrity. To this end, we introduce a\nnovel, multimodal and multilingual dataset, meticulously labeled by\nprofessional reviewers in a multitude of risk categories. Through a detailed\ncomparative analysis, we demonstrate the effectiveness of MLLMs such as Gemini,\nGPT, and Llama in multimodal brand safety, and evaluate their accuracy and cost\nefficiency compared to professional human reviewers. Furthermore, we present an\nin-depth discussion shedding light on limitations of MLLMs and failure cases.\nWe are releasing our dataset alongside this paper to facilitate future research\non effective and responsible brand safety and content moderation.",
+        "url": "http://arxiv.org/abs/2508.05527v1",
+        "published_date": "2025-08-07T15:55:46+00:00",
+        "updated_date": "2025-08-07T15:55:46+00:00",
+        "categories": [
+            "cs.CV",
+            "I.2.10; I.2.7; H.3.3; H.4.3; K.4.1"
+        ],
+        "authors": [
+            "Adi Levi",
+            "Or Levi",
+            "Sardhendu Mishra",
+            "Jonathan Morra"
+        ],
+        "tldr": "This paper benchmarks the performance of Multimodal Large Language Models (MLLMs) in multimodal brand safety classification, comparing their accuracy and cost-efficiency to human moderators, and releases a novel dataset for future research.",
+        "tldr_zh": "本文对多模态大型语言模型（MLLM）在多模态品牌安全分类中的性能进行了基准测试，将其准确性和成本效益与人工审核员进行了比较，并发布了一个新的数据集，以供未来研究使用。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "From Detection to Correction: Backdoor-Resilient Face Recognition via Vision-Language Trigger Detection and Noise-Based Neutralization",
+        "summary": "Biometric systems, such as face recognition systems powered by deep neural\nnetworks (DNNs), rely on large and highly sensitive datasets. Backdoor attacks\ncan subvert these systems by manipulating the training process. By inserting a\nsmall trigger, such as a sticker, make-up, or patterned mask, into a few\ntraining images, an adversary can later present the same trigger during\nauthentication to be falsely recognized as another individual, thereby gaining\nunauthorized access. Existing defense mechanisms against backdoor attacks still\nface challenges in precisely identifying and mitigating poisoned images without\ncompromising data utility, which undermines the overall reliability of the\nsystem. We propose a novel and generalizable approach, TrueBiometric:\nTrustworthy Biometrics, which accurately detects poisoned images using a\nmajority voting mechanism leveraging multiple state-of-the-art large vision\nlanguage models. Once identified, poisoned samples are corrected using targeted\nand calibrated corrective noise. Our extensive empirical results demonstrate\nthat TrueBiometric detects and corrects poisoned images with 100\\% accuracy\nwithout compromising accuracy on clean images. Compared to existing\nstate-of-the-art approaches, TrueBiometric offers a more practical, accurate,\nand effective solution for mitigating backdoor attacks in face recognition\nsystems.",
+        "url": "http://arxiv.org/abs/2508.05409v1",
+        "published_date": "2025-08-07T14:02:34+00:00",
+        "updated_date": "2025-08-07T14:02:34+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.SD",
+            "eess.AS"
+        ],
+        "authors": [
+            "Farah Wahida",
+            "M. A. P. Chamikara",
+            "Yashothara Shanmugarasa",
+            "Mohan Baruwal Chhetri",
+            "Thilina Ranbaduge",
+            "Ibrahim Khalil"
+        ],
+        "tldr": "The paper introduces TrueBiometric, a novel approach using vision-language models and noise-based correction to detect and neutralize backdoor attacks in face recognition systems with high accuracy and no clean image degradation.",
+        "tldr_zh": "该论文介绍了TrueBiometric，一种新颖的方法，利用视觉-语言模型和基于噪声的校正，以高精度检测和消除面部识别系统中的后门攻击，且不影响干净图像的准确性。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "UNCAGE: Contrastive Attention Guidance for Masked Generative Transformers in Text-to-Image Generation",
+        "summary": "Text-to-image (T2I) generation has been actively studied using Diffusion\nModels and Autoregressive Models. Recently, Masked Generative Transformers have\ngained attention as an alternative to Autoregressive Models to overcome the\ninherent limitations of causal attention and autoregressive decoding through\nbidirectional attention and parallel decoding, enabling efficient and\nhigh-quality image generation. However, compositional T2I generation remains\nchallenging, as even state-of-the-art Diffusion Models often fail to accurately\nbind attributes and achieve proper text-image alignment. While Diffusion Models\nhave been extensively studied for this issue, Masked Generative Transformers\nexhibit similar limitations but have not been explored in this context. To\naddress this, we propose Unmasking with Contrastive Attention Guidance\n(UNCAGE), a novel training-free method that improves compositional fidelity by\nleveraging attention maps to prioritize the unmasking of tokens that clearly\nrepresent individual objects. UNCAGE consistently improves performance in both\nquantitative and qualitative evaluations across multiple benchmarks and\nmetrics, with negligible inference overhead. Our code is available at\nhttps://github.com/furiosa-ai/uncage.",
+        "url": "http://arxiv.org/abs/2508.05399v1",
+        "published_date": "2025-08-07T13:51:17+00:00",
+        "updated_date": "2025-08-07T13:51:17+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Wonjun Kang",
+            "Byeongkeun Ahn",
+            "Minjae Lee",
+            "Kevin Galim",
+            "Seunghyuk Oh",
+            "Hyung Il Koo",
+            "Nam Ik Cho"
+        ],
+        "tldr": "The paper introduces UNCAGE, a training-free method for Masked Generative Transformers that improves compositional fidelity in text-to-image generation by using attention maps to prioritize unmasking tokens representing individual objects.",
+        "tldr_zh": "该论文介绍了一种名为UNCAGE的无需训练的方法，用于Masked Generative Transformers，通过使用注意力图来优先处理代表单个对象的tokens的unmasking，从而提高文本到图像生成中的组合保真度。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "PriorRG: Prior-Guided Contrastive Pre-training and Coarse-to-Fine Decoding for Chest X-ray Report Generation",
+        "summary": "Chest X-ray report generation aims to reduce radiologists' workload by\nautomatically producing high-quality preliminary reports. A critical yet\nunderexplored aspect of this task is the effective use of patient-specific\nprior knowledge -- including clinical context (e.g., symptoms, medical history)\nand the most recent prior image -- which radiologists routinely rely on for\ndiagnostic reasoning. Most existing methods generate reports from single\nimages, neglecting this essential prior information and thus failing to capture\ndiagnostic intent or disease progression. To bridge this gap, we propose\nPriorRG, a novel chest X-ray report generation framework that emulates\nreal-world clinical workflows via a two-stage training pipeline. In Stage 1, we\nintroduce a prior-guided contrastive pre-training scheme that leverages\nclinical context to guide spatiotemporal feature extraction, allowing the model\nto align more closely with the intrinsic spatiotemporal semantics in radiology\nreports. In Stage 2, we present a prior-aware coarse-to-fine decoding for\nreport generation that progressively integrates patient-specific prior\nknowledge with the vision encoder's hidden states. This decoding allows the\nmodel to align with diagnostic focus and track disease progression, thereby\nenhancing the clinical accuracy and fluency of the generated reports. Extensive\nexperiments on MIMIC-CXR and MIMIC-ABN datasets demonstrate that PriorRG\noutperforms state-of-the-art methods, achieving a 3.6% BLEU-4 and 3.8% F1 score\nimprovement on MIMIC-CXR, and a 5.9% BLEU-1 gain on MIMIC-ABN. Code and\ncheckpoints will be released upon acceptance.",
+        "url": "http://arxiv.org/abs/2508.05353v1",
+        "published_date": "2025-08-07T13:02:20+00:00",
+        "updated_date": "2025-08-07T13:02:20+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Kang Liu",
+            "Zhuoqi Ma",
+            "Zikang Fang",
+            "Yunan Li",
+            "Kun Xie",
+            "Qiguang Miao"
+        ],
+        "tldr": "The paper introduces PriorRG, a framework for chest X-ray report generation that utilizes patient-specific prior knowledge (clinical context and prior images) via contrastive pre-training and coarse-to-fine decoding, achieving state-of-the-art results on MIMIC-CXR and MIMIC-ABN datasets.",
+        "tldr_zh": "该论文介绍了 PriorRG，一个胸部X光报告生成框架，它利用患者特定的先验知识（临床背景和先前的图像），通过对比预训练和粗到细解码，在MIMIC-CXR和MIMIC-ABN数据集上实现了最先进的结果。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Navigating the Trade-off: A Synthesis of Defensive Strategies for Zero-Shot Adversarial Robustness in Vision-Language Models",
+        "summary": "This report synthesizes eight seminal papers on the zero-shot adversarial\nrobustness of vision-language models (VLMs) like CLIP. A central challenge in\nthis domain is the inherent trade-off between enhancing adversarial robustness\nand preserving the model's zero-shot generalization capabilities. We analyze\ntwo primary defense paradigms: Adversarial Fine-Tuning (AFT), which modifies\nmodel parameters, and Training-Free/Test-Time Defenses, which preserve them. We\ntrace the evolution from alignment-preserving methods (TeCoA) to embedding\nspace re-engineering (LAAT, TIMA), and from input heuristics (AOM, TTC) to\nlatent-space purification (CLIPure). Finally, we identify key challenges and\nfuture directions including hybrid defense strategies and adversarial\npre-training.",
+        "url": "http://arxiv.org/abs/2508.05237v1",
+        "published_date": "2025-08-07T10:26:10+00:00",
+        "updated_date": "2025-08-07T10:26:10+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Zane Xu",
+            "Jason Sun"
+        ],
+        "tldr": "This paper synthesizes defensive strategies for improving the zero-shot adversarial robustness of vision-language models, analyzing the trade-off between robustness and generalization using two main defense paradigms.",
+        "tldr_zh": "该论文综合了提高视觉语言模型零样本对抗鲁棒性的防御策略，分析了鲁棒性和泛化之间的权衡，并采用了两种主要的防御范式。",
+        "relevance_score": 8,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Decoupling Continual Semantic Segmentation",
+        "summary": "Continual Semantic Segmentation (CSS) requires learning new classes without\nforgetting previously acquired knowledge, addressing the fundamental challenge\nof catastrophic forgetting in dense prediction tasks. However, existing CSS\nmethods typically employ single-stage encoder-decoder architectures where\nsegmentation masks and class labels are tightly coupled, leading to\ninterference between old and new class learning and suboptimal\nretention-plasticity balance. We introduce DecoupleCSS, a novel two-stage\nframework for CSS. By decoupling class-aware detection from class-agnostic\nsegmentation, DecoupleCSS enables more effective continual learning, preserving\npast knowledge while learning new classes. The first stage leverages\npre-trained text and image encoders, adapted using LoRA, to encode\nclass-specific information and generate location-aware prompts. In the second\nstage, the Segment Anything Model (SAM) is employed to produce precise\nsegmentation masks, ensuring that segmentation knowledge is shared across both\nnew and previous classes. This approach improves the balance between retention\nand adaptability in CSS, achieving state-of-the-art performance across a\nvariety of challenging tasks. Our code is publicly available at:\nhttps://github.com/euyis1019/Decoupling-Continual-Semantic-Segmentation.",
+        "url": "http://arxiv.org/abs/2508.05065v1",
+        "published_date": "2025-08-07T06:34:34+00:00",
+        "updated_date": "2025-08-07T06:34:34+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yifu Guo",
+            "Yuquan Lu",
+            "Wentao Zhang",
+            "Zishan Xu",
+            "Dexia Chen",
+            "Siyu Zhang",
+            "Yizhe Zhang",
+            "Ruixuan Wang"
+        ],
+        "tldr": "This paper introduces DecoupleCSS, a novel two-stage framework for Continual Semantic Segmentation that decouples class-aware detection from class-agnostic segmentation, leveraging LoRA and SAM to improve retention-plasticity balance.",
+        "tldr_zh": "本文介绍了一种名为 DecoupleCSS 的新型持续语义分割两阶段框架，该框架将类感知检测与类无关分割分离，利用 LoRA 和 SAM 来改善保留-可塑性平衡。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Unified modality separation: A vision-language framework for unsupervised domain adaptation",
+        "summary": "Unsupervised domain adaptation (UDA) enables models trained on a labeled\nsource domain to handle new unlabeled domains. Recently, pre-trained\nvision-language models (VLMs) have demonstrated promising zero-shot performance\nby leveraging semantic information to facilitate target tasks. By aligning\nvision and text embeddings, VLMs have shown notable success in bridging domain\ngaps. However, inherent differences naturally exist between modalities, which\nis known as modality gap. Our findings reveal that direct UDA with the presence\nof modality gap only transfers modality-invariant knowledge, leading to\nsuboptimal target performance. To address this limitation, we propose a unified\nmodality separation framework that accommodates both modality-specific and\nmodality-invariant components. During training, different modality components\nare disentangled from VLM features then handled separately in a unified manner.\nAt test time, modality-adaptive ensemble weights are automatically determined\nto maximize the synergy of different components. To evaluate instance-level\nmodality characteristics, we design a modality discrepancy metric to categorize\nsamples into modality-invariant, modality-specific, and uncertain ones. The\nmodality-invariant samples are exploited to facilitate cross-modal alignment,\nwhile uncertain ones are annotated to enhance model capabilities. Building upon\nprompt tuning techniques, our methods achieve up to 9% performance gain with 9\ntimes of computational efficiencies. Extensive experiments and analysis across\nvarious backbones, baselines, datasets and adaptation settings demonstrate the\nefficacy of our design.",
+        "url": "http://arxiv.org/abs/2508.04987v1",
+        "published_date": "2025-08-07T02:51:10+00:00",
+        "updated_date": "2025-08-07T02:51:10+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Xinyao Li",
+            "Jingjing Li",
+            "Zhekai Du",
+            "Lei Zhu",
+            "Heng Tao Shen"
+        ],
+        "tldr": "This paper introduces a unified modality separation framework for unsupervised domain adaptation in vision-language models (VLMs) that addresses the modality gap by disentangling modality-specific and modality-invariant components, leading to performance gains and computational efficiency.",
+        "tldr_zh": "本文提出了一种统一的模态分离框架，用于视觉语言模型（VLM）中的无监督领域自适应，通过解耦模态特定和模态不变的组件来解决模态差距，从而提高性能并提升计算效率。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "AdaFusion: Prompt-Guided Inference with Adaptive Fusion of Pathology Foundation Models",
+        "summary": "Pathology foundation models (PFMs) have demonstrated strong representational\ncapabilities through self-supervised pre-training on large-scale, unannotated\nhistopathology image datasets. However, their diverse yet opaque pretraining\ncontexts, shaped by both data-related and structural/training factors,\nintroduce latent biases that hinder generalisability and transparency in\ndownstream applications. In this paper, we propose AdaFusion, a novel\nprompt-guided inference framework that, to our knowledge, is among the very\nfirst to dynamically integrate complementary knowledge from multiple PFMs. Our\nmethod compresses and aligns tile-level features from diverse models and\nemploys a lightweight attention mechanism to adaptively fuse them based on\ntissue phenotype context. We evaluate AdaFusion on three real-world benchmarks\nspanning treatment response prediction, tumour grading, and spatial gene\nexpression inference. Our approach consistently surpasses individual PFMs\nacross both classification and regression tasks, while offering interpretable\ninsights into each model's biosemantic specialisation. These results highlight\nAdaFusion's ability to bridge heterogeneous PFMs, achieving both enhanced\nperformance and interpretability of model-specific inductive biases.",
+        "url": "http://arxiv.org/abs/2508.05084v1",
+        "published_date": "2025-08-07T07:09:31+00:00",
+        "updated_date": "2025-08-07T07:09:31+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yuxiang Xiao",
+            "Yang Hu",
+            "Bin Li",
+            "Tianyang Zhang",
+            "Zexi Li",
+            "Huazhu Fu",
+            "Jens Rittscher",
+            "Kaixiang Yang"
+        ],
+        "tldr": "AdaFusion introduces a prompt-guided framework for adaptively fusing multiple pathology foundation models (PFMs) based on tissue phenotype, achieving improved performance and interpretability in downstream pathology tasks.",
+        "tldr_zh": "AdaFusion 提出了一个提示引导的框架，用于基于组织表型自适应地融合多个病理学基础模型 (PFM)，从而在下游病理学任务中实现更高的性能和可解释性。",
+        "relevance_score": 4,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 6
+    },
+    {
+        "title": "VS-LLM: Visual-Semantic Depression Assessment based on LLM for Drawing Projection Test",
+        "summary": "The Drawing Projection Test (DPT) is an essential tool in art therapy,\nallowing psychologists to assess participants' mental states through their\nsketches. Specifically, through sketches with the theme of \"a person picking an\napple from a tree (PPAT)\", it can be revealed whether the participants are in\nmental states such as depression. Compared with scales, the DPT can enrich\npsychologists' understanding of an individual's mental state. However, the\ninterpretation of the PPAT is laborious and depends on the experience of the\npsychologists. To address this issue, we propose an effective identification\nmethod to support psychologists in conducting a large-scale automatic DPT.\nUnlike traditional sketch recognition, DPT more focus on the overall evaluation\nof the sketches, such as color usage and space utilization. Moreover, PPAT\nimposes a time limit and prohibits verbal reminders, resulting in low drawing\naccuracy and a lack of detailed depiction. To address these challenges, we\npropose the following efforts: (1) Providing an experimental environment for\nautomated analysis of PPAT sketches for depression assessment; (2) Offering a\nVisual-Semantic depression assessment based on LLM (VS-LLM) method; (3)\nExperimental results demonstrate that our method improves by 17.6% compared to\nthe psychologist assessment method. We anticipate that this work will\ncontribute to the research in mental state assessment based on PPAT sketches'\nelements recognition. Our datasets and codes are available at\nhttps://github.com/wmeiqi/VS-LLM.",
+        "url": "http://arxiv.org/abs/2508.05299v1",
+        "published_date": "2025-08-07T11:59:50+00:00",
+        "updated_date": "2025-08-07T11:59:50+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Meiqi Wu",
+            "Yaxuan Kang",
+            "Xuchen Li",
+            "Shiyu Hu",
+            "Xiaotang Chen",
+            "Yunfeng Kang",
+            "Weiqiang Wang",
+            "Kaiqi Huang"
+        ],
+        "tldr": "The paper introduces VS-LLM, a Visual-Semantic depression assessment method based on Large Language Models (LLMs) for automated analysis of Drawing Projection Tests (DPT), specifically the 'person picking an apple from a tree' (PPAT) sketch, achieving a 17.6% improvement over psychologist assessments.",
+        "tldr_zh": "该论文介绍了一种基于大型语言模型（LLM）的视觉-语义抑郁症评估方法VS-LLM，用于自动分析绘画投射测试（DPT），特别是“一个人从树上摘苹果”的（PPAT）素描，与心理学家的评估相比，提高了17.6%。",
+        "relevance_score": 4,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 6,
+        "overall_priority_score": 5
+    }
+]
