@@ -1,0 +1,385 @@
+[
+    {
+        "title": "OneReward: Unified Mask-Guided Image Generation via Multi-Task Human Preference Learning",
+        "summary": "In this paper, we introduce OneReward, a unified reinforcement learning\nframework that enhances the model's generative capabilities across multiple\ntasks under different evaluation criteria using only \\textit{One Reward} model.\nBy employing a single vision-language model (VLM) as the generative reward\nmodel, which can distinguish the winner and loser for a given task and a given\nevaluation criterion, it can be effectively applied to multi-task generation\nmodels, particularly in contexts with varied data and diverse task objectives.\nWe utilize OneReward for mask-guided image generation, which can be further\ndivided into several sub-tasks such as image fill, image extend, object\nremoval, and text rendering, involving a binary mask as the edit area. Although\nthese domain-specific tasks share same conditioning paradigm, they differ\nsignificantly in underlying data distributions and evaluation metrics. Existing\nmethods often rely on task-specific supervised fine-tuning (SFT), which limits\ngeneralization and training efficiency. Building on OneReward, we develop\nSeedream 3.0 Fill, a mask-guided generation model trained via multi-task\nreinforcement learning directly on a pre-trained base model, eliminating the\nneed for task-specific SFT. Experimental results demonstrate that our unified\nedit model consistently outperforms both commercial and open-source\ncompetitors, such as Ideogram, Adobe Photoshop, and FLUX Fill [Pro], across\nmultiple evaluation dimensions. Code and model are available at:\nhttps://one-reward.github.io",
+        "url": "http://arxiv.org/abs/2508.21066v1",
+        "published_date": "2025-08-28T17:59:46+00:00",
+        "updated_date": "2025-08-28T17:59:46+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yuan Gong",
+            "Xionghui Wang",
+            "Jie Wu",
+            "Shiyin Wang",
+            "Yitong Wang",
+            "Xinglong Wu"
+        ],
+        "tldr": "The paper introduces OneReward, a unified reinforcement learning framework using a single VLM as a generative reward model for multi-task mask-guided image generation, achieving state-of-the-art performance without task-specific fine-tuning.",
+        "tldr_zh": "该论文介绍了OneReward，一个统一的强化学习框架，它使用单个VLM作为生成奖励模型，用于多任务的mask引导图像生成，无需针对特定任务进行微调即可实现最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "CogVLA: Cognition-Aligned Vision-Language-Action Model via Instruction-Driven Routing & Sparsification",
+        "summary": "Recent Vision-Language-Action (VLA) models built on pre-trained\nVision-Language Models (VLMs) require extensive post-training, resulting in\nhigh computational overhead that limits scalability and deployment.We propose\nCogVLA, a Cognition-Aligned Vision-Language-Action framework that leverages\ninstruction-driven routing and sparsification to improve both efficiency and\nperformance. CogVLA draws inspiration from human multimodal coordination and\nintroduces a 3-stage progressive architecture. 1) Encoder-FiLM based\nAggregation Routing (EFA-Routing) injects instruction information into the\nvision encoder to selectively aggregate and compress dual-stream visual tokens,\nforming a instruction-aware latent representation. 2) Building upon this\ncompact visual encoding, LLM-FiLM based Pruning Routing (LFP-Routing)\nintroduces action intent into the language model by pruning\ninstruction-irrelevant visually grounded tokens, thereby achieving token-level\nsparsity. 3) To ensure that compressed perception inputs can still support\naccurate and coherent action generation, we introduce V-L-A Coupled Attention\n(CAtten), which combines causal vision-language attention with bidirectional\naction parallel decoding. Extensive experiments on the LIBERO benchmark and\nreal-world robotic tasks demonstrate that CogVLA achieves state-of-the-art\nperformance with success rates of 97.4% and 70.0%, respectively, while reducing\ntraining costs by 2.5-fold and decreasing inference latency by 2.8-fold\ncompared to OpenVLA. CogVLA is open-sourced and publicly available at\nhttps://github.com/JiuTian-VL/CogVLA.",
+        "url": "http://arxiv.org/abs/2508.21046v1",
+        "published_date": "2025-08-28T17:50:58+00:00",
+        "updated_date": "2025-08-28T17:50:58+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Wei Li",
+            "Renshan Zhang",
+            "Rui Shao",
+            "Jie He",
+            "Liqiang Nie"
+        ],
+        "tldr": "CogVLA introduces a cognition-aligned VLA framework with instruction-driven routing and sparsification to improve efficiency and performance, achieving state-of-the-art results with reduced training costs and inference latency on robotic tasks.",
+        "tldr_zh": "CogVLA 提出了一种认知对齐的 VLA 框架，通过指令驱动的路由和稀疏化来提高效率和性能，在机器人任务上实现了最先进的结果，同时降低了训练成本和推理延迟。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MMG-Vid: Maximizing Marginal Gains at Segment-level and Token-level for Efficient Video LLMs",
+        "summary": "Video Large Language Models (VLLMs) excel in video understanding, but their\nexcessive visual tokens pose a significant computational challenge for\nreal-world applications. Current methods aim to enhance inference efficiency by\nvisual token pruning. However, they do not consider the dynamic characteristics\nand temporal dependencies of video frames, as they perceive video understanding\nas a multi-frame task. To address these challenges, we propose MMG-Vid, a novel\ntraining-free visual token pruning framework that removes redundancy by\nMaximizing Marginal Gains at both segment-level and token-level. Specifically,\nwe first divide the video into segments based on frame similarity, and then\ndynamically allocate the token budget for each segment to maximize the marginal\ngain of each segment. Subsequently, we propose a temporal-guided DPC algorithm\nthat jointly models inter-frame uniqueness and intra-frame diversity, thereby\nmaximizing the marginal gain of each token. By combining both stages, MMG-Vid\ncan maximize the utilization of the limited token budget, significantly\nimproving efficiency while maintaining strong performance. Extensive\nexperiments demonstrate that MMG-Vid can maintain over 99.5% of the original\nperformance, while effectively reducing 75% visual tokens and accelerating the\nprefilling stage by 3.9x on LLaVA-OneVision-7B. Code will be released soon.",
+        "url": "http://arxiv.org/abs/2508.21044v1",
+        "published_date": "2025-08-28T17:50:03+00:00",
+        "updated_date": "2025-08-28T17:50:03+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Junpeng Ma",
+            "Qizhe Zhang",
+            "Ming Lu",
+            "Zhibin Wang",
+            "Qiang Zhou",
+            "Jun Song",
+            "Shanghang Zhang"
+        ],
+        "tldr": "The paper introduces MMG-Vid, a training-free visual token pruning framework for efficient Video LLMs that maximizes marginal gains at both segment and token levels, achieving significant token reduction and speedup while preserving performance.",
+        "tldr_zh": "该论文介绍了MMG-Vid，一个用于高效视频LLM的免训练视觉token剪枝框架，它在段级别和token级别上最大化边际收益，在保持性能的同时显著减少token并加速推理。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Estimating 2D Keypoints of Surgical Tools Using Vision-Language Models with Low-Rank Adaptation",
+        "summary": "This paper presents a novel pipeline for 2D keypoint estima- tion of surgical\ntools by leveraging Vision Language Models (VLMs) fine- tuned using a low rank\nadjusting (LoRA) technique. Unlike traditional Convolutional Neural Network\n(CNN) or Transformer-based approaches, which often suffer from overfitting in\nsmall-scale medical datasets, our method harnesses the generalization\ncapabilities of pre-trained VLMs. We carefully design prompts to create an\ninstruction-tuning dataset and use them to align visual features with semantic\nkeypoint descriptions. Experimental results show that with only two epochs of\nfine tuning, the adapted VLM outperforms the baseline models, demonstrating the\nef- fectiveness of LoRA in low-resource scenarios. This approach not only\nimproves keypoint detection performance, but also paves the way for future work\nin 3D surgical hands and tools pose estimation.",
+        "url": "http://arxiv.org/abs/2508.20830v1",
+        "published_date": "2025-08-28T14:25:32+00:00",
+        "updated_date": "2025-08-28T14:25:32+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Krit Duangprom",
+            "Tryphon Lambrou",
+            "Binod Bhattarai"
+        ],
+        "tldr": "The paper introduces a LoRA fine-tuned Vision Language Model (VLM) for 2D surgical tool keypoint estimation, showing improved performance in low-resource scenarios compared to traditional methods.",
+        "tldr_zh": "该论文介绍了一种通过LoRA微调的视觉语言模型(VLM)，用于2D手术工具关键点估计。结果表明，与传统方法相比，该方法在低资源场景下表现出更好的性能。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Evaluating Compositional Generalisation in VLMs and Diffusion Models",
+        "summary": "A fundamental aspect of the semantics of natural language is that novel\nmeanings can be formed from the composition of previously known parts.\nVision-language models (VLMs) have made significant progress in recent years,\nhowever, there is evidence that they are unable to perform this kind of\ncomposition. For example, given an image of a red cube and a blue cylinder, a\nVLM such as CLIP is likely to incorrectly label the image as a red cylinder or\na blue cube, indicating it represents the image as a `bag-of-words' and fails\nto capture compositional semantics. Diffusion models have recently gained\nsignificant attention for their impressive generative abilities, and zero-shot\nclassifiers based on diffusion models have been shown to perform competitively\nwith CLIP in certain compositional tasks. In this work we explore whether the\ngenerative Diffusion Classifier has improved compositional generalisation\nabilities compared to discriminative models. We assess three models --\nDiffusion Classifier, CLIP, and ViLT -- on their ability to bind objects with\nattributes and relations in both zero-shot learning (ZSL) and generalised\nzero-shot learning (GZSL) settings. Our results show that the Diffusion\nClassifier and ViLT perform well at concept binding tasks, but that all models\nstruggle significantly with the relational GZSL task, underscoring the broader\nchallenges VLMs face with relational reasoning. Analysis of CLIP embeddings\nsuggests that the difficulty may stem from overly similar representations of\nrelational concepts such as left and right. Code and dataset are available at:\nhttps://github.com/otmive/diffusion_classifier_clip",
+        "url": "http://arxiv.org/abs/2508.20783v1",
+        "published_date": "2025-08-28T13:45:04+00:00",
+        "updated_date": "2025-08-28T13:45:04+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Beth Pearson",
+            "Bilal Boulbarss",
+            "Michael Wray",
+            "Martha Lewis"
+        ],
+        "tldr": "This paper evaluates the compositional generalization abilities of Diffusion Classifiers, CLIP, and ViLT on binding objects with attributes and relations, finding that while Diffusion Classifiers and ViLT perform well on concept binding, all models struggle with relational generalized zero-shot learning.",
+        "tldr_zh": "本文评估了扩散分类器、CLIP和ViLT在将对象与属性和关系结合方面的组合泛化能力，发现虽然扩散分类器和ViLT在概念绑定方面表现良好，但所有模型在关系广义零样本学习方面都存在困难。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SeqVLM: Proposal-Guided Multi-View Sequences Reasoning via VLM for Zero-Shot 3D Visual Grounding",
+        "summary": "3D Visual Grounding (3DVG) aims to localize objects in 3D scenes using\nnatural language descriptions. Although supervised methods achieve higher\naccuracy in constrained settings, zero-shot 3DVG holds greater promise for\nreal-world applications since eliminating scene-specific training requirements.\nHowever, existing zero-shot methods face challenges of spatial-limited\nreasoning due to reliance on single-view localization, and contextual omissions\nor detail degradation. To address these issues, we propose SeqVLM, a novel\nzero-shot 3DVG framework that leverages multi-view real-world scene images with\nspatial information for target object reasoning. Specifically, SeqVLM first\ngenerates 3D instance proposals via a 3D semantic segmentation network and\nrefines them through semantic filtering, retaining only semantic-relevant\ncandidates. A proposal-guided multi-view projection strategy then projects\nthese candidate proposals onto real scene image sequences, preserving spatial\nrelationships and contextual details in the conversion process of 3D point\ncloud to images. Furthermore, to mitigate VLM computational overload, we\nimplement a dynamic scheduling mechanism that iteratively processes\nsequances-query prompts, leveraging VLM's cross-modal reasoning capabilities to\nidentify textually specified objects. Experiments on the ScanRefer and Nr3D\nbenchmarks demonstrate state-of-the-art performance, achieving Acc@0.25 scores\nof 55.6% and 53.2%, surpassing previous zero-shot methods by 4.0% and 5.2%,\nrespectively, which advance 3DVG toward greater generalization and real-world\napplicability. The code is available at https://github.com/JiawLin/SeqVLM.",
+        "url": "http://arxiv.org/abs/2508.20758v1",
+        "published_date": "2025-08-28T13:15:37+00:00",
+        "updated_date": "2025-08-28T13:15:37+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Jiawen Lin",
+            "Shiran Bian",
+            "Yihang Zhu",
+            "Wenbin Tan",
+            "Yachao Zhang",
+            "Yuan Xie",
+            "Yanyun Qu"
+        ],
+        "tldr": "The paper introduces SeqVLM, a novel zero-shot 3D visual grounding framework using multi-view images and a Vision-Language Model (VLM) with a dynamic scheduling mechanism to improve performance and reduce computational overload, achieving state-of-the-art results on ScanRefer and Nr3D benchmarks.",
+        "tldr_zh": "该论文提出了 SeqVLM，一种新颖的零样本 3D 视觉定位框架，它利用多视角图像和视觉语言模型 (VLM)，通过动态调度机制来提高性能并减少计算负担，并在 ScanRefer 和 Nr3D 基准测试中取得了最先进的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Improving Alignment in LVLMs with Debiased Self-Judgment",
+        "summary": "The rapid advancements in Large Language Models (LLMs) and Large\nVisual-Language Models (LVLMs) have opened up new opportunities for integrating\nvisual and linguistic modalities. However, effectively aligning these\nmodalities remains challenging, often leading to hallucinations--where\ngenerated outputs are not grounded in the visual input--and raising safety\nconcerns across various domains. Existing alignment methods, such as\ninstruction tuning and preference tuning, often rely on external datasets,\nhuman annotations, or complex post-processing, which limit scalability and\nincrease costs. To address these challenges, we propose a novel approach that\ngenerates the debiased self-judgment score, a self-evaluation metric created\ninternally by the model without relying on external resources. This enables the\nmodel to autonomously improve alignment. Our method enhances both decoding\nstrategies and preference tuning processes, resulting in reduced\nhallucinations, enhanced safety, and improved overall capability. Empirical\nresults show that our approach significantly outperforms traditional methods,\noffering a more effective solution for aligning LVLMs.",
+        "url": "http://arxiv.org/abs/2508.20655v1",
+        "published_date": "2025-08-28T11:01:33+00:00",
+        "updated_date": "2025-08-28T11:01:33+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Sihan Yang",
+            "Chenhang Cui",
+            "Zihao Zhao",
+            "Yiyang Zhou",
+            "Weilong Yan",
+            "Ying Wei",
+            "Huaxiu Yao"
+        ],
+        "tldr": "This paper introduces a novel self-evaluation metric, debiased self-judgment score, to improve alignment in LVLMs, reducing hallucinations and enhancing safety without external resources.",
+        "tldr_zh": "本文提出了一种新颖的自我评估指标，即去偏自我判断分数，以提高LVLM中的对齐效果，在无需外部资源的情况下减少幻觉并增强安全性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Dress&Dance: Dress up and Dance as You Like It - Technical Preview",
+        "summary": "We present Dress&Dance, a video diffusion framework that generates high\nquality 5-second-long 24 FPS virtual try-on videos at 1152x720 resolution of a\nuser wearing desired garments while moving in accordance with a given reference\nvideo. Our approach requires a single user image and supports a range of tops,\nbottoms, and one-piece garments, as well as simultaneous tops and bottoms\ntry-on in a single pass. Key to our framework is CondNet, a novel conditioning\nnetwork that leverages attention to unify multi-modal inputs (text, images, and\nvideos), thereby enhancing garment registration and motion fidelity. CondNet is\ntrained on heterogeneous training data, combining limited video data and a\nlarger, more readily available image dataset, in a multistage progressive\nmanner. Dress&Dance outperforms existing open source and commercial solutions\nand enables a high quality and flexible try-on experience.",
+        "url": "http://arxiv.org/abs/2508.21070v1",
+        "published_date": "2025-08-28T17:59:55+00:00",
+        "updated_date": "2025-08-28T17:59:55+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Jun-Kun Chen",
+            "Aayush Bansal",
+            "Minh Phuoc Vo",
+            "Yu-Xiong Wang"
+        ],
+        "tldr": "Dress&Dance is a video diffusion framework for high-quality virtual try-on videos, utilizing a novel conditioning network (CondNet) to unify multi-modal inputs and improve garment registration and motion fidelity.",
+        "tldr_zh": "Dress&Dance是一个视频扩散框架，用于生成高质量的虚拟试穿视频。它利用一种新型的条件网络(CondNet)来统一多模态输入，并提高服装配准和运动保真度。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Reusing Computation in Text-to-Image Diffusion for Efficient Generation of Image Sets",
+        "summary": "Text-to-image diffusion models enable high-quality image generation but are\ncomputationally expensive. While prior work optimizes per-inference efficiency,\nwe explore an orthogonal approach: reducing redundancy across correlated\nprompts. Our method leverages the coarse-to-fine nature of diffusion models,\nwhere early denoising steps capture shared structures among similar prompts. We\npropose a training-free approach that clusters prompts based on semantic\nsimilarity and shares computation in early diffusion steps. Experiments show\nthat for models trained conditioned on image embeddings, our approach\nsignificantly reduces compute cost while improving image quality. By leveraging\nUnClip's text-to-image prior, we enhance diffusion step allocation for greater\nefficiency. Our method seamlessly integrates with existing pipelines, scales\nwith prompt sets, and reduces the environmental and financial burden of\nlarge-scale text-to-image generation. Project page:\nhttps://ddecatur.github.io/hierarchical-diffusion/",
+        "url": "http://arxiv.org/abs/2508.21032v1",
+        "published_date": "2025-08-28T17:35:03+00:00",
+        "updated_date": "2025-08-28T17:35:03+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Dale Decatur",
+            "Thibault Groueix",
+            "Wang Yifan",
+            "Rana Hanocka",
+            "Vladimir Kim",
+            "Matheus Gadelha"
+        ],
+        "tldr": "This paper introduces a training-free method to reduce computational cost in text-to-image diffusion models by sharing computation in early diffusion steps for semantically similar prompts, leading to improved efficiency and image quality.",
+        "tldr_zh": "该论文提出了一种无需训练的方法，通过在早期扩散步骤中共享语义相似提示的计算，来降低文本到图像扩散模型中的计算成本，从而提高效率和图像质量。",
+        "relevance_score": 6,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "ChainReaction! Structured Approach with Causal Chains as Intermediate Representations for Improved and Explainable Causal Video Question Answering",
+        "summary": "Existing Causal-Why Video Question Answering (VideoQA) models often struggle\nwith higher-order reasoning, relying on opaque, monolithic pipelines that\nentangle video understanding, causal inference, and answer generation. These\nblack-box approaches offer limited interpretability and tend to depend on\nshallow heuristics. We propose a novel, modular framework that explicitly\ndecouples causal reasoning from answer generation, introducing natural language\ncausal chains as interpretable intermediate representations. Inspired by human\ncognitive models, these structured cause-effect sequences bridge low-level\nvideo content with high-level causal reasoning, enabling transparent and\nlogically coherent inference. Our two-stage architecture comprises a Causal\nChain Extractor (CCE) that generates causal chains from video-question pairs,\nand a Causal Chain-Driven Answerer (CCDA) that produces answers grounded in\nthese chains. To address the lack of annotated reasoning traces, we introduce a\nscalable method for generating high-quality causal chains from existing\ndatasets using large language models. We also propose CauCo, a new evaluation\nmetric for causality-oriented captioning. Experiments on three large-scale\nbenchmarks demonstrate that our approach not only outperforms state-of-the-art\nmodels, but also yields substantial gains in explainability, user trust, and\ngeneralization -- positioning the CCE as a reusable causal reasoning engine\nacross diverse domains. Project page:\nhttps://paritoshparmar.github.io/chainreaction/",
+        "url": "http://arxiv.org/abs/2508.21010v1",
+        "published_date": "2025-08-28T17:10:53+00:00",
+        "updated_date": "2025-08-28T17:10:53+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.HC",
+            "cs.LG"
+        ],
+        "authors": [
+            "Paritosh Parmar",
+            "Eric Peh",
+            "Basura Fernando"
+        ],
+        "tldr": "This paper introduces a modular framework, ChainReaction, for causal VideoQA that uses causal chains as intermediate representations, enhancing interpretability and performance. They also present a method for generating causal chains from existing datasets and a new causality-oriented captioning evaluation metric.",
+        "tldr_zh": "该论文介绍了一个模块化的框架ChainReaction，用于因果VideoQA，使用因果链作为中间表示，从而提高了解释性和性能。他们还提出了一种从现有数据集中生成因果链的方法，以及一个新的面向因果关系的字幕评估指标。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Occlusion Robustness of CLIP for Military Vehicle Classification",
+        "summary": "Vision-language models (VLMs) like CLIP enable zero-shot classification by\naligning images and text in a shared embedding space, offering advantages for\ndefense applications with scarce labeled data. However, CLIP's robustness in\nchallenging military environments, with partial occlusion and degraded\nsignal-to-noise ratio (SNR), remains underexplored. We investigate CLIP\nvariants' robustness to occlusion using a custom dataset of 18 military vehicle\nclasses and evaluate using Normalized Area Under the Curve (NAUC) across\nocclusion percentages. Four key insights emerge: (1) Transformer-based CLIP\nmodels consistently outperform CNNs, (2) fine-grained, dispersed occlusions\ndegrade performance more than larger contiguous occlusions, (3) despite\nimproved accuracy, performance of linear-probed models sharply drops at around\n35% occlusion, (4) by finetuning the model's backbone, this performance drop\noccurs at more than 60% occlusion. These results underscore the importance of\nocclusion-specific augmentations during training and the need for further\nexploration into patch-level sensitivity and architectural resilience for\nreal-world deployment of CLIP.",
+        "url": "http://arxiv.org/abs/2508.20760v1",
+        "published_date": "2025-08-28T13:16:55+00:00",
+        "updated_date": "2025-08-28T13:16:55+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Jan Erik van Woerden",
+            "Gertjan Burghouts",
+            "Lotte Nijskens",
+            "Alma M. Liezenga",
+            "Sabina van Rooij",
+            "Frank Ruis",
+            "Hugo J. Kuijf"
+        ],
+        "tldr": "The paper evaluates the robustness of CLIP variants to occlusion in military vehicle classification, finding that transformer-based models are more robust, fine-grained occlusions are more detrimental, and finetuning improves occlusion tolerance.",
+        "tldr_zh": "该论文评估了CLIP变体在军事车辆分类中对遮挡的鲁棒性，发现基于Transformer的模型更具鲁棒性，细粒度的遮挡更有害，而微调可以提高遮挡容限。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Pref-GRPO: Pairwise Preference Reward-based GRPO for Stable Text-to-Image Reinforcement Learning",
+        "summary": "Recent advancements highlight the importance of GRPO-based reinforcement\nlearning methods and benchmarking in enhancing text-to-image (T2I) generation.\nHowever, current methods using pointwise reward models (RM) for scoring\ngenerated images are susceptible to reward hacking. We reveal that this happens\nwhen minimal score differences between images are amplified after\nnormalization, creating illusory advantages that drive the model to\nover-optimize for trivial gains, ultimately destabilizing the image generation\nprocess. To address this, we propose Pref-GRPO, a pairwise preference\nreward-based GRPO method that shifts the optimization objective from score\nmaximization to preference fitting, ensuring more stable training. In\nPref-GRPO, images are pairwise compared within each group using preference RM,\nand the win rate is used as the reward signal. Extensive experiments\ndemonstrate that PREF-GRPO differentiates subtle image quality differences,\nproviding more stable advantages and mitigating reward hacking. Additionally,\nexisting T2I benchmarks are limited by coarse evaluation criteria, hindering\ncomprehensive model assessment. To solve this, we introduce UniGenBench, a\nunified T2I benchmark comprising 600 prompts across 5 main themes and 20\nsubthemes. It evaluates semantic consistency through 10 primary and 27\nsub-criteria, leveraging MLLM for benchmark construction and evaluation. Our\nbenchmarks uncover the strengths and weaknesses of both open and closed-source\nT2I models and validate the effectiveness of Pref-GRPO.",
+        "url": "http://arxiv.org/abs/2508.20751v1",
+        "published_date": "2025-08-28T13:11:24+00:00",
+        "updated_date": "2025-08-28T13:11:24+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yibin Wang",
+            "Zhimin Li",
+            "Yuhang Zang",
+            "Yujie Zhou",
+            "Jiazi Bu",
+            "Chunyu Wang",
+            "Qinglin Lu",
+            "Cheng Jin",
+            "Jiaqi Wang"
+        ],
+        "tldr": "The paper proposes Pref-GRPO, a pairwise preference reward-based GRPO method to address reward hacking in text-to-image reinforcement learning, and introduces UniGenBench, a new benchmark for comprehensive T2I model evaluation using MLLMs.",
+        "tldr_zh": "该论文提出了Pref-GRPO，一种基于成对偏好奖励的GRPO方法，用于解决文本到图像强化学习中的奖励黑客问题，并引入了UniGenBench，这是一个使用MLLM对T2I模型进行全面评估的新基准。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "\"Humor, Art, or Misinformation?\": A Multimodal Dataset for Intent-Aware Synthetic Image Detection",
+        "summary": "Recent advances in multimodal AI have enabled progress in detecting synthetic\nand out-of-context content. However, existing efforts largely overlook the\nintent behind AI-generated images. To fill this gap, we introduce S-HArM, a\nmultimodal dataset for intent-aware classification, comprising 9,576 \"in the\nwild\" image-text pairs from Twitter/X and Reddit, labeled as Humor/Satire, Art,\nor Misinformation. Additionally, we explore three prompting strategies\n(image-guided, description-guided, and multimodally-guided) to construct a\nlarge-scale synthetic training dataset with Stable Diffusion. We conduct an\nextensive comparative study including modality fusion, contrastive learning,\nreconstruction networks, attention mechanisms, and large vision-language\nmodels. Our results show that models trained on image- and multimodally-guided\ndata generalize better to \"in the wild\" content, due to preserved visual\ncontext. However, overall performance remains limited, highlighting the\ncomplexity of inferring intent and the need for specialized architectures.",
+        "url": "http://arxiv.org/abs/2508.20670v1",
+        "published_date": "2025-08-28T11:22:15+00:00",
+        "updated_date": "2025-08-28T11:22:15+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.MM"
+        ],
+        "authors": [
+            "Anastasios Skoularikis",
+            "Stefanos-Iordanis Papadopoulos",
+            "Symeon Papadopoulos",
+            "Panagiotis C. Petrantonakis"
+        ],
+        "tldr": "The paper introduces S-HArM, a multimodal dataset for intent-aware synthetic image detection, and explores different prompting strategies for generating synthetic training data, showing that image-guided approaches generalize better to real-world content.",
+        "tldr_zh": "该论文介绍了S-HArM，一个用于意图感知合成图像检测的多模态数据集，并探索了不同的提示策略来生成合成训练数据，结果表明图像引导方法能更好地泛化到真实世界的内容。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Towards Mechanistic Defenses Against Typographic Attacks in CLIP",
+        "summary": "Typographic attacks exploit multi-modal systems by injecting text into\nimages, leading to targeted misclassifications, malicious content generation\nand even Vision-Language Model jailbreaks. In this work, we analyze how CLIP\nvision encoders behave under typographic attacks, locating specialized\nattention heads in the latter half of the model's layers that causally extract\nand transmit typographic information to the cls token. Building on these\ninsights, we introduce a method to defend CLIP models against typographic\nattacks by selectively ablating a typographic circuit, consisting of attention\nheads. Without requiring finetuning, our method improves performance by up to\n19.6% on a typographic variant of ImageNet-100, while reducing standard\nImageNet-100 accuracy by less than 1%. Notably, our training-free approach\nremains competitive with current state-of-the-art typographic defenses that\nrely on finetuning. To this end, we release a family of dyslexic CLIP models\nwhich are significantly more robust against typographic attacks. These models\nserve as suitable drop-in replacements for a broad range of safety-critical\napplications, where the risks of text-based manipulation outweigh the utility\nof text recognition.",
+        "url": "http://arxiv.org/abs/2508.20570v1",
+        "published_date": "2025-08-28T09:08:30+00:00",
+        "updated_date": "2025-08-28T09:08:30+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Lorenz Hufe",
+            "Constantin Venhoff",
+            "Maximilian Dreyer",
+            "Sebastian Lapuschkin",
+            "Wojciech Samek"
+        ],
+        "tldr": "This paper identifies and mitigates typographic attacks on CLIP models by ablating specific attention heads responsible for processing text within images, achieving robustness without finetuning.",
+        "tldr_zh": "该论文通过消融CLIP模型中负责处理图像中文本的特定注意力头，来识别并缓解针对CLIP模型的印刷体攻击，无需微调即可实现鲁棒性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "SPGrasp: Spatiotemporal Prompt-driven Grasp Synthesis in Dynamic Scenes",
+        "summary": "Real-time interactive grasp synthesis for dynamic objects remains challenging\nas existing methods fail to achieve low-latency inference while maintaining\npromptability. To bridge this gap, we propose SPGrasp (spatiotemporal\nprompt-driven dynamic grasp synthesis), a novel framework extending segment\nanything model v2 (SAMv2) for video stream grasp estimation. Our core\ninnovation integrates user prompts with spatiotemporal context, enabling\nreal-time interaction with end-to-end latency as low as 59 ms while ensuring\ntemporal consistency for dynamic objects. In benchmark evaluations, SPGrasp\nachieves instance-level grasp accuracies of 90.6% on OCID and 93.8% on\nJacquard. On the challenging GraspNet-1Billion dataset under continuous\ntracking, SPGrasp achieves 92.0% accuracy with 73.1 ms per-frame latency,\nrepresenting a 58.5% reduction compared to the prior state-of-the-art\npromptable method RoG-SAM while maintaining competitive accuracy. Real-world\nexperiments involving 13 moving objects demonstrate a 94.8% success rate in\ninteractive grasping scenarios. These results confirm SPGrasp effectively\nresolves the latency-interactivity trade-off in dynamic grasp synthesis. Code\nis available at https://github.com/sejmoonwei/SPGrasp.",
+        "url": "http://arxiv.org/abs/2508.20547v1",
+        "published_date": "2025-08-28T08:38:50+00:00",
+        "updated_date": "2025-08-28T08:38:50+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Yunpeng Mei",
+            "Hongjie Cao",
+            "Yinqiu Xia",
+            "Wei Xiao",
+            "Zhaohan Feng",
+            "Gang Wang",
+            "Jie Chen"
+        ],
+        "tldr": "SPGrasp introduces a novel framework for real-time, promptable grasp synthesis in dynamic scenes, leveraging SAMv2 and spatiotemporal context for improved latency and accuracy. The method achieves state-of-the-art performance on several datasets and in real-world experiments.",
+        "tldr_zh": "SPGrasp 提出了一种新的框架，用于动态场景中的实时、可提示的抓取合成，利用 SAMv2 和时空上下文来提高延迟和准确性。该方法在多个数据集和实际实验中实现了最先进的性能。",
+        "relevance_score": 3,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 5
+    }
+]
