@@ -1,0 +1,388 @@
+[
+    {
+        "title": "Singular Value Few-shot Adaptation of Vision-Language Models",
+        "summary": "Vision-language models (VLMs) like CLIP have shown impressive zero-shot and\nfew-shot learning capabilities across diverse applications. However, adapting\nthese models to new fine-grained domains remains difficult due to reliance on\nprompt engineering and the high cost of full model fine-tuning. Existing\nadaptation approaches rely on augmented components, such as prompt tokens and\nadapter modules, which could limit adaptation quality, destabilize the model,\nand compromise the rich knowledge learned during pretraining. In this work, we\npresent \\textbf{CLIP-SVD}, a novel \\textit{multi-modal} and\n\\textit{parameter-efficient} adaptation technique that leverages Singular Value\nDecomposition (SVD) to modify the internal parameter space of CLIP without\ninjecting additional modules. Specifically, we fine-tune only the singular\nvalues of the CLIP parameter matrices to rescale the basis vectors for domain\nadaptation while retaining the pretrained model. This design enables enhanced\nadaptation performance using only \\textbf{0.04\\%} of the model's total\nparameters and better preservation of its generalization ability. CLIP-SVD\nachieves state-of-the-art classification results on 11 natural and 10\nbiomedical datasets, outperforming previous methods in both accuracy and\ngeneralization under few-shot settings. Additionally, we leverage a natural\nlanguage-based approach to analyze the effectiveness and dynamics of the CLIP\nadaptation to allow interpretability of CLIP-SVD. The code is publicly\navailable at https://github.com/HealthX-Lab/CLIP-SVD.",
+        "url": "http://arxiv.org/abs/2509.03740v1",
+        "published_date": "2025-09-03T22:00:23+00:00",
+        "updated_date": "2025-09-03T22:00:23+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Taha Koleilat",
+            "Hassan Rivaz",
+            "Yiming Xiao"
+        ],
+        "tldr": "The paper introduces CLIP-SVD, a parameter-efficient method for adapting vision-language models to new domains by fine-tuning only the singular values of the model's parameter matrices, achieving state-of-the-art performance in few-shot classification.",
+        "tldr_zh": "该论文介绍了CLIP-SVD，一种参数高效的方法，通过仅微调模型参数矩阵的奇异值来使视觉语言模型适应新领域，并在少样本分类中实现了最先进的性能。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 9
+    },
+    {
+        "title": "TRUST-VL: An Explainable News Assistant for General Multimodal Misinformation Detection",
+        "summary": "Multimodal misinformation, encompassing textual, visual, and cross-modal\ndistortions, poses an increasing societal threat that is amplified by\ngenerative AI. Existing methods typically focus on a single type of distortion\nand struggle to generalize to unseen scenarios. In this work, we observe that\ndifferent distortion types share common reasoning capabilities while also\nrequiring task-specific skills. We hypothesize that joint training across\ndistortion types facilitates knowledge sharing and enhances the model's ability\nto generalize. To this end, we introduce TRUST-VL, a unified and explainable\nvision-language model for general multimodal misinformation detection. TRUST-VL\nincorporates a novel Question-Aware Visual Amplifier module, designed to\nextract task-specific visual features. To support training, we also construct\nTRUST-Instruct, a large-scale instruction dataset containing 198K samples\nfeaturing structured reasoning chains aligned with human fact-checking\nworkflows. Extensive experiments on both in-domain and zero-shot benchmarks\ndemonstrate that TRUST-VL achieves state-of-the-art performance, while also\noffering strong generalization and interpretability.",
+        "url": "http://arxiv.org/abs/2509.04448v1",
+        "published_date": "2025-09-04T17:59:43+00:00",
+        "updated_date": "2025-09-04T17:59:43+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.MM"
+        ],
+        "authors": [
+            "Zehong Yan",
+            "Peng Qi",
+            "Wynne Hsu",
+            "Mong Li Lee"
+        ],
+        "tldr": "The paper introduces TRUST-VL, a unified vision-language model for multimodal misinformation detection, along with a large-scale instruction dataset, achieving state-of-the-art performance and improved generalization and interpretability.",
+        "tldr_zh": "本文介绍了TRUST-VL，一个用于多模态错误信息检测的统一视觉语言模型，以及一个大规模的指令数据集，实现了最先进的性能，并提高了泛化性和可解释性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 9,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "The Telephone Game: Evaluating Semantic Drift in Unified Models",
+        "summary": "Employing a single, unified model (UM) for both visual understanding\n(image-to-text: I2T) and and visual generation (text-to-image: T2I) has opened\na new direction in Visual Language Model (VLM) research. While UMs can also\nsupport broader unimodal tasks (e.g., text-to-text, image-to-image), we focus\non the core cross-modal pair T2I and I2T, as consistency between understanding\nand generation is critical for downstream use. Existing evaluations consider\nthese capabilities in isolation: FID and GenEval for T2I, and benchmarks such\nas MME, MMBench for I2T. These single-pass metrics do not reveal whether a\nmodel that understands a concept can also render it, nor whether meaning is\npreserved when cycling between image and text modalities. To address this, we\nintroduce the Unified Consistency Framework for Unified Models (UCF-UM), a\ncyclic evaluation protocol that alternates I2T and T2I over multiple\ngenerations to quantify semantic drift. UCF formulates 3 metrics: (i) Mean\nCumulative Drift (MCD), an embedding-based measure of overall semantic loss;\n(ii) Semantic Drift Rate (SDR), that summarizes semantic decay rate; and (iii)\nMulti-Generation GenEval (MGG), an object-level compliance score extending\nGenEval. To assess generalization beyond COCO, which is widely used in\ntraining; we create a new benchmark ND400, sampled from NoCaps and DOCCI and\nevaluate on seven recent models. UCF-UM reveals substantial variation in\ncross-modal stability: some models like BAGEL maintain semantics over many\nalternations, whereas others like Vila-u drift quickly despite strong\nsingle-pass scores. Our results highlight cyclic consistency as a necessary\ncomplement to standard I2T and T2I evaluations, and provide practical metrics\nto consistently assess unified model's cross-modal stability and strength of\ntheir shared representations. Code:\nhttps://github.com/mollahsabbir/Semantic-Drift-in-Unified-Models",
+        "url": "http://arxiv.org/abs/2509.04438v1",
+        "published_date": "2025-09-04T17:53:52+00:00",
+        "updated_date": "2025-09-04T17:53:52+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Sabbir Mollah",
+            "Rohit Gupta",
+            "Sirnam Swetha",
+            "Qingyang Liu",
+            "Ahnaf Munir",
+            "Mubarak Shah"
+        ],
+        "tldr": "The paper introduces a new framework, UCF-UM, to evaluate semantic drift in unified vision-language models by cycling between image-to-text and text-to-image tasks, revealing inconsistencies not captured by standard metrics.",
+        "tldr_zh": "该论文介绍了一个名为UCF-UM的新框架，通过循环执行图像到文本和文本到图像的任务来评估统一视觉语言模型中的语义漂移，揭示了标准指标无法捕捉到的不一致性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "AnomalyLMM: Bridging Generative Knowledge and Discriminative Retrieval for Text-Based Person Anomaly Search",
+        "summary": "With growing public safety demands, text-based person anomaly search has\nemerged as a critical task, aiming to retrieve individuals with abnormal\nbehaviors via natural language descriptions. Unlike conventional person search,\nthis task presents two unique challenges: (1) fine-grained cross-modal\nalignment between textual anomalies and visual behaviors, and (2) anomaly\nrecognition under sparse real-world samples. While Large Multi-modal Models\n(LMMs) excel in multi-modal understanding, their potential for fine-grained\nanomaly retrieval remains underexplored, hindered by: (1) a domain gap between\ngenerative knowledge and discriminative retrieval, and (2) the absence of\nefficient adaptation strategies for deployment. In this work, we propose\nAnomalyLMM, the first framework that harnesses LMMs for text-based person\nanomaly search. Our key contributions are: (1) A novel coarse-to-fine pipeline\nintegrating LMMs to bridge generative world knowledge with retrieval-centric\nanomaly detection; (2) A training-free adaptation cookbook featuring masked\ncross-modal prompting, behavioral saliency prediction, and knowledge-aware\nre-ranking, enabling zero-shot focus on subtle anomaly cues. As the first study\nto explore LMMs for this task, we conduct a rigorous evaluation on the PAB\ndataset, the only publicly available benchmark for text-based person anomaly\nsearch, with its curated real-world anomalies covering diverse scenarios (e.g.,\nfalling, collision, and being hit). Experiments show the effectiveness of the\nproposed method, surpassing the competitive baseline by +0.96% Recall@1\naccuracy. Notably, our method reveals interpretable alignment between textual\nanomalies and visual behaviors, validated via qualitative analysis. Our code\nand models will be released for future research.",
+        "url": "http://arxiv.org/abs/2509.04376v1",
+        "published_date": "2025-09-04T16:34:46+00:00",
+        "updated_date": "2025-09-04T16:34:46+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Hao Ju",
+            "Hu Zhang",
+            "Zhedong Zheng"
+        ],
+        "tldr": "The paper introduces AnomalyLMM, a framework that leverages Large Multi-modal Models for text-based person anomaly search using a coarse-to-fine approach and training-free adaptation techniques, demonstrating improved performance on the PAB dataset.",
+        "tldr_zh": "该论文介绍了AnomalyLMM，一个利用大型多模态模型进行基于文本的行人异常搜索的框架，采用由粗到精的方法和免训练自适应技术，并在PAB数据集上展示了改进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "GeoArena: An Open Platform for Benchmarking Large Vision-language Models on WorldWide Image Geolocalization",
+        "summary": "Image geolocalization aims to predict the geographic location of images\ncaptured anywhere on Earth, but its global nature presents significant\nchallenges. Current evaluation methodologies suffer from two major limitations.\nFirst, data leakage: advanced approaches often rely on large vision-language\nmodels (LVLMs) to predict image locations, yet these models are frequently\npretrained on the test datasets, compromising the accuracy of evaluating a\nmodel's actual geolocalization capability. Second, existing metrics primarily\nrely on exact geographic coordinates to assess predictions, which not only\nneglects the reasoning process but also raises privacy concerns when user-level\nlocation data is required. To address these issues, we propose GeoArena, a\nfirst open platform for evaluating LVLMs on worldwide image geolocalization\ntasks, offering true in-the-wild and human-centered benchmarking. GeoArena\nenables users to upload in-the-wild images for a more diverse evaluation\ncorpus, and it leverages pairwise human judgments to determine which model\noutput better aligns with human expectations. Our platform has been deployed\nonline for two months, during which we collected over thousands voting records.\nBased on this data, we conduct a detailed analysis and establish a leaderboard\nof different LVLMs on the image geolocalization task.",
+        "url": "http://arxiv.org/abs/2509.04334v1",
+        "published_date": "2025-09-04T15:52:04+00:00",
+        "updated_date": "2025-09-04T15:52:04+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Pengyue Jia",
+            "Yingyi Zhang",
+            "Xiangyu Zhao",
+            "Yixuan Li"
+        ],
+        "tldr": "The paper introduces GeoArena, an open platform for benchmarking Large Vision-Language Models (LVLMs) on image geolocalization, addressing data leakage and limitations in existing evaluation metrics through human-centered benchmarking and in-the-wild image uploads.",
+        "tldr_zh": "该论文介绍了GeoArena，一个用于评估大型视觉语言模型（LVLMs）在图像地理定位任务上的开放平台。该平台通过以人为本的基准测试和真实的图像上传，解决了数据泄露和现有评估指标的局限性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Learning Active Perception via Self-Evolving Preference Optimization for GUI Grounding",
+        "summary": "Vision Language Models (VLMs) have recently achieved significant progress in\nbridging visual perception and linguistic reasoning. Recently, OpenAI o3 model\nintroduced a zoom-in search strategy that effectively elicits active perception\ncapabilities in VLMs, improving downstream task performance. However, enabling\nVLMs to reason effectively over appropriate image regions remains a core\nchallenge in GUI grounding, particularly under high-resolution inputs and\ncomplex multi-element visual interactions. In this work, we propose LASER, a\nself-evolving framework that progressively endows VLMs with multi-step\nperception capabilities, enabling precise coordinate prediction. Specifically,\nour approach integrate Monte Carlo quality estimation with\nIntersection-over-Union (IoU)-based region quality evaluation to jointly\nencourage both accuracy and diversity in constructing high-quality preference\ndata. This combination explicitly guides the model to focus on\ninstruction-relevant key regions while adaptively allocating reasoning steps\nbased on task complexity. Comprehensive experiments on the ScreenSpot Pro and\nScreenSpot-v2 benchmarks demonstrate consistent performance gains, validating\nthe effectiveness of our method. Furthermore, when fine-tuned on GTA1-7B, LASER\nachieves a score of 55.7 on the ScreenSpot-Pro benchmark, establishing a new\nstate-of-the-art (SoTA) among 7B-scale models.",
+        "url": "http://arxiv.org/abs/2509.04243v1",
+        "published_date": "2025-09-04T14:17:01+00:00",
+        "updated_date": "2025-09-04T14:17:01+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Wanfu Wang",
+            "Qipeng Huang",
+            "Guangquan Xue",
+            "Xiaobo Liang",
+            "Juntao Li"
+        ],
+        "tldr": "The paper introduces LASER, a self-evolving framework for VLMs that uses Monte Carlo quality estimation and IoU-based region quality evaluation to improve GUI grounding, achieving state-of-the-art performance on ScreenSpot-Pro benchmark among 7B-scale models.",
+        "tldr_zh": "该论文介绍了一种名为LASER的自进化框架，用于视觉语言模型（VLMs），它使用蒙特卡洛质量估计和基于IoU的区域质量评估来改进GUI基础，并在ScreenSpot-Pro基准测试中实现了7B规模模型的最先进性能。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "ANTS: Shaping the Adaptive Negative Textual Space by MLLM for OOD Detection",
+        "summary": "The introduction of negative labels (NLs) has proven effective in enhancing\nOut-of-Distribution (OOD) detection. However, existing methods often lack an\nunderstanding of OOD images, making it difficult to construct an accurate\nnegative space. In addition, the presence of false negative labels\nsignificantly degrades their near-OOD performance. To address these issues, we\npropose shaping an Adaptive Negative Textual Space (ANTS) by leveraging the\nunderstanding and reasoning capabilities of multimodal large language models\n(MLLMs). Specifically, we identify images likely to be OOD samples as negative\nimages and prompt the MLLM to describe these images, generating expressive\nnegative sentences that precisely characterize the OOD distribution and enhance\nfar-OOD detection. For the near-OOD setting, where OOD samples resemble the\nin-distribution (ID) subset, we first identify the subset of ID classes that\nare visually similar to negative images and then leverage the reasoning\ncapability of MLLMs to generate visually similar negative labels tailored to\nthis subset, effectively reducing false negatives and improving near-OOD\ndetection. To balance these two types of negative textual spaces, we design an\nadaptive weighted score that enables the method to handle different OOD task\nsettings (near-OOD and far-OOD) without relying on task-specific prior\nknowledge, making it highly adaptable in open environments. On the ImageNet\nbenchmark, our ANTS significantly reduces the FPR95 by 4.2\\%, establishing a\nnew state-of-the-art. Furthermore, our method is training-free and zero-shot,\nenabling high scalability.",
+        "url": "http://arxiv.org/abs/2509.03951v1",
+        "published_date": "2025-09-04T07:26:20+00:00",
+        "updated_date": "2025-09-04T07:26:20+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zhu Wenjie",
+            "Zhang Yabin",
+            "Xin Jin",
+            "Wenjun Zeng",
+            "Lei Zhang"
+        ],
+        "tldr": "The paper introduces ANTS, a training-free, zero-shot method leveraging MLLMs to generate adaptive negative textual spaces for improved OOD detection, achieving state-of-the-art results on ImageNet.",
+        "tldr_zh": "该论文介绍了 ANTS，一种无需训练的零样本方法，利用多模态大型语言模型（MLLM）生成自适应负文本空间，以改进 OOD 检测，并在 ImageNet 上取得了最先进的结果。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Attn-Adapter: Attention Is All You Need for Online Few-shot Learner of Vision-Language Model",
+        "summary": "Contrastive vision-language models excel in zero-shot image recognition but\nface challenges in few-shot scenarios due to computationally intensive offline\nfine-tuning using prompt learning, which risks overfitting. To overcome these\nlimitations, we propose Attn-Adapter, a novel online few-shot learning\nframework that enhances CLIP's adaptability via a dual attention mechanism. Our\ndesign incorporates dataset-specific information through two components: the\nMemory Attn-Adapter, which refines category embeddings using support examples,\nand the Local-Global Attn-Adapter, which enriches image embeddings by\nintegrating local and global features. This architecture enables dynamic\nadaptation from a few labeled samples without retraining the base model.\nAttn-Adapter outperforms state-of-the-art methods in cross-category and\ncross-dataset generalization, maintaining efficient inference and scaling\nacross CLIP backbones.",
+        "url": "http://arxiv.org/abs/2509.03895v1",
+        "published_date": "2025-09-04T05:42:02+00:00",
+        "updated_date": "2025-09-04T05:42:02+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Phuoc-Nguyen Bui",
+            "Khanh-Binh Nguyen",
+            "Hyunseung Choo"
+        ],
+        "tldr": "The paper introduces Attn-Adapter, a novel online few-shot learning framework for CLIP that utilizes a dual attention mechanism to enhance adaptability without offline fine-tuning, outperforming existing methods in generalization.",
+        "tldr_zh": "本文介绍了一种名为Attn-Adapter的新型CLIP在线小样本学习框架，该框架利用双重注意力机制来增强适应性，无需离线微调，并且在泛化方面优于现有方法。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MedVista3D: Vision-Language Modeling for Reducing Diagnostic Errors in 3D CT Disease Detection, Understanding and Reporting",
+        "summary": "Radiologic diagnostic errors-under-reading errors, inattentional blindness,\nand communication failures-remain prevalent in clinical practice. These issues\noften stem from missed localized abnormalities, limited global context, and\nvariability in report language. These challenges are amplified in 3D imaging,\nwhere clinicians must examine hundreds of slices per scan. Addressing them\nrequires systems with precise localized detection, global volume-level\nreasoning, and semantically consistent natural language reporting. However,\nexisting 3D vision-language models are unable to meet all three needs jointly,\nlacking local-global understanding for spatial reasoning and struggling with\nthe variability and noise of uncurated radiology reports. We present\nMedVista3D, a multi-scale semantic-enriched vision-language pretraining\nframework for 3D CT analysis. To enable joint disease detection and holistic\ninterpretation, MedVista3D performs local and global image-text alignment for\nfine-grained representation learning within full-volume context. To address\nreport variability, we apply language model rewrites and introduce a Radiology\nSemantic Matching Bank for semantics-aware alignment. MedVista3D achieves\nstate-of-the-art performance on zero-shot disease classification, report\nretrieval, and medical visual question answering, while transferring well to\norgan segmentation and prognosis prediction. Code and datasets will be\nreleased.",
+        "url": "http://arxiv.org/abs/2509.03800v1",
+        "published_date": "2025-09-04T01:28:44+00:00",
+        "updated_date": "2025-09-04T01:28:44+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yuheng Li",
+            "Yenho Chen",
+            "Yuxiang Lai",
+            "Jike Zhong",
+            "Vanessa Wildman",
+            "Xiaofeng Yang"
+        ],
+        "tldr": "MedVista3D is a multi-scale vision-language model pre-trained for 3D CT analysis, addressing diagnostic errors by combining localized detection, global reasoning, and natural language reporting with semantic enrichment.",
+        "tldr_zh": "MedVista3D是一个用于3D CT分析的多尺度视觉语言模型，通过结合局部检测、全局推理和语义增强的自然语言报告，来解决诊断错误问题。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Reg3D: Reconstructive Geometry Instruction Tuning for 3D Scene Understanding",
+        "summary": "The rapid development of Large Multimodal Models (LMMs) has led to remarkable\nprogress in 2D visual understanding; however, extending these capabilities to\n3D scene understanding remains a significant challenge. Existing approaches\npredominantly rely on text-only supervision, which fails to provide the\ngeometric constraints required for learning robust 3D spatial representations.\nIn this paper, we introduce Reg3D, a novel Reconstructive Geometry Instruction\nTuning framework that addresses this limitation by incorporating geometry-aware\nsupervision directly into the training process. Our key insight is that\neffective 3D understanding necessitates reconstructing underlying geometric\nstructures rather than merely describing them. Unlike existing methods that\ninject 3D information solely at the input level, Reg3D adopts a\ndual-supervision paradigm that leverages 3D geometric information both as input\nand as explicit learning targets. Specifically, we design complementary\nobject-level and frame-level reconstruction tasks within a dual-encoder\narchitecture, enforcing geometric consistency to encourage the development of\nspatial reasoning capabilities. Extensive experiments on ScanQA, Scan2Cap,\nScanRefer, and SQA3D demonstrate that Reg3D delivers substantial performance\nimprovements, establishing a new training paradigm for spatially aware\nmultimodal models.",
+        "url": "http://arxiv.org/abs/2509.03635v1",
+        "published_date": "2025-09-03T18:36:44+00:00",
+        "updated_date": "2025-09-03T18:36:44+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Hongpei Zheng",
+            "Lintao Xiang",
+            "Qijun Yang",
+            "Qian Lin",
+            "Hujun Yin"
+        ],
+        "tldr": "Reg3D introduces a reconstructive geometry instruction tuning framework for 3D scene understanding, using geometry-aware supervision as both input and learning targets within a dual-encoder architecture. It achieves substantial performance improvements on several 3D scene understanding benchmarks.",
+        "tldr_zh": "Reg3D 引入了一种用于 3D 场景理解的重建几何指令调整框架，该框架在双编码器架构中将几何感知监督用作输入和学习目标。在多个 3D 场景理解基准测试中，它取得了显著的性能提升。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Self-adaptive Dataset Construction for Real-World Multimodal Safety Scenarios",
+        "summary": "Multimodal large language models (MLLMs) are rapidly evolving, presenting\nincreasingly complex safety challenges. However, current dataset construction\nmethods, which are risk-oriented, fail to cover the growing complexity of\nreal-world multimodal safety scenarios (RMS). And due to the lack of a unified\nevaluation metric, their overall effectiveness remains unproven. This paper\nintroduces a novel image-oriented self-adaptive dataset construction method for\nRMS, which starts with images and end constructing paired text and guidance\nresponses. Using the image-oriented method, we automatically generate an RMS\ndataset comprising 35k image-text pairs with guidance responses. Additionally,\nwe introduce a standardized safety dataset evaluation metric: fine-tuning a\nsafety judge model and evaluating its capabilities on other safety\ndatasets.Extensive experiments on various tasks demonstrate the effectiveness\nof the proposed image-oriented pipeline. The results confirm the scalability\nand effectiveness of the image-oriented approach, offering a new perspective\nfor the construction of real-world multimodal safety datasets.",
+        "url": "http://arxiv.org/abs/2509.04403v1",
+        "published_date": "2025-09-04T17:13:59+00:00",
+        "updated_date": "2025-09-04T17:13:59+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL",
+            "cs.CR"
+        ],
+        "authors": [
+            "Jingen Qu",
+            "Lijun Li",
+            "Bo Zhang",
+            "Yichen Yan",
+            "Jing Shao"
+        ],
+        "tldr": "This paper introduces a self-adaptive, image-oriented method for constructing real-world multimodal safety (RMS) datasets, along with a standardized evaluation metric using a fine-tuned safety judge model, demonstrating effectiveness through experiments.",
+        "tldr_zh": "本文提出了一种自适应的、面向图像的方法，用于构建真实世界多模态安全（RMS）数据集，以及一种使用微调的安全评判模型的标准化评估指标，并通过实验证明了其有效性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Aesthetic Image Captioning with Saliency Enhanced MLLMs",
+        "summary": "Aesthetic Image Captioning (AIC) aims to generate textual descriptions of\nimage aesthetics, becoming a key research direction in the field of\ncomputational aesthetics. In recent years, pretrained Multimodal Large Language\nModels (MLLMs) have advanced rapidly, leading to a significant increase in\nimage aesthetics research that integrates both visual and textual modalities.\nHowever, most existing studies on image aesthetics primarily focus on\npredicting aesthetic ratings and have shown limited application in AIC.\nExisting AIC works leveraging MLLMs predominantly rely on fine-tuning methods\nwithout specifically adapting MLLMs to focus on target aesthetic content. To\naddress this limitation, we propose the Aesthetic Saliency Enhanced Multimodal\nLarge Language Model (ASE-MLLM), an end-to-end framework that explicitly\nincorporates aesthetic saliency into MLLMs. Within this framework, we introduce\nthe Image Aesthetic Saliency Module (IASM), which efficiently and effectively\nextracts aesthetic saliency features from images. Additionally, we design\nIAS-ViT as the image encoder for MLLMs, this module fuses aesthetic saliency\nfeatures with original image features via a cross-attention mechanism. To the\nbest of our knowledge, ASE-MLLM is the first framework to integrate image\naesthetic saliency into MLLMs specifically for AIC tasks. Extensive experiments\ndemonstrated that our approach significantly outperformed traditional methods\nand generic MLLMs on current mainstream AIC benchmarks, achieving\nstate-of-the-art (SOTA) performance.",
+        "url": "http://arxiv.org/abs/2509.04378v1",
+        "published_date": "2025-09-04T16:40:15+00:00",
+        "updated_date": "2025-09-04T16:40:15+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yilin Tao",
+            "Jiashui Huang",
+            "Huaze Xu",
+            "Ling Shao"
+        ],
+        "tldr": "This paper introduces ASE-MLLM, a novel framework that integrates aesthetic saliency into Multimodal Large Language Models (MLLMs) for Aesthetic Image Captioning (AIC), achieving state-of-the-art performance on AIC benchmarks.",
+        "tldr_zh": "本文介绍了一种名为ASE-MLLM的新框架，该框架将美学显著性融入多模态大型语言模型（MLLMs）中，用于美学图像描述（AIC），并在AIC基准测试中实现了最先进的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "OVGrasp: Open-Vocabulary Grasping Assistance via Multimodal Intent Detection",
+        "summary": "Grasping assistance is essential for restoring autonomy in individuals with\nmotor impairments, particularly in unstructured environments where object\ncategories and user intentions are diverse and unpredictable. We present\nOVGrasp, a hierarchical control framework for soft exoskeleton-based grasp\nassistance that integrates RGB-D vision, open-vocabulary prompts, and voice\ncommands to enable robust multimodal interaction. To enhance generalization in\nopen environments, OVGrasp incorporates a vision-language foundation model with\nan open-vocabulary mechanism, allowing zero-shot detection of previously unseen\nobjects without retraining. A multimodal decision-maker further fuses spatial\nand linguistic cues to infer user intent, such as grasp or release, in\nmulti-object scenarios. We deploy the complete framework on a custom\negocentric-view wearable exoskeleton and conduct systematic evaluations on 15\nobjects across three grasp types. Experimental results with ten participants\ndemonstrate that OVGrasp achieves a grasping ability score (GAS) of 87.00%,\noutperforming state-of-the-art baselines and achieving improved kinematic\nalignment with natural hand motion.",
+        "url": "http://arxiv.org/abs/2509.04324v1",
+        "published_date": "2025-09-04T15:42:36+00:00",
+        "updated_date": "2025-09-04T15:42:36+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.CV"
+        ],
+        "authors": [
+            "Chen Hu",
+            "Shan Luo",
+            "Letizia Gionfrida"
+        ],
+        "tldr": "OVGrasp is a framework using RGB-D vision, open-vocabulary prompts, and voice commands for grasp assistance in unstructured environments, achieving improved grasping ability compared to baselines.",
+        "tldr_zh": "OVGrasp是一个框架，使用RGB-D视觉、开放词汇提示和语音命令来辅助非结构化环境中的抓取，与基线相比，抓取能力有所提高。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Promptception: How Sensitive Are Large Multimodal Models to Prompts?",
+        "summary": "Despite the success of Large Multimodal Models (LMMs) in recent years, prompt\ndesign for LMMs in Multiple-Choice Question Answering (MCQA) remains poorly\nunderstood. We show that even minor variations in prompt phrasing and structure\ncan lead to accuracy deviations of up to 15% for certain prompts and models.\nThis variability poses a challenge for transparent and fair LMM evaluation, as\nmodels often report their best-case performance using carefully selected\nprompts. To address this, we introduce Promptception, a systematic framework\nfor evaluating prompt sensitivity in LMMs. It consists of 61 prompt types,\nspanning 15 categories and 6 supercategories, each targeting specific aspects\nof prompt formulation, and is used to evaluate 10 LMMs ranging from lightweight\nopen-source models to GPT-4o and Gemini 1.5 Pro, across 3 MCQA benchmarks:\nMMStar, MMMU-Pro, MVBench. Our findings reveal that proprietary models exhibit\ngreater sensitivity to prompt phrasing, reflecting tighter alignment with\ninstruction semantics, while open-source models are steadier but struggle with\nnuanced and complex phrasing. Based on this analysis, we propose Prompting\nPrinciples tailored to proprietary and open-source LMMs, enabling more robust\nand fair model evaluation.",
+        "url": "http://arxiv.org/abs/2509.03986v1",
+        "published_date": "2025-09-04T08:13:06+00:00",
+        "updated_date": "2025-09-04T08:13:06+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.LG"
+        ],
+        "authors": [
+            "Mohamed Insaf Ismithdeen",
+            "Muhammad Uzair Khattak",
+            "Salman Khan"
+        ],
+        "tldr": "This paper introduces Promptception, a framework for evaluating prompt sensitivity in LMMs, revealing differences in prompt sensitivity between proprietary and open-source models and suggesting prompting principles for more robust evaluation.",
+        "tldr_zh": "本文介绍了Promptception，一个用于评估大型多模态模型中prompt敏感性的框架。该研究揭示了专有模型和开源模型在prompt敏感性上的差异，并提出了相应的prompt原则，以实现更可靠的评估。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Multimodal Feature Fusion Network with Text Difference Enhancement for Remote Sensing Change Detection",
+        "summary": "Although deep learning has advanced remote sensing change detection (RSCD),\nmost methods rely solely on image modality, limiting feature representation,\nchange pattern modeling, and generalization especially under illumination and\nnoise disturbances. To address this, we propose MMChange, a multimodal RSCD\nmethod that combines image and text modalities to enhance accuracy and\nrobustness. An Image Feature Refinement (IFR) module is introduced to highlight\nkey regions and suppress environmental noise. To overcome the semantic\nlimitations of image features, we employ a vision language model (VLM) to\ngenerate semantic descriptions of bitemporal images. A Textual Difference\nEnhancement (TDE) module then captures fine grained semantic shifts, guiding\nthe model toward meaningful changes. To bridge the heterogeneity between\nmodalities, we design an Image Text Feature Fusion (ITFF) module that enables\ndeep cross modal integration. Extensive experiments on LEVIRCD, WHUCD, and\nSYSUCD demonstrate that MMChange consistently surpasses state of the art\nmethods across multiple metrics, validating its effectiveness for multimodal\nRSCD. Code is available at: https://github.com/yikuizhai/MMChange.",
+        "url": "http://arxiv.org/abs/2509.03961v1",
+        "published_date": "2025-09-04T07:39:18+00:00",
+        "updated_date": "2025-09-04T07:39:18+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yijun Zhou",
+            "Yikui Zhai",
+            "Zilu Ying",
+            "Tingfeng Xian",
+            "Wenlve Zhou",
+            "Zhiheng Zhou",
+            "Xiaolin Tian",
+            "Xudong Jia",
+            "Hongsheng Zhang",
+            "C. L. Philip Chen"
+        ],
+        "tldr": "This paper introduces MMChange, a multimodal remote sensing change detection method that fuses image and text modalities using an image feature refinement module, textual difference enhancement, and cross-modal fusion to improve accuracy and robustness.",
+        "tldr_zh": "本文介绍了一种多模态遥感变化检测方法 MMChange，该方法融合了图像和文本模态，利用图像特征细化模块、文本差异增强和跨模态融合，以提高准确性和鲁棒性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Causality-guided Prompt Learning for Vision-language Models via Visual Granulation",
+        "summary": "Prompt learning has recently attracted much attention for adapting\npre-trained vision-language models (e.g., CLIP) to downstream recognition\ntasks. However, most of the existing CLIP-based prompt learning methods only\nshow a limited ability for handling fine-grained datasets. To address this\nissue, we propose a causality-guided text prompt learning method via visual\ngranulation for CLIP, called CaPL, where the explored visual granulation\ntechnique could construct sets of visual granules for the text prompt to\ncapture subtle discrepancies among different fine-grained classes through\ncasual inference. The CaPL method contains the following two modules: (1) An\nattribute disentanglement module is proposed to decompose visual features into\nnon-individualized attributes (shared by some classes) and individualized\nattributes (specific to single classes) using a Brownian Bridge Diffusion\nModel; (2) A granule learning module is proposed to construct visual granules\nby integrating the aforementioned attributes for recognition under two causal\ninference strategies. Thanks to the learned visual granules, more\ndiscriminative text prompt is expected to be learned. Extensive experimental\nresults on 15 datasets demonstrate that our CaPL method significantly\noutperforms the state-of-the-art prompt learning methods, especially on\nfine-grained datasets.",
+        "url": "http://arxiv.org/abs/2509.03803v1",
+        "published_date": "2025-09-04T01:40:41+00:00",
+        "updated_date": "2025-09-04T01:40:41+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Mengyu Gao",
+            "Qiulei Dong"
+        ],
+        "tldr": "The paper introduces CaPL, a causality-guided text prompt learning method for CLIP, using visual granulation to improve performance on fine-grained datasets by disentangling visual features into individualized and non-individualized attributes.",
+        "tldr_zh": "该论文介绍了一种名为CaPL的因果关系引导的文本提示学习方法，用于CLIP模型。该方法通过视觉粒化，将视觉特征分解为个体化和非个体化属性，从而提高模型在细粒度数据集上的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    }
+]
