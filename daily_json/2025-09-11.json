@@ -1,0 +1,338 @@
+[
+    {
+        "title": "RewardDance: Reward Scaling in Visual Generation",
+        "summary": "Reward Models (RMs) are critical for improving generation models via\nReinforcement Learning (RL), yet the RM scaling paradigm in visual generation\nremains largely unexplored. It primarily due to fundamental limitations in\nexisting approaches: CLIP-based RMs suffer from architectural and input\nmodality constraints, while prevalent Bradley-Terry losses are fundamentally\nmisaligned with the next-token prediction mechanism of Vision-Language Models\n(VLMs), hindering effective scaling. More critically, the RLHF optimization\nprocess is plagued by Reward Hacking issue, where models exploit flaws in the\nreward signal without improving true quality. To address these challenges, we\nintroduce RewardDance, a scalable reward modeling framework that overcomes\nthese barriers through a novel generative reward paradigm. By reformulating the\nreward score as the model's probability of predicting a \"yes\" token, indicating\nthat the generated image outperforms a reference image according to specific\ncriteria, RewardDance intrinsically aligns reward objectives with VLM\narchitectures. This alignment unlocks scaling across two dimensions: (1) Model\nScaling: Systematic scaling of RMs up to 26 billion parameters; (2) Context\nScaling: Integration of task-specific instructions, reference examples, and\nchain-of-thought (CoT) reasoning. Extensive experiments demonstrate that\nRewardDance significantly surpasses state-of-the-art methods in text-to-image,\ntext-to-video, and image-to-video generation. Crucially, we resolve the\npersistent challenge of \"reward hacking\": Our large-scale RMs exhibit and\nmaintain high reward variance during RL fine-tuning, proving their resistance\nto hacking and ability to produce diverse, high-quality outputs. It greatly\nrelieves the mode collapse problem that plagues smaller models.",
+        "url": "http://arxiv.org/abs/2509.08826v1",
+        "published_date": "2025-09-10T17:59:31+00:00",
+        "updated_date": "2025-09-10T17:59:31+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jie Wu",
+            "Yu Gao",
+            "Zilyu Ye",
+            "Ming Li",
+            "Liang Li",
+            "Hanzhong Guo",
+            "Jie Liu",
+            "Zeyue Xue",
+            "Xiaoxia Hou",
+            "Wei Liu",
+            "Yan Zeng",
+            "Weilin Huang"
+        ],
+        "tldr": "The paper introduces RewardDance, a novel reward modeling framework that aligns reward objectives with VLMs by reformulating the reward score as the probability of predicting a 'yes' token, addressing reward hacking and enabling scaling in visual generation tasks.",
+        "tldr_zh": "该论文介绍了RewardDance，一种新型奖励建模框架，通过将奖励分数重新定义为预测“是”标记的概率，使奖励目标与视觉语言模型对齐，从而解决了奖励篡改问题并实现了视觉生成任务中的扩展。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "BcQLM: Efficient Vision-Language Understanding with Distilled Q-Gated Cross-Modal Fusion",
+        "summary": "As multimodal large language models (MLLMs) advance, their large-scale\narchitectures pose challenges for deployment in resource-constrained\nenvironments. In the age of large models, where energy efficiency,\ncomputational scalability and environmental sustainability are paramount, the\ndevelopment of lightweight and high-performance models is critical for\nreal-world applications. As such, we propose a lightweight MLLM framework for\nend-to-end visual question answering. Our proposed approach centres on\nBreezeCLIP, a compact yet powerful vision-language encoder optimised for\nefficient multimodal understanding. With only 1.2 billion parameters overall,\nour model significantly reduces computational cost while achieving performance\ncomparable to standard-size MLLMs. Experiments conducted on multiple datasets\nfurther validate its effectiveness in balancing accuracy and efficiency. The\nmodular and extensible design enables generalisation to broader multimodal\ntasks. The proposed lightweight vision-language framework is denoted as BcQLM\n(BreezeCLIP-enhanced Q-Gated Multimodal Language Model). It offers a promising\npath toward deployable MLLMs under practical hardware constraints. The source\ncode is available at https://github.com/thico0224/BcQLM.",
+        "url": "http://arxiv.org/abs/2509.08715v1",
+        "published_date": "2025-09-10T16:09:49+00:00",
+        "updated_date": "2025-09-10T16:09:49+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Sike Xiang",
+            "Shuang Chen",
+            "Amir Atapour-Abarghouei"
+        ],
+        "tldr": "The paper introduces BcQLM, a lightweight vision-language model (MLLM) with 1.2 billion parameters designed for efficient visual question answering, achieving comparable performance to larger models with reduced computational cost.",
+        "tldr_zh": "该论文介绍了一种名为BcQLM的轻量级视觉-语言模型（MLLM），它拥有12亿参数，专为高效的视觉问答设计。该模型在计算成本降低的情况下，实现了与大型模型相当的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "CLAPS: A CLIP-Unified Auto-Prompt Segmentation for Multi-Modal Retinal Imaging",
+        "summary": "Recent advancements in foundation models, such as the Segment Anything Model\n(SAM), have significantly impacted medical image segmentation, especially in\nretinal imaging, where precise segmentation is vital for diagnosis. Despite\nthis progress, current methods face critical challenges: 1) modality ambiguity\nin textual disease descriptions, 2) a continued reliance on manual prompting\nfor SAM-based workflows, and 3) a lack of a unified framework, with most\nmethods being modality- and task-specific. To overcome these hurdles, we\npropose CLIP-unified Auto-Prompt Segmentation (\\CLAPS), a novel method for\nunified segmentation across diverse tasks and modalities in retinal imaging.\nOur approach begins by pre-training a CLIP-based image encoder on a large,\nmulti-modal retinal dataset to handle data scarcity and distribution imbalance.\nWe then leverage GroundingDINO to automatically generate spatial bounding box\nprompts by detecting local lesions. To unify tasks and resolve ambiguity, we\nuse text prompts enhanced with a unique \"modality signature\" for each imaging\nmodality. Ultimately, these automated textual and spatial prompts guide SAM to\nexecute precise segmentation, creating a fully automated and unified pipeline.\nExtensive experiments on 12 diverse datasets across 11 critical segmentation\ncategories show that CLAPS achieves performance on par with specialized expert\nmodels while surpassing existing benchmarks across most metrics, demonstrating\nits broad generalizability as a foundation model.",
+        "url": "http://arxiv.org/abs/2509.08618v1",
+        "published_date": "2025-09-10T14:14:49+00:00",
+        "updated_date": "2025-09-10T14:14:49+00:00",
+        "categories": [
+            "cs.CV",
+            "I.4.6"
+        ],
+        "authors": [
+            "Zhihao Zhao",
+            "Yinzheng Zhao",
+            "Junjie Yang",
+            "Xiangtong Yao",
+            "Quanmin Liang",
+            "Shahrooz Faghihroohi",
+            "Kai Huang",
+            "Nassir Navab",
+            "M. Ali Nasseri"
+        ],
+        "tldr": "The paper introduces CLAPS, a CLIP-unified auto-prompt segmentation method for multi-modal retinal imaging. It leverages CLIP, GroundingDINO, and SAM to achieve unified segmentation across diverse tasks and modalities, demonstrating performance comparable to specialized models.",
+        "tldr_zh": "该论文介绍了CLAPS，一种CLIP统一的自动提示分割方法，用于多模态视网膜成像。它利用CLIP、GroundingDINO和SAM来实现跨不同任务和模态的统一分割，性能与专业的模型相当。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "A Structured Review of Underwater Object Detection Challenges and Solutions: From Traditional to Large Vision Language Models",
+        "summary": "Underwater object detection (UOD) is vital to diverse marine applications,\nincluding oceanographic research, underwater robotics, and marine conservation.\nHowever, UOD faces numerous challenges that compromise its performance. Over\nthe years, various methods have been proposed to address these issues, but they\noften fail to fully capture the complexities of underwater environments. This\nreview systematically categorizes UOD challenges into five key areas: Image\nquality degradation, target-related issues, data-related challenges,\ncomputational and processing constraints, and limitations in detection\nmethodologies. To address these challenges, we analyze the progression from\ntraditional image processing and object detection techniques to modern\napproaches. Additionally, we explore the potential of large vision-language\nmodels (LVLMs) in UOD, leveraging their multi-modal capabilities demonstrated\nin other domains. We also present case studies, including synthetic dataset\ngeneration using DALL-E 3 and fine-tuning Florence-2 LVLM for UOD. This review\nidentifies three key insights: (i) Current UOD methods are insufficient to\nfully address challenges like image degradation and small object detection in\ndynamic underwater environments. (ii) Synthetic data generation using LVLMs\nshows potential for augmenting datasets but requires further refinement to\nensure realism and applicability. (iii) LVLMs hold significant promise for UOD,\nbut their real-time application remains under-explored, requiring further\nresearch on optimization techniques.",
+        "url": "http://arxiv.org/abs/2509.08490v1",
+        "published_date": "2025-09-10T11:01:29+00:00",
+        "updated_date": "2025-09-10T11:01:29+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Edwine Nabahirwa",
+            "Wei Song",
+            "Minghua Zhang",
+            "Yi Fang",
+            "Zhou Ni"
+        ],
+        "tldr": "This paper reviews the challenges in Underwater Object Detection (UOD), categorizes them, analyzes traditional and modern solutions, and explores the potential of Large Vision-Language Models (LVLMs) with synthetic data generation for UOD.",
+        "tldr_zh": "本文综述了水下目标检测（UOD）的挑战，对其进行分类，分析了传统和现代解决方案，并探讨了大型视觉语言模型（LVLM）结合合成数据生成在水下目标检测中的潜力。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Adapting Vision-Language Models for Neutrino Event Classification in High-Energy Physics",
+        "summary": "Recent advances in Large Language Models (LLMs) have demonstrated their\nremarkable capacity to process and reason over structured and unstructured data\nmodalities beyond natural language. In this work, we explore the applications\nof Vision Language Models (VLMs), specifically a fine-tuned variant of LLaMa\n3.2, to the task of identifying neutrino interactions in pixelated detector\ndata from high-energy physics (HEP) experiments. We benchmark this model\nagainst a state-of-the-art convolutional neural network (CNN) architecture,\nsimilar to those used in the NOvA and DUNE experiments, which have achieved\nhigh efficiency and purity in classifying electron and muon neutrino events.\nOur evaluation considers both the classification performance and\ninterpretability of the model predictions. We find that VLMs can outperform\nCNNs, while also providing greater flexibility in integrating auxiliary textual\nor semantic information and offering more interpretable, reasoning-based\npredictions. This work highlights the potential of VLMs as a general-purpose\nbackbone for physics event classification, due to their high performance,\ninterpretability, and generalizability, which opens new avenues for integrating\nmultimodal reasoning in experimental neutrino physics.",
+        "url": "http://arxiv.org/abs/2509.08461v1",
+        "published_date": "2025-09-10T10:07:27+00:00",
+        "updated_date": "2025-09-10T10:07:27+00:00",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CV",
+            "hep-ex"
+        ],
+        "authors": [
+            "Dikshant Sagar",
+            "Kaiwen Yu",
+            "Alejandro Yankelevich",
+            "Jianming Bian",
+            "Pierre Baldi"
+        ],
+        "tldr": "This paper explores the use of fine-tuned Vision Language Models (VLMs) for neutrino event classification in high-energy physics, demonstrating that VLMs can outperform CNNs with enhanced interpretability and flexibility.",
+        "tldr_zh": "本文探索了使用微调的视觉语言模型 (VLM) 对高能物理中的中微子事件进行分类，表明 VLM 可以超越 CNN，并具有更高的可解释性和灵活性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Retrieval-Augmented VLMs for Multimodal Melanoma Diagnosis",
+        "summary": "Accurate and early diagnosis of malignant melanoma is critical for improving\npatient outcomes. While convolutional neural networks (CNNs) have shown promise\nin dermoscopic image analysis, they often neglect clinical metadata and require\nextensive preprocessing. Vision-language models (VLMs) offer a multimodal\nalternative but struggle to capture clinical specificity when trained on\ngeneral-domain data. To address this, we propose a retrieval-augmented VLM\nframework that incorporates semantically similar patient cases into the\ndiagnostic prompt. Our method enables informed predictions without fine-tuning\nand significantly improves classification accuracy and error correction over\nconventional baselines. These results demonstrate that retrieval-augmented\nprompting provides a robust strategy for clinical decision support.",
+        "url": "http://arxiv.org/abs/2509.08338v1",
+        "published_date": "2025-09-10T07:23:30+00:00",
+        "updated_date": "2025-09-10T07:23:30+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Jihyun Moon",
+            "Charmgil Hong"
+        ],
+        "tldr": "This paper introduces a retrieval-augmented VLM framework for melanoma diagnosis, improving accuracy by incorporating semantically similar patient cases into the diagnostic prompt without fine-tuning.",
+        "tldr_zh": "本文介绍了一种用于黑色素瘤诊断的检索增强型VLM框架，通过将语义相似的病例纳入诊断提示中，提高了准确性，且无需微调。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SimCroP: Radiograph Representation Learning with Similarity-driven Cross-granularity Pre-training",
+        "summary": "Medical vision-language pre-training shows great potential in learning\nrepresentative features from massive paired radiographs and reports. However,\nin computed tomography (CT) scans, the distribution of lesions which contain\nintricate structures is characterized by spatial sparsity. Besides, the complex\nand implicit relationships between different pathological descriptions in each\nsentence of the report and their corresponding sub-regions in radiographs pose\nadditional challenges. In this paper, we propose a Similarity-Driven\nCross-Granularity Pre-training (SimCroP) framework on chest CTs, which combines\nsimilarity-driven alignment and cross-granularity fusion to improve radiograph\ninterpretation. We first leverage multi-modal masked modeling to optimize the\nencoder for understanding precise low-level semantics from radiographs. Then,\nsimilarity-driven alignment is designed to pre-train the encoder to adaptively\nselect and align the correct patches corresponding to each sentence in reports.\nThe cross-granularity fusion module integrates multimodal information across\ninstance level and word-patch level, which helps the model better capture key\npathology structures in sparse radiographs, resulting in improved performance\nfor multi-scale downstream tasks. SimCroP is pre-trained on a large-scale\npaired CT-reports dataset and validated on image classification and\nsegmentation tasks across five public datasets. Experimental results\ndemonstrate that SimCroP outperforms both cutting-edge medical self-supervised\nlearning methods and medical vision-language pre-training methods. Codes and\nmodels are available at https://github.com/ToniChopp/SimCroP.",
+        "url": "http://arxiv.org/abs/2509.08311v1",
+        "published_date": "2025-09-10T06:20:53+00:00",
+        "updated_date": "2025-09-10T06:20:53+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Rongsheng Wang",
+            "Fenghe Tang",
+            "Qingsong Yao",
+            "Rui Yan",
+            "Xu Zhang",
+            "Zhen Huang",
+            "Haoran Lai",
+            "Zhiyang He",
+            "Xiaodong Tao",
+            "Zihang Jiang",
+            "Shaohua Kevin Zhou"
+        ],
+        "tldr": "The paper introduces SimCroP, a similarity-driven cross-granularity pre-training framework for chest CT radiograph representation learning, improving performance on downstream classification and segmentation tasks.",
+        "tldr_zh": "该论文介绍了SimCroP，一种基于相似性驱动的跨粒度预训练框架，用于胸部CT放射影像表征学习，提高了下游分类和分割任务的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Examining Vision Language Models through Multi-dimensional Experiments with Vision and Text Features",
+        "summary": "Recent research on Vision Language Models (VLMs) suggests that they rely on\ninherent biases learned during training to respond to questions about visual\nproperties of an image. These biases are exacerbated when VLMs are asked highly\nspecific questions that require focusing on specific areas of the image. For\nexample, a VLM tasked with counting stars on a modified American flag (e.g.,\nwith more than 50 stars) will often disregard the visual evidence and fail to\nanswer accurately. We build upon this research and develop a multi-dimensional\nexamination framework to systematically determine which characteristics of the\ninput data, including both the image and the accompanying prompt, lead to such\ndifferences in performance. Using open-source VLMs, we further examine how\nattention values fluctuate with varying input parameters (e.g., image size,\nnumber of objects in the image, background color, prompt specificity). This\nresearch aims to learn how the behavior of vision language models changes and\nto explore methods for characterizing such changes. Our results suggest, among\nother things, that even minor modifications in image characteristics and prompt\nspecificity can lead to large changes in how a VLM formulates its answer and,\nsubsequently, its overall performance.",
+        "url": "http://arxiv.org/abs/2509.08266v1",
+        "published_date": "2025-09-10T03:49:40+00:00",
+        "updated_date": "2025-09-10T03:49:40+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Saurav Sengupta",
+            "Nazanin Moradinasab",
+            "Jiebei Liu",
+            "Donald E. Brown"
+        ],
+        "tldr": "The paper examines how specific image characteristics and prompt specificity affect the performance of Vision Language Models, revealing that even minor changes can significantly alter their responses.",
+        "tldr_zh": "该论文研究了特定图像特征和提示词特异性如何影响视觉语言模型的性能，揭示了即使是很小的变化也会显著改变它们的响应。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Calibrating MLLM-as-a-judge via Multimodal Bayesian Prompt Ensembles",
+        "summary": "Multimodal large language models (MLLMs) are increasingly used to evaluate\ntext-to-image (TTI) generation systems, providing automated judgments based on\nvisual and textual context. However, these \"judge\" models often suffer from\nbiases, overconfidence, and inconsistent performance across diverse image\ndomains. While prompt ensembling has shown promise for mitigating these issues\nin unimodal, text-only settings, our experiments reveal that standard\nensembling methods fail to generalize effectively for TTI tasks. To address\nthese limitations, we propose a new multimodal-aware method called Multimodal\nMixture-of-Bayesian Prompt Ensembles (MMB). Our method uses a Bayesian prompt\nensemble approach augmented by image clustering, allowing the judge to\ndynamically assign prompt weights based on the visual characteristics of each\nsample. We show that MMB improves accuracy in pairwise preference judgments and\ngreatly enhances calibration, making it easier to gauge the judge's true\nuncertainty. In evaluations on two TTI benchmarks, HPSv2 and MJBench, MMB\noutperforms existing baselines in alignment with human annotations and\ncalibration across varied image content. Our findings highlight the importance\nof multimodal-specific strategies for judge calibration and suggest a promising\npath forward for reliable large-scale TTI evaluation.",
+        "url": "http://arxiv.org/abs/2509.08777v1",
+        "published_date": "2025-09-10T17:06:47+00:00",
+        "updated_date": "2025-09-10T17:06:47+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Eric Slyman",
+            "Mehrab Tanjim",
+            "Kushal Kafle",
+            "Stefan Lee"
+        ],
+        "tldr": "This paper introduces a multimodal Bayesian prompt ensemble method (MMB) to calibrate MLLM judges for text-to-image evaluation, improving accuracy and uncertainty estimation compared to existing methods.",
+        "tldr_zh": "本文介绍了一种多模态贝叶斯提示集成方法（MMB），用于校准 MLLM judge 以进行文本到图像的评估，与现有方法相比，提高了准确性和不确定性估计。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "SocialNav-SUB: Benchmarking VLMs for Scene Understanding in Social Robot Navigation",
+        "summary": "Robot navigation in dynamic, human-centered environments requires\nsocially-compliant decisions grounded in robust scene understanding. Recent\nVision-Language Models (VLMs) exhibit promising capabilities such as object\nrecognition, common-sense reasoning, and contextual understanding-capabilities\nthat align with the nuanced requirements of social robot navigation. However,\nit remains unclear whether VLMs can accurately understand complex social\nnavigation scenes (e.g., inferring the spatial-temporal relations among agents\nand human intentions), which is essential for safe and socially compliant robot\nnavigation. While some recent works have explored the use of VLMs in social\nrobot navigation, no existing work systematically evaluates their ability to\nmeet these necessary conditions. In this paper, we introduce the Social\nNavigation Scene Understanding Benchmark (SocialNav-SUB), a Visual Question\nAnswering (VQA) dataset and benchmark designed to evaluate VLMs for scene\nunderstanding in real-world social robot navigation scenarios. SocialNav-SUB\nprovides a unified framework for evaluating VLMs against human and rule-based\nbaselines across VQA tasks requiring spatial, spatiotemporal, and social\nreasoning in social robot navigation. Through experiments with state-of-the-art\nVLMs, we find that while the best-performing VLM achieves an encouraging\nprobability of agreeing with human answers, it still underperforms simpler\nrule-based approach and human consensus baselines, indicating critical gaps in\nsocial scene understanding of current VLMs. Our benchmark sets the stage for\nfurther research on foundation models for social robot navigation, offering a\nframework to explore how VLMs can be tailored to meet real-world social robot\nnavigation needs. An overview of this paper along with the code and data can be\nfound at https://larg.github.io/socialnav-sub .",
+        "url": "http://arxiv.org/abs/2509.08757v1",
+        "published_date": "2025-09-10T16:47:00+00:00",
+        "updated_date": "2025-09-10T16:47:00+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.CV"
+        ],
+        "authors": [
+            "Michael J. Munje",
+            "Chen Tang",
+            "Shuijing Liu",
+            "Zichao Hu",
+            "Yifeng Zhu",
+            "Jiaxun Cui",
+            "Garrett Warnell",
+            "Joydeep Biswas",
+            "Peter Stone"
+        ],
+        "tldr": "The paper introduces SocialNav-SUB, a new benchmark for evaluating VLMs' ability to understand complex social navigation scenes, revealing that current VLMs underperform compared to rule-based approaches and humans in this domain.",
+        "tldr_zh": "该论文介绍了SocialNav-SUB，一个新的基准测试，用于评估VLMs理解复杂社交导航场景的能力。结果表明，当前VLMs在这方面表现不如基于规则的方法和人类。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "HuMo: Human-Centric Video Generation via Collaborative Multi-Modal Conditioning",
+        "summary": "Human-Centric Video Generation (HCVG) methods seek to synthesize human videos\nfrom multimodal inputs, including text, image, and audio. Existing methods\nstruggle to effectively coordinate these heterogeneous modalities due to two\nchallenges: the scarcity of training data with paired triplet conditions and\nthe difficulty of collaborating the sub-tasks of subject preservation and\naudio-visual sync with multimodal inputs. In this work, we present HuMo, a\nunified HCVG framework for collaborative multimodal control. For the first\nchallenge, we construct a high-quality dataset with diverse and paired text,\nreference images, and audio. For the second challenge, we propose a two-stage\nprogressive multimodal training paradigm with task-specific strategies. For the\nsubject preservation task, to maintain the prompt following and visual\ngeneration abilities of the foundation model, we adopt the minimal-invasive\nimage injection strategy. For the audio-visual sync task, besides the commonly\nadopted audio cross-attention layer, we propose a focus-by-predicting strategy\nthat implicitly guides the model to associate audio with facial regions. For\njoint learning of controllabilities across multimodal inputs, building on\npreviously acquired capabilities, we progressively incorporate the audio-visual\nsync task. During inference, for flexible and fine-grained multimodal control,\nwe design a time-adaptive Classifier-Free Guidance strategy that dynamically\nadjusts guidance weights across denoising steps. Extensive experimental results\ndemonstrate that HuMo surpasses specialized state-of-the-art methods in\nsub-tasks, establishing a unified framework for collaborative\nmultimodal-conditioned HCVG. Project Page:\nhttps://phantom-video.github.io/HuMo.",
+        "url": "http://arxiv.org/abs/2509.08519v1",
+        "published_date": "2025-09-10T11:54:29+00:00",
+        "updated_date": "2025-09-10T11:54:29+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.MM"
+        ],
+        "authors": [
+            "Liyang Chen",
+            "Tianxiang Ma",
+            "Jiawei Liu",
+            "Bingchuan Li",
+            "Zhuowei Chen",
+            "Lijie Liu",
+            "Xu He",
+            "Gen Li",
+            "Qian He",
+            "Zhiyong Wu"
+        ],
+        "tldr": "HuMo introduces a unified framework for human-centric video generation from multimodal inputs (text, image, audio) by addressing data scarcity and collaboration challenges through a novel dataset and a two-stage training paradigm, achieving state-of-the-art performance.",
+        "tldr_zh": "HuMo 提出了一个统一的框架，用于从多模态输入（文本、图像、音频）生成以人为中心的视频。该框架通过一个新的数据集和一个两阶段训练范例解决了数据稀缺和协作挑战，并实现了最先进的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Prompt-Driven Image Analysis with Multimodal Generative AI: Detection, Segmentation, Inpainting, and Interpretation",
+        "summary": "Prompt-driven image analysis converts a single natural-language instruction\ninto multiple steps: locate, segment, edit, and describe. We present a\npractical case study of a unified pipeline that combines open-vocabulary\ndetection, promptable segmentation, text-conditioned inpainting, and\nvision-language description into a single workflow. The system works end to end\nfrom a single prompt, retains intermediate artifacts for transparent debugging\n(such as detections, masks, overlays, edited images, and before and after\ncomposites), and provides the same functionality through an interactive UI and\na scriptable CLI for consistent, repeatable runs. We highlight integration\nchoices that reduce brittleness, including threshold adjustments, mask\ninspection with light morphology, and resource-aware defaults. In a small,\nsingle-word prompt segment, detection and segmentation produced usable masks in\nover 90% of cases with an accuracy above 85% based on our criteria. On a\nhigh-end GPU, inpainting makes up 60 to 75% of total runtime under typical\nguidance and sampling settings, which highlights the need for careful tuning.\nThe study offers implementation-guided advice on thresholds, mask tightness,\nand diffusion parameters, and details version pinning, artifact logging, and\nseed control to support replay. Our contribution is a transparent, reliable\npattern for assembling modern vision and multimodal models behind a single\nprompt, with clear guardrails and operational practices that improve\nreliability in object replacement, scene augmentation, and removal.",
+        "url": "http://arxiv.org/abs/2509.08489v1",
+        "published_date": "2025-09-10T11:00:12+00:00",
+        "updated_date": "2025-09-10T11:00:12+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Kaleem Ahmad"
+        ],
+        "tldr": "This paper presents a unified pipeline for prompt-driven image analysis, combining open-vocabulary detection, segmentation, inpainting, and vision-language description, with a focus on practical implementation and reliability.",
+        "tldr_zh": "本文介绍了一个统一的提示驱动图像分析流程，结合了开放词汇检测、分割、修复和视觉语言描述，重点关注实际实现和可靠性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "RepViT-CXR: A Channel Replication Strategy for Vision Transformers in Chest X-ray Tuberculosis and Pneumonia Classification",
+        "summary": "Chest X-ray (CXR) imaging remains one of the most widely used diagnostic\ntools for detecting pulmonary diseases such as tuberculosis (TB) and pneumonia.\nRecent advances in deep learning, particularly Vision Transformers (ViTs), have\nshown strong potential for automated medical image analysis. However, most ViT\narchitectures are pretrained on natural images and require three-channel\ninputs, while CXR scans are inherently grayscale. To address this gap, we\npropose RepViT-CXR, a channel replication strategy that adapts single-channel\nCXR images into a ViT-compatible format without introducing additional\ninformation loss. We evaluate RepViT-CXR on three benchmark datasets. On the\nTB-CXR dataset,our method achieved an accuracy of 99.9% and an AUC of 99.9%,\nsurpassing prior state-of-the-art methods such as Topo-CXR (99.3% accuracy,\n99.8% AUC). For the Pediatric Pneumonia dataset, RepViT-CXR obtained 99.0%\naccuracy, with 99.2% recall, 99.3% precision, and an AUC of 99.0%,\noutperforming strong baselines including DCNN and VGG16. On the Shenzhen TB\ndataset, our approach achieved 91.1% accuracy and an AUC of 91.2%, marking a\nperformance improvement over previously reported CNN-based methods. These\nresults demonstrate that a simple yet effective channel replication strategy\nallows ViTs to fully leverage their representational power on grayscale medical\nimaging tasks. RepViT-CXR establishes a new state of the art for TB and\npneumonia detection from chest X-rays, showing strong potential for deployment\nin real-world clinical screening systems.",
+        "url": "http://arxiv.org/abs/2509.08234v1",
+        "published_date": "2025-09-10T02:28:25+00:00",
+        "updated_date": "2025-09-10T02:28:25+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG",
+            "F.2.2; I.2.7"
+        ],
+        "authors": [
+            "Faisal Ahmed"
+        ],
+        "tldr": "The paper introduces RepViT-CXR, a channel replication strategy to adapt grayscale chest X-ray images for Vision Transformers, achieving state-of-the-art results in TB and pneumonia detection across three datasets.",
+        "tldr_zh": "该论文介绍了RepViT-CXR，一种通道复制策略，用于将灰度胸部X射线图像适配于Vision Transformers，并在三个数据集上实现了结核病和肺炎检测的最先进结果。",
+        "relevance_score": 3,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 5
+    }
+]
