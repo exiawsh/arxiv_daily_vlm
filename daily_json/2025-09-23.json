@@ -1,0 +1,580 @@
+[
+    {
+        "title": "TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs",
+        "summary": "This paper introduces TempSamp-R1, a new reinforcement fine-tuning framework\ndesigned to improve the effectiveness of adapting multimodal large language\nmodels (MLLMs) to video temporal grounding tasks. We reveal that existing\nreinforcement learning methods, such as Group Relative Policy Optimization\n(GRPO), rely on on-policy sampling for policy updates. However, in tasks with\nlarge temporal search spaces, this strategy becomes both inefficient and\nlimited in performance, as it often fails to identify temporally accurate\nsolutions. To address this limitation, TempSamp-R1 leverages ground-truth\nannotations as off-policy supervision to provide temporally precise guidance,\neffectively compensating for the sparsity and misalignment in on-policy\nsolutions. To further stabilize training and reduce variance in reward-based\nupdates, TempSamp-R1 provides a non-linear soft advantage computation method\nthat dynamically reshapes the reward feedback via an asymmetric transformation.\nBy employing a hybrid Chain-of-Thought (CoT) training paradigm, TempSamp-R1\noptimizes a single unified model to support both CoT and non-CoT inference\nmodes, enabling efficient handling of queries with varying reasoning\ncomplexity. Experimental results demonstrate that TempSamp-R1 outperforms\nGRPO-based baselines, establishing new state-of-the-art performance on\nbenchmark datasets: Charades-STA (R1@0.7: 52.9%, +2.7%), ActivityNet Captions\n(R1@0.5: 56.0%, +5.3%), and QVHighlights (mAP: 30.0%, +3.0%). Moreover,\nTempSamp-R1 shows robust few-shot generalization capabilities under limited\ndata. Code: https://github.com/HVision-NKU/TempSamp-R1",
+        "url": "http://arxiv.org/abs/2509.18056v1",
+        "published_date": "2025-09-22T17:30:15+00:00",
+        "updated_date": "2025-09-22T17:30:15+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yunheng Li",
+            "Jing Cheng",
+            "Shaoyong Jia",
+            "Hangyi Kuang",
+            "Shaohui Jiao",
+            "Qibin Hou",
+            "Ming-Ming Cheng"
+        ],
+        "tldr": "The paper introduces TempSamp-R1, a reinforcement fine-tuning framework for video temporal grounding that addresses the limitations of on-policy sampling by incorporating off-policy supervision and a non-linear soft advantage computation method, achieving state-of-the-art results on benchmark datasets.",
+        "tldr_zh": "该论文介绍了TempSamp-R1，一种用于视频时间定位的强化微调框架，通过结合离策略监督和非线性软优势计算方法，解决了on-policy采样的局限性，并在基准数据集上取得了最先进的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "NeuS-QA: Grounding Long-Form Video Understanding in Temporal Logic and Neuro-Symbolic Reasoning",
+        "summary": "Long-Form Video Question Answering (LVQA) poses challenges beyond traditional\nvisual question answering (VQA), which is often limited to static images or\nshort video clips. While current vision-language models (VLMs) perform well in\nthose settings, they struggle with complex queries in LVQA over long videos\ninvolving multi-step temporal reasoning and causality. Vanilla approaches,\nwhich sample frames uniformly and feed them to a VLM with the question, incur\nsignificant token overhead, forcing severe downsampling. As a result, the model\noften misses fine-grained visual structure, subtle event transitions, or key\ntemporal cues, ultimately leading to incorrect answers. To address these\nlimitations, recent works have explored query-adaptive frame sampling,\nhierarchical keyframe selection, and agent-based iterative querying. However,\nthese methods remain fundamentally heuristic: they lack explicit temporal\nrepresentations and cannot enforce or verify logical event relationships. As a\nresult, there are no formal guarantees that the sampled context actually\nencodes the compositional or causal logic demanded by the question. To address\nthese foundational gaps, we introduce NeuS-QA, a training-free, plug-and-play\nneuro-symbolic pipeline for LVQA. NeuS-QA translates a natural language\nquestion into a formal temporal logic expression, constructs a video automaton\nfrom frame-level semantic propositions, and applies model checking to\nrigorously identify video segments satisfying the question's logical\nrequirements. Only these logic-verified segments are submitted to the VLM, thus\nimproving interpretability, reducing hallucinations, and enabling compositional\nreasoning without modifying or fine-tuning the model. Experiments on\nLongVideoBench and CinePile show NeuS-QA improves performance by over 10%,\nespecially on questions involving event ordering, causality, and multi-step\ncompositional reasoning.",
+        "url": "http://arxiv.org/abs/2509.18041v1",
+        "published_date": "2025-09-22T17:15:13+00:00",
+        "updated_date": "2025-09-22T17:15:13+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Sahil Shah",
+            "S P Sharan",
+            "Harsh Goel",
+            "Minkyu Choi",
+            "Mustafa Munir",
+            "Manvik Pasula",
+            "Radu Marculescu",
+            "Sandeep Chinchali"
+        ],
+        "tldr": "The paper introduces NeuS-QA, a neuro-symbolic pipeline for long-form video question answering that translates questions into temporal logic, constructs video automata, and uses model checking to identify relevant segments, improving performance without VLM fine-tuning.",
+        "tldr_zh": "该论文介绍了NeuS-QA，一种用于长视频问答的神经符号管道，它将问题翻译成时序逻辑，构建视频自动机，并使用模型检查来识别相关片段，从而在不微调VLM的情况下提高性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Qwen3-Omni Technical Report",
+        "summary": "We present Qwen3-Omni, a single multimodal model that, for the first time,\nmaintains state-of-the-art performance across text, image, audio, and video\nwithout any degradation relative to single-modal counterparts. Qwen3-Omni\nmatches the performance of same-sized single-modal models within the Qwen\nseries and excels particularly on audio tasks. Across 36 audio and audio-visual\nbenchmarks, Qwen3-Omni achieves open-source SOTA on 32 benchmarks and overall\nSOTA on 22, outperforming strong closed-source models such as Gemini-2.5-Pro,\nSeed-ASR, and GPT-4o-Transcribe. Qwen3-Omni adopts a Thinker-Talker MoE\narchitecture that unifies perception and generation across text, images, audio,\nand video, yielding fluent text and natural real-time speech. It supports text\ninteraction in 119 languages, speech understanding in 19 languages, and speech\ngeneration in 10 languages. To reduce first-packet latency in streaming\nsynthesis, Talker autoregressively predicts discrete speech codecs using a\nmulti-codebook scheme. Leveraging the representational capacity of these\ncodebooks, we replace computationally intensive block-wise diffusion with a\nlightweight causal ConvNet, enabling streaming from the first codec frame. In\ncold-start settings, Qwen3-Omni achieves a theoretical end-to-end first-packet\nlatency of 234 ms. To further strengthen multimodal reasoning, we introduce a\nThinking model that explicitly reasons over inputs from any modality. Since the\nresearch community currently lacks a general-purpose audio captioning model, we\nfine-tuned Qwen3-Omni-30B-A3B to obtain Qwen3-Omni-30B-A3B-Captioner, which\nproduces detailed, low-hallucination captions for arbitrary audio inputs.\nQwen3-Omni-30B-A3B, Qwen3-Omni-30B-A3B-Thinking, and\nQwen3-Omni-30B-A3B-Captioner are publicly released under the Apache 2.0\nlicense.",
+        "url": "http://arxiv.org/abs/2509.17765v1",
+        "published_date": "2025-09-22T13:26:24+00:00",
+        "updated_date": "2025-09-22T13:26:24+00:00",
+        "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.CV",
+            "eess.AS"
+        ],
+        "authors": [
+            "Jin Xu",
+            "Zhifang Guo",
+            "Hangrui Hu",
+            "Yunfei Chu",
+            "Xiong Wang",
+            "Jinzheng He",
+            "Yuxuan Wang",
+            "Xian Shi",
+            "Ting He",
+            "Xinfa Zhu",
+            "Yuanjun Lv",
+            "Yongqi Wang",
+            "Dake Guo",
+            "He Wang",
+            "Linhan Ma",
+            "Pei Zhang",
+            "Xinyu Zhang",
+            "Hongkun Hao",
+            "Zishan Guo",
+            "Baosong Yang",
+            "Bin Zhang",
+            "Ziyang Ma",
+            "Xipin Wei",
+            "Shuai Bai",
+            "Keqin Chen",
+            "Xuejing Liu",
+            "Peng Wang",
+            "Mingkun Yang",
+            "Dayiheng Liu",
+            "Xingzhang Ren",
+            "Bo Zheng",
+            "Rui Men",
+            "Fan Zhou",
+            "Bowen Yu",
+            "Jianxin Yang",
+            "Le Yu",
+            "Jingren Zhou",
+            "Junyang Lin"
+        ],
+        "tldr": "Qwen3-Omni is a new state-of-the-art multimodal model excelling across text, image, audio, and video, particularly in audio tasks, and it introduces a Thinker-Talker MoE architecture. It also includes a fine-tuned audio captioning model and is released under the Apache 2.0 license.",
+        "tldr_zh": "Qwen3-Omni是一个新的最先进的多模态模型，在文本、图像、音频和视频方面表现出色，尤其是在音频任务方面，并引入了Thinker-Talker MoE架构。它还包括一个微调的音频字幕模型，并以Apache 2.0许可证发布。",
+        "relevance_score": 7,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 9,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Adaptive Fast-and-Slow Visual Program Reasoning for Long-Form VideoQA",
+        "summary": "Large language models (LLMs) have shown promise in generating program\nworkflows for visual tasks. However, previous approaches often rely on\nclosed-source models, lack systematic reasoning, and struggle with long-form\nvideo question answering (videoQA). To address these challenges, we introduce\nthe FS-VisPR framework, an adaptive visual program reasoning approach that\nbalances fast reasoning for simple queries with slow reasoning for difficult\nones. First, we design efficient visual modules (e.g., key clip retrieval and\nsubtitle retrieval) to support long-form video tasks. Then, we construct a\ndiverse and high-quality fast-slow reasoning dataset with a strong LLM to align\nopen-source language models' ability to generate visual program workflows as\nFS-LLM. Next, we design a fast-slow reasoning framework with FS-LLM: Simple\nqueries are directly solved by VideoLLMs, while difficult ones invoke visual\nprogram reasoning, motivated by human-like reasoning processes. During this\nprocess, low-confidence fast-thinking answers will trigger a second-stage\nslow-reasoning process, and a fallback mechanism to fast reasoning is activated\nif the program execution fails. Moreover, we improve visual programs through\nparameter search during both training and inference. By adjusting the\nparameters of the visual modules within the program, multiple variants are\ngenerated: during training, programs that yield correct answers are selected,\nwhile during inference, the program with the highest confidence result is\napplied. Experiments show that FS-VisPR improves both efficiency and\nreliability in visual program workflows. It achieves 50.4% accuracy on LVBench,\nsurpassing GPT-4o, matching the performance of Qwen2.5VL-72B on VideoMME.",
+        "url": "http://arxiv.org/abs/2509.17743v1",
+        "published_date": "2025-09-22T13:06:17+00:00",
+        "updated_date": "2025-09-22T13:06:17+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Chenglin Li",
+            "Feng Han",
+            "FengTao",
+            "Ruilin Li",
+            "Qianglong Chen",
+            "Jingqi Tong",
+            "Yin Zhang",
+            "Jiaqi Wang"
+        ],
+        "tldr": "The paper introduces FS-VisPR, a framework for long-form video question answering that adaptively uses fast and slow reasoning with open-source LLMs and visual modules, achieving competitive results on benchmark datasets.",
+        "tldr_zh": "该论文介绍了FS-VisPR，一个用于长视频问答的框架，它自适应地使用快速和慢速推理，结合开源LLM和视觉模块，并在基准数据集上取得了有竞争力的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "WISE: Weak-Supervision-Guided Step-by-Step Explanations for Multimodal LLMs in Image Classification",
+        "summary": "Multimodal Large Language Models (MLLMs) have shown promise in visual-textual\nreasoning, with Multimodal Chain-of-Thought (MCoT) prompting significantly\nenhancing interpretability. However, existing MCoT methods rely on\nrationale-rich datasets and largely focus on inter-object reasoning,\noverlooking the intra-object understanding crucial for image classification. To\naddress this gap, we propose WISE, a Weak-supervision-guided Step-by-step\nExplanation method that augments any image classification dataset with MCoTs by\nreformulating the concept-based representations from Concept Bottleneck Models\n(CBMs) into concise, interpretable reasoning chains under weak supervision.\nExperiments across ten datasets show that our generated MCoTs not only improve\ninterpretability by 37% but also lead to gains in classification accuracy when\nused to fine-tune MLLMs. Our work bridges concept-based interpretability and\ngenerative MCoT reasoning, providing a generalizable framework for enhancing\nMLLMs in fine-grained visual understanding.",
+        "url": "http://arxiv.org/abs/2509.17740v1",
+        "published_date": "2025-09-22T13:05:29+00:00",
+        "updated_date": "2025-09-22T13:05:29+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Yiwen Jiang",
+            "Deval Mehta",
+            "Siyuan Yan",
+            "Yaling Shen",
+            "Zimu Wang",
+            "Zongyuan Ge"
+        ],
+        "tldr": "The paper introduces WISE, a method for generating step-by-step explanations for MLLMs in image classification using weak supervision and concept bottleneck models. This approach improves both interpretability and accuracy by fine-tuning MLLMs with generated Multimodal Chain-of-Thought explanations.",
+        "tldr_zh": "本文介绍了一种名为WISE的方法，该方法利用弱监督和概念瓶颈模型为图像分类中的MLLM生成逐步解释。 通过使用生成的多模态思维链解释对MLLM进行微调，这种方法可以提高可解释性和准确性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SD-VLM: Spatial Measuring and Understanding with Depth-Encoded Vision-Language Models",
+        "summary": "While vision language models (VLMs) excel in 2D semantic visual\nunderstanding, their ability to quantitatively reason about 3D spatial\nrelationships remains under-explored, due to the deficiency of 2D images'\nspatial representation ability. In this paper, we analyze the problem hindering\nVLMs' spatial understanding abilities and propose SD-VLM, a novel framework\nthat significantly enhances fundamental spatial perception abilities of VLMs\nthrough two key contributions: (1) propose Massive Spatial Measuring and\nUnderstanding (MSMU) dataset with precise spatial annotations, and (2)\nintroduce a simple depth positional encoding method strengthening VLMs' spatial\nawareness. MSMU dataset covers massive quantitative spatial tasks with 700K QA\npairs, 2.5M physical numerical annotations, and 10K chain-of-thought augmented\nsamples. We have trained SD-VLM, a strong generalist VLM which shows superior\nquantitative spatial measuring and understanding capability. SD-VLM not only\nachieves state-of-the-art performance on our proposed MSMU-Bench, but also\nshows spatial generalization abilities on other spatial understanding\nbenchmarks including Q-Spatial and SpatialRGPT-Bench. Extensive experiments\ndemonstrate that SD-VLM outperforms GPT-4o and Intern-VL3-78B by 26.91% and\n25.56% respectively on MSMU-Bench. Code and models are released at\nhttps://github.com/cpystan/SD-VLM.",
+        "url": "http://arxiv.org/abs/2509.17664v1",
+        "published_date": "2025-09-22T12:08:12+00:00",
+        "updated_date": "2025-09-22T12:08:12+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Pingyi Chen",
+            "Yujing Lou",
+            "Shen Cao",
+            "Jinhui Guo",
+            "Lubin Fan",
+            "Yue Wu",
+            "Lin Yang",
+            "Lizhuang Ma",
+            "Jieping Ye"
+        ],
+        "tldr": "The paper introduces SD-VLM, a novel Vision-Language Model framework enhanced for 3D spatial reasoning through a new dataset (MSMU) and depth positional encoding, achieving state-of-the-art performance on spatial understanding benchmarks.",
+        "tldr_zh": "该论文介绍了SD-VLM，一种新型的视觉语言模型框架，通过新的数据集（MSMU）和深度位置编码增强了3D空间推理能力，并在空间理解基准测试中取得了最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "COLA: Context-aware Language-driven Test-time Adaptation",
+        "summary": "Test-time adaptation (TTA) has gained increasing popularity due to its\nefficacy in addressing ``distribution shift'' issue while simultaneously\nprotecting data privacy.\n  However, most prior methods assume that a paired source domain model and\ntarget domain sharing the same label space coexist, heavily limiting their\napplicability.\n  In this paper, we investigate a more general source model capable of\nadaptation to multiple target domains without needing shared labels.\n  This is achieved by using a pre-trained vision-language model (VLM), \\egno,\nCLIP, that can recognize images through matching with class descriptions.\n  While the zero-shot performance of VLMs is impressive, they struggle to\neffectively capture the distinctive attributes of a target domain.\n  To that end, we propose a novel method -- Context-aware Language-driven TTA\n(COLA).\n  The proposed method incorporates a lightweight context-aware module that\nconsists of three key components: a task-aware adapter, a context-aware unit,\nand a residual connection unit for exploring task-specific knowledge,\ndomain-specific knowledge from the VLM and prior knowledge of the VLM,\nrespectively.\n  It is worth noting that the context-aware module can be seamlessly integrated\ninto a frozen VLM, ensuring both minimal effort and parameter efficiency.\n  Additionally, we introduce a Class-Balanced Pseudo-labeling (CBPL) strategy\nto mitigate the adverse effects caused by class imbalance.\n  We demonstrate the effectiveness of our method not only in TTA scenarios but\nalso in class generalisation tasks.\n  The source code is available at https://github.com/NUDT-Bai-Group/COLA-TTA.",
+        "url": "http://arxiv.org/abs/2509.17598v1",
+        "published_date": "2025-09-22T11:19:17+00:00",
+        "updated_date": "2025-09-22T11:19:17+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Aiming Zhang",
+            "Tianyuan Yu",
+            "Liang Bai",
+            "Jun Tang",
+            "Yanming Guo",
+            "Yirun Ruan",
+            "Yun Zhou",
+            "Zhihe Lu"
+        ],
+        "tldr": "The paper introduces COLA, a context-aware language-driven test-time adaptation method using a pre-trained VLM (CLIP) and a class-balanced pseudo-labeling strategy to address distribution shift and class imbalance in TTA scenarios without requiring shared labels between source and target domains.",
+        "tldr_zh": "本文介绍了一种名为COLA的上下文感知语言驱动的测试时自适应方法，该方法使用预训练的VLM（CLIP）和类平衡伪标签策略来解决TTA场景中的分布偏移和类不平衡问题，而无需源域和目标域之间共享标签。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Interpreting Attention Heads for Image-to-Text Information Flow in Large Vision-Language Models",
+        "summary": "Large Vision-Language Models (LVLMs) answer visual questions by transferring\ninformation from images to text through a series of attention heads. While this\nimage-to-text information flow is central to visual question answering, its\nunderlying mechanism remains difficult to interpret due to the simultaneous\noperation of numerous attention heads. To address this challenge, we propose\nhead attribution, a technique inspired by component attribution methods, to\nidentify consistent patterns among attention heads that play a key role in\ninformation transfer. Using head attribution, we investigate how LVLMs rely on\nspecific attention heads to identify and answer questions about the main object\nin an image. Our analysis reveals that a distinct subset of attention heads\nfacilitates the image-to-text information flow. Remarkably, we find that the\nselection of these heads is governed by the semantic content of the input image\nrather than its visual appearance. We further examine the flow of information\nat the token level and discover that (1) text information first propagates to\nrole-related tokens and the final token before receiving image information, and\n(2) image information is embedded in both object-related and background tokens.\nOur work provides evidence that image-to-text information flow follows a\nstructured process, and that analysis at the attention-head level offers a\npromising direction toward understanding the mechanisms of LVLMs.",
+        "url": "http://arxiv.org/abs/2509.17588v1",
+        "published_date": "2025-09-22T11:12:12+00:00",
+        "updated_date": "2025-09-22T11:12:12+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Jinyeong Kim",
+            "Seil Kang",
+            "Jiwoo Park",
+            "Junhyeok Kim",
+            "Seong Jae Hwang"
+        ],
+        "tldr": "The paper introduces 'head attribution' to analyze information flow in LVLMs, revealing how specific attention heads transfer image information to text, influenced by semantic content rather than visual appearance.",
+        "tldr_zh": "该论文提出了“头部归因”方法来分析LVLM中的信息流，揭示了特定注意力头部如何将图像信息传输到文本，并受语义内容而非视觉外观的影响。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Visual Instruction Pretraining for Domain-Specific Foundation Models",
+        "summary": "Modern computer vision is converging on a closed loop in which perception,\nreasoning and generation mutually reinforce each other. However, this loop\nremains incomplete: the top-down influence of high-level reasoning on the\nfoundational learning of low-level perceptual features is not yet\nunderexplored. This paper addresses this gap by proposing a new paradigm for\npretraining foundation models in downstream domains. We introduce Visual\ninsTruction Pretraining (ViTP), a novel approach that directly leverages\nreasoning to enhance perception. ViTP embeds a Vision Transformer (ViT)\nbackbone within a Vision-Language Model and pretrains it end-to-end using a\nrich corpus of visual instruction data curated from target downstream domains.\nViTP is powered by our proposed Visual Robustness Learning (VRL), which compels\nthe ViT to learn robust and domain-relevant features from a sparse set of\nvisual tokens. Extensive experiments on 16 challenging remote sensing and\nmedical imaging benchmarks demonstrate that ViTP establishes new\nstate-of-the-art performance across a diverse range of downstream tasks. The\ncode is available at github.com/zcablii/ViTP.",
+        "url": "http://arxiv.org/abs/2509.17562v1",
+        "published_date": "2025-09-22T10:57:42+00:00",
+        "updated_date": "2025-09-22T10:57:42+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yuxuan Li",
+            "Yicheng Zhang",
+            "Wenhao Tang",
+            "Yimian Dai",
+            "Ming-Ming Cheng",
+            "Xiang Li",
+            "Jian Yang"
+        ],
+        "tldr": "The paper introduces Visual insTruction Pretraining (ViTP), a new paradigm for pretraining foundation models in downstream domains, using visual instruction data and a Vision-Language Model to enhance perception and achieve state-of-the-art results in remote sensing and medical imaging.",
+        "tldr_zh": "该论文介绍了一种新的视觉指导预训练 (ViTP) 范例，用于在下游领域中预训练基础模型。它利用视觉指令数据和视觉语言模型来增强感知能力，并在遥感和医学成像领域取得了最先进的成果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "ChartHal: A Fine-grained Framework Evaluating Hallucination of Large Vision Language Models in Chart Understanding",
+        "summary": "Large Vision-Language Models (LVLMs) have recently demonstrated remarkable\nprogress, yet hallucination remains a critical barrier, particularly in chart\nunderstanding, which requires sophisticated perceptual and cognitive abilities\nas well as rigorous factual accuracy. While prior work has investigated\nhallucinations and chart comprehension independently, their intersection\nremains largely unexplored. To address this gap, we present ChartHal, a\nbenchmark that features a fine-grained taxonomy of hallucination scenarios in\nchart understanding, along with a human-validated dataset of 1,062 samples. Our\nevaluation shows that state-of-the-art LVLMs suffer from severe hallucinations\non ChartHal, including proprietary models such as GPT-5 and o4-mini, which\nachieve only 34.46% and 22.79% accuracy, respectively. Further analysis reveals\nthat questions involving information absent from or contradictory to charts are\nespecially likely to trigger hallucinations, underscoring the urgent need for\nmore robust mitigation strategies. Code and data are available at\nhttps://github.com/ymcui/ChartHal .",
+        "url": "http://arxiv.org/abs/2509.17481v1",
+        "published_date": "2025-09-22T08:15:55+00:00",
+        "updated_date": "2025-09-22T08:15:55+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL"
+        ],
+        "authors": [
+            "Xingqi Wang",
+            "Yiming Cui",
+            "Xin Yao",
+            "Shijin Wang",
+            "Guoping Hu",
+            "Xiaoyu Qin"
+        ],
+        "tldr": "The paper introduces ChartHal, a benchmark and dataset for evaluating hallucination in Large Vision-Language Models (LVLMs) when applied to chart understanding, revealing significant shortcomings in current state-of-the-art models.",
+        "tldr_zh": "该论文介绍了ChartHal，一个用于评估大型视觉语言模型（LVLMs）在图表理解中幻觉现象的基准和数据集，揭示了当前最先进模型在这一方面的重大缺陷。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Training-Free Label Space Alignment for Universal Domain Adaptation",
+        "summary": "Universal domain adaptation (UniDA) transfers knowledge from a labeled source\ndomain to an unlabeled target domain, where label spaces may differ and the\ntarget domain may contain private classes. Previous UniDA methods primarily\nfocused on visual space alignment but often struggled with visual ambiguities\ndue to content differences, which limited their robustness and\ngeneralizability. To overcome this, we introduce a novel approach that\nleverages the strong \\textit{zero-shot capabilities} of recent vision-language\nfoundation models (VLMs) like CLIP, concentrating solely on label space\nalignment to enhance adaptation stability. CLIP can generate task-specific\nclassifiers based only on label names. However, adapting CLIP to UniDA is\nchallenging because the label space is not fully known in advance. In this\nstudy, we first utilize generative vision-language models to identify unknown\ncategories in the target domain. Noise and semantic ambiguities in the\ndiscovered labels -- such as those similar to source labels (e.g., synonyms,\nhypernyms, hyponyms) -- complicate label alignment. To address this, we propose\na training-free label-space alignment method for UniDA (\\ours). Our method\naligns label spaces instead of visual spaces by filtering and refining noisy\nlabels between the domains. We then construct a \\textit{universal classifier}\nthat integrates both shared knowledge and target-private class information,\nthereby improving generalizability under domain shifts. The results reveal that\nthe proposed method considerably outperforms existing UniDA techniques across\nkey DomainBed benchmarks, delivering an average improvement of\n\\textcolor{blue}{+7.9\\%}in H-score and \\textcolor{blue}{+6.1\\%} in H$^3$-score.\nFurthermore, incorporating self-training further enhances performance and\nachieves an additional (\\textcolor{blue}{+1.6\\%}) increment in both H- and\nH$^3$-scores.",
+        "url": "http://arxiv.org/abs/2509.17452v1",
+        "published_date": "2025-09-22T07:46:10+00:00",
+        "updated_date": "2025-09-22T07:46:10+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Dujin Lee",
+            "Sojung An",
+            "Jungmyung Wi",
+            "Kuniaki Saito",
+            "Donghyun Kim"
+        ],
+        "tldr": "This paper introduces a training-free label space alignment method for Universal Domain Adaptation (UniDA) using vision-language foundation models (VLMs) like CLIP, achieving state-of-the-art performance on DomainBed benchmarks by focusing on aligning label spaces instead of visual spaces.",
+        "tldr_zh": "本文提出了一种基于视觉-语言基础模型 (VLMs) 的通用领域自适应 (UniDA) 的免训练标签空间对齐方法，通过专注于对齐标签空间而非视觉空间，在 DomainBed 基准测试中实现了最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Mano Report",
+        "summary": "Graphical user interfaces (GUIs) are the primary medium for human-computer\ninteraction, yet automating GUI interactions remains challenging due to the\ncomplexity of visual elements, dynamic environments, and the need for\nmulti-step reasoning. Existing methods based on vision-language models (VLMs)\noften suffer from limited resolution, domain mismatch, and insufficient\nsequential decisionmaking capability. To address these issues, we propose Mano,\na robust GUI agent built upon a multi-modal foundation model pre-trained on\nextensive web and computer system data. Our approach integrates a novel\nsimulated environment for high-fidelity data generation, a three-stage training\npipeline (supervised fine-tuning, offline reinforcement learning, and online\nreinforcement learning), and a verification module for error recovery. Mano\ndemonstrates state-of-the-art performance on multiple GUI benchmarks, including\nMind2Web and OSWorld, achieving significant improvements in success rate and\noperational accuracy. Our work provides new insights into the effective\nintegration of reinforcement learning with VLMs for practical GUI agent\ndeployment, highlighting the importance of domain-specific data, iterative\ntraining, and holistic reward design.",
+        "url": "http://arxiv.org/abs/2509.17336v1",
+        "published_date": "2025-09-22T03:13:58+00:00",
+        "updated_date": "2025-09-22T03:13:58+00:00",
+        "categories": [
+            "cs.MM",
+            "cs.CL",
+            "cs.CV"
+        ],
+        "authors": [
+            "Tianyu Fu",
+            "Anyang Su",
+            "Chenxu Zhao",
+            "Hanning Wang",
+            "Minghui Wu",
+            "Zhe Yu",
+            "Fei Hu",
+            "Mingjia Shi",
+            "Wei Dong",
+            "Jiayao Wang",
+            "Yuyang Chen",
+            "Ruiyang Yu",
+            "Siran Peng",
+            "Menglin Li",
+            "Nan Huang",
+            "Haitian Wei",
+            "Jiawei Yu",
+            "Yi Xin",
+            "Xilin Zhao",
+            "Kai Gu",
+            "Ping Jiang",
+            "Sifan Zhou",
+            "Shuo Wang"
+        ],
+        "tldr": "The paper introduces Mano, a GUI agent based on a multi-modal foundation model trained with a novel simulated environment and a three-stage reinforcement learning pipeline, achieving state-of-the-art performance on GUI benchmarks.",
+        "tldr_zh": "该论文介绍了Mano，一个基于多模态基础模型的GUI代理，它使用新的模拟环境和三阶段强化学习流水线进行训练，并在GUI基准测试中取得了最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "UIPro: Unleashing Superior Interaction Capability For GUI Agents",
+        "summary": "Building autonomous agents that perceive and operate graphical user\ninterfaces (GUIs) like humans has long been a vision in the field of artificial\nintelligence. Central to these agents is the capability for GUI interaction,\nwhich involves GUI understanding and planning capabilities. Existing methods\nhave tried developing GUI agents based on the multi-modal comprehension ability\nof vision-language models (VLMs). However, the limited scenario, insufficient\nsize, and heterogeneous action spaces hinder the progress of building\ngeneralist GUI agents. To resolve these issues, this paper proposes\n\\textbf{UIPro}, a novel generalist GUI agent trained with extensive\nmulti-platform and multi-task GUI interaction data, coupled with a unified\naction space. We first curate a comprehensive dataset encompassing 20.6 million\nGUI understanding tasks to pre-train UIPro, granting it a strong GUI grounding\ncapability, which is key to downstream GUI agent tasks. Subsequently, we\nestablish a unified action space to harmonize heterogeneous GUI agent task\ndatasets and produce a merged dataset to foster the action prediction ability\nof UIPro via continued fine-tuning. Experimental results demonstrate UIPro's\nsuperior performance across multiple GUI task benchmarks on various platforms,\nhighlighting the effectiveness of our approach.",
+        "url": "http://arxiv.org/abs/2509.17328v1",
+        "published_date": "2025-09-22T03:04:53+00:00",
+        "updated_date": "2025-09-22T03:04:53+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.HC"
+        ],
+        "authors": [
+            "Hongxin Li",
+            "Jingran Su",
+            "Jingfan Chen",
+            "Zheng Ju",
+            "Yuntao Chen",
+            "Qing Li",
+            "Zhaoxiang Zhang"
+        ],
+        "tldr": "The paper introduces UIPro, a generalist GUI agent trained on a large multi-platform dataset with a unified action space, demonstrating superior performance across various GUI tasks.",
+        "tldr_zh": "该论文介绍了UIPro，一个基于大型多平台数据集和统一行动空间训练的通用GUI代理，在各种GUI任务中表现出卓越的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Dual-View Alignment Learning with Hierarchical-Prompt for Class-Imbalance Multi-Label Classification",
+        "summary": "Real-world datasets often exhibit class imbalance across multiple categories,\nmanifesting as long-tailed distributions and few-shot scenarios. This is\nespecially challenging in Class-Imbalanced Multi-Label Image Classification\n(CI-MLIC) tasks, where data imbalance and multi-object recognition present\nsignificant obstacles. To address these challenges, we propose a novel method\ntermed Dual-View Alignment Learning with Hierarchical Prompt (HP-DVAL), which\nleverages multi-modal knowledge from vision-language pretrained (VLP) models to\nmitigate the class-imbalance problem in multi-label settings. Specifically,\nHP-DVAL employs dual-view alignment learning to transfer the powerful feature\nrepresentation capabilities from VLP models by extracting complementary\nfeatures for accurate image-text alignment. To better adapt VLP models for\nCI-MLIC tasks, we introduce a hierarchical prompt-tuning strategy that utilizes\nglobal and local prompts to learn task-specific and context-related prior\nknowledge. Additionally, we design a semantic consistency loss during prompt\ntuning to prevent learned prompts from deviating from general knowledge\nembedded in VLP models. The effectiveness of our approach is validated on two\nCI-MLIC benchmarks: MS-COCO and VOC2007. Extensive experimental results\ndemonstrate the superiority of our method over SOTA approaches, achieving mAP\nimprovements of 10.0\\% and 5.2\\% on the long-tailed multi-label image\nclassification task, and 6.8\\% and 2.9\\% on the multi-label few-shot image\nclassification task.",
+        "url": "http://arxiv.org/abs/2509.17747v1",
+        "published_date": "2025-09-22T13:11:12+00:00",
+        "updated_date": "2025-09-22T13:11:12+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Sheng Huang",
+            "Jiexuan Yan",
+            "Beiyan Liu",
+            "Bo Liu",
+            "Richang Hong"
+        ],
+        "tldr": "This paper proposes a novel method, HP-DVAL, for class-imbalanced multi-label image classification using dual-view alignment learning with hierarchical prompts to leverage vision-language pretrained models, achieving state-of-the-art results on MS-COCO and VOC2007.",
+        "tldr_zh": "该论文提出了一种名为 HP-DVAL 的新方法，通过使用双视图对齐学习与分层提示，来利用视觉-语言预训练模型解决类别不平衡的多标签图像分类问题，并在 MS-COCO 和 VOC2007 上取得了最先进的结果。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "DINOv3-Diffusion Policy: Self-Supervised Large Visual Model for Visuomotor Diffusion Policy Learning",
+        "summary": "This paper evaluates DINOv3, a recent large-scale self-supervised vision\nbackbone, for visuomotor diffusion policy learning in robotic manipulation. We\ninvestigate whether a purely self-supervised encoder can match or surpass\nconventional supervised ImageNet-pretrained backbones (e.g., ResNet-18) under\nthree regimes: training from scratch, frozen, and finetuned. Across four\nbenchmark tasks (Push-T, Lift, Can, Square) using a unified FiLM-conditioned\ndiffusion policy, we find that (i) finetuned DINOv3 matches or exceeds\nResNet-18 on several tasks, (ii) frozen DINOv3 remains competitive, indicating\nstrong transferable priors, and (iii) self-supervised features improve sample\nefficiency and robustness. These results support self-supervised large visual\nmodels as effective, generalizable perceptual front-ends for action diffusion\npolicies, motivating further exploration of scalable label-free pretraining in\nrobotic manipulation. Compared to using ResNet18 as a backbone, our approach\nwith DINOv3 achieves up to a 10% absolute increase in test-time success rates\non challenging tasks such as Can, and on-the-par performance in tasks like\nLift, PushT, and Square.",
+        "url": "http://arxiv.org/abs/2509.17684v1",
+        "published_date": "2025-09-22T12:27:26+00:00",
+        "updated_date": "2025-09-22T12:27:26+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "ThankGod Egbe",
+            "Peng Wang",
+            "Zhihao Guo",
+            "Zidong Chen"
+        ],
+        "tldr": "This paper explores the use of the DINOv3 self-supervised vision model as a backbone for visuomotor diffusion policies in robotic manipulation, demonstrating its competitiveness and potential advantages over supervised ImageNet-pretrained models like ResNet-18.",
+        "tldr_zh": "本文探讨了使用DINOv3自监督视觉模型作为机器人操作中视觉运动扩散策略的骨干，证明了其与像ResNet-18等监督ImageNet预训练模型相比的竞争力和潜在优势。",
+        "relevance_score": 6,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "From Benchmarks to Reality: Advancing Visual Anomaly Detection by the VAND 3.0 Challenge",
+        "summary": "Visual anomaly detection is a strongly application-driven field of research.\nConsequently, the connection between academia and industry is of paramount\nimportance. In this regard, we present the VAND 3.0 Challenge to showcase\ncurrent progress in anomaly detection across different practical settings\nwhilst addressing critical issues in the field. The challenge hosted two\ntracks, fostering the development of anomaly detection methods robust against\nreal-world distribution shifts (Category 1) and exploring the capabilities of\nVision Language Models within the few-shot regime (Category 2), respectively.\nThe participants' solutions reached significant improvements over previous\nbaselines by combining or adapting existing approaches and fusing them with\nnovel pipelines. While for both tracks the progress in large pre-trained vision\n(language) backbones played a pivotal role for the performance increase,\nscaling up anomaly detection methods more efficiently needs to be addressed by\nfuture research to meet real-time and computational constraints on-site.",
+        "url": "http://arxiv.org/abs/2509.17615v1",
+        "published_date": "2025-09-22T11:27:49+00:00",
+        "updated_date": "2025-09-22T11:27:49+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Lars Heckler-Kram",
+            "Ashwin Vaidya",
+            "Jan-Hendrik Neudeck",
+            "Ulla Scheler",
+            "Dick Ameln",
+            "Samet Akcay",
+            "Paula Ramos"
+        ],
+        "tldr": "The VAND 3.0 Challenge advances visual anomaly detection by focusing on real-world distribution shifts and exploring Vision Language Models in few-shot scenarios, highlighting the importance of large pre-trained models and the need for efficient scaling.",
+        "tldr_zh": "VAND 3.0挑战通过关注真实世界的分布偏移和探索少样本场景下的视觉语言模型，推动了视觉异常检测的发展，强调了大型预训练模型的重要性，并指出了高效扩展的需求。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "SimToken: A Simple Baseline for Referring Audio-Visual Segmentation",
+        "summary": "Referring Audio-Visual Segmentation (Ref-AVS) aims to segment specific\nobjects in videos based on natural language expressions involving audio,\nvision, and text information. This task poses significant challenges in\ncross-modal reasoning and fine-grained object localization. In this paper, we\npropose a simple framework, SimToken, that integrates a multimodal large\nlanguage model (MLLM) with the Segment Anything Model (SAM). The MLLM is guided\nto generate a special semantic token representing the referred object. This\ncompact token, enriched with contextual information from all modalities, acts\nas a prompt to guide SAM to segment objectsacross video frames. To further\nimprove semantic learning, we introduce a novel target-consistent semantic\nalignment loss that aligns token embeddings from different expressions but\nreferring to the same object. Experiments on the Ref-AVS benchmark demonstrate\nthat our approach achieves superior performance compared to existing\nmethods.Code will be available at https://github.com/DianJin-HFUT/SimToken",
+        "url": "http://arxiv.org/abs/2509.17537v1",
+        "published_date": "2025-09-22T08:55:04+00:00",
+        "updated_date": "2025-09-22T08:55:04+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Dian Jin",
+            "Yanghao Zhou",
+            "Jinxing Zhou",
+            "Jiaqi Ma",
+            "Ruohao Guo",
+            "Dan Guo"
+        ],
+        "tldr": "The paper introduces SimToken, a simple framework for Referring Audio-Visual Segmentation (Ref-AVS) that leverages a multimodal large language model (MLLM) and Segment Anything Model (SAM) with a novel target-consistent semantic alignment loss to achieve superior performance on the Ref-AVS benchmark.",
+        "tldr_zh": "该论文介绍了SimToken，一个用于指代音频-视频分割(Ref-AVS)的简单框架，它利用多模态大型语言模型(MLLM)和Segment Anything Model(SAM)，以及一种新的目标一致语义对齐损失，在Ref-AVS基准测试上实现了卓越的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 6,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "VaseVQA: Multimodal Agent and Benchmark for Ancient Greek Pottery",
+        "summary": "Analyzing cultural-heritage artifacts remains challenging for MLLMs: general\nmodels lack domain expertise, and SFT often overfits superficial patterns,\nyielding brittle reasoning for authentication and historical attribution. This\nraises the question of how to equip MLLMs with robust, expert-level reasoning\nfor ancient Greek pottery. We present VaseVL, an SFT-then-RL system that turns\nevaluation into supervision: we construct a taxonomy of question types, probe\nthe SFT model to localize type-specific performance gaps, and optimize with\ntype-conditioned, compositionality-oriented rewards targeting those gaps. We\nalso release VaseVQA, a comprehensive benchmark of 31,773 images designed to\nprobe deep understanding. Experiments show state-of-the-art results on style\nclassification and historical attribution with marked gains in compositional\nrobustness over SFT-only baselines, validating diagnosis-guided,\ntaxonomy-conditioned reward engineering and providing a reusable resource for\nfuture research. Code and dataset will be available at\nhttps://github.com/AIGeeksGroup/VaseVQA.",
+        "url": "http://arxiv.org/abs/2509.17191v1",
+        "published_date": "2025-09-21T18:36:54+00:00",
+        "updated_date": "2025-09-21T18:36:54+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Jinchao Ge",
+            "Tengfei Cheng",
+            "Biao Wu",
+            "Zeyu Zhang",
+            "Shiya Huang",
+            "Judith Bishop",
+            "Gillian Shepherd",
+            "Meng Fang",
+            "Ling Chen",
+            "Yang Zhao"
+        ],
+        "tldr": "The paper introduces VaseVL, a system using SFT-then-RL to enhance MLLM reasoning on ancient Greek pottery, along with VaseVQA, a new benchmark dataset for evaluating deep understanding in this domain. The approach demonstrates improved compositional robustness in style classification and historical attribution.",
+        "tldr_zh": "本文介绍了VaseVL，一个使用SFT-then-RL的系统，旨在提高MLLM对古希腊陶器的推理能力，并发布了VaseVQA，一个新的基准数据集，用于评估该领域的深度理解。该方法在风格分类和历史归因方面展示了更好的组合鲁棒性。",
+        "relevance_score": 6,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Beyond Diagnosis: Evaluating Multimodal LLMs for Pathology Localization in Chest Radiographs",
+        "summary": "Recent work has shown promising performance of frontier large language models\n(LLMs) and their multimodal counterparts in medical quizzes and diagnostic\ntasks, highlighting their potential for broad clinical utility given their\naccessible, general-purpose nature. However, beyond diagnosis, a fundamental\naspect of medical image interpretation is the ability to localize pathological\nfindings. Evaluating localization not only has clinical and educational\nrelevance but also provides insight into a model's spatial understanding of\nanatomy and disease. Here, we systematically assess two general-purpose MLLMs\n(GPT-4 and GPT-5) and a domain-specific model (MedGemma) in their ability to\nlocalize pathologies on chest radiographs, using a prompting pipeline that\noverlays a spatial grid and elicits coordinate-based predictions. Averaged\nacross nine pathologies in the CheXlocalize dataset, GPT-5 exhibited a\nlocalization accuracy of 49.7%, followed by GPT-4 (39.1%) and MedGemma (17.7%),\nall lower than a task-specific CNN baseline (59.9%) and a radiologist benchmark\n(80.1%). Despite modest performance, error analysis revealed that GPT-5's\npredictions were largely in anatomically plausible regions, just not always\nprecisely localized. GPT-4 performed well on pathologies with fixed anatomical\nlocations, but struggled with spatially variable findings and exhibited\nanatomically implausible predictions more frequently. MedGemma demonstrated the\nlowest performance on all pathologies, showing limited capacity to generalize\nto this novel task. Our findings highlight both the promise and limitations of\ncurrent MLLMs in medical imaging and underscore the importance of integrating\nthem with task-specific tools for reliable use.",
+        "url": "http://arxiv.org/abs/2509.18015v1",
+        "published_date": "2025-09-22T16:54:23+00:00",
+        "updated_date": "2025-09-22T16:54:23+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Advait Gosai",
+            "Arun Kavishwar",
+            "Stephanie L. McNamara",
+            "Soujanya Samineni",
+            "Renato Umeton",
+            "Alexander Chowdhury",
+            "William Lotter"
+        ],
+        "tldr": "The paper evaluates the ability of multimodal LLMs (GPT-4, GPT-5, and MedGemma) to localize pathologies in chest radiographs, finding that their performance is below that of task-specific CNNs and radiologists, but highlighting some promising anatomical awareness in GPT-5.",
+        "tldr_zh": "本文评估了多模态LLM（GPT-4、GPT-5和MedGemma）在胸部X光片中定位病变的能力，发现它们的性能低于特定任务的CNN和放射科医生，但突出了GPT-5在解剖学认知方面的一些希望。",
+        "relevance_score": 6,
+        "novelty_claim_score": 5,
+        "clarity_score": 9,
+        "potential_impact_score": 6,
+        "overall_priority_score": 6
+    },
+    {
+        "title": "MRN: Harnessing 2D Vision Foundation Models for Diagnosing Parkinson's Disease with Limited 3D MR Data",
+        "summary": "The automatic diagnosis of Parkinson's disease is in high clinical demand due\nto its prevalence and the importance of targeted treatment. Current clinical\npractice often relies on diagnostic biomarkers in QSM and NM-MRI images.\nHowever, the lack of large, high-quality datasets makes training diagnostic\nmodels from scratch prone to overfitting. Adapting pre-trained 3D medical\nmodels is also challenging, as the diversity of medical imaging leads to\nmismatches in voxel spacing and modality between pre-training and fine-tuning\ndata. In this paper, we address these challenges by leveraging 2D vision\nfoundation models (VFMs). Specifically, we crop multiple key ROIs from NM and\nQSM images, process each ROI through separate branches to compress the ROI into\na token, and then combine these tokens into a unified patient representation\nfor classification. Within each branch, we use 2D VFMs to encode axial slices\nof the 3D ROI volume and fuse them into the ROI token, guided by an auxiliary\nsegmentation head that steers the feature extraction toward specific brain\nnuclei. Additionally, we introduce multi-ROI supervised contrastive learning,\nwhich improves diagnostic performance by pulling together representations of\npatients from the same class while pushing away those from different classes.\nOur approach achieved first place in the MICCAI 2025 PDCADxFoundation\nchallenge, with an accuracy of 86.0% trained on a dataset of only 300 labeled\nQSM and NM-MRI scans, outperforming the second-place method by 5.5%.These\nresults highlight the potential of 2D VFMs for clinical analysis of 3D MR\nimages.",
+        "url": "http://arxiv.org/abs/2509.17566v1",
+        "published_date": "2025-09-22T10:59:27+00:00",
+        "updated_date": "2025-09-22T10:59:27+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Ding Shaodong",
+            "Liu Ziyang",
+            "Zhou Yijun",
+            "Liu Tao"
+        ],
+        "tldr": "This paper introduces a novel method (MRN) using 2D Vision Foundation Models (VFMs) to diagnose Parkinson's Disease from limited 3D MR data, achieving state-of-the-art results in the MICCAI 2025 challenge by effectively utilizing multi-ROI supervised contrastive learning and an auxiliary segmentation head.",
+        "tldr_zh": "本文介绍了一种新颖的方法（MRN），利用2D视觉基础模型（VFMs）从有限的3D MR数据中诊断帕金森病。该方法在MICCAI 2025挑战赛中取得了最先进的成果，通过有效利用多ROI监督对比学习和辅助分割头。",
+        "relevance_score": 3,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 5
+    }
+]
