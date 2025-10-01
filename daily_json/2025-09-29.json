@@ -1,0 +1,385 @@
+[
+    {
+        "title": "EditScore: Unlocking Online RL for Image Editing via High-Fidelity Reward Modeling",
+        "summary": "Instruction-guided image editing has achieved remarkable progress, yet\ncurrent models still face challenges with complex instructions and often\nrequire multiple samples to produce a desired result. Reinforcement Learning\n(RL) offers a promising solution, but its adoption in image editing has been\nseverely hindered by the lack of a high-fidelity, efficient reward signal. In\nthis work, we present a comprehensive methodology to overcome this barrier,\ncentered on the development of a state-of-the-art, specialized reward model. We\nfirst introduce EditReward-Bench, a comprehensive benchmark to systematically\nevaluate reward models on editing quality. Building on this benchmark, we\ndevelop EditScore, a series of reward models (7B-72B) for evaluating the\nquality of instruction-guided image editing. Through meticulous data curation\nand filtering, EditScore effectively matches the performance of learning\nproprietary VLMs. Furthermore, coupled with an effective self-ensemble strategy\ntailored for the generative nature of EditScore, our largest variant even\nsurpasses GPT-5 in the benchmark. We then demonstrate that a high-fidelity\nreward model is the key to unlocking online RL for image editing. Our\nexperiments show that, while even the largest open-source VLMs fail to provide\nan effective learning signal, EditScore enables efficient and robust policy\noptimization. Applying our framework to a strong base model, OmniGen2, results\nin a final model that shows a substantial and consistent performance uplift.\nOverall, this work provides the first systematic path from benchmarking to\nreward modeling to RL training in image editing, showing that a high-fidelity,\ndomain-specialized reward model is the key to unlocking the full potential of\nRL in this domain.",
+        "url": "http://arxiv.org/abs/2509.23909v2",
+        "published_date": "2025-09-28T14:28:24+00:00",
+        "updated_date": "2025-09-30T15:34:18+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Xin Luo",
+            "Jiahao Wang",
+            "Chenyuan Wu",
+            "Shitao Xiao",
+            "Xiyan Jiang",
+            "Defu Lian",
+            "Jiajun Zhang",
+            "Dong Liu",
+            "Zheng liu"
+        ],
+        "tldr": "This paper introduces EditScore, a novel reward model for instruction-guided image editing, enabling efficient online RL training and achieving state-of-the-art performance.",
+        "tldr_zh": "该论文介绍了EditScore，一种用于指令引导图像编辑的新型奖励模型，能够进行有效的在线强化学习训练并实现最先进的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "PCRI: Measuring Context Robustness in Multimodal Models for Enterprise Applications",
+        "summary": "The reliability of Multimodal Large Language Models (MLLMs) in real-world\nsettings is often undermined by sensitivity to irrelevant or distracting visual\ncontext, an aspect not captured by existing evaluation metrics. We introduce\nthe \\textbf{Patch Context Robustness Index (PCRI)}, the first systematic and\ninterpretable score for quantifying MLLM robustness to variations in visual\ncontext granularity, measuring performance changes between localized image\npatches and full-image input.\n  Applying PCRI to 19 state-of-the-art MLLMs across 15 vision-language\nbenchmarks, we find that most leading models remain brittle to background\nnoise, with only a few, such as InternVL2-26B and Qwen2VL-72B, demonstrating\nconsistent robustness across tasks. PCRI analysis also highlights how different\nmodel architectures handle and integrate visual context, offering actionable\ndiagnostic insight for both researchers and practitioners.\n  PCRI enables rigorous comparison of context robustness, supporting principled\nmodel selection and guiding the development of future architectures and\ntraining strategies for robust, real-world deployment.",
+        "url": "http://arxiv.org/abs/2509.23879v1",
+        "published_date": "2025-09-28T13:39:57+00:00",
+        "updated_date": "2025-09-28T13:39:57+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.MM",
+            "68T50, 68T45",
+            "I.2.7; I.2.10; I.4.8; I.4.10; I.4.0"
+        ],
+        "authors": [
+            "Hitesh Laxmichand Patel",
+            "Amit Agarwal",
+            "Srikant Panda",
+            "Hansa Meghwani",
+            "Karan Dua",
+            "Paul Li",
+            "Tao Sheng",
+            "Sujith Ravi",
+            "Dan Roth"
+        ],
+        "tldr": "The paper introduces PCRI, a novel metric for evaluating the robustness of MLLMs to irrelevant visual context, revealing vulnerabilities in many state-of-the-art models and providing diagnostic insights.",
+        "tldr_zh": "该论文介绍了PCRI，一种用于评估MLLM对无关视觉上下文鲁棒性的新指标，揭示了许多最先进模型的漏洞，并提供了诊断性见解。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Efficient Multi-turn RL for GUI Agents via Decoupled Training and Adaptive Data Curation",
+        "summary": "Vision-language model (VLM) based GUI agents show promise for automating\ncomplex desktop and mobile tasks, but face significant challenges in applying\nreinforcement learning (RL): (1) slow multi-turn interactions with GUI\nenvironments for policy rollout, and (2) insufficient high-quality\nagent-environment interactions for policy learning. To address these\nchallenges, we propose DART, a Decoupled Agentic RL Training framework for GUI\nagents, which coordinates heterogeneous modules in a highly decoupled manner.\nDART separates the training system into four asynchronous modules: environment\ncluster, rollout service, data manager, and trainer. This design enables\nnon-blocking communication, asynchronous training, rollout-wise trajectory\nsampling, and per-worker model synchronization, significantly improving the\nsystem efficiency: 1.6*GPU utilization for rollout, 1.9* training throughput,\nand 5.5* environment utilization. To facilitate effective learning from\nabundant samples, we introduce an adaptive data curation scheme: (1)\npre-collecting successful trajectories for challenging tasks to supplement\nsparse success in online sampling; (2) dynamically adjusting rollout numbers\nand trajectory lengths based on task difficulty; (3) training selectively on\nhigh-entropy steps to prioritize critical decisions; (4) stabilizing learning\nvia truncated importance sampling for policy mismatch between policy rollout\nand updating. On the OSWorld benchmark, DART-GUI-7B achieves a 42.13% task\nsuccess rate, a 14.61% absolute gain over the base model, and 7.34% higher than\nopen-source SOTA. We will fully open-source our training framework, data, and\nmodel checkpoints via computer-use-agents.github.io/dart-gui, which we believe\nis a timely contribution to the open-source community of agentic RL training.",
+        "url": "http://arxiv.org/abs/2509.23866v1",
+        "published_date": "2025-09-28T13:19:20+00:00",
+        "updated_date": "2025-09-28T13:19:20+00:00",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Pengxiang Li",
+            "Zechen Hu",
+            "Zirui Shang",
+            "Jingrong Wu",
+            "Yang Liu",
+            "Hui Liu",
+            "Zhi Gao",
+            "Chenrui Shi",
+            "Bofei Zhang",
+            "Zihao Zhang",
+            "Xiaochuan Shi",
+            "Zedong YU",
+            "Yuwei Wu",
+            "Xinxiao Wu",
+            "Yunde Jia",
+            "Liuyu Xiang",
+            "Zhaofeng He",
+            "Qing Li"
+        ],
+        "tldr": "The paper introduces DART, a decoupled RL training framework for GUI agents, addressing challenges in slow interactions and insufficient high-quality data. It achieves significant improvements in system efficiency and task success rate on the OSWorld benchmark.",
+        "tldr_zh": "该论文介绍了DART，一个用于GUI代理的解耦RL训练框架，旨在解决慢速交互和高质量数据不足的问题。在OSWorld基准测试中，该框架在系统效率和任务成功率方面均取得了显著提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "CE-FAM: Concept-Based Explanation via Fusion of Activation Maps",
+        "summary": "Although saliency maps can highlight important regions to explain the\nreasoning behind image classification in artificial intelligence (AI), the\nmeaning of these regions is left to the user's interpretation. In contrast,\nconceptbased explanations decompose AI predictions into humanunderstandable\nconcepts, clarifying their contributions. However, few methods can\nsimultaneously reveal what concepts an image classifier learns, which regions\nare associated with them, and how they contribute to predictions. We propose a\nnovel concept-based explanation method, Concept-based Explanation via Fusion of\nActivation Maps (CE-FAM). It employs a branched network that shares activation\nmaps with an image classifier and learns to mimic the embeddings of a Vision\nand Language Model (VLM). The branch network predicts concepts in an image, and\ntheir corresponding regions are represented by a weighted sum of activation\nmaps, with weights given by the gradients of the concept prediction scores.\nTheir contributions are quantified based on their impact on the image\nclassification score. Our method provides a general framework for identifying\nthe concept regions and their contributions while leveraging VLM knowledge to\nhandle arbitrary concepts without requiring an annotated dataset. Furthermore,\nwe introduce a novel evaluation metric to assess the accuracy of the concept\nregions. Our qualitative and quantitative evaluations demonstrate our method\noutperforms existing approaches and excels in zero-shot inference for unseen\nconcepts.",
+        "url": "http://arxiv.org/abs/2509.23849v1",
+        "published_date": "2025-09-28T12:40:53+00:00",
+        "updated_date": "2025-09-28T12:40:53+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Michihiro Kuroki",
+            "Toshihiko Yamasaki"
+        ],
+        "tldr": "The paper introduces CE-FAM, a novel concept-based explanation method for image classifiers that fuses activation maps and leverages Vision and Language Models (VLMs) to identify concept regions and their contributions without requiring an annotated dataset, outperforming existing approaches in zero-shot settings.",
+        "tldr_zh": "该论文介绍了一种名为CE-FAM的新型基于概念的图像分类器解释方法，该方法融合了激活图并利用视觉语言模型（VLM）来识别概念区域及其贡献，无需带注释的数据集，并且在零样本设置中优于现有方法。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models",
+        "summary": "Artificial Intelligence have profoundly transformed the technological\nlandscape in recent years. Large Language Models (LLMs) have demonstrated\nimpressive abilities in reasoning, text comprehension, contextual pattern\nrecognition, and integrating language with visual understanding. While these\nadvances offer significant benefits, they also reveal critical limitations in\nthe models' ability to grasp the notion of privacy. There is hence substantial\ninterest in determining if and how these models can understand and enforce\nprivacy principles, particularly given the lack of supporting resources to test\nsuch a task. In this work, we address these challenges by examining how legal\nframeworks can inform the capabilities of these emerging technologies. To this\nend, we introduce a comprehensive, multi-level Visual Privacy Taxonomy that\ncaptures a wide range of privacy issues, designed to be scalable and adaptable\nto existing and future research needs. Furthermore, we evaluate the\ncapabilities of several state-of-the-art Vision-Language Models (VLMs),\nrevealing significant inconsistencies in their understanding of contextual\nprivacy. Our work contributes both a foundational taxonomy for future research\nand a critical benchmark of current model limitations, demonstrating the urgent\nneed for more robust, privacy-aware AI systems.",
+        "url": "http://arxiv.org/abs/2509.23827v1",
+        "published_date": "2025-09-28T12:04:54+00:00",
+        "updated_date": "2025-09-28T12:04:54+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Efthymios Tsaprazlis",
+            "Tiantian Feng",
+            "Anil Ramakrishna",
+            "Rahul Gupta",
+            "Shrikanth Narayanan"
+        ],
+        "tldr": "This paper introduces a visual privacy taxonomy to evaluate Vision-Language Models (VLMs) and reveals their inconsistencies in understanding contextual privacy, highlighting the need for privacy-aware AI.",
+        "tldr_zh": "本文提出了一种视觉隐私分类法，用于评估视觉语言模型（VLM），并揭示了它们在理解上下文隐私方面的不一致性，强调了对具有隐私意识的AI的需求。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "LUQ: Layerwise Ultra-Low Bit Quantization for Multimodal Large Language Models",
+        "summary": "Large Language Models (LLMs) with multimodal capabilities have revolutionized\nvision-language tasks, but their deployment often requires huge memory and\ncomputational resources. While post-training quantization (PTQ) has\nsuccessfully compressed language models to as low as 1-bit precision without\nsignificant performance loss, its effectiveness for multimodal LLMs (MLLMs)\nremains relatively unexplored. In this paper, we present the first study on\nultra-low bit (<4-bit) quantization for multimodal LLMs. Our analysis reveals\nthat multimodal tokens and intermediate layer activations produced by them\nexhibit significantly higher statistical variance and entropy compared to text\ntokens, making them less tolerant to ultra-low bit quantization. However, the\nactivation distributions of multimodal tokens varies significantly over\ndifferent layers, with some layers having lower entropy activation\ndistributions. We empirically show that such layers in these models can better\ntolerate ultra-low bit quantization. Building on these insights, we propose a\nnovel strategy for MLLM quantization, LUQ: Layerwise Ultra-Low Bit\nQuantization, which selectively applies ultra-low bit quantization to layers\nthat are more resilient to it. Additionally, we also show that using a mix of\nmultimodal tokens (image and text) for PTQ boosts VQA performance in the\nultra-low bit regime. We evaluate our method on LLaVA-1.5 and Qwen-2.5-VL\nacross 9 popular VQA benchmarks. The resulting LUQ models use 40% and 31% less\nmemory than their 4-bit counterparts, respectively, while exhibiting a\nperformance degradation of less than 10% on the MME benchmark.",
+        "url": "http://arxiv.org/abs/2509.23729v1",
+        "published_date": "2025-09-28T08:20:00+00:00",
+        "updated_date": "2025-09-28T08:20:00+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG",
+            "eess.IV"
+        ],
+        "authors": [
+            "Shubhang Bhatnagar",
+            "Andy Xu",
+            "Kar-Han Tan",
+            "Narendra Ahuja"
+        ],
+        "tldr": "This paper introduces LUQ, a layer-wise quantization strategy for multimodal LLMs that selectively applies ultra-low bit quantization to resilient layers, achieving significant memory reduction with minimal performance loss. The method uses a mix of multimodal tokens to boost performance in VQA tasks.",
+        "tldr_zh": "该论文介绍了LUQ，一种针对多模态LLM的层级量化策略，通过选择性地将超低比特量化应用于弹性层，实现了显著的内存减少，同时性能损失最小。该方法使用多模态token混合以提高VQA任务的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "HomeSafeBench: A Benchmark for Embodied Vision-Language Models in Free-Exploration Home Safety Inspection",
+        "summary": "Embodied agents can identify and report safety hazards in the home\nenvironments. Accurately evaluating their capabilities in home safety\ninspection tasks is curcial, but existing benchmarks suffer from two key\nlimitations. First, they oversimplify safety inspection tasks by using textual\ndescriptions of the environment instead of direct visual information, which\nhinders the accurate evaluation of embodied agents based on Vision-Language\nModels (VLMs). Second, they use a single, static viewpoint for environmental\nobservation, which restricts the agents' free exploration and cause the\nomission of certain safety hazards, especially those that are occluded from a\nfixed viewpoint. To alleviate these issues, we propose HomeSafeBench, a\nbenchmark with 12,900 data points covering five common home safety hazards:\nfire, electric shock, falling object, trips, and child safety. HomeSafeBench\nprovides dynamic first-person perspective images from simulated home\nenvironments, enabling the evaluation of VLM capabilities for home safety\ninspection. By allowing the embodied agents to freely explore the room,\nHomeSafeBench provides multiple dynamic perspectives in complex environments\nfor a more thorough inspection. Our comprehensive evaluation of mainstream VLMs\non HomeSafeBench reveals that even the best-performing model achieves an\nF1-score of only 10.23%, demonstrating significant limitations in current VLMs.\nThe models particularly struggle with identifying safety hazards and selecting\neffective exploration strategies. We hope HomeSafeBench will provide valuable\nreference and support for future research related to home security inspections.\nOur dataset and code will be publicly available soon.",
+        "url": "http://arxiv.org/abs/2509.23690v1",
+        "published_date": "2025-09-28T07:01:27+00:00",
+        "updated_date": "2025-09-28T07:01:27+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Siyuan Gao",
+            "Jiashu Yao",
+            "Haoyu Wen",
+            "Yuhang Guo",
+            "Zeming Liu",
+            "Heyan Huang"
+        ],
+        "tldr": "The paper introduces HomeSafeBench, a new benchmark for evaluating embodied Vision-Language Models (VLMs) in home safety inspection, addressing limitations of existing benchmarks by using dynamic, first-person visual input and allowing free exploration.",
+        "tldr_zh": "本文介绍了一个新的基准测试 HomeSafeBench，用于评估具身视觉语言模型 (VLM) 在家庭安全检查中的性能。该基准测试通过使用动态的第一人称视觉输入并允许自由探索，解决了现有基准测试的局限性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "RCI: A Score for Evaluating Global and Local Reasoning in Multimodal Benchmarks",
+        "summary": "Multimodal Large Language Models (MLLMs) have achieved impressive results on\nvision-language benchmarks, yet it remains unclear whether these benchmarks\nassess genuine global reasoning or allow success via localized visual cues.\nExisting evaluation methods do not explicitly measure this distinction,\nhindering effective dataset curation and real-world focused model development.\n  We introduce Region Comprehension Index (RCI), the first model-based score to\ndirectly quantify a dataset's reliance on global versus local visual\ninformation. RCI systematically compares reference-model performance on image\npatches versus full images, revealing if tasks require holistic image\nunderstanding or can be solved with partial or localized visual cues.\n  When applying RCI to 13 widely used multimodal benchmarks, we observed that\nmost of them favor localized reasoning and exhibit significant spatial biases,\nindicating potential risks in real-world applications. RCI equips researchers &\npractitioners with an actionable tool for diagnosing & mitigating these biases,\nenabling the construction of datasets and benchmarks to foster the development\nof robust, enterprise-ready multimodal systems.",
+        "url": "http://arxiv.org/abs/2509.23673v1",
+        "published_date": "2025-09-28T06:26:11+00:00",
+        "updated_date": "2025-09-28T06:26:11+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.MM",
+            "68T45, 68T50",
+            "I.2.7; I.2.10; I.4.7; I.4.8"
+        ],
+        "authors": [
+            "Amit Agarwal",
+            "Hitesh Laxmichand Patel",
+            "Srikant Panda",
+            "Hansa Meghwani",
+            "Jyotika Singh",
+            "Karan Dua",
+            "Paul Li",
+            "Tao Sheng",
+            "Sujith Ravi",
+            "Dan Roth"
+        ],
+        "tldr": "This paper introduces RCI, a model-based score to quantify a dataset's reliance on global versus local visual information in multimodal benchmarks, revealing that many benchmarks favor localized reasoning and exhibit spatial biases.",
+        "tldr_zh": "该论文介绍了RCI，一种基于模型的评分，用于量化多模态基准测试中数据集对全局与局部视觉信息的依赖程度，揭示了许多基准测试偏向于局部推理并表现出空间偏差。",
+        "relevance_score": 7,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "HIVTP: A Training-Free Method to Improve VLMs Efficiency via Hierarchical Visual Token Pruning Using Middle-Layer-Based Importance Score",
+        "summary": "Vision-Language Models (VLMs) have shown strong capabilities on diverse\nmultimodal tasks. However, the large number of visual tokens output by the\nvision encoder severely hinders inference efficiency, and prior studies have\nshown that many of these tokens are not important and can therefore be safely\npruned. In this work, we propose HIVTP, a training-free method to improve VLMs\nefficiency via hierarchical visual token pruning using a novel\nmiddle-layer-based importance score. Specifically, we utilize attention maps\nextracted from the middle layers of the vision encoder, which better reflect\nfine-grained and object-level attention, to estimate visual token importance.\nBased on this, we propose a hierarchical visual token pruning method to retain\nboth globally and locally important visual tokens. Specifically, we reshape the\n1-D visual token sequence output by the vision encoder into a 2-D spatial\nlayout. In the global retaining stage, we divide the image into regions and\nretain tokens with higher importance scores in each region; in the local\nretaining stage, we then divide the image into small windows and retain the\nmost important token in each local window. Experimental results show that our\nproposed method, HIVTP, can reduce the time-to-first-token (TTFT) of\nLLaVA-v1.5-7B and LLaVA-Next-7B by up to 50.0% and 55.1%, respectively, and\nimprove the token generation throughput by up to 60.9% and 47.3%, without\nsacrificing accuracy, and even achieving improvements on certain benchmarks.\nCompared with prior works, HIVTP achieves better accuracy while offering higher\ninference efficiency.",
+        "url": "http://arxiv.org/abs/2509.23663v1",
+        "published_date": "2025-09-28T05:53:39+00:00",
+        "updated_date": "2025-09-28T05:53:39+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jingqi Xu",
+            "Jingxi Lu",
+            "Chenghao Li",
+            "Sreetama Sarkar",
+            "Peter A. Beerel"
+        ],
+        "tldr": "The paper introduces HIVTP, a training-free method for pruning unimportant visual tokens in VLMs to improve inference efficiency, using attention maps from middle layers to identify and hierarchically prune tokens while maintaining or even improving accuracy.",
+        "tldr_zh": "该论文介绍了一种名为 HIVTP 的免训练方法，通过修剪 VLM 中不重要的视觉 tokens 来提高推理效率。它使用中间层的注意力图来识别并分层修剪 tokens，同时保持甚至提高准确性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Focusing on What Matters: Object-Agent-centric Tokenization for Vision Language Action models",
+        "summary": "Vision-Language-Action (VLA) models offer a pivotal approach to learning\nrobotic manipulation at scale by repurposing large pre-trained\nVision-Language-Models (VLM) to output robotic actions. However, adapting VLMs\nfor robotic domains comes with an unnecessarily high computational cost, which\nwe attribute to the tokenization scheme of visual inputs. In this work, we aim\nto enable efficient VLA training by proposing Oat-VLA, an Object-Agent-centric\nTokenization for VLAs. Building on the insights of object-centric\nrepresentation learning, our method introduces an inductive bias towards scene\nobjects and the agent's own visual information. As a result, we find that\nOat-VLA can drastically reduce the number of visual tokens to just a few tokens\nwithout sacrificing performance. We reveal that Oat-VLA converges at least\ntwice as fast as OpenVLA on the LIBERO suite, as well as outperform OpenVLA in\ndiverse real-world pick and place tasks.",
+        "url": "http://arxiv.org/abs/2509.23655v1",
+        "published_date": "2025-09-28T05:42:53+00:00",
+        "updated_date": "2025-09-28T05:42:53+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Rokas Bendikas",
+            "Daniel Dijkman",
+            "Markus Peschl",
+            "Sanjay Haresh",
+            "Pietro Mazzaglia"
+        ],
+        "tldr": "This paper introduces Oat-VLA, a novel tokenization method for Vision-Language-Action models that focuses on objects and the agent to reduce computational cost and improve training efficiency, showing promising results in robotic manipulation tasks.",
+        "tldr_zh": "该论文介绍了一种新的视觉-语言-动作模型（VLA）的标记化方法 Oat-VLA，该方法侧重于对象和代理以降低计算成本并提高训练效率，并在机器人操作任务中显示出可喜的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Bridging the Task Gap: Multi-Task Adversarial Transferability in CLIP and Its Derivatives",
+        "summary": "As a general-purpose vision-language pretraining model, CLIP demonstrates\nstrong generalization ability in image-text alignment tasks and has been widely\nadopted in downstream applications such as image classification and image-text\nretrieval. However, it struggles with fine-grained tasks such as object\ndetection and semantic segmentation. While many variants aim to improve CLIP on\nthese tasks, its robustness to adversarial perturbations remains underexplored.\nUnderstanding how adversarial examples transfer across tasks is key to\nassessing CLIP's generalization limits and security risks. In this work, we\nconduct a systematic empirical analysis of the cross-task transfer behavior of\nCLIP-based models on image-text retrieval, object detection, and semantic\nsegmentation under adversarial perturbations. We find that adversarial examples\ngenerated from fine-grained tasks (e.g., object detection and semantic\nsegmentation) often exhibit stronger transfer potential than those from\ncoarse-grained tasks, enabling more effective attacks against the original CLIP\nmodel. Motivated by this observation, we propose a novel framework, Multi-Task\nAdversarial CLIP (MT-AdvCLIP), which introduces a task-aware feature\naggregation loss and generates perturbations with enhanced cross-task\ngeneralization capability. This design strengthens the attack effectiveness of\nfine-grained task models on the shared CLIP backbone. Experimental results on\nmultiple public datasets show that MT-AdvCLIP significantly improves the\nadversarial transfer success rate (The average attack success rate across\nmultiple tasks is improved by over 39%.) against various CLIP-derived models,\nwithout increasing the perturbation budget. This study reveals the transfer\nmechanism of adversarial examples in multi-task CLIP models, offering new\ninsights into multi-task robustness evaluation and adversarial example design.",
+        "url": "http://arxiv.org/abs/2509.23917v1",
+        "published_date": "2025-09-28T14:46:52+00:00",
+        "updated_date": "2025-09-28T14:46:52+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Kuanrong Liu",
+            "Siyuan Liang",
+            "Cheng Qian",
+            "Ming Zhang",
+            "Xiaochun Cao"
+        ],
+        "tldr": "This paper analyzes adversarial transferability in CLIP and its variants across image-text retrieval, object detection, and semantic segmentation, finding fine-grained tasks create stronger attacks and proposing MT-AdvCLIP to improve adversarial robustness evaluation and attack effectiveness.",
+        "tldr_zh": "本文分析了CLIP及其变体在图像-文本检索、目标检测和语义分割中的对抗迁移性，发现细粒度任务产生更强的攻击，并提出了MT-AdvCLIP以提高对抗鲁棒性评估和攻击有效性。",
+        "relevance_score": 6,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Video Panels for Long Video Understanding",
+        "summary": "Recent Video-Language Models (VLMs) achieve promising results on long-video\nunderstanding, but their performance still lags behind that achieved on tasks\ninvolving images or short videos. This has led to great interest in improving\nthe long context modeling of VLMs by introducing novel modules and additional\ncomplexity. % additional training time. In this paper, we take a different\napproach: rather than fine-tuning VLMs with the limited data available, we\nattempt to maximize the performance of existing models. To this end, we propose\na novel visual prompting strategy specifically designed for long-video\nunderstanding. By combining multiple frames as panels into one image, we\neffectively trade off spatial details for temporal resolution. Our approach is\ntraining-free, parameter-free, and model-agnostic, and can be seamlessly\nintegrated into existing VLMs. Extensive experiments on five established\nbenchmarks across a wide range of model architectures, sizes, and context\nwindows confirm the consistency of our approach. For the TimeScope (Long)\ndataset, which has the longest videos, the accuracy for video question\nanswering is improved by up to 19.4\\%. Overall, our method raises the bar for\nlong video understanding models. We will make our code available upon\nacceptance.",
+        "url": "http://arxiv.org/abs/2509.23724v1",
+        "published_date": "2025-09-28T08:05:55+00:00",
+        "updated_date": "2025-09-28T08:05:55+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Lars Doorenbos",
+            "Federico Spurio",
+            "Juergen Gall"
+        ],
+        "tldr": "This paper introduces a training-free visual prompting strategy called \"Video Panels\" to improve the performance of existing VLMs on long video understanding tasks by trading spatial details for temporal resolution. It achieves significant performance gains on several benchmarks.",
+        "tldr_zh": "该论文提出了一种名为“视频面板”的免训练视觉提示策略，通过牺牲空间细节来换取时间分辨率，从而提高现有VLM在长视频理解任务中的性能。 在多个基准测试中取得了显著的性能提升。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "VAMamba: An Efficient Visual Adaptive Mamba for Image Restoration",
+        "summary": "Recent Mamba-based image restoration methods have achieved promising results\nbut remain\n  limited by fixed scanning patterns and inefficient feature utilization.\nConventional Mamba\n  architectures rely on predetermined paths that cannot adapt to diverse\ndegradations, constraining\n  both restoration performance and computational efficiency. To overcome these\nlimitations, we\n  propose VAMamba, a Visual Adaptive Mamba framework with two key innovations.\nFirst,\n  QCLAM(Queue-basedCacheLow-rankAdaptiveMemory)enhancesfeaturelearningthrougha\n  FIFO cache that stores historical representations. Similarity between current\nLoRA-adapted and\n  cached features guides intelligent fusion, enabling dynamic reuse while\neffectively controlling\n  memorygrowth.Second, GPS-SS2D(GreedyPathScanSS2D)introducesadaptive scanning.\nA\n  Vision Transformer generates score maps to estimate pixel importance, and a\ngreedy strategy de termines optimal forward and backward scanning paths. These\nlearned trajectories replace rigid\n  patterns, enabling SS2D to perform targeted feature extraction. The\nintegration of QCLAM and\n  GPS-SS2D allows VAMamba to adaptively focus on degraded regions while\nmaintaining high\n  computational efficiency. Extensive experiments across diverse restoration\ntasks demonstrate\n  that VAMamba consistently outperforms existing approaches in both restoration\nquality and\n  efficiency, establishing new benchmarks for adaptive image restoration. Our\ncode is available\n  at https://github.com/WaterHQH/VAMamba.",
+        "url": "http://arxiv.org/abs/2509.23601v1",
+        "published_date": "2025-09-28T03:12:43+00:00",
+        "updated_date": "2025-09-28T03:12:43+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Han Hu",
+            "Zhuoran Zheng",
+            "Liang Li",
+            "Chen Lyu"
+        ],
+        "tldr": "This paper introduces VAMamba, a novel Mamba-based image restoration framework with adaptive scanning and feature learning mechanisms, achieving state-of-the-art performance and efficiency on various restoration tasks.",
+        "tldr_zh": "本文介绍了VAMamba，一种新型的基于Mamba的图像恢复框架，具有自适应扫描和特征学习机制，在各种恢复任务上实现了最先进的性能和效率。",
+        "relevance_score": 3,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 5
+    },
+    {
+        "title": "RAVEN: Resilient Aerial Navigation via Open-Set Semantic Memory and Behavior Adaptation",
+        "summary": "Aerial outdoor semantic navigation requires robots to explore large,\nunstructured environments to locate target objects. Recent advances in semantic\nnavigation have demonstrated open-set object-goal navigation in indoor\nsettings, but these methods remain limited by constrained spatial ranges and\nstructured layouts, making them unsuitable for long-range outdoor search. While\noutdoor semantic navigation approaches exist, they either rely on reactive\npolicies based on current observations, which tend to produce short-sighted\nbehaviors, or precompute scene graphs offline for navigation, limiting\nadaptability to online deployment. We present RAVEN, a 3D memory-based,\nbehavior tree framework for aerial semantic navigation in unstructured outdoor\nenvironments. It (1) uses a spatially consistent semantic voxel-ray map as\npersistent memory, enabling long-horizon planning and avoiding purely reactive\nbehaviors, (2) combines short-range voxel search and long-range ray search to\nscale to large environments, (3) leverages a large vision-language model to\nsuggest auxiliary cues, mitigating sparsity of outdoor targets. These\ncomponents are coordinated by a behavior tree, which adaptively switches\nbehaviors for robust operation. We evaluate RAVEN in 10 photorealistic outdoor\nsimulation environments over 100 semantic tasks, encompassing single-object\nsearch, multi-class, multi-instance navigation and sequential task changes.\nResults show RAVEN outperforms baselines by 85.25% in simulation and\ndemonstrate its real-world applicability through deployment on an aerial robot\nin outdoor field tests.",
+        "url": "http://arxiv.org/abs/2509.23563v1",
+        "published_date": "2025-09-28T01:43:25+00:00",
+        "updated_date": "2025-09-28T01:43:25+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Seungchan Kim",
+            "Omar Alama",
+            "Dmytro Kurdydyk",
+            "John Keller",
+            "Nikhil Keetha",
+            "Wenshan Wang",
+            "Yonatan Bisk",
+            "Sebastian Scherer"
+        ],
+        "tldr": "RAVEN is a 3D memory-based behavior tree framework for resilient aerial semantic navigation in unstructured outdoor environments, leveraging a vision-language model for auxiliary cues and demonstrating significant improvements over baselines in simulation and real-world deployment.",
+        "tldr_zh": "RAVEN是一个基于3D记忆的行为树框架，用于在非结构化户外环境中实现弹性的空中语义导航。它利用视觉-语言模型提供辅助线索，并在模拟和真实部署中显著优于基线方法。",
+        "relevance_score": 4,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 6,
+        "overall_priority_score": 5
+    }
+]
