@@ -1,0 +1,671 @@
+[
+    {
+        "title": "Strategic Fusion of Vision Language Models: Shapley-Credited Context-Aware Dawid-Skene for Multi-Label Tasks in Autonomous Driving",
+        "summary": "Large vision-language models (VLMs) are increasingly used in\nautonomous-vehicle (AV) stacks, but hallucination limits their reliability in\nsafety-critical pipelines. We present Shapley-credited Context-Aware\nDawid-Skene with Agreement, a game-theoretic fusion method for multi-label\nunderstanding of ego-view dashcam video. It learns per-model, per-label,\ncontext-conditioned reliabilities from labelled history and, at inference,\nconverts each model's report into an agreement-guardrailed log-likelihood ratio\nthat is combined with a contextual prior and a public reputation state updated\nvia Shapley-based team credit. The result is calibrated, thresholdable\nposteriors that (i) amplify agreement among reliable models, (ii) preserve\nuniquely correct single-model signals, and (iii) adapt to drift. To specialise\ngeneral VLMs, we curate 1,000 real-world dashcam clips with structured\nannotations (scene description, manoeuvre recommendation, rationale) via an\nautomatic pipeline that fuses HDD ground truth, vehicle kinematics, and YOLOv11\n+ BoT-SORT tracking, guided by a three-step chain-of-thought prompt; three\nheterogeneous VLMs are then fine-tuned with LoRA. We evaluate with Hamming\ndistance, Micro-Macro-F1, and average per-video latency. Empirically, the\nproposed method achieves a 23% reduction in Hamming distance, 55% improvement\nin Macro-F1, and 47% improvement in Micro-F1 when comparing with the best\nsingle model, supporting VLM fusion as a calibrated, interpretable, and robust\ndecision-support component for AV pipelines.",
+        "url": "http://arxiv.org/abs/2510.01126v1",
+        "published_date": "2025-10-01T17:14:11+00:00",
+        "updated_date": "2025-10-01T17:14:11+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Yuxiang Feng",
+            "Keyang Zhang",
+            "Hassane Ouchouid",
+            "Ashwil Kaniamparambil",
+            "Ioannis Souflas",
+            "Panagiotis Angeloudis"
+        ],
+        "tldr": "This paper introduces a novel game-theoretic fusion method, Shapley-credited Context-Aware Dawid-Skene with Agreement, to improve the reliability of vision-language models (VLMs) in autonomous driving by addressing hallucination issues and enhancing multi-label understanding.",
+        "tldr_zh": "本文介绍了一种新的博弈论融合方法，即具有协议的 Shapley 信任的上下文感知 Dawid-Skene，通过解决幻觉问题并增强多标签理解，从而提高视觉语言模型 (VLM) 在自动驾驶中的可靠性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "KeySG: Hierarchical Keyframe-Based 3D Scene Graphs",
+        "summary": "In recent years, 3D scene graphs have emerged as a powerful world\nrepresentation, offering both geometric accuracy and semantic richness.\nCombining 3D scene graphs with large language models enables robots to reason,\nplan, and navigate in complex human-centered environments. However, current\napproaches for constructing 3D scene graphs are semantically limited to a\npredefined set of relationships, and their serialization in large environments\ncan easily exceed an LLM's context window. We introduce KeySG, a framework that\nrepresents 3D scenes as a hierarchical graph consisting of floors, rooms,\nobjects, and functional elements, where nodes are augmented with multi-modal\ninformation extracted from keyframes selected to optimize geometric and visual\ncoverage. The keyframes allow us to efficiently leverage VLM to extract scene\ninformation, alleviating the need to explicitly model relationship edges\nbetween objects, enabling more general, task-agnostic reasoning and planning.\nOur approach can process complex and ambiguous queries while mitigating the\nscalability issues associated with large scene graphs by utilizing a\nhierarchical retrieval-augmented generation (RAG) pipeline to extract relevant\ncontext from the graph. Evaluated across four distinct benchmarks -- including\n3D object segmentation and complex query retrieval -- KeySG outperforms prior\napproaches on most metrics, demonstrating its superior semantic richness and\nefficiency.",
+        "url": "http://arxiv.org/abs/2510.01049v1",
+        "published_date": "2025-10-01T15:53:27+00:00",
+        "updated_date": "2025-10-01T15:53:27+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Abdelrhman Werby",
+            "Dennis Rotondi",
+            "Fabio Scaparro",
+            "Kai O. Arras"
+        ],
+        "tldr": "The paper introduces KeySG, a hierarchical keyframe-based 3D scene graph representation that leverages VLMs for enhanced semantic understanding and efficient reasoning in large environments, outperforming existing methods in semantic richness and efficiency.",
+        "tldr_zh": "该论文介绍了KeySG，一种基于分层关键帧的三维场景图表示，利用VLMs来增强语义理解和在大规模环境中的高效推理，并在语义丰富度和效率方面优于现有方法。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "ImageDoctor: Diagnosing Text-to-Image Generation via Grounded Image Reasoning",
+        "summary": "The rapid advancement of text-to-image (T2I) models has increased the need\nfor reliable human preference modeling, a demand further amplified by recent\nprogress in reinforcement learning for preference alignment. However, existing\napproaches typically quantify the quality of a generated image using a single\nscalar, limiting their ability to provide comprehensive and interpretable\nfeedback on image quality. To address this, we introduce ImageDoctor, a unified\nmulti-aspect T2I model evaluation framework that assesses image quality across\nfour complementary dimensions: plausibility, semantic alignment, aesthetics,\nand overall quality. ImageDoctor also provides pixel-level flaw indicators in\nthe form of heatmaps, which highlight misaligned or implausible regions, and\ncan be used as a dense reward for T2I model preference alignment. Inspired by\nthe diagnostic process, we improve the detail sensitivity and reasoning\ncapability of ImageDoctor by introducing a \"look-think-predict\" paradigm, where\nthe model first localizes potential flaws, then generates reasoning, and\nfinally concludes the evaluation with quantitative scores. Built on top of a\nvision-language model and trained through a combination of supervised\nfine-tuning and reinforcement learning, ImageDoctor demonstrates strong\nalignment with human preference across multiple datasets, establishing its\neffectiveness as an evaluation metric. Furthermore, when used as a reward model\nfor preference tuning, ImageDoctor significantly improves generation quality --\nachieving an improvement of 10% over scalar-based reward models.",
+        "url": "http://arxiv.org/abs/2510.01010v1",
+        "published_date": "2025-10-01T15:15:55+00:00",
+        "updated_date": "2025-10-01T15:15:55+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yuxiang Guo",
+            "Jiang Liu",
+            "Ze Wang",
+            "Hao Chen",
+            "Ximeng Sun",
+            "Yang Zhao",
+            "Jialian Wu",
+            "Xiaodong Yu",
+            "Zicheng Liu",
+            "Emad Barsoum"
+        ],
+        "tldr": "The paper introduces ImageDoctor, a multi-aspect T2I evaluation framework with pixel-level flaw indicators, demonstrating improved performance compared to scalar-based methods and enhancing T2I model preference alignment.",
+        "tldr_zh": "该论文介绍了ImageDoctor，一个多方面的文本到图像生成（T2I）评估框架，具有像素级缺陷指标，与标量方法相比表现出改进的性能，并增强了T2I模型的偏好对齐。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "POVQA: Preference-Optimized Video Question Answering with Rationales for Data Efficiency",
+        "summary": "Video Question Answering (VQA) with Large Vision Language Models (LVLMs) has\ngained significant traction in research ever since the Flamingo was introduced\nby Deepmind. Recent advancements in large context/long video question answering\nhave allowed VQA tasks to have context window of 1500+ frames. However, this\nonly leads to 50 seconds of video footage without losing any significant\ninformation. We introduce POVQA, a data-efficient pipeline that compresses each\nsecond of video into a single temporally pooled image (via motion blur and\nweighted averaging variants) and then align LVLMs with lightweight supervision.\nConcretely, we build 1 fps input sources using Blend Blur with Last Frame,\nWeighted Average, Exponential and Ramp pooling and fine-tune QWEN-2.5-VL 7B\nwith supervised two turn target including reasoning and final answer. We apply\nSupervised Fine Tuning (SFT) and Direct Preference Optimization (DPO) on our\nnovel dataset ReasonVQA consisting of 12 movies with 239 human annotated\nquestion-answer with reasoning prompts. On our ReasonVQA dataset, this method\ndramatically improves performance over pooled baselines: F1 score improves from\n0.212 to 0.543, BLEU-4 from 0.031 to 0.291, and ROUGE-L from 0.196 to 0.528.\nRationale quality also significantly increases. Cross-evaluation of SFT + DPO\non various pooling functions show that the gains persist regardless of the\npooling scheme used at train or test time, indicating strong robustness on\nsummarization of temporal evidence. Similar observations were made on zero-shot\nin TVQA.",
+        "url": "http://arxiv.org/abs/2510.01009v1",
+        "published_date": "2025-10-01T15:15:36+00:00",
+        "updated_date": "2025-10-01T15:15:36+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.MM"
+        ],
+        "authors": [
+            "Ashim Dahal",
+            "Ankit Ghimire",
+            "Saydul Akbar Murad",
+            "Nick Rahimi"
+        ],
+        "tldr": "The paper introduces POVQA, a data-efficient VQA pipeline that compresses video frames using temporal pooling and aligns LVLMs with lightweight supervision via SFT and DPO, demonstrating significant performance improvements on a new dataset, ReasonVQA.",
+        "tldr_zh": "该论文介绍了POVQA，一种数据高效的视频问答（VQA）流程，它使用时间池化压缩视频帧，并通过SFT和DPO对齐LVLM进行轻量级监督，并在新数据集ReasonVQA上展示了显著的性能改进。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "TextCAM: Explaining Class Activation Map with Text",
+        "summary": "Deep neural networks (DNNs) have achieved remarkable success across domains\nbut remain difficult to interpret, limiting their trustworthiness in\nhigh-stakes applications. This paper focuses on deep vision models, for which a\ndominant line of explainability methods are Class Activation Mapping (CAM) and\nits variants working by highlighting spatial regions that drive predictions. We\nfigure out that CAM provides little semantic insight into what attributes\nunderlie these activations. To address this limitation, we propose TextCAM, a\nnovel explanation framework that enriches CAM with natural languages. TextCAM\ncombines the precise spatial localization of CAM with the semantic alignment of\nvision-language models (VLMs). Specifically, we derive channel-level semantic\nrepresentations using CLIP embeddings and linear discriminant analysis, and\naggregate them with CAM weights to produce textual descriptions of salient\nvisual evidence. This yields explanations that jointly specify where the model\nattends and what visual attributes likely support its decision. We further\nextend TextCAM to generate feature channels into semantically coherent groups,\nenabling more fine-grained visual-textual explanations. Experiments on\nImageNet, CLEVR, and CUB demonstrate that TextCAM produces faithful and\ninterpretable rationales that improve human understanding, detect spurious\ncorrelations, and preserve model fidelity.",
+        "url": "http://arxiv.org/abs/2510.01004v1",
+        "published_date": "2025-10-01T15:11:14+00:00",
+        "updated_date": "2025-10-01T15:11:14+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Qiming Zhao",
+            "Xingjian Li",
+            "Xiaoyu Cao",
+            "Xiaolong Wu",
+            "Min Xu"
+        ],
+        "tldr": "The paper introduces TextCAM, a novel explanation framework that enhances Class Activation Mapping (CAM) with natural language descriptions by leveraging vision-language models to provide more semantic insight into model activations, improving interpretability and faithfulness.",
+        "tldr_zh": "该论文介绍了TextCAM，一种新颖的解释框架，通过利用视觉-语言模型增强类激活映射（CAM），并提供自然语言描述，从而为模型激活提供更深层的语义理解，提高可解释性和可信度。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Visual Self-Refinement for Autoregressive Models",
+        "summary": "Autoregressive models excel in sequential modeling and have proven to be\neffective for vision-language data. However, the spatial nature of visual\nsignals conflicts with the sequential dependencies of next-token prediction,\nleading to suboptimal results. This work proposes a plug-and-play refinement\nmodule to enhance the complex spatial correspondence modeling within the\ngenerated visual sequence. This module operates as a post-pretraining step to\njointly refine all generated tokens of autoregressive model, enhancing\nvision-language modeling under a shared sequential prediction framework. By\nleveraging global context and relationship across the tokens, our method\nmitigates the error accumulation issue within the sequential generation.\nExperiments demonstrate that the proposed method improves the generation\nquality, enhancing the model's ability to produce semantically consistent\nresults.",
+        "url": "http://arxiv.org/abs/2510.00993v1",
+        "published_date": "2025-10-01T15:03:32+00:00",
+        "updated_date": "2025-10-01T15:03:32+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jiamian Wang",
+            "Ziqi Zhou",
+            "Chaithanya Kumar Mummadi",
+            "Sohail Dianat",
+            "Majid Rabbani",
+            "Raghuveer Rao",
+            "Chen Qiu",
+            "Zhiqiang Tao"
+        ],
+        "tldr": "This paper introduces a plug-and-play refinement module for autoregressive vision-language models to improve spatial correspondence modeling and generation quality by refining generated tokens post-pretraining.",
+        "tldr_zh": "该论文介绍了一种用于自回归视觉语言模型的即插即用细化模块，通过在预训练后细化生成的 tokens 来提高空间对应建模和生成质量。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "JEPA-T: Joint-Embedding Predictive Architecture with Text Fusion for Image Generation",
+        "summary": "Modern Text-to-Image (T2I) generation increasingly relies on token-centric\narchitectures that are trained with self-supervision, yet effectively fusing\ntext with visual tokens remains a challenge. We propose \\textbf{JEPA-T}, a\nunified multimodal framework that encodes images and captions into discrete\nvisual and textual tokens, processed by a joint-embedding predictive\nTransformer. To enhance fusion, we incorporate cross-attention after the\nfeature predictor for conditional denoising while maintaining a task-agnostic\nbackbone. Additionally, raw texts embeddings are injected prior to the flow\nmatching loss to improve alignment during training. During inference, the same\nnetwork performs both class-conditional and free-text image generation by\niteratively denoising visual tokens conditioned on text. Evaluations on\nImageNet-1K demonstrate that JEPA-T achieves strong data efficiency,\nopen-vocabulary generalization, and consistently outperforms non-fusion and\nlate-fusion baselines. Our approach shows that late architectural fusion\ncombined with objective-level alignment offers an effective balance between\nconditioning strength and backbone generality in token-based T2I.The code is\nnow available: https://github.com/justin-herry/JEPA-T.git",
+        "url": "http://arxiv.org/abs/2510.00974v1",
+        "published_date": "2025-10-01T14:51:10+00:00",
+        "updated_date": "2025-10-01T14:51:10+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Siheng Wan",
+            "Zhengtao Yao",
+            "Zhengdao Li",
+            "Junhao Dong",
+            "Yanshu Li",
+            "Yikai Li",
+            "Linshan Li",
+            "Haoyan Xu",
+            "Yijiang Li",
+            "Zhikang Dong",
+            "Huacan Wang",
+            "Jifeng Shen"
+        ],
+        "tldr": "JEPA-T is a multimodal framework for text-to-image generation that uses a joint-embedding predictive Transformer with cross-attention and text embedding injection to improve text-visual fusion and achieve strong results on ImageNet-1K.",
+        "tldr_zh": "JEPA-T是一个用于文本到图像生成的多模态框架，它使用联合嵌入预测Transformer，结合交叉注意力和文本嵌入注入来改善文本-视觉融合，并在ImageNet-1K上取得了不错的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Can World Models Benefit VLMs for World Dynamics?",
+        "summary": "Trained on internet-scale video data, generative world models are\nincreasingly recognized as powerful world simulators that can generate\nconsistent and plausible dynamics over structure, motion, and physics. This\nraises a natural question: with the advent of strong video foundational models,\nmight they supplant conventional vision encoder paradigms for general-purpose\nmultimodal understanding? While recent studies have begun to explore the\npotential of world models on common vision tasks, these explorations typically\nlack a systematic investigation of generic, multimodal tasks. In this work, we\nstrive to investigate the capabilities when world model priors are transferred\ninto Vision-Language Models: we re-purpose a video diffusion model as a\ngenerative encoder to perform a single denoising step and treat the resulting\nlatents as a set of visual embedding. We empirically investigate this class of\nmodels, which we refer to as World-Language Models (WorldLMs), and we find that\ngenerative encoders can capture latents useful for downstream understanding\nthat show distinctions from conventional encoders. Naming our best-performing\nvariant Dynamic Vision Aligner (DyVA), we further discover that this method\nsignificantly enhances spatial reasoning abilities and enables single-image\nmodels to perform multi-frame reasoning. Through the curation of a suite of\nvisual reasoning tasks, we find DyVA to surpass both open-source and\nproprietary baselines, achieving state-of-the-art or comparable performance. We\nattribute these gains to WorldLM's inherited motion-consistency internalization\nfrom video pre-training. Finally, we systematically explore extensive model\ndesigns to highlight promising directions for future work. We hope our study\ncan pave the way for a new family of VLMs that leverage priors from world\nmodels and are on a promising path towards generalist vision learners.",
+        "url": "http://arxiv.org/abs/2510.00855v1",
+        "published_date": "2025-10-01T13:07:05+00:00",
+        "updated_date": "2025-10-01T13:07:05+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.LG"
+        ],
+        "authors": [
+            "Kevin Zhang",
+            "Kuangzhi Ge",
+            "Xiaowei Chi",
+            "Renrui Zhang",
+            "Shaojun Shi",
+            "Zhen Dong",
+            "Sirui Han",
+            "Shanghang Zhang"
+        ],
+        "tldr": "The paper introduces World-Language Models (WorldLMs), specifically Dynamic Vision Aligner (DyVA), which leverages video diffusion models as generative encoders for VLMs, demonstrating improved spatial and multi-frame reasoning, and achieving SOTA performance on visual reasoning tasks.",
+        "tldr_zh": "该论文介绍了世界语言模型(WorldLMs)，特别是动态视觉对齐器(DyVA)，它利用视频扩散模型作为生成编码器，用于视觉语言模型，展示了改进的空间和多帧推理能力，并在视觉推理任务上实现了SOTA性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "From Seeing to Predicting: A Vision-Language Framework for Trajectory Forecasting and Controlled Video Generation",
+        "summary": "Current video generation models produce physically inconsistent motion that\nviolates real-world dynamics. We propose TrajVLM-Gen, a two-stage framework for\nphysics-aware image-to-video generation. First, we employ a Vision Language\nModel to predict coarse-grained motion trajectories that maintain consistency\nwith real-world physics. Second, these trajectories guide video generation\nthrough attention-based mechanisms for fine-grained motion refinement. We build\na trajectory prediction dataset based on video tracking data with realistic\nmotion patterns. Experiments on UCF-101 and MSR-VTT demonstrate that\nTrajVLM-Gen outperforms existing methods, achieving competitive FVD scores of\n545 on UCF-101 and 539 on MSR-VTT.",
+        "url": "http://arxiv.org/abs/2510.00806v1",
+        "published_date": "2025-10-01T12:11:36+00:00",
+        "updated_date": "2025-10-01T12:11:36+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Fan Yang",
+            "Zhiyang Chen",
+            "Yousong Zhu",
+            "Xin Li",
+            "Jinqiao Wang"
+        ],
+        "tldr": "TrajVLM-Gen is a two-stage framework that uses a Vision Language Model to predict motion trajectories for physics-aware image-to-video generation, outperforming existing methods on UCF-101 and MSR-VTT datasets.",
+        "tldr_zh": "TrajVLM-Gen是一个两阶段框架，它使用视觉语言模型预测运动轨迹，从而实现物理感知图像到视频的生成，并在UCF-101和MSR-VTT数据集上优于现有方法。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Multi-Objective Task-Aware Predictor for Image-Text Alignment",
+        "summary": "Evaluating image-text alignment while reflecting human preferences across\nmultiple aspects is a significant issue for the development of reliable\nvision-language applications. It becomes especially crucial in real-world\nscenarios where multiple valid descriptions exist depending on contexts or user\nneeds. However, research progress is hindered by the lack of comprehensive\nbenchmarks and existing evaluation predictors lacking at least one of these key\nproperties: (1) Alignment with human judgments, (2) Long-sequence processing,\n(3) Inference efficiency, and (4) Applicability to multi-objective scoring. To\naddress these challenges, we propose a plug-and-play architecture to build a\nrobust predictor, MULTI-TAP (Multi-Objective Task-Aware Predictor), capable of\nboth multi and single-objective scoring. MULTI-TAP can produce a single overall\nscore, utilizing a reward head built on top of a large vision-language model\n(LVLMs). We show that MULTI-TAP is robust in terms of application to different\nLVLM architectures, achieving significantly higher performance than existing\nmetrics and even on par with the GPT-4o-based predictor, G-VEval, with a\nsmaller size (7-8B). By training a lightweight ridge regression layer on the\nfrozen hidden states of a pre-trained LVLM, MULTI-TAP can produce fine-grained\nscores for multiple human-interpretable objectives. MULTI-TAP performs better\nthan VisionREWARD, a high-performing multi-objective reward model, in both\nperformance and efficiency on multi-objective benchmarks and our newly released\ntext-image-to-text dataset, EYE4ALL. Our new dataset, consisting of\nchosen/rejected human preferences (EYE4ALLPref) and human-annotated\nfine-grained scores across seven dimensions (EYE4ALLMulti), can serve as a\nfoundation for developing more accessible AI systems by capturing the\nunderlying preferences of users, including blind and low-vision (BLV)\nindividuals.",
+        "url": "http://arxiv.org/abs/2510.00766v1",
+        "published_date": "2025-10-01T10:55:33+00:00",
+        "updated_date": "2025-10-01T10:55:33+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Eunki Kim",
+            "Na Min An",
+            "James Thorne",
+            "Hyunjung Shim"
+        ],
+        "tldr": "The paper introduces MULTI-TAP, a plug-and-play architecture for multi-objective image-text alignment scoring, surpassing existing metrics and approaching GPT-4o performance with a smaller model size, and also presents a new dataset EYE4ALL for training and evaluating such models, with a focus on accessibility.",
+        "tldr_zh": "该论文介绍了一种用于多目标图像-文本对齐评分的即插即用架构MULTI-TAP，其性能超越现有指标，并以更小的模型尺寸接近GPT-4o的性能。此外，还提出了一个新的数据集EYE4ALL，用于训练和评估此类模型，重点关注可访问性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Training-free Uncertainty Guidance for Complex Visual Tasks with MLLMs",
+        "summary": "Multimodal Large Language Models (MLLMs) often struggle with fine-grained\nperception, such as identifying small objects in high-resolution images or\nfinding key moments in long videos. Existing works typically rely on\ncomplicated, task-specific fine-tuning, which limits their generalizability and\nincreases model complexity. In this work, we propose an effective,\ntraining-free framework that uses an MLLM's intrinsic uncertainty as a\nproactive guidance signal. Our core insight is that a model's output entropy\ndecreases when presented with relevant visual information. We introduce a\nunified mechanism that scores candidate visual inputs by response uncertainty,\nenabling the model to autonomously focus on the most salient data. We apply\nthis simple principle to three complex visual tasks: Visual Search, Long Video\nUnderstanding, and Temporal Grounding, allowing off-the-shelf MLLMs to achieve\nperformance competitive with specialized, fine-tuned methods. Our work\nvalidates that harnessing intrinsic uncertainty is a powerful, general strategy\nfor enhancing fine-grained multimodal performance.",
+        "url": "http://arxiv.org/abs/2510.00705v1",
+        "published_date": "2025-10-01T09:20:51+00:00",
+        "updated_date": "2025-10-01T09:20:51+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Sanghwan Kim",
+            "Rui Xiao",
+            "Stephan Alaniz",
+            "Yongqin Xian",
+            "Zeynep Akata"
+        ],
+        "tldr": "This paper introduces a training-free method using MLLM's intrinsic uncertainty to improve performance on complex visual tasks, achieving competitive results compared to fine-tuned methods.",
+        "tldr_zh": "本文介绍了一种无需训练的方法，利用MLLM的内在不确定性来提高复杂视觉任务的性能，与微调方法相比，取得了具有竞争力的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "OTTER: Open-Tagging via Text-Image Representation for Multi-modal Understanding",
+        "summary": "We introduce OTTER, a unified open-set multi-label tagging framework that\nharmonizes the stability of a curated, predefined category set with the\nadaptability of user-driven open tags. OTTER is built upon a large-scale,\nhierarchically organized multi-modal dataset, collected from diverse online\nrepositories and annotated through a hybrid pipeline combining automated\nvision-language labeling with human refinement. By leveraging a multi-head\nattention architecture, OTTER jointly aligns visual and textual representations\nwith both fixed and open-set label embeddings, enabling dynamic and\nsemantically consistent tagging. OTTER consistently outperforms competitive\nbaselines on two benchmark datasets: it achieves an overall F1 score of 0.81 on\nOtter and 0.75 on Favorite, surpassing the next-best results by margins of 0.10\nand 0.02, respectively. OTTER attains near-perfect performance on open-set\nlabels, with F1 of 0.99 on Otter and 0.97 on Favorite, while maintaining\ncompetitive accuracy on predefined labels. These results demonstrate OTTER's\neffectiveness in bridging closed-set consistency with open-vocabulary\nflexibility for multi-modal tagging applications.",
+        "url": "http://arxiv.org/abs/2510.00652v1",
+        "published_date": "2025-10-01T08:31:19+00:00",
+        "updated_date": "2025-10-01T08:31:19+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jieer Ouyang",
+            "Xiaoneng Xiang",
+            "Zheng Wang",
+            "Yangkai Ding"
+        ],
+        "tldr": "The paper introduces OTTER, a multi-modal tagging framework that combines fixed and open-set labels, achieving state-of-the-art performance on benchmark datasets with high F1 scores, demonstrating its effectiveness in bridging closed-set consistency with open-vocabulary flexibility.",
+        "tldr_zh": "该论文介绍了 OTTER，一个结合固定标签和开放标签的多模态标注框架，在基准数据集上实现了最先进的性能，具有很高的 F1 分数，展示了其在桥接封闭集一致性和开放词汇灵活性方面的有效性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "LVLMs as inspectors: an agentic framework for category-level structural defect annotation",
+        "summary": "Automated structural defect annotation is essential for ensuring\ninfrastructure safety while minimizing the high costs and inefficiencies of\nmanual labeling. A novel agentic annotation framework, Agent-based Defect\nPattern Tagger (ADPT), is introduced that integrates Large Vision-Language\nModels (LVLMs) with a semantic pattern matching module and an iterative\nself-questioning refinement mechanism. By leveraging optimized domain-specific\nprompting and a recursive verification process, ADPT transforms raw visual data\ninto high-quality, semantically labeled defect datasets without any manual\nsupervision. Experimental results demonstrate that ADPT achieves up to 98%\naccuracy in distinguishing defective from non-defective images, and 85%-98%\nannotation accuracy across four defect categories under class-balanced\nsettings, with 80%-92% accuracy on class-imbalanced datasets. The framework\noffers a scalable and cost-effective solution for high-fidelity dataset\nconstruction, providing strong support for downstream tasks such as transfer\nlearning and domain adaptation in structural damage assessment.",
+        "url": "http://arxiv.org/abs/2510.00603v1",
+        "published_date": "2025-10-01T07:31:42+00:00",
+        "updated_date": "2025-10-01T07:31:42+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Sheng Jiang",
+            "Yuanmin Ning",
+            "Bingxi Huang",
+            "Peiyin Chen",
+            "Zhaohui Chen"
+        ],
+        "tldr": "The paper introduces an agent-based framework (ADPT) using LVLMs for automated structural defect annotation, achieving high accuracy without manual supervision, enabling scalable and cost-effective dataset construction for structural damage assessment.",
+        "tldr_zh": "该论文介绍了一个基于LVLMs的agent框架 (ADPT)，用于自动结构缺陷标注，无需人工干预即可实现高精度，从而为结构损伤评估实现可扩展且经济高效的数据集构建。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Hybrid Training for Vision-Language-Action Models",
+        "summary": "Using Large Language Models to produce intermediate thoughts, a.k.a.\nChain-of-thought (CoT), before providing an answer has been a successful recipe\nfor solving complex language tasks. In robotics, similar embodied CoT\nstrategies, generating thoughts before actions, have also been shown to lead to\nimproved performance when using Vision-Language-Action models (VLAs). As these\ntechniques increase the length of the model's generated outputs to include the\nthoughts, the inference time is negatively affected. Delaying an agent's\nactions in real-world executions, as in robotic manipulation settings, strongly\naffects the usability of a method, as tasks require long sequences of actions.\nHowever, is the generation of long chains-of-thought a strong prerequisite for\nachieving performance improvements? In this work, we explore the idea of Hybrid\nTraining (HyT), a framework that enables VLAs to learn from thoughts and\nbenefit from the associated performance gains, while enabling the possibility\nto leave out CoT generation during inference. Furthermore, by learning to\nconditionally predict a diverse set of outputs, HyT supports flexibility at\ninference time, enabling the model to either predict actions directly, generate\nthoughts or follow instructions. We evaluate the proposed method in a series of\nsimulated benchmarks and real-world experiments.",
+        "url": "http://arxiv.org/abs/2510.00600v1",
+        "published_date": "2025-10-01T07:27:15+00:00",
+        "updated_date": "2025-10-01T07:27:15+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Pietro Mazzaglia",
+            "Cansu Sancaktar",
+            "Markus Peschl",
+            "Daniel Dijkman"
+        ],
+        "tldr": "This paper introduces Hybrid Training (HyT) for Vision-Language-Action models, enabling them to learn from chain-of-thought reasoning during training but bypass it during inference for faster execution, while also providing flexibility in output generation.",
+        "tldr_zh": "本文介绍了一种用于视觉-语言-动作模型的混合训练（HyT）方法，该方法使模型能够在训练期间从思维链推理中学习，但在推理期间绕过它以实现更快的执行速度，同时也提供了输出生成的灵活性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "VIRTUE: Visual-Interactive Text-Image Universal Embedder",
+        "summary": "Multimodal representation learning models have demonstrated successful\noperation across complex tasks, and the integration of vision-language models\n(VLMs) has further enabled embedding models with instruction-following\ncapabilities. However, existing embedding models lack visual-interactive\ncapabilities to specify regions of interest from users (e.g., point, bounding\nbox, mask), which have been explored in generative models to broaden their\nhuman-interactive applicability. Equipping embedding models with visual\ninteractions not only would unlock new applications with localized grounding of\nuser intent, which remains unexplored, but also enable the models to learn\nentity-level information within images to complement their global\nrepresentations for conventional embedding tasks. In this paper, we propose a\nnovel Visual-InteRactive Text-Image Universal Embedder (VIRTUE) that extends\nthe capabilities of the segmentation model and the vision-language model to the\nrealm of representation learning. In VIRTUE, the segmentation model can process\nvisual prompts that pinpoint specific regions within an image, thereby enabling\nthe embedder to handle complex and ambiguous scenarios more precisely. To\nevaluate the visual-interaction ability of VIRTUE, we introduce a large-scale\nSegmentation-and-Scene Caption Retrieval (SCaR) benchmark comprising 1M samples\nthat aims to retrieve the text caption by jointly considering the entity with a\nspecific object and image scene. VIRTUE consistently achieves a\nstate-of-the-art performance with significant improvements across 36 universal\nMMEB (3.1%-8.5%) and five visual-interactive SCaR (15.2%-20.3%) tasks.",
+        "url": "http://arxiv.org/abs/2510.00523v1",
+        "published_date": "2025-10-01T05:11:54+00:00",
+        "updated_date": "2025-10-01T05:11:54+00:00",
+        "categories": [
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Wei-Yao Wang",
+            "Kazuya Tateishi",
+            "Qiyu Wu",
+            "Shusuke Takahashi",
+            "Yuki Mitsufuji"
+        ],
+        "tldr": "The paper introduces VIRTUE, a new Visual-Interactive Text-Image Universal Embedder that allows users to specify regions of interest within images through visual prompts, achieving state-of-the-art results on various multimodal benchmarks and a newly introduced Segmentation-and-Scene Caption Retrieval benchmark.",
+        "tldr_zh": "本文介绍了一种新的视觉交互式文本-图像通用嵌入器VIRTUE，它允许用户通过视觉提示指定图像中感兴趣的区域，并在各种多模态基准测试和新引入的分割和场景字幕检索基准测试中取得了最先进的结果。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Efficient Multi-modal Large Language Models via Progressive Consistency Distillation",
+        "summary": "Visual tokens consume substantial computational resources in multi-modal\nlarge models (MLLMs), significantly compromising their efficiency. Recent works\nhave attempted to improve efficiency by compressing visual tokens during\ntraining, either through modifications to model components or by introducing\nadditional parameters. However, they often overlook the increased learning\ndifficulty caused by such compression, as the model's parameter space struggles\nto quickly adapt to the substantial perturbations in the feature space induced\nby token compression. In this work, we propose to develop Efficient MLLMs via\nProgressive Consistency Distillation (EPIC), a progressive learning framework.\nSpecifically, by decomposing the feature space perturbations introduced by\ntoken compression along the token-wise and layer-wise dimensions, we introduce\ntoken consistency distillation and layer consistency distillation,\nrespectively, aiming to reduce the training difficulty by leveraging guidance\nfrom a teacher model and following a progressive learning trajectory. Extensive\nexperiments demonstrate the superior effectiveness, robustness, and\ngeneralization capabilities of our proposed framework.",
+        "url": "http://arxiv.org/abs/2510.00515v1",
+        "published_date": "2025-10-01T04:56:40+00:00",
+        "updated_date": "2025-10-01T04:56:40+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zichen Wen",
+            "Shaobo Wang",
+            "Yufa Zhou",
+            "Junyuan Zhang",
+            "Qintong Zhang",
+            "Yifeng Gao",
+            "Zhaorun Chen",
+            "Bin Wang",
+            "Weijia Li",
+            "Conghui He",
+            "Linfeng Zhang"
+        ],
+        "tldr": "This paper introduces EPIC, a progressive consistency distillation framework to improve the efficiency of Multi-modal Large Language Models by addressing the training difficulties caused by visual token compression.",
+        "tldr_zh": "本文介绍了一种名为EPIC的渐进一致性蒸馏框架，通过解决视觉token压缩带来的训练难题，来提高多模态大型语言模型的效率。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "PAL-UI: Planning with Active Look-back for Vision-Based GUI Agents",
+        "summary": "Graphical User Interface (GUI) agents powered by Multimodal Large Language\nModels (MLLMs) promise human-like interaction with software applications, yet\nlong-horizon tasks remain challenging due to memory limitations. Existing\napproaches either truncate history or rely on simple textual summaries, which\nrisk losing critical information when past visual details become necessary for\nfuture decisions. In this paper, we propose \\textbf{PAL-UI} (\\textbf{P}lanning\nwith \\textbf{A}ctive \\textbf{L}ook-back), a novel framework that enables GUI\nagents to adaptively retrieve past observations when required. PAL-UI combines\na dual-level summarization agent, capturing both observation-level cues and\naction-level outcomes, with a dedicated retrieval tool that allows the agent to\nrecall specific historical screenshots during planning. We curate a step-level\ninstruction dataset of 8.6K samples from mobile GUI navigation trajectories and\ntrain \\textbf{PAL-UI-3B} and \\textbf{PAL-UI-7B} models based on Qwen2.5-VL.\nExtensive experiments demonstrate that PAL-UI significantly outperforms\nbaseline models and prior methods in mobile GUI navigation tasks, even under\ndata-efficient settings. Moreover, PAL-UI exhibits strong cross-domain\ngeneralization, achieving notable improvements in web navigation without\nadditional training. Our work highlights the potential of active memory\nretrieval for long-horizon planning capabilities of vision-based GUI agents.",
+        "url": "http://arxiv.org/abs/2510.00413v1",
+        "published_date": "2025-10-01T01:48:39+00:00",
+        "updated_date": "2025-10-01T01:48:39+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zikang Liu",
+            "Junyi Li",
+            "Wayne Xin Zhao",
+            "Dawei Gao",
+            "Yaliang Li",
+            "Ji-rong Wen"
+        ],
+        "tldr": "The paper introduces PAL-UI, a framework enhancing GUI agents' long-horizon task performance by adaptively retrieving past visual information, demonstrating strong results in mobile and web navigation.",
+        "tldr_zh": "该论文介绍了PAL-UI，一个通过自适应检索过去视觉信息来增强GUI代理的长期任务性能的框架，并在移动和Web导航中展示了强大的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Code2Video: A Code-centric Paradigm for Educational Video Generation",
+        "summary": "While recent generative models advance pixel-space video synthesis, they\nremain limited in producing professional educational videos, which demand\ndisciplinary knowledge, precise visual structures, and coherent transitions,\nlimiting their applicability in educational scenarios. Intuitively, such\nrequirements are better addressed through the manipulation of a renderable\nenvironment, which can be explicitly controlled via logical commands (e.g.,\ncode). In this work, we propose Code2Video, a code-centric agent framework for\ngenerating educational videos via executable Python code. The framework\ncomprises three collaborative agents: (i) Planner, which structures lecture\ncontent into temporally coherent flows and prepares corresponding visual\nassets; (ii) Coder, which converts structured instructions into executable\nPython codes while incorporating scope-guided auto-fix to enhance efficiency;\nand (iii) Critic, which leverages vision-language models (VLM) with visual\nanchor prompts to refine spatial layout and ensure clarity. To support\nsystematic evaluation, we build MMMC, a benchmark of professionally produced,\ndiscipline-specific educational videos. We evaluate MMMC across diverse\ndimensions, including VLM-as-a-Judge aesthetic scores, code efficiency, and\nparticularly, TeachQuiz, a novel end-to-end metric that quantifies how well a\nVLM, after unlearning, can recover knowledge by watching the generated videos.\nOur results demonstrate the potential of Code2Video as a scalable,\ninterpretable, and controllable approach, achieving 40% improvement over direct\ncode generation and producing videos comparable to human-crafted tutorials. The\ncode and datasets are available at https://github.com/showlab/Code2Video.",
+        "url": "http://arxiv.org/abs/2510.01174v1",
+        "published_date": "2025-10-01T17:56:48+00:00",
+        "updated_date": "2025-10-01T17:56:48+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.HC",
+            "cs.MM"
+        ],
+        "authors": [
+            "Yanzhe Chen",
+            "Kevin Qinghong Lin",
+            "Mike Zheng Shou"
+        ],
+        "tldr": "The paper introduces Code2Video, a code-centric framework for generating educational videos using Python code, evaluated on a new benchmark MMMC, demonstrating improved performance over direct code generation and comparability to human-made tutorials.",
+        "tldr_zh": "该论文介绍了一种名为Code2Video的以代码为中心的框架，用于使用Python代码生成教育视频，并在新的基准MMMC上进行了评估，结果表明其性能优于直接代码生成，并且与人工制作的教程相当。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Solar PV Installation Potential Assessment on Building Facades Based on Vision and Language Foundation Models",
+        "summary": "Building facades represent a significant untapped resource for solar energy\ngeneration in dense urban environments, yet assessing their photovoltaic (PV)\npotential remains challenging due to complex geometries and semantic com\nponents. This study introduces SF-SPA (Semantic Facade Solar-PV Assessment), an\nautomated framework that transforms street-view photographs into quantitative\nPV deployment assessments. The approach combines com puter vision and\nartificial intelligence techniques to address three key challenges: perspective\ndistortion correction, semantic understanding of facade elements, and spatial\nreasoning for PV layout optimization. Our four-stage pipeline processes images\nthrough geometric rectification, zero-shot semantic segmentation, Large\nLanguage Model (LLM) guided spatial reasoning, and energy simulation.\nValidation across 80 buildings in four countries demonstrates ro bust\nperformance with mean area estimation errors of 6.2% &#177; 2.8% compared to\nexpert annotations. The auto mated assessment requires approximately 100\nseconds per building, a substantial gain in efficiency over manual methods.\nSimulated energy yield predictions confirm the method's reliability and\napplicability for regional poten tial studies, urban energy planning, and\nbuilding-integrated photovoltaic (BIPV) deployment. Code is available at:\nhttps:github.com/CodeAXu/Solar-PV-Installation",
+        "url": "http://arxiv.org/abs/2510.00797v1",
+        "published_date": "2025-10-01T11:51:28+00:00",
+        "updated_date": "2025-10-01T11:51:28+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Ruyu Liu",
+            "Dongxu Zhuang",
+            "Jianhua Zhang",
+            "Arega Getaneh Abate",
+            "Per Sieverts Nielsen",
+            "Ben Wang",
+            "Xiufeng Liu"
+        ],
+        "tldr": "The paper introduces SF-SPA, an automated framework using vision and language models to assess solar PV installation potential on building facades from street-view images, demonstrating robust performance and efficiency gains.",
+        "tldr_zh": "该论文介绍了一个名为SF-SPA的自动化框架，它利用视觉和语言模型从街景图像中评估建筑物立面上安装太阳能光伏的潜力，展示了强大的性能和效率提升。",
+        "relevance_score": 6,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "MetaLogic: Robustness Evaluation of Text-to-Image Models via Logically Equivalent Prompts",
+        "summary": "Recent advances in text-to-image (T2I) models, especially diffusion-based\narchitectures, have significantly improved the visual quality of generated\nimages. However, these models continue to struggle with a critical limitation:\nmaintaining semantic consistency when input prompts undergo minor linguistic\nvariations. Despite being logically equivalent, such prompt pairs often yield\nmisaligned or semantically inconsistent images, exposing a lack of robustness\nin reasoning and generalisation. To address this, we propose MetaLogic, a novel\nevaluation framework that detects T2I misalignment without relying on ground\ntruth images. MetaLogic leverages metamorphic testing, generating image pairs\nfrom prompts that differ grammatically but are semantically identical. By\ndirectly comparing these image pairs, the framework identifies inconsistencies\nthat signal failures in preserving the intended meaning, effectively diagnosing\nrobustness issues in the model's logic understanding. Unlike existing\nevaluation methods that compare a generated image to a single prompt, MetaLogic\nevaluates semantic equivalence between paired images, offering a scalable,\nground-truth-free approach to identifying alignment failures. It categorises\nthese alignment errors (e.g., entity omission, duplication, positional\nmisalignment) and surfaces counterexamples that can be used for model debugging\nand refinement. We evaluate MetaLogic across multiple state-of-the-art T2I\nmodels and reveal consistent robustness failures across a range of logical\nconstructs. We find that even the SOTA text-to-image models like Flux.dev and\nDALLE-3 demonstrate a 59 percent and 71 percent misalignment rate,\nrespectively. Our results show that MetaLogic is not only efficient and\nscalable, but also effective in uncovering fine-grained logical inconsistencies\nthat are overlooked by existing evaluation metrics.",
+        "url": "http://arxiv.org/abs/2510.00796v1",
+        "published_date": "2025-10-01T11:51:13+00:00",
+        "updated_date": "2025-10-01T11:51:13+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yifan Shen",
+            "Yangyang Shu",
+            "Hye-young Paik",
+            "Yulei Sui"
+        ],
+        "tldr": "The paper introduces MetaLogic, a novel evaluation framework for text-to-image models that identifies robustness issues by comparing images generated from logically equivalent prompts, revealing semantic inconsistencies without relying on ground truth images.",
+        "tldr_zh": "该论文介绍了一种名为 MetaLogic 的新型文本到图像模型评估框架，该框架通过比较从逻辑等效提示生成的图像来识别鲁棒性问题，无需依赖真实图像即可揭示语义不一致。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Adaptive Event Stream Slicing for Open-Vocabulary Event-Based Object Detection via Vision-Language Knowledge Distillation",
+        "summary": "Event cameras offer advantages in object detection tasks due to high-speed\nresponse, low latency, and robustness to motion blur. However, event cameras\nlack texture and color information, making open-vocabulary detection\nparticularly challenging. Current event-based detection methods are typically\ntrained on predefined categories, limiting their ability to generalize to novel\nobjects, where encountering previously unseen objects is common.\nVision-language models (VLMs) have enabled open-vocabulary object detection in\nRGB images. However, the modality gap between images and event streams makes it\nineffective to directly transfer CLIP to event data, as CLIP was not designed\nfor event streams. To bridge this gap, we propose an event-image knowledge\ndistillation framework that leverages CLIP's semantic understanding to achieve\nopen-vocabulary object detection on event data. Instead of training CLIP\ndirectly on event streams, we use image frames as inputs to a teacher model,\nguiding the event-based student model to learn CLIP's rich visual\nrepresentations. Through spatial attention-based distillation, the student\nnetwork learns meaningful visual features directly from raw event inputs while\ninheriting CLIP's broad visual knowledge. Furthermore, to prevent information\nloss due to event data segmentation, we design a hybrid spiking neural network\n(SNN) and convolutional neural network (CNN) framework. Unlike fixed-group\nevent segmentation methods, which often discard crucial temporal information,\nour SNN adaptively determines the optimal event segmentation moments, ensuring\nthat key temporal features are extracted. The extracted event features are then\nprocessed by CNNs for object detection.",
+        "url": "http://arxiv.org/abs/2510.00681v1",
+        "published_date": "2025-10-01T09:03:30+00:00",
+        "updated_date": "2025-10-01T09:03:30+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jinchang Zhang",
+            "Zijun Li",
+            "Jiakai Lin",
+            "Guoyu Lu"
+        ],
+        "tldr": "This paper proposes a novel event-image knowledge distillation framework using a hybrid SNN-CNN architecture to address open-vocabulary object detection with event cameras by leveraging CLIP's semantic understanding and adaptive event stream slicing.",
+        "tldr_zh": "本文提出了一种新颖的事件图像知识蒸馏框架，采用混合SNN-CNN架构，利用CLIP的语义理解和自适应事件流切片，解决了使用事件相机进行开放词汇目标检测的问题。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Disentangling Foreground and Background for vision-Language Navigation via Online Augmentation",
+        "summary": "Following language instructions, vision-language navigation (VLN) agents are\ntasked with navigating unseen environments. While augmenting multifaceted\nvisual representations has propelled advancements in VLN, the significance of\nforeground and background in visual observations remains underexplored.\nIntuitively, foreground regions provide semantic cues, whereas the background\nencompasses spatial connectivity information. Inspired on this insight, we\npropose a Consensus-driven Online Feature Augmentation strategy (COFA) with\nalternative foreground and background features to facilitate the navigable\ngeneralization. Specifically, we first leverage semantically-enhanced landmark\nidentification to disentangle foreground and background as candidate augmented\nfeatures. Subsequently, a consensus-driven online augmentation strategy\nencourages the agent to consolidate two-stage voting results on feature\npreferences according to diverse instructions and navigational locations.\nExperiments on REVERIE and R2R demonstrate that our online\nforeground-background augmentation boosts the generalization of baseline and\nattains state-of-the-art performance.",
+        "url": "http://arxiv.org/abs/2510.00604v1",
+        "published_date": "2025-10-01T07:32:36+00:00",
+        "updated_date": "2025-10-01T07:32:36+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yunbo Xu",
+            "Xuesong Zhang",
+            "Jia Li",
+            "Zhenzhen Hu",
+            "Richang Hong"
+        ],
+        "tldr": "This paper introduces a Consensus-driven Online Feature Augmentation (COFA) strategy for Vision-Language Navigation (VLN) that disentangles foreground and background visual features, achieving state-of-the-art performance on REVERIE and R2R datasets.",
+        "tldr_zh": "该论文提出了一种共识驱动的在线特征增强（COFA）策略，用于视觉-语言导航（VLN），它分离前景和背景视觉特征，并在REVERIE和R2R数据集上实现了最先进的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "VLOD-TTA: Test-Time Adaptation of Vision-Language Object Detectors",
+        "summary": "Vision-language object detectors (VLODs) such as YOLO-World and Grounding\nDINO achieve impressive zero-shot recognition by aligning region proposals with\ntext representations. However, their performance often degrades under domain\nshift. We introduce VLOD-TTA, a test-time adaptation (TTA) framework for VLODs\nthat leverages dense proposal overlap and image-conditioned prompt scores.\nFirst, an IoU-weighted entropy objective is proposed that concentrates\nadaptation on spatially coherent proposal clusters and reduces confirmation\nbias from isolated boxes. Second, image-conditioned prompt selection is\nintroduced, which ranks prompts by image-level compatibility and fuses the most\ninformative prompts with the detector logits. Our benchmarking across diverse\ndistribution shifts -- including stylized domains, driving scenes, low-light\nconditions, and common corruptions -- shows the effectiveness of our method on\ntwo state-of-the-art VLODs, YOLO-World and Grounding DINO, with consistent\nimprovements over the zero-shot and TTA baselines. Code :\nhttps://github.com/imatif17/VLOD-TTA",
+        "url": "http://arxiv.org/abs/2510.00458v1",
+        "published_date": "2025-10-01T03:17:56+00:00",
+        "updated_date": "2025-10-01T03:17:56+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Atif Belal",
+            "Heitor R. Medeiros",
+            "Marco Pedersoli",
+            "Eric Granger"
+        ],
+        "tldr": "The paper introduces VLOD-TTA, a test-time adaptation framework for vision-language object detectors that improves performance under domain shift by using IoU-weighted entropy and image-conditioned prompt selection, demonstrating its effectiveness on YOLO-World and Grounding DINO across various distribution shifts.",
+        "tldr_zh": "本文介绍了一种用于视觉-语言目标检测器的测试时自适应框架VLOD-TTA，该框架通过使用IoU加权熵和图像条件提示选择来提高在领域偏移下的性能，并在YOLO-World和Grounding DINO上展示了其在各种分布偏移中的有效性。",
+        "relevance_score": 6,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Does Bigger Mean Better? Comparitive Analysis of CNNs and Biomedical Vision Language Modles in Medical Diagnosis",
+        "summary": "The accurate interpretation of chest radiographs using automated methods is a\ncritical task in medical imaging. This paper presents a comparative analysis\nbetween a supervised lightweight Convolutional Neural Network (CNN) and a\nstate-of-the-art, zero-shot medical Vision-Language Model (VLM), BiomedCLIP,\nacross two distinct diagnostic tasks: pneumonia detection on the PneumoniaMNIST\nbenchmark and tuberculosis detection on the Shenzhen TB dataset. Our\nexperiments show that supervised CNNs serve as highly competitive baselines in\nboth cases. While the default zero-shot performance of the VLM is lower, we\ndemonstrate that its potential can be unlocked via a simple yet crucial remedy:\ndecision threshold calibration. By optimizing the classification threshold on a\nvalidation set, the performance of BiomedCLIP is significantly boosted across\nboth datasets. For pneumonia detection, calibration enables the zero-shot VLM\nto achieve a superior F1-score of 0.8841, surpassing the supervised CNN's\n0.8803. For tuberculosis detection, calibration dramatically improves the\nF1-score from 0.4812 to 0.7684, bringing it close to the supervised baseline's\n0.7834. This work highlights a key insight: proper calibration is essential for\nleveraging the full diagnostic power of zero-shot VLMs, enabling them to match\nor even outperform efficient, task-specific supervised models.",
+        "url": "http://arxiv.org/abs/2510.00411v2",
+        "published_date": "2025-10-01T01:46:09+00:00",
+        "updated_date": "2025-10-02T04:22:36+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Ran Tong",
+            "Jiaqi Liu",
+            "Su Liu",
+            "Jiexi Xu",
+            "Lanruo Wang",
+            "Tong Wang"
+        ],
+        "tldr": "This paper compares a CNN and BiomedCLIP for pneumonia and tuberculosis detection, finding that with proper calibration, the zero-shot VLM can match or surpass the CNN's performance.",
+        "tldr_zh": "本文比较了 CNN 和 BiomedCLIP 在肺炎和肺结核检测方面的性能，发现通过适当的校准，零样本 VLM 可以达到甚至超过 CNN 的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "VLA-RFT: Vision-Language-Action Reinforcement Fine-tuning with Verified Rewards in World Simulators",
+        "summary": "Vision-Language-Action (VLA) models enable embodied decision-making but rely\nheavily on imitation learning, leading to compounding errors and poor\nrobustness under distribution shift. Reinforcement learning (RL) can mitigate\nthese issues yet typically demands costly real-world interactions or suffers\nfrom sim-to-real gaps. We introduce VLA-RFT, a reinforcement fine-tuning\nframework that leverages a data-driven world model as a controllable simulator.\nTrained from real interaction data, the simulator predicts future visual\nobservations conditioned on actions, allowing policy rollouts with dense,\ntrajectory-level rewards derived from goal-achieving references. This design\ndelivers an efficient and action-aligned learning signal, drastically lowering\nsample requirements. With fewer than 400 fine-tuning steps, VLA-RFT surpasses\nstrong supervised baselines and achieves greater efficiency than\nsimulator-based RL. Moreover, it exhibits strong robustness under perturbed\nconditions, sustaining stable task execution. Our results establish\nworld-model-based RFT as a practical post-training paradigm to enhance the\ngeneralization and robustness of VLA models. For more details, please refer to\nhttps://vla-rft.github.io/.",
+        "url": "http://arxiv.org/abs/2510.00406v1",
+        "published_date": "2025-10-01T01:33:10+00:00",
+        "updated_date": "2025-10-01T01:33:10+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.CV"
+        ],
+        "authors": [
+            "Hengtao Li",
+            "Pengxiang Ding",
+            "Runze Suo",
+            "Yihao Wang",
+            "Zirui Ge",
+            "Dongyuan Zang",
+            "Kexian Yu",
+            "Mingyang Sun",
+            "Hongyin Zhang",
+            "Donglin Wang",
+            "Weihua Su"
+        ],
+        "tldr": "The paper introduces VLA-RFT, a reinforcement fine-tuning framework using a data-driven world model to improve the robustness and generalization of Vision-Language-Action models with fewer samples than traditional methods.",
+        "tldr_zh": "该论文介绍了VLA-RFT，一个利用数据驱动的世界模型进行强化微调的框架，旨在提高视觉-语言-动作模型的鲁棒性和泛化能力，且所需样本量少于传统方法。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Virtual Fashion Photo-Shoots: Building a Large-Scale Garment-Lookbook Dataset",
+        "summary": "Fashion image generation has so far focused on narrow tasks such as virtual\ntry-on, where garments appear in clean studio environments. In contrast,\neditorial fashion presents garments through dynamic poses, diverse locations,\nand carefully crafted visual narratives. We introduce the task of virtual\nfashion photo-shoot, which seeks to capture this richness by transforming\nstandardized garment images into contextually grounded editorial imagery. To\nenable this new direction, we construct the first large-scale dataset of\ngarment-lookbook pairs, bridging the gap between e-commerce and fashion media.\nBecause such pairs are not readily available, we design an automated retrieval\npipeline that aligns garments across domains, combining visual-language\nreasoning with object-level localization. We construct a dataset with three\ngarment-lookbook pair accuracy levels: high quality (10,000 pairs), medium\nquality (50,000 pairs), and low quality (300,000 pairs). This dataset offers a\nfoundation for models that move beyond catalog-style generation and toward\nfashion imagery that reflects creativity, atmosphere, and storytelling.",
+        "url": "http://arxiv.org/abs/2510.00633v1",
+        "published_date": "2025-10-01T08:05:05+00:00",
+        "updated_date": "2025-10-01T08:05:05+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Yannick Hauri",
+            "Luca A. Lanzendörfer",
+            "Till Aczel"
+        ],
+        "tldr": "The paper introduces a new task, virtual fashion photo-shoot, and a large-scale garment-lookbook dataset created using an automated retrieval pipeline to bridge the gap between e-commerce and editorial fashion imagery.",
+        "tldr_zh": "该论文介绍了一项新任务：虚拟时尚摄影，并构建了一个大型服装图集数据集，该数据集使用自动检索流程来弥合电子商务和时尚编辑图像之间的差距。",
+        "relevance_score": 4,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 6
+    }
+]
