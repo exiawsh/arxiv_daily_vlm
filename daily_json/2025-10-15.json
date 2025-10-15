@@ -1,0 +1,389 @@
+[
+    {
+        "title": "VideoLucy: Deep Memory Backtracking for Long Video Understanding",
+        "summary": "Recent studies have shown that agent-based systems leveraging large language\nmodels (LLMs) for key information retrieval and integration have emerged as a\npromising approach for long video understanding. However, these systems face\ntwo major challenges. First, they typically perform modeling and reasoning on\nindividual frames, struggling to capture the temporal context of consecutive\nframes. Second, to reduce the cost of dense frame-level captioning, they adopt\nsparse frame sampling, which risks discarding crucial information. To overcome\nthese limitations, we propose VideoLucy, a deep memory backtracking framework\nfor long video understanding. Inspired by the human recollection process from\ncoarse to fine, VideoLucy employs a hierarchical memory structure with\nprogressive granularity. This structure explicitly defines the detail level and\ntemporal scope of memory at different hierarchical depths. Through an\nagent-based iterative backtracking mechanism, VideoLucy systematically mines\nvideo-wide, question-relevant deep memories until sufficient information is\ngathered to provide a confident answer. This design enables effective temporal\nunderstanding of consecutive frames while preserving critical details. In\naddition, we introduce EgoMem, a new benchmark for long video understanding.\nEgoMem is designed to comprehensively evaluate a model's ability to understand\ncomplex events that unfold over time and capture fine-grained details in\nextremely long videos. Extensive experiments demonstrate the superiority of\nVideoLucy. Built on open-source models, VideoLucy significantly outperforms\nstate-of-the-art methods on multiple long video understanding benchmarks,\nachieving performance even surpassing the latest proprietary models such as\nGPT-4o. Our code and dataset will be made publicly at\nhttps://videolucy.github.io",
+        "url": "http://arxiv.org/abs/2510.12422v1",
+        "published_date": "2025-10-14T11:59:19+00:00",
+        "updated_date": "2025-10-14T11:59:19+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jialong Zuo",
+            "Yongtai Deng",
+            "Lingdong Kong",
+            "Jingkang Yang",
+            "Rui Jin",
+            "Yiwei Zhang",
+            "Nong Sang",
+            "Liang Pan",
+            "Ziwei Liu",
+            "Changxin Gao"
+        ],
+        "tldr": "VideoLucy is a deep memory backtracking framework with a hierarchical memory structure that enables effective temporal understanding and surpasses SOTA models (including GPT-4o) on long video understanding benchmarks. They also introduce a new benchmark dataset, EgoMem.",
+        "tldr_zh": "VideoLucy是一个深度记忆回溯框架，具有分层记忆结构，可以有效地进行时间理解，并在长视频理解基准测试中超越SOTA模型（包括GPT-4o）。 他们还引入了一个新的基准数据集EgoMem。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 9,
+        "overall_priority_score": 9
+    },
+    {
+        "title": "Detect Anything via Next Point Prediction",
+        "summary": "Object detection has long been dominated by traditional coordinate\nregression-based models, such as YOLO, DETR, and Grounding DINO. Although\nrecent efforts have attempted to leverage MLLMs to tackle this task, they face\nchallenges like low recall rate, duplicate predictions, coordinate\nmisalignment, etc. In this work, we bridge this gap and propose Rex-Omni, a\n3B-scale MLLM that achieves state-of-the-art object perception performance. On\nbenchmarks like COCO and LVIS, Rex-Omni attains performance comparable to or\nexceeding regression-based models (e.g., DINO, Grounding DINO) in a zero-shot\nsetting. This is enabled by three key designs: 1) Task Formulation: we use\nspecial tokens to represent quantized coordinates from 0 to 999, reducing the\nmodel's learning difficulty and improving token efficiency for coordinate\nprediction; 2) Data Engines: we construct multiple data engines to generate\nhigh-quality grounding, referring, and pointing data, providing semantically\nrich supervision for training; \\3) Training Pipelines: we employ a two-stage\ntraining process, combining supervised fine-tuning on 22 million data with\nGRPO-based reinforcement post-training. This RL post-training leverages\ngeometry-aware rewards to effectively bridge the discrete-to-continuous\ncoordinate prediction gap, improve box accuracy, and mitigate undesirable\nbehaviors like duplicate predictions that stem from the teacher-guided nature\nof the initial SFT stage. Beyond conventional detection, Rex-Omni's inherent\nlanguage understanding enables versatile capabilities such as object referring,\npointing, visual prompting, GUI grounding, spatial referring, OCR and\nkey-pointing, all systematically evaluated on dedicated benchmarks. We believe\nthat Rex-Omni paves the way for more versatile and language-aware visual\nperception systems.",
+        "url": "http://arxiv.org/abs/2510.12798v1",
+        "published_date": "2025-10-14T17:59:54+00:00",
+        "updated_date": "2025-10-14T17:59:54+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Qing Jiang",
+            "Junan Huo",
+            "Xingyu Chen",
+            "Yuda Xiong",
+            "Zhaoyang Zeng",
+            "Yihao Chen",
+            "Tianhe Ren",
+            "Junzhi Yu",
+            "Lei Zhang"
+        ],
+        "tldr": "The paper introduces Rex-Omni, a 3B-scale MLLM that achieves state-of-the-art object perception via next point prediction, outperforming regression-based methods in a zero-shot setting through novel task formulation, data engines, and training pipelines.",
+        "tldr_zh": "本文介绍了一种名为Rex-Omni的30亿参数规模的多模态大型语言模型，它通过预测下一个点来实现最先进的物体感知，通过新颖的任务公式、数据引擎和训练管道，在零样本设置中优于基于回归的方法。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "ViCO: A Training Strategy towards Semantic Aware Dynamic High-Resolution",
+        "summary": "Existing Multimodal Large Language Models (MLLMs) suffer from increased\ninference costs due to the additional vision tokens introduced by image inputs.\nIn this work, we propose Visual Consistency Learning (ViCO), a novel training\nalgorithm that enables the model to represent images of varying semantic\ncomplexities using different numbers of vision tokens. The key idea behind our\nmethod is to employ multiple MLP connectors, each with a different image\ncompression ratio, to downsample the vision tokens based on the semantic\ncomplexity of the image. During training, we minimize the KL divergence between\nthe responses conditioned on different MLP connectors. At inference time, we\nintroduce an image router, termed Visual Resolution Router (ViR), that\nautomatically selects the appropriate compression rate for each image patch.\nCompared with existing dynamic high-resolution strategies, which adjust the\nnumber of visual tokens based on image resolutions, our method dynamically\nadapts the number of visual tokens according to semantic complexity.\nExperimental results demonstrate that our method can reduce the number of\nvision tokens by up to 50% while maintaining the model's perception, reasoning,\nand OCR capabilities. We hope this work will contribute to the development of\nmore efficient MLLMs. The code and models will be released to facilitate future\nresearch.",
+        "url": "http://arxiv.org/abs/2510.12793v1",
+        "published_date": "2025-10-14T17:58:10+00:00",
+        "updated_date": "2025-10-14T17:58:10+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Long Cui",
+            "Weiyun Wang",
+            "Jie Shao",
+            "Zichen Wen",
+            "Gen Luo",
+            "Linfeng Zhang",
+            "Yanting Zhang",
+            "Yu Qiao",
+            "Wenhai Wang"
+        ],
+        "tldr": "The paper introduces ViCO, a training strategy for MLLMs that reduces inference costs by dynamically adjusting the number of vision tokens based on semantic complexity, achieving up to 50% reduction in tokens while maintaining performance.",
+        "tldr_zh": "该论文介绍了ViCO，一种用于多模态大型语言模型的训练策略，通过基于语义复杂度动态调整视觉tokens的数量来降低推理成本，在保持性能的同时，视觉tokens数量最多可减少50%。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Omni-Captioner: Data Pipeline, Models, and Benchmark for Omni Detailed Perception",
+        "summary": "Fine-grained perception of multimodal information is critical for advancing\nhuman-AI interaction. With recent progress in audio-visual technologies, Omni\nLanguage Models (OLMs), capable of processing audio and video signals in\nparallel, have emerged as a promising paradigm for achieving richer\nunderstanding and reasoning. However, their capacity to capture and describe\nfine-grained details remains limited explored. In this work, we present a\nsystematic and comprehensive investigation of omni detailed perception from the\nperspectives of the data pipeline, models, and benchmark. We first identify an\ninherent \"co-growth\" between detail and hallucination in current OLMs. To\naddress this, we propose Omni-Detective, an agentic data generation pipeline\nintegrating tool-calling, to autonomously produce highly detailed yet minimally\nhallucinatory multimodal data. Based on the data generated with Omni-Detective,\nwe train two captioning models: Audio-Captioner for audio-only detailed\nperception, and Omni-Captioner for audio-visual detailed perception. Under the\ncascade evaluation protocol, Audio-Captioner achieves the best performance on\nMMAU and MMAR among all open-source models, surpassing Gemini 2.5 Flash and\ndelivering performance comparable to Gemini 2.5 Pro. On existing detailed\ncaptioning benchmarks, Omni-Captioner sets a new state-of-the-art on VDC and\nachieves the best trade-off between detail and hallucination on the\nvideo-SALMONN 2 testset. Given the absence of a dedicated benchmark for omni\ndetailed perception, we design Omni-Cloze, a novel cloze-style evaluation for\ndetailed audio, visual, and audio-visual captioning that ensures stable,\nefficient, and reliable assessment. Experimental results and analysis\ndemonstrate the effectiveness of Omni-Detective in generating high-quality\ndetailed captions, as well as the superiority of Omni-Cloze in evaluating such\ndetailed captions.",
+        "url": "http://arxiv.org/abs/2510.12720v1",
+        "published_date": "2025-10-14T17:00:09+00:00",
+        "updated_date": "2025-10-14T17:00:09+00:00",
+        "categories": [
+            "cs.CL",
+            "cs.CV",
+            "cs.MM",
+            "cs.SD"
+        ],
+        "authors": [
+            "Ziyang Ma",
+            "Ruiyang Xu",
+            "Zhenghao Xing",
+            "Yunfei Chu",
+            "Yuxuan Wang",
+            "Jinzheng He",
+            "Jin Xu",
+            "Pheng-Ann Heng",
+            "Kai Yu",
+            "Junyang Lin",
+            "Eng Siong Chng",
+            "Xie Chen"
+        ],
+        "tldr": "The paper introduces Omni-Captioner, a framework for detailed audio-visual perception, including a data pipeline (Omni-Detective), captioning models (Audio-Captioner and Omni-Captioner), and a benchmark (Omni-Cloze), showing state-of-the-art performance on several tasks.",
+        "tldr_zh": "本文介绍了Omni-Captioner，一个用于详细音视频感知的框架，包括数据管道（Omni-Detective）、字幕模型（Audio-Captioner和Omni-Captioner）以及基准测试（Omni-Cloze），并在多个任务上表现出最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Vision Language Models Map Logos to Text via Semantic Entanglement in the Visual Projector",
+        "summary": "Vision Language Models (VLMs) have achieved impressive progress in multimodal\nreasoning; yet, they remain vulnerable to hallucinations, where outputs are not\ngrounded in visual evidence. In this paper, we investigate a previously\noverlooked setting: logo hallucination, where models generate brand names or\ntextual content despite logos containing no visible words. Using curated splits\nof pure symbols, hybrids, and text-bearing logos, as well as the challenging\nHard-60 subset, we systematically measure hallucination across leading VLMs. We\nfurther probe robustness through nine structured perturbations and show that\nhallucinations persist even under strong distortions, with occlusion exposing\nthe sharpest weaknesses. Embedding-level analysis with open-weight LLaVA\ndemonstrates that hallucination is tied to a small subset of projector\ndimensions, and targeted ablation substantially reduces errors while preserving\nOCR accuracy. Together, these findings reveal that VLMs often rely on symbolic\npriors rather than genuine glyph perception, particularly for iconic circular\nlogos, and that projector subspaces play a decisive role in this failure mode.\nOur work contributes both a novel diagnostic lens and actionable mitigation\ninsights, highlighting projector disentanglement and OCR-guided decoding as\npromising directions for building more trustworthy multimodal systems.",
+        "url": "http://arxiv.org/abs/2510.12287v1",
+        "published_date": "2025-10-14T08:42:58+00:00",
+        "updated_date": "2025-10-14T08:42:58+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Sifan Li",
+            "Hongkai Chen",
+            "Yujun Cai",
+            "Qingwen Ye",
+            "Liyang Chen",
+            "Junsong Yuan",
+            "Yiwei Wang"
+        ],
+        "tldr": "This paper identifies and analyzes 'logo hallucination' in VLMs, where models incorrectly generate text from logos without visible text, finding that it stems from reliance on symbolic priors within projector dimensions and proposing mitigation strategies.",
+        "tldr_zh": "该论文研究了视觉语言模型（VLMs）中的“logo幻觉”现象，即模型错误地从不包含可见文本的logo生成文本。研究发现，这种现象源于模型对投影层维度内符号先验的依赖，并提出了缓解策略。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "HoneyBee: Data Recipes for Vision-Language Reasoners",
+        "summary": "Recent advances in vision-language models (VLMs) have made them highly\neffective at reasoning tasks. However, the principles underlying the\nconstruction of performant VL reasoning training datasets remain poorly\nunderstood. In this work, we introduce several data curation approaches and\nstudy their impacts on VL reasoning capabilities by carefully controlling\ntraining and evaluation setups. We analyze the effects of context (image and\nquestion pair) sources, implement targeted data interventions, and explore\nscaling up images, questions, and chain-of-thought (CoT) solutions. Our\nfindings reveal that (a) context source strategies significantly affect VLM\nperformance, (b) interventions such as auxiliary signals from image captions\nand the inclusion of text-only reasoning yield substantial gains, and (c)\nscaling all data dimensions (e.g., unique questions per image and unique CoTs\nper image-question pair) consistently improves reasoning capability. Motivated\nby these insights, we introduce HoneyBee, a large-scale, high-quality CoT\nreasoning dataset with 2.5M examples consisting 350K image-question pairs. VLMs\ntrained with HoneyBee outperform state-of-the-art models across model sizes.\nFor instance, a HoneyBee-trained VLM with 3B parameters outperforms the SOTA\nmodel and the base model by 7.8% and 24.8%, respectively, on MathVerse.\nFurthermore, we propose a test-time scaling strategy that reduces decoding cost\nby 73% without sacrificing accuracy. Overall, this work presents improved\nstrategies for VL reasoning dataset curation research.",
+        "url": "http://arxiv.org/abs/2510.12225v1",
+        "published_date": "2025-10-14T07:23:44+00:00",
+        "updated_date": "2025-10-14T07:23:44+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Hritik Bansal",
+            "Devandra Singh Sachan",
+            "Kai-Wei Chang",
+            "Aditya Grover",
+            "Gargi Ghosh",
+            "Wen-tau Yih",
+            "Ramakanth Pasunuru"
+        ],
+        "tldr": "The paper introduces data curation strategies for Vision-Language Reasoning datasets, culminating in the HoneyBee dataset, which significantly improves VLM performance on reasoning tasks.",
+        "tldr_zh": "该论文介绍了一系列用于视觉-语言推理数据集的数据管理策略，最终产生了 HoneyBee 数据集，该数据集显著提高了 VLM 在推理任务中的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "CompoDistill: Attention Distillation for Compositional Reasoning in Multimodal LLMs",
+        "summary": "Recently, efficient Multimodal Large Language Models (MLLMs) have gained\nsignificant attention as a solution to their high computational complexity,\nmaking them more practical for real-world applications. In this regard, the\nknowledge distillation (KD) approach has emerged as a promising alternative,\nwhich transfers the rich visual and linguistic knowledge from a larger model\n(teacher) to a smaller model (student). However, we observe that existing KD\nmethods struggle to effectively distill the teacher MLLM's rich visual\nperception abilities to the student, a challenge that has been largely\noverlooked in previous studies. Through a systematic analysis, we identify\nvisual attention misalignment between student and teacher as the main cause of\nthis issue. Based on this insight, we propose CompoDistill, a novel KD\nframework that explicitly aligns the student's visual attention with that of\nthe teacher to enhance the student's visual perception abilities. Our extensive\nexperiments show that CompoDistill significantly improves performance on\ncompositional reasoning tasks that require visual perception abilities while\nmaintaining strong performance on visual question answering tasks, as done in\nexisting studies. Furthermore, CompoDistill demonstrates effectiveness with a\nmore advanced backbone, highlighting its generalizability.",
+        "url": "http://arxiv.org/abs/2510.12184v1",
+        "published_date": "2025-10-14T06:27:26+00:00",
+        "updated_date": "2025-10-14T06:27:26+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Jiwan Kim",
+            "Kibum Kim",
+            "Sangwoo Seo",
+            "Chanyoung Park"
+        ],
+        "tldr": "The paper introduces CompoDistill, a knowledge distillation framework that addresses visual attention misalignment between teacher and student MLLMs to improve compositional reasoning performance, while maintaining VQA accuracy.",
+        "tldr_zh": "该论文介绍了一种知识蒸馏框架CompoDistill，旨在解决教师和学生多模态大型语言模型（MLLM）之间的视觉注意力不对齐问题，从而提高组合推理性能，同时保持视觉问答（VQA）的准确性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MetaCaptioner: Towards Generalist Visual Captioning with Open-source Suites",
+        "summary": "Generalist visual captioning goes beyond a simple appearance description\ntask, but requires integrating a series of visual cues into a caption and\nhandling various visual domains. In this task, current open-source models\npresent a large performance gap with commercial ones, which limits various\napplications such as data synthesis. To bridge the gap, this paper proposes\nCapFlow, a novel multi-agent collaboration workflow. CapFlow demonstrates for\nthe first time that, by capitalizing on open-source models, it is possible to\nachieve caption quality on par with GPT-4.1 in various domains with an 89.5%\nreduction in costs. By leveraging CapFlow as the data synthesizer, we produce\nhigh-quality visual captions from image and video domains at scale, and obtain\na generalist visual captioner via fine-tuning, namely MetaCaptioner. Through\nextensive experiments, we show that MetaCaptioner not only achieves comparable\ncaptioning capabilities with commercial models but also reaches top-tier\nmultimodal performance in the open-source community. We hope CapFlow and\nMetaCaptioner can benefit future multimodal research by providing a strong and\ncost-effective visual captioning solution.",
+        "url": "http://arxiv.org/abs/2510.12126v1",
+        "published_date": "2025-10-14T04:03:25+00:00",
+        "updated_date": "2025-10-14T04:03:25+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zhenxin Lei",
+            "Zhangwei Gao",
+            "Changyao Tian",
+            "Erfei Cui",
+            "Guanzhou Chen",
+            "Danni Yang",
+            "Yuchen Duan",
+            "Zhaokai Wang",
+            "Wenhao Li",
+            "Weiyun Wang",
+            "Xiangyu Zhao",
+            "Jiayi Ji",
+            "Yu Qiao",
+            "Wenhai Wang",
+            "Gen Luo"
+        ],
+        "tldr": "This paper introduces CapFlow, a multi-agent workflow leveraging open-source models to achieve GPT-4 level captioning quality at a significantly reduced cost, and MetaCaptioner, a generalist visual captioner fine-tuned on data synthesized by CapFlow, achieving state-of-the-art open-source performance.",
+        "tldr_zh": "本文介绍了CapFlow，一种利用开源模型实现与GPT-4水平相当的图像描述质量的多智能体工作流，并显著降低了成本。同时提出了MetaCaptioner，一个基于CapFlow合成数据微调的通用视觉描述器，实现了顶尖的开源性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Data or Language Supervision: What Makes CLIP Better than DINO?",
+        "summary": "CLIP outperforms self-supervised models like DINO as vision encoders for\nvision-language models (VLMs), but it remains unclear whether this advantage\nstems from CLIP's language supervision or its much larger training data. To\ndisentangle these factors, we pre-train CLIP and DINO under controlled settings\n-- using the same architecture, dataset, and training configuration --\nachieving similar ImageNet accuracy. Embedding analysis shows that CLIP\ncaptures high-level semantics (e.g., object categories, text), while DINO is\nmore responsive to low-level features like colors and styles. When integrated\ninto VLMs and evaluated on 20 VQA benchmarks, CLIP excels at text-intensive\ntasks, while DINO slightly outperforms on vision-centric ones. Variants of\nlanguage supervision (e.g., sigmoid loss, pre-trained language encoders) yield\nlimited gains. Our findings provide scientific insights into vision encoder\ndesign and its impact on VLM performance.",
+        "url": "http://arxiv.org/abs/2510.11835v1",
+        "published_date": "2025-10-13T18:34:58+00:00",
+        "updated_date": "2025-10-13T18:34:58+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.LG",
+            "cs.MM"
+        ],
+        "authors": [
+            "Yiming Liu",
+            "Yuhui Zhang",
+            "Dhruba Ghosh",
+            "Ludwig Schmidt",
+            "Serena Yeung-Levy"
+        ],
+        "tldr": "This paper investigates why CLIP outperforms DINO in VLMs, finding CLIP captures high-level semantics due to language supervision, while DINO focuses on low-level features, impacting VQA performance differently based on task type.",
+        "tldr_zh": "本文研究了CLIP在视觉语言模型(VLM)中优于DINO的原因，发现CLIP由于语言监督捕获了高层次的语义信息，而DINO侧重于低层次的特征，这影响了它们在视觉问答(VQA)任务上的表现，具体取决于任务类型。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Towards General Urban Monitoring with Vision-Language Models: A Review, Evaluation, and a Research Agenda",
+        "summary": "Urban monitoring of public infrastructure (such as waste bins, road signs,\nvegetation, sidewalks, and construction sites) poses significant challenges due\nto the diversity of objects, environments, and contextual conditions involved.\nCurrent state-of-the-art approaches typically rely on a combination of IoT\nsensors and manual inspections, which are costly, difficult to scale, and often\nmisaligned with citizens' perception formed through direct visual observation.\nThis raises a critical question: Can machines now \"see\" like citizens and infer\ninformed opinions about the condition of urban infrastructure? Vision-Language\nModels (VLMs), which integrate visual understanding with natural language\nreasoning, have recently demonstrated impressive capabilities in processing\ncomplex visual information, turning them into a promising technology to address\nthis challenge. This systematic review investigates the role of VLMs in urban\nmonitoring, with particular emphasis on zero-shot applications. Following the\nPRISMA methodology, we analyzed 32 peer-reviewed studies published between 2021\nand 2025 to address four core research questions: (1) What urban monitoring\ntasks have been effectively addressed using VLMs? (2) Which VLM architectures\nand frameworks are most commonly used and demonstrate superior performance? (3)\nWhat datasets and resources support this emerging field? (4) How are VLM-based\napplications evaluated, and what performance levels have been reported?",
+        "url": "http://arxiv.org/abs/2510.12400v1",
+        "published_date": "2025-10-14T11:27:46+00:00",
+        "updated_date": "2025-10-14T11:27:46+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "André Torneiro",
+            "Diogo Monteiro",
+            "Paulo Novais",
+            "Pedro Rangel Henriques",
+            "Nuno F. Rodrigues"
+        ],
+        "tldr": "This paper reviews and evaluates the application of Vision-Language Models (VLMs) in urban monitoring, focusing on zero-shot capabilities and addressing key research questions about tasks, architectures, datasets, and evaluation methods.",
+        "tldr_zh": "本文回顾并评估了视觉语言模型（VLMs）在城市监控中的应用，重点关注零样本能力，并解决了关于任务、架构、数据集和评估方法的关键研究问题。",
+        "relevance_score": 8,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Dual Learning with Dynamic Knowledge Distillation and Soft Alignment for Partially Relevant Video Retrieval",
+        "summary": "Almost all previous text-to-video retrieval works ideally assume that videos\nare pre-trimmed with short durations containing solely text-related content.\nHowever, in practice, videos are typically untrimmed in long durations with\nmuch more complicated background content. Therefore, in this paper, we focus on\nthe more practical yet challenging task of Partially Relevant Video Retrieval\n(PRVR), which aims to retrieve partially relevant untrimmed videos with the\ngiven query. To tackle this task, we propose a novel framework that distills\ngeneralization knowledge from a powerful large-scale vision-language\npre-trained model and transfers it to a lightweight, task-specific PRVR\nnetwork. Specifically, we introduce a Dual Learning framework with Dynamic\nKnowledge Distillation (DL-DKD++), where a large teacher model provides\nsupervision to a compact dual-branch student network. The student model\ncomprises two branches: an inheritance branch that absorbs transferable\nknowledge from the teacher, and an exploration branch that learns task-specific\ninformation from the PRVR dataset to address domain gaps. To further enhance\nlearning, we incorporate a dynamic soft-target construction mechanism. By\nreplacing rigid hard-target supervision with adaptive soft targets that evolve\nduring training, our method enables the model to better capture the\nfine-grained, partial relevance between videos and queries. Experiment results\ndemonstrate that our proposed model achieves state-of-the-art performance on\nTVR, ActivityNet, and Charades-STA datasets for PRVR. The code is available at\nhttps://github.com/HuiGuanLab/DL-DKD.",
+        "url": "http://arxiv.org/abs/2510.12283v1",
+        "published_date": "2025-10-14T08:38:20+00:00",
+        "updated_date": "2025-10-14T08:38:20+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jianfeng Dong",
+            "Lei Huang",
+            "Daizong Liu",
+            "Xianke Chen",
+            "Xun Yang",
+            "Changting Lin",
+            "Xun Wang",
+            "Meng Wang"
+        ],
+        "tldr": "The paper proposes a dual learning framework with dynamic knowledge distillation for partially relevant video retrieval, achieving state-of-the-art results on several datasets.",
+        "tldr_zh": "该论文提出了一种具有动态知识蒸馏的双重学习框架，用于部分相关视频检索，并在多个数据集上取得了最先进的结果。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Hierarchical Reasoning with Vision-Language Models for Incident Reports from Dashcam Videos",
+        "summary": "Recent advances in end-to-end (E2E) autonomous driving have been enabled by\ntraining on diverse large-scale driving datasets, yet autonomous driving models\nstill struggle in out-of-distribution (OOD) scenarios. The COOOL benchmark\ntargets this gap by encouraging hazard understanding beyond closed taxonomies,\nand the 2COOOL challenge extends it to generating human-interpretable incident\nreports. We present a hierarchical reasoning framework for incident report\ngeneration from dashcam videos that integrates frame-level captioning, incident\nframe detection, and fine-grained reasoning within vision-language models\n(VLMs). We further improve factual accuracy and readability through model\nensembling and a Blind A/B Scoring selection protocol. On the official 2COOOL\nopen leaderboard, our method ranks 2nd among 29 teams and achieves the best\nCIDEr-D score, producing accurate and coherent incident narratives. These\nresults indicate that hierarchical reasoning with VLMs is a promising direction\nfor accident analysis and for broader understanding of safety-critical traffic\nevents. The implementation and code are available at\nhttps://github.com/riron1206/kaggle-2COOOL-2nd-Place-Solution.",
+        "url": "http://arxiv.org/abs/2510.12190v1",
+        "published_date": "2025-10-14T06:36:41+00:00",
+        "updated_date": "2025-10-14T06:36:41+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Shingo Yokoi",
+            "Kento Sasaki",
+            "Yu Yamaguchi"
+        ],
+        "tldr": "The paper presents a hierarchical reasoning framework using VLMs for generating incident reports from dashcam videos, achieving strong results on the 2COOOL challenge. This demonstrates promise for accident analysis and traffic event understanding.",
+        "tldr_zh": "该论文提出了一个使用视觉-语言模型的分层推理框架，用于从行车记录仪视频生成事故报告，并在2COOOL挑战赛中取得了优异成绩。这表明其在事故分析和交通事件理解方面具有潜力。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Task-Specific Dual-Model Framework for Comprehensive Traffic Safety Video Description and Analysis",
+        "summary": "Traffic safety analysis requires complex video understanding to capture\nfine-grained behavioral patterns and generate comprehensive descriptions for\naccident prevention. In this work, we present a unique dual-model framework\nthat strategically utilizes the complementary strengths of VideoLLaMA and\nQwen2.5-VL through task-specific optimization to address this issue. The core\ninsight behind our approach is that separating training for captioning and\nvisual question answering (VQA) tasks minimizes task interference and allows\neach model to specialize more effectively. Experimental results demonstrate\nthat VideoLLaMA is particularly effective in temporal reasoning, achieving a\nCIDEr score of 1.1001, while Qwen2.5-VL excels in visual understanding with a\nVQA accuracy of 60.80\\%. Through extensive experiments on the WTS dataset, our\nmethod achieves an S2 score of 45.7572 in the 2025 AI City Challenge Track 2,\nplacing 10th on the challenge leaderboard. Ablation studies validate that our\nseparate training strategy outperforms joint training by 8.6\\% in VQA accuracy\nwhile maintaining captioning quality.",
+        "url": "http://arxiv.org/abs/2510.11907v1",
+        "published_date": "2025-10-13T20:18:23+00:00",
+        "updated_date": "2025-10-13T20:18:23+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Blessing Agyei Kyem",
+            "Neema Jakisa Owor",
+            "Andrews Danyo",
+            "Joshua Kofi Asamoah",
+            "Eugene Denteh",
+            "Tanner Muturi",
+            "Anthony Dontoh",
+            "Yaw Adu-Gyamfi",
+            "Armstrong Aboah"
+        ],
+        "tldr": "This paper presents a dual-model framework using VideoLLaMA and Qwen2.5-VL, optimized for traffic safety video analysis by separating training for captioning and visual question answering, achieving improved performance on the WTS dataset.",
+        "tldr_zh": "本文提出了一种双模型框架，该框架使用VideoLLaMA和Qwen2.5-VL，通过分离字幕和视觉问答的训练来优化交通安全视频分析，并在WTS数据集上实现了改进的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Prompt-Guided Spatial Understanding with RGB-D Transformers for Fine-Grained Object Relation Reasoning",
+        "summary": "Spatial reasoning in large-scale 3D environments such as warehouses remains a\nsignificant challenge for vision-language systems due to scene clutter,\nocclusions, and the need for precise spatial understanding. Existing models\noften struggle with generalization in such settings, as they rely heavily on\nlocal appearance and lack explicit spatial grounding. In this work, we\nintroduce a dedicated spatial reasoning framework for the Physical AI Spatial\nIntelligence Warehouse dataset introduced in the Track 3 2025 AI City\nChallenge. Our approach enhances spatial comprehension by embedding mask\ndimensions in the form of bounding box coordinates directly into the input\nprompts, enabling the model to reason over object geometry and layout. We\nfine-tune the framework across four question categories namely: Distance\nEstimation, Object Counting, Multi-choice Grounding, and Spatial Relation\nInference using task-specific supervision. To further improve consistency with\nthe evaluation system, normalized answers are appended to the GPT response\nwithin the training set. Our comprehensive pipeline achieves a final score of\n73.0606, placing 4th overall on the public leaderboard. These results\ndemonstrate the effectiveness of structured prompt enrichment and targeted\noptimization in advancing spatial reasoning for real-world industrial\nenvironments.",
+        "url": "http://arxiv.org/abs/2510.11996v1",
+        "published_date": "2025-10-13T22:51:20+00:00",
+        "updated_date": "2025-10-13T22:51:20+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Tanner Muturi",
+            "Blessing Agyei Kyem",
+            "Joshua Kofi Asamoah",
+            "Neema Jakisa Owor",
+            "Richard Dyzinela",
+            "Andrews Danyo",
+            "Yaw Adu-Gyamfi",
+            "Armstrong Aboah"
+        ],
+        "tldr": "This paper introduces a prompt-guided RGB-D Transformer framework for spatial reasoning in 3D warehouse environments, achieving 4th place in the AI City Challenge. It improves spatial comprehension by embedding mask dimensions into input prompts and fine-tuning on task-specific categories.",
+        "tldr_zh": "本文介绍了一种提示引导的RGB-D Transformer框架，用于3D仓库环境中的空间推理，在AI城市挑战赛中获得第四名。 它通过将掩码维度嵌入到输入提示中，并针对特定任务类别进行微调，从而提高了空间理解能力。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 8,
+        "potential_impact_score": 6,
+        "overall_priority_score": 6
+    }
+]
