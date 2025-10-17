@@ -1,0 +1,666 @@
+[
+    {
+        "title": "From Pixels to Words -- Towards Native Vision-Language Primitives at Scale",
+        "summary": "The edifice of native Vision-Language Models (VLMs) has emerged as a rising\ncontender to typical modular VLMs, shaped by evolving model architectures and\ntraining paradigms. Yet, two lingering clouds cast shadows over its widespread\nexploration and promotion: (-) What fundamental constraints set native VLMs\napart from modular ones, and to what extent can these barriers be overcome? (-)\nHow to make research in native VLMs more accessible and democratized, thereby\naccelerating progress in the field. In this paper, we clarify these challenges\nand outline guiding principles for constructing native VLMs. Specifically, one\nnative VLM primitive should: (i) effectively align pixel and word\nrepresentations within a shared semantic space; (ii) seamlessly integrate the\nstrengths of formerly separate vision and language modules; (iii) inherently\nembody various cross-modal properties that support unified vision-language\nencoding, aligning, and reasoning. Hence, we launch NEO, a novel family of\nnative VLMs built from first principles, capable of rivaling top-tier modular\ncounterparts across diverse real-world scenarios. With only 390M image-text\nexamples, NEO efficiently develops visual perception from scratch while\nmitigating vision-language conflicts inside a dense and monolithic model\ncrafted from our elaborate primitives. We position NEO as a cornerstone for\nscalable and powerful native VLMs, paired with a rich set of reusable\ncomponents that foster a cost-effective and extensible ecosystem. Our code and\nmodels are publicly available at: https://github.com/EvolvingLMMs-Lab/NEO.",
+        "url": "http://arxiv.org/abs/2510.14979v1",
+        "published_date": "2025-10-16T17:59:58+00:00",
+        "updated_date": "2025-10-16T17:59:58+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Haiwen Diao",
+            "Mingxuan Li",
+            "Silei Wu",
+            "Linjun Dai",
+            "Xiaohua Wang",
+            "Hanming Deng",
+            "Lewei Lu",
+            "Dahua Lin",
+            "Ziwei Liu"
+        ],
+        "tldr": "This paper introduces NEO, a novel family of native Vision-Language Models (VLMs) built from first principles, addressing limitations of modular VLMs and promoting accessible research in the field, with code and models publicly available.",
+        "tldr_zh": "本文介绍了NEO，一种新型的原生视觉语言模型（VLM）系列，从第一性原理构建，旨在解决模块化VLM的局限性，并促进该领域的可访问研究，代码和模型已公开。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Learning an Image Editing Model without Image Editing Pairs",
+        "summary": "Recent image editing models have achieved impressive results while following\nnatural language editing instructions, but they rely on supervised fine-tuning\nwith large datasets of input-target pairs. This is a critical bottleneck, as\nsuch naturally occurring pairs are hard to curate at scale. Current workarounds\nuse synthetic training pairs that leverage the zero-shot capabilities of\nexisting models. However, this can propagate and magnify the artifacts of the\npretrained model into the final trained model. In this work, we present a new\ntraining paradigm that eliminates the need for paired data entirely. Our\napproach directly optimizes a few-step diffusion model by unrolling it during\ntraining and leveraging feedback from vision-language models (VLMs). For each\ninput and editing instruction, the VLM evaluates if an edit follows the\ninstruction and preserves unchanged content, providing direct gradients for\nend-to-end optimization. To ensure visual fidelity, we incorporate distribution\nmatching loss (DMD), which constrains generated images to remain within the\nimage manifold learned by pretrained models. We evaluate our method on standard\nbenchmarks and include an extensive ablation study. Without any paired data,\nour method performs on par with various image editing diffusion models trained\non extensive supervised paired data, under the few-step setting. Given the same\nVLM as the reward model, we also outperform RL-based techniques like Flow-GRPO.",
+        "url": "http://arxiv.org/abs/2510.14978v1",
+        "published_date": "2025-10-16T17:59:57+00:00",
+        "updated_date": "2025-10-16T17:59:57+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Nupur Kumari",
+            "Sheng-Yu Wang",
+            "Nanxuan Zhao",
+            "Yotam Nitzan",
+            "Yuheng Li",
+            "Krishna Kumar Singh",
+            "Richard Zhang",
+            "Eli Shechtman",
+            "Jun-Yan Zhu",
+            "Xun Huang"
+        ],
+        "tldr": "This paper introduces a novel training paradigm for image editing models that eliminates the need for paired data by using VLMs to provide feedback and a distribution matching loss for visual fidelity, achieving comparable performance to supervised methods.",
+        "tldr_zh": "该论文介绍了一种新的图像编辑模型训练范式，通过使用视觉语言模型（VLMs）提供反馈，并采用分布匹配损失（distribution matching loss）来保证视觉保真度，从而消除了对配对数据的需求，并实现了与监督方法相当的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MathCanvas: Intrinsic Visual Chain-of-Thought for Multimodal Mathematical Reasoning",
+        "summary": "While Large Language Models (LLMs) have excelled in textual reasoning, they\nstruggle with mathematical domains like geometry that intrinsically rely on\nvisual aids. Existing approaches to Visual Chain-of-Thought (VCoT) are often\nlimited by rigid external tools or fail to generate the high-fidelity,\nstrategically-timed diagrams necessary for complex problem-solving. To bridge\nthis gap, we introduce MathCanvas, a comprehensive framework designed to endow\nunified Large Multimodal Models (LMMs) with intrinsic VCoT capabilities for\nmathematics. Our approach consists of two phases. First, a Visual Manipulation\nstage pre-trains the model on a novel 15.2M-pair corpus, comprising 10M\ncaption-to-diagram pairs (MathCanvas-Imagen) and 5.2M step-by-step editing\ntrajectories (MathCanvas-Edit), to master diagram generation and editing.\nSecond, a Strategic Visual-Aided Reasoning stage fine-tunes the model on\nMathCanvas-Instruct, a new 219K-example dataset of interleaved visual-textual\nreasoning paths, teaching it when and how to leverage visual aids. To\nfacilitate rigorous evaluation, we introduce MathCanvas-Bench, a challenging\nbenchmark with 3K problems that require models to produce interleaved\nvisual-textual solutions. Our model, BAGEL-Canvas, trained under this\nframework, achieves an 86% relative improvement over strong LMM baselines on\nMathCanvas-Bench, demonstrating excellent generalization to other public math\nbenchmarks. Our work provides a complete toolkit-framework, datasets, and\nbenchmark-to unlock complex, human-like visual-aided reasoning in LMMs. Project\nPage: https://mathcanvas.github.io/",
+        "url": "http://arxiv.org/abs/2510.14958v1",
+        "published_date": "2025-10-16T17:58:58+00:00",
+        "updated_date": "2025-10-16T17:58:58+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Weikang Shi",
+            "Aldrich Yu",
+            "Rongyao Fang",
+            "Houxing Ren",
+            "Ke Wang",
+            "Aojun Zhou",
+            "Changyao Tian",
+            "Xinyu Fu",
+            "Yuxuan Hu",
+            "Zimu Lu",
+            "Linjiang Huang",
+            "Si Liu",
+            "Rui Liu",
+            "Hongsheng Li"
+        ],
+        "tldr": "The paper introduces MathCanvas, a framework with datasets and benchmark to enhance LMMs' visual reasoning capabilities in mathematical domains by enabling intrinsic Visual Chain-of-Thought, showing significant performance improvements.",
+        "tldr_zh": "该论文介绍了 MathCanvas，一个包含数据集和基准的框架，通过启用内在的视觉思维链，来增强 LMM 在数学领域中的视觉推理能力，并展示了显著的性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "You May Speak Freely: Improving the Fine-Grained Visual Recognition Capabilities of Multimodal Large Language Models with Answer Extraction",
+        "summary": "Despite the renewed interest in zero-shot visual classification due to the\nrise of Multimodal Large Language Models (MLLMs), the problem of evaluating\nfree-form responses of auto-regressive models remains a persistent challenge.\nMost existing works focus on language-only tasks or don't consider Multiple\nChoice Questions (MCQs) beyond 5-way options, both of which are critical\ncapabilities to solve tasks in Fine-Grained Visual Classification (FGVC) where\nchoice counts are in the hundreds to thousands and the choices are highly\nrelated. Furthermore, in this highly multi-way MCQ setting it is not clear how\nto extend LLM choice extraction to retrieval-based problems, where computing\nprobabilities over the choice set is computationally costly. In this work we\ninvestigate nlg2choice, a simple two-stage method which first asks the MLLM an\nopen-ended question for the task with minimal constraints, then uses text-only\nconstrained decoding to predict the most likely choice. In retrieval settings,\nwe compute the probability of the constrained response taking that choice with\nan early stopping method to significantly improve throughput. Our results show\nimprovement over a suite of seven fine-grained visual datasets when evaluating\nin terms of classification and retrieval, and show that this performance holds\nover the various ways that users of LLMs can implement tasks in natural\nlanguage.",
+        "url": "http://arxiv.org/abs/2510.14885v1",
+        "published_date": "2025-10-16T17:04:25+00:00",
+        "updated_date": "2025-10-16T17:04:25+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Logan Lawrence",
+            "Oindrila Saha",
+            "Megan Wei",
+            "Chen Sun",
+            "Subhransu Maji",
+            "Grant Van Horn"
+        ],
+        "tldr": "The paper introduces nlg2choice, a two-stage method using MLLMs for fine-grained visual classification with numerous choices. It improves both classification and retrieval accuracy over existing methods across seven datasets.",
+        "tldr_zh": "该论文介绍了一种名为nlg2choice的两阶段方法，该方法利用多模态大型语言模型进行细粒度视觉分类，并具有大量选择。该方法在七个数据集上提高了分类和检索的准确性，优于现有方法。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "QDepth-VLA: Quantized Depth Prediction as Auxiliary Supervision for Vision-Language-Action Models",
+        "summary": "Spatial perception and reasoning are crucial for Vision-Language-Action (VLA)\nmodels to accomplish fine-grained manipulation tasks. However, existing\napproaches often lack the ability to understand and reason over the essential\n3D structures necessary for precise control. To address this limitation, we\npropose QDepth-VLA, a general framework that augments VLA models with an\nauxiliary depth prediction task. A dedicated depth expert is designed to\npredict quantized latent tokens of depth maps obtained from a VQ-VAE encoder,\nenabling the model to learn depth-aware representations that capture critical\ngeometric cues. Experimental results on the simulation benchmarks and\nreal-world tasks demonstrate that QDepth-VLA yields strong spatial reasoning\nand competitive performance on manipulation tasks.",
+        "url": "http://arxiv.org/abs/2510.14836v1",
+        "published_date": "2025-10-16T16:11:18+00:00",
+        "updated_date": "2025-10-16T16:11:18+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Yixuan Li",
+            "Yuhui Chen",
+            "Mingcai Zhou",
+            "Haoran Li"
+        ],
+        "tldr": "This paper introduces QDepth-VLA, a framework that improves Vision-Language-Action models by incorporating a quantized depth prediction task as auxiliary supervision, leading to better spatial reasoning and manipulation performance.",
+        "tldr_zh": "该论文介绍了QDepth-VLA，一个通过引入量化深度预测任务作为辅助监督来改进视觉-语言-动作模型的框架，从而提高空间推理和操作性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "CoT-PL: Visual Chain-of-Thought Reasoning Meets Pseudo-Labeling for Open-Vocabulary Object Detection",
+        "summary": "Open-vocabulary object detection (OVD) seeks to recognize and localize object\ncategories beyond those seen during training. Recent approaches typically\nleverage vision-language models (VLMs) to generate pseudo-labels using\nimage-text alignment, allowing detectors to generalize to unseen classes\nwithout explicit supervision. However, these methods depend heavily on direct\nimage-text matching, neglecting the intermediate reasoning steps essential for\ninterpreting semantically complex scenes. This results in limited robustness\nwhen confronted with crowded or occluded visual contexts. In this paper, we\nintroduce CoT-PL, a new framework that employs structured visual\nchain-of-thought (CoT) reasoning into the pseudo-labeling process. CoT-PL\ndecomposes object understanding into three interpretable steps: (1) region\nperception even for unseen objects, (2) category recognition via zero-shot\nreasoning, and (3) background grounding to separate semantically complex\nobjects. Crucially, the third step naturally motivates our contrastive\nbackground learning (CBL) that uses the pre-computed background cues as\nnegatives to promote feature disentanglement between objects and background. In\nthis way, CoT reasoning and CBL form an integrated pipeline tailored to robust\npseudo-labeling in crowded or occluded scenes. Notably, in these two settings,\nour novel-class pseudo-label quality achieves relative improvements of 103.4%\nand 168.4% over the best prior, respectively. Our extensive experiments\ndemonstrate that CoT-PL achieves +7.7 AP50 on open-vocabulary COCO and +2.9\nmask AP on LVIS for novel classes, setting a new state of the art.",
+        "url": "http://arxiv.org/abs/2510.14792v1",
+        "published_date": "2025-10-16T15:27:10+00:00",
+        "updated_date": "2025-10-16T15:27:10+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Hojun Choi",
+            "Youngsun Lim",
+            "Jaeyo Shin",
+            "Hyunjung Shim"
+        ],
+        "tldr": "This paper introduces CoT-PL, a novel framework for open-vocabulary object detection that uses visual chain-of-thought reasoning and contrastive background learning to generate robust pseudo-labels, achieving state-of-the-art results on novel classes in challenging scenarios.",
+        "tldr_zh": "本文介绍了CoT-PL，一种新的开放词汇目标检测框架，它使用视觉链式思维推理和对比背景学习来生成鲁棒的伪标签，并在具有挑战性的场景中实现了新类的最先进结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "In-Context Learning with Unpaired Clips for Instruction-based Video Editing",
+        "summary": "Despite the rapid progress of instruction-based image editing, its extension\nto video remains underexplored, primarily due to the prohibitive cost and\ncomplexity of constructing large-scale paired video editing datasets. To\naddress this challenge, we introduce a low-cost pretraining strategy for\ninstruction-based video editing that leverages in-context learning from\nunpaired video clips. We show that pretraining a foundation video generation\nmodel with this strategy endows it with general editing capabilities, such as\nadding, replacing, or deleting operations, according to input editing\ninstructions. The pretrained model can then be efficiently refined with a small\namount of high-quality paired editing data. Built upon HunyuanVideoT2V, our\nframework first pretrains on approximately 1M real video clips to learn basic\nediting concepts, and subsequently fine-tunes on fewer than 150k curated\nediting pairs to extend more editing tasks and improve the editing quality.\nComparative experiments show that our method surpasses existing\ninstruction-based video editing approaches in both instruction alignment and\nvisual fidelity, achieving a 12\\% improvement in editing instruction following\nand a 15\\% improvement in editing quality.",
+        "url": "http://arxiv.org/abs/2510.14648v1",
+        "published_date": "2025-10-16T13:02:11+00:00",
+        "updated_date": "2025-10-16T13:02:11+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Xinyao Liao",
+            "Xianfang Zeng",
+            "Ziye Song",
+            "Zhoujie Fu",
+            "Gang Yu",
+            "Guosheng Lin"
+        ],
+        "tldr": "The paper introduces a pretraining strategy for instruction-based video editing using in-context learning from unpaired video clips, followed by fine-tuning on a small amount of paired data, achieving improved instruction alignment and visual fidelity.",
+        "tldr_zh": "该论文介绍了一种基于指令的视频编辑的预训练策略，该策略使用来自非配对视频片段的上下文学习，然后在少量配对数据上进行微调，从而提高了指令对齐和视觉保真度。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Efficient Video Sampling: Pruning Temporally Redundant Tokens for Faster VLM Inference",
+        "summary": "Vision-language models (VLMs) have recently expanded from static image\nunderstanding to video reasoning, but their scalability is fundamentally\nlimited by the quadratic cost of processing dense frame sequences. Long videos\noften exceed the token budget of modern language models, leading to severe\ncontext limitations and latency issues. We introduce Efficient Video Sampling\n(EVS), a simple, plug-and-play method for reducing token redundancy in videos\nby identifying and pruning temporally static patches -- spatial regions that\nremain unchanged across consecutive frames. EVS preserves positional identity,\nrequires no architectural changes or retraining. We show that EVS substantially\nreduces token count while maintaining semantic fidelity, enabling faster\ninference and longer input sequences. Applied at inference time, EVS reduces\nlarge language model (LLM) time-to-first-token (TTFT) by up to 4x with minimal\naccuracy loss. When combined with an uptraining phase using stochastic pruning\nrates, EVS yields models that are robust to varying compression levels and\nretain full performance under aggressive pruning. Extensive experiments\ndemonstrate that EVS consistently improves efficiency-accuracy trade-offs,\nunlocking scalable video-language understanding without sacrificing quality.",
+        "url": "http://arxiv.org/abs/2510.14624v1",
+        "published_date": "2025-10-16T12:34:38+00:00",
+        "updated_date": "2025-10-16T12:34:38+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Natan Bagrov",
+            "Eugene Khvedchenia",
+            "Borys Tymchenko",
+            "Shay Aharon",
+            "Lior Kadoch",
+            "Tomer Keren",
+            "Ofri Masad",
+            "Yonatan Geifman",
+            "Ran Zilberstein",
+            "Tuomas Rintamaki",
+            "Matthieu Le",
+            "Andrew Tao"
+        ],
+        "tldr": "The paper introduces Efficient Video Sampling (EVS), a method for reducing token redundancy in videos by pruning temporally static patches, leading to faster VLM inference and longer input sequences without significant accuracy loss.",
+        "tldr_zh": "该论文介绍了高效视频采样（EVS）方法，通过剪枝时间上静态的图像块来减少视频中的token冗余，从而在不显著降低准确率的情况下，实现更快的VLM推理和更长的输入序列。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Knowledge-based Visual Question Answer with Multimodal Processing, Retrieval and Filtering",
+        "summary": "Knowledge-based visual question answering (KB-VQA) requires visual language\nmodels (VLMs) to integrate visual understanding with external knowledge\nretrieval. Although retrieval-augmented generation (RAG) achieves significant\nadvances in this task by combining knowledge-base querying, it still struggles\nwith the quality of multimodal queries and the relevance of retrieved results.\nTo overcome these challenges, we propose a novel three-stage method, termed\nWiki-PRF, including Processing, Retrieval and Filtering stages. The processing\nstage dynamically invokes visual tools to extract precise multimodal\ninformation for retrieval. The retrieval stage integrates visual and text\nfeatures to achieve multimodal knowledge retrieval. The filtering stage\nperforms relevance filtering and concentration on retrieval results. To this\nend, we introduce a visual language model trained with answer accuracy and\nformat consistency as reward signals via a reinforcement learning manner. This\nenhances the model's reasoning, tool invocation for accurate queries, and\nfiltering of irrelevant content. Experiments on benchmark datasets (E-VQA and\nInfoSeek) show significant improvements~(36.0 and 42.8) in answer quality,\nachieving state-of-the-art performance. Code is available at\nhttps://github.com/cqu-student/Wiki-PRF",
+        "url": "http://arxiv.org/abs/2510.14605v1",
+        "published_date": "2025-10-16T12:10:00+00:00",
+        "updated_date": "2025-10-16T12:10:00+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yuyang Hong",
+            "Jiaqi Gu",
+            "Qi Yang",
+            "Lubin Fan",
+            "Yue Wu",
+            "Ying Wang",
+            "Kun Ding",
+            "Shiming Xiang",
+            "Jieping Ye"
+        ],
+        "tldr": "This paper introduces Wiki-PRF, a novel three-stage method for Knowledge-based Visual Question Answering (KB-VQA) that improves answer quality and relevance by integrating visual tools and reinforcement learning for multimodal knowledge retrieval and filtering, achieving state-of-the-art performance on benchmark datasets.",
+        "tldr_zh": "本文介绍了一种名为 Wiki-PRF 的新型三阶段知识型视觉问答 (KB-VQA) 方法，通过集成视觉工具和强化学习进行多模态知识检索和过滤，从而提高答案质量和相关性，并在基准数据集上实现了最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Talking Points: Describing and Localizing Pixels",
+        "summary": "Vision-language models have achieved remarkable success in cross-modal\nunderstanding. Yet, these models remain limited to object-level or region-level\ngrounding, lacking the capability for pixel-precise keypoint comprehension\nthrough natural language. We introduce a novel framework for pixel level\ngrounding. The framework consists of two complementary components: a Point\nDescriptor that generates rich, contextual descriptions of individual\nkeypoints, and a Point Localizer that regresses precise pixel coordinates from\nthese descriptions. Unlike prior work that relies on templated prompts or\nkeypoint names, our approach produces free-form, coarse-to-fine descriptions\nthat situate keypoints within their visual context. Since there is no available\ndataset to train such a system, we introduce LlamaPointInPart, a carefully\ncurated dataset of 20K+ image-keypoint-description triplets synthesized from\nmultiple vision-language models, capturing multi-scale information from\nscene-level context to visual features around the keypoint. For cross-category\ngeneralization, we optimize the Point Descriptor on AP-10K via GRPO, using the\nfrozen Point Localizer as a reward model to produce descriptions that maximize\nlocalization accuracy. To evaluate our results we establish a new evaluation\nprotocol. Instead of comparing the text description produced by our method to\nthe ground truth, we use the localizer to determine how close is the predicted\npoint generated to the ground truth point. Experiments demonstrate superior\nperformance compared to baseline models on LlamaPointInPart.The bidirectional\nnature of our framework should enable future applications in both\nkeypoint-guided image understanding and language-guided precise localization.\nOur code and dataset are publicly available at\nhttps://github.com/matanr/Talking_Points.",
+        "url": "http://arxiv.org/abs/2510.14583v1",
+        "published_date": "2025-10-16T11:42:03+00:00",
+        "updated_date": "2025-10-16T11:42:03+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Matan Rusanovsky",
+            "Shimon Malnick",
+            "Shai Avidan"
+        ],
+        "tldr": "This paper introduces a novel framework, Talking Points, for pixel-level grounding of language in images, using a Point Descriptor and Point Localizer trained on a new dataset, LlamaPointInPart, to achieve precise keypoint comprehension. They evaluate performance using a new evaluation protocol based on localization accuracy.",
+        "tldr_zh": "本文介绍了一个名为 Talking Points 的新型框架，用于图像中语言的像素级定位。该框架使用点描述符和点定位器，并在名为 LlamaPointInPart 的新数据集上进行训练，以实现精确的关键点理解。他们使用基于定位精度的新评估协议来评估性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Eyes Wide Open: Ego Proactive Video-LLM for Streaming Video",
+        "summary": "Envision an AI capable of functioning in human-like settings, moving beyond\nmere observation to actively understand, anticipate, and proactively respond to\nunfolding events. Towards this vision, we focus on the innovative task where,\ngiven ego-streaming video input, an assistant proactively answers diverse,\nevolving questions at the opportune moment, while maintaining synchronized\nperception and reasoning. This task embodies three key properties: (1)\nProactive Coherence, (2) Just-in-Time Responsiveness, and (3) Synchronized\nEfficiency. To evaluate and address these properties, we first introduce\nESTP-Bench (Ego Streaming Proactive Benchmark) alongside the ESTP-F1 metric-a\nnovel framework designed for their rigorous assessment. Secondly, we propose a\ncomprehensive technical pipeline to enable models to tackle this challenging\ntask. This pipeline comprises: (1) a data engine, (2) a multi-stage training\nstrategy, and (3) a proactive dynamic compression technique. Our proposed model\neffectively addresses these critical properties while outperforming multiple\nbaselines across diverse online and offline benchmarks. Project\nPage:https://zhangyl4.github.io/publications/eyes-wide-open/",
+        "url": "http://arxiv.org/abs/2510.14560v1",
+        "published_date": "2025-10-16T11:11:13+00:00",
+        "updated_date": "2025-10-16T11:11:13+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yulin Zhang",
+            "Cheng Shi",
+            "Yang Wang",
+            "Sibei Yang"
+        ],
+        "tldr": "This paper introduces a new task, Ego Proactive Video-LLM, where an AI proactively answers questions about streaming egocentric video in real-time. They also present a benchmark (ESTP-Bench) and a technical pipeline to address this task, demonstrating improvements over baselines.",
+        "tldr_zh": "本文介绍了一项新任务，即Ego Proactive Video-LLM，其中人工智能主动实时回答有关第一人称视角流视频的问题。他们还提出了一个基准测试（ESTP-Bench）和一个技术流程来解决这个任务，并展示了相对于基线的改进。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Exploring Cross-Modal Flows for Few-Shot Learning",
+        "summary": "Aligning features from different modalities, is one of the most fundamental\nchallenges for cross-modal tasks. Although pre-trained vision-language models\ncan achieve a general alignment between image and text, they often require\nparameter-efficient fine-tuning (PEFT) for further adjustment. Today's PEFT\nmethods (e.g., prompt tuning, LoRA-based, or adapter-based) always selectively\nfine-tune a subset of parameters, which can slightly adjust either visual or\ntextual features, and avoid overfitting. In this paper, we are the first to\nhighlight that all existing PEFT methods perform one-step adjustment. It is\ninsufficient for complex (or difficult) datasets, where features of different\nmodalities are highly entangled. To this end, we propose the first\nmodel-agnostic multi-step adjustment approach by learning a cross-modal\nvelocity field: Flow Matching Alignment (FMA). Specifically, to ensure the\ncorrespondence between categories during training, we first utilize a fixed\ncoupling strategy. Then, we propose a noise augmentation strategy to alleviate\nthe data scarcity issue. Finally, we design an early-stopping solver, which\nterminates the transformation process earlier, improving both efficiency and\naccuracy. Compared with one-step PEFT methods, FMA has the multi-step\nrectification ability to achieve more precise and robust alignment. Extensive\nresults have demonstrated that FMA can consistently yield significant\nperformance gains across various benchmarks and backbones, particularly on\nchallenging datasets.",
+        "url": "http://arxiv.org/abs/2510.14543v1",
+        "published_date": "2025-10-16T10:32:48+00:00",
+        "updated_date": "2025-10-16T10:32:48+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Ziqi Jiang",
+            "Yanghao Wang",
+            "Long Chen"
+        ],
+        "tldr": "This paper introduces Flow Matching Alignment (FMA), a novel multi-step adjustment approach for few-shot learning in cross-modal tasks, designed to improve alignment between visual and textual features, particularly on challenging datasets.",
+        "tldr_zh": "本文介绍了一种名为流匹配对齐 (FMA) 的新型多步调整方法，用于跨模态任务中的少样本学习，旨在提高视觉和文本特征之间的对齐，尤其是在具有挑战性的数据集上。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "PaddleOCR-VL: Boosting Multilingual Document Parsing via a 0.9B Ultra-Compact Vision-Language Model",
+        "summary": "In this report, we propose PaddleOCR-VL, a SOTA and resource-efficient model\ntailored for document parsing. Its core component is PaddleOCR-VL-0.9B, a\ncompact yet powerful vision-language model (VLM) that integrates a NaViT-style\ndynamic resolution visual encoder with the ERNIE-4.5-0.3B language model to\nenable accurate element recognition. This innovative model efficiently supports\n109 languages and excels in recognizing complex elements (e.g., text, tables,\nformulas, and charts), while maintaining minimal resource consumption. Through\ncomprehensive evaluations on widely used public benchmarks and in-house\nbenchmarks, PaddleOCR-VL achieves SOTA performance in both page-level document\nparsing and element-level recognition. It significantly outperforms existing\nsolutions, exhibits strong competitiveness against top-tier VLMs, and delivers\nfast inference speeds. These strengths make it highly suitable for practical\ndeployment in real-world scenarios.",
+        "url": "http://arxiv.org/abs/2510.14528v1",
+        "published_date": "2025-10-16T10:18:48+00:00",
+        "updated_date": "2025-10-16T10:18:48+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Cheng Cui",
+            "Ting Sun",
+            "Suyin Liang",
+            "Tingquan Gao",
+            "Zelun Zhang",
+            "Jiaxuan Liu",
+            "Xueqing Wang",
+            "Changda Zhou",
+            "Hongen Liu",
+            "Manhui Lin",
+            "Yue Zhang",
+            "Yubo Zhang",
+            "Handong Zheng",
+            "Jing Zhang",
+            "Jun Zhang",
+            "Yi Liu",
+            "Dianhai Yu",
+            "Yanjun Ma"
+        ],
+        "tldr": "The paper introduces PaddleOCR-VL, a highly efficient vision-language model for document parsing, featuring a compact 0.9B parameter model that achieves state-of-the-art performance across 109 languages and various document elements.",
+        "tldr_zh": "该论文介绍了PaddleOCR-VL，一个用于文档解析的高效视觉语言模型，它具有一个紧凑的0.9B参数模型，可在109种语言和各种文档元素中实现最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 9,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Spatial Preference Rewarding for MLLMs Spatial Understanding",
+        "summary": "Multimodal large language models~(MLLMs) have demonstrated promising spatial\nunderstanding capabilities, such as referencing and grounding object\ndescriptions. Despite their successes, MLLMs still fall short in fine-grained\nspatial perception abilities, such as generating detailed region descriptions\nor accurately localizing objects. Additionally, they often fail to respond to\nthe user's requirements for desired fine-grained spatial understanding. This\nissue might arise because existing approaches primarily focus on tuning MLLMs\nto model pre-annotated instruction data to inject spatial knowledge, without\ndirect supervision of MLLMs' actual responses. We address this issue by SPR, a\nSpatial Preference Rewarding~(SPR) approach that enhances MLLMs' spatial\ncapabilities by rewarding MLLMs' detailed responses with precise object\nlocalization over vague or inaccurate responses. With randomly selected image\nregions and region descriptions from MLLMs, SPR introduces semantic and\nlocalization scores to comprehensively evaluate the text quality and\nlocalization quality in MLLM-generated descriptions. We also refine the MLLM\ndescriptions with better localization accuracy and pair the best-scored\nrefinement with the initial descriptions of the lowest score for direct\npreference optimization, thereby enhancing fine-grained alignment with visual\ninput. Extensive experiments over standard referring and grounding benchmarks\nshow that SPR improves MLLM spatial understanding capabilities effectively with\nminimal overhead in training. Data and code will be released at\nhttps://github.com/hanqiu-hq/SPR",
+        "url": "http://arxiv.org/abs/2510.14374v1",
+        "published_date": "2025-10-16T07:16:18+00:00",
+        "updated_date": "2025-10-16T07:16:18+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Han Qiu",
+            "Peng Gao",
+            "Lewei Lu",
+            "Xiaoqin Zhang",
+            "Ling Shao",
+            "Shijian Lu"
+        ],
+        "tldr": "The paper introduces Spatial Preference Rewarding (SPR), a method to enhance MLLMs' fine-grained spatial understanding by rewarding detailed and accurate object localization in generated descriptions using semantic and localization scores for preference optimization.",
+        "tldr_zh": "本文介绍了一种名为空间偏好奖励（SPR）的方法，通过使用语义和定位分数奖励生成描述中详细且准确的物体定位，从而增强MLLM的细粒度空间理解能力，并进行偏好优化。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Watermarking for Factuality: Guiding Vision-Language Models Toward Truth via Tri-layer Contrastive Decoding",
+        "summary": "Large Vision-Language Models (LVLMs) have recently shown promising results on\nvarious multimodal tasks, even achieving human-comparable performance in\ncertain cases. Nevertheless, LVLMs remain prone to hallucinations -- they often\nrely heavily on a single modality or memorize training data without properly\ngrounding their outputs. To address this, we propose a training-free, tri-layer\ncontrastive decoding with watermarking, which proceeds in three steps: (1)\nselect a mature layer and an amateur layer among the decoding layers, (2)\nidentify a pivot layer using a watermark-related question to assess whether the\nlayer is visually well-grounded, and (3) apply tri-layer contrastive decoding\nto generate the final output. Experiments on public benchmarks such as POPE,\nMME and AMBER demonstrate that our method achieves state-of-the-art performance\nin reducing hallucinations in LVLMs and generates more visually grounded\nresponses.",
+        "url": "http://arxiv.org/abs/2510.14304v1",
+        "published_date": "2025-10-16T04:58:45+00:00",
+        "updated_date": "2025-10-16T04:58:45+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Kyungryul Back",
+            "Seongbeom Park",
+            "Milim Kim",
+            "Mincheol Kwon",
+            "SangHyeok Lee",
+            "Hyunyoung Lee",
+            "Junhee Cho",
+            "Seunghyun Park",
+            "Jinkyu Kim"
+        ],
+        "tldr": "This paper introduces a training-free, tri-layer contrastive decoding method with watermarking to reduce hallucinations in Large Vision-Language Models (LVLMs), demonstrating state-of-the-art performance on public benchmarks.",
+        "tldr_zh": "本文介绍了一种无需训练的三层对比解码水印方法，用于减少大型视觉语言模型 (LVLM) 中的幻觉，并在公共基准测试中展示了最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Efficient Few-Shot Learning in Remote Sensing: Fusing Vision and Vision-Language Models",
+        "summary": "Remote sensing has become a vital tool across sectors such as urban planning,\nenvironmental monitoring, and disaster response. While the volume of data\ngenerated has increased significantly, traditional vision models are often\nconstrained by the requirement for extensive domain-specific labelled data and\ntheir limited ability to understand the context within complex environments.\nVision Language Models offer a complementary approach by integrating visual and\ntextual data; however, their application to remote sensing remains\nunderexplored, particularly given their generalist nature. This work\ninvestigates the combination of vision models and VLMs to enhance image\nanalysis in remote sensing, with a focus on aircraft detection and scene\nunderstanding. The integration of YOLO with VLMs such as LLaVA, ChatGPT, and\nGemini aims to achieve more accurate and contextually aware image\ninterpretation. Performance is evaluated on both labelled and unlabelled remote\nsensing data, as well as degraded image scenarios which are crucial for remote\nsensing. The findings show an average MAE improvement of 48.46% across models\nin the accuracy of aircraft detection and counting, especially in challenging\nconditions, in both raw and degraded scenarios. A 6.17% improvement in\nCLIPScore for comprehensive understanding of remote sensing images is obtained.\nThe proposed approach combining traditional vision models and VLMs paves the\nway for more advanced and efficient remote sensing image analysis, especially\nin few-shot learning scenarios.",
+        "url": "http://arxiv.org/abs/2510.13993v1",
+        "published_date": "2025-10-15T18:19:48+00:00",
+        "updated_date": "2025-10-15T18:19:48+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Jia Yun Chua",
+            "Argyrios Zolotas",
+            "Miguel Arana-Catania"
+        ],
+        "tldr": "This paper explores the fusion of traditional vision models (YOLO) with Vision Language Models (LLaVA, ChatGPT, Gemini) for improved few-shot learning in remote sensing, demonstrating significant improvements in aircraft detection and scene understanding.",
+        "tldr_zh": "该论文探讨了传统视觉模型（YOLO）与视觉语言模型（LLaVA、ChatGPT、Gemini）的融合，以改进遥感中的小样本学习，并在飞机检测和场景理解方面取得了显著改进。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "RDD: Retrieval-Based Demonstration Decomposer for Planner Alignment in Long-Horizon Tasks",
+        "summary": "To tackle long-horizon tasks, recent hierarchical vision-language-action\n(VLAs) frameworks employ vision-language model (VLM)-based planners to\ndecompose complex manipulation tasks into simpler sub-tasks that low-level\nvisuomotor policies can easily handle. Typically, the VLM planner is finetuned\nto learn to decompose a target task. This finetuning requires target task\ndemonstrations segmented into sub-tasks by either human annotation or heuristic\nrules. However, the heuristic subtasks can deviate significantly from the\ntraining data of the visuomotor policy, which degrades task performance. To\naddress these issues, we propose a Retrieval-based Demonstration Decomposer\n(RDD) that automatically decomposes demonstrations into sub-tasks by aligning\nthe visual features of the decomposed sub-task intervals with those from the\ntraining data of the low-level visuomotor policies. Our method outperforms the\nstate-of-the-art sub-task decomposer on both simulation and real-world tasks,\ndemonstrating robustness across diverse settings. Code and more results are\navailable at rdd-neurips.github.io.",
+        "url": "http://arxiv.org/abs/2510.14968v1",
+        "published_date": "2025-10-16T17:59:37+00:00",
+        "updated_date": "2025-10-16T17:59:37+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG",
+            "cs.SY",
+            "eess.SY"
+        ],
+        "authors": [
+            "Mingxuan Yan",
+            "Yuping Wang",
+            "Zechun Liu",
+            "Jiachen Li"
+        ],
+        "tldr": "The paper introduces a Retrieval-based Demonstration Decomposer (RDD) for hierarchical vision-language-action frameworks that automatically decomposes long-horizon tasks into sub-tasks by aligning visual features with the training data of low-level visuomotor policies, outperforming existing methods.",
+        "tldr_zh": "该论文介绍了一种基于检索的演示分解器（RDD），用于分层视觉-语言-动作框架，通过将视觉特征与底层视觉运动策略的训练数据对齐，自动将长时程任务分解为子任务，优于现有方法。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "MaskCaptioner : Learning to Jointly Segment and Caption Object Trajectories in Videos",
+        "summary": "Dense Video Object Captioning (DVOC) is the task of jointly detecting,\ntracking, and captioning object trajectories in a video, requiring the ability\nto understand spatio-temporal details and describe them in natural language.\nDue to the complexity of the task and the high cost associated with manual\nannotation, previous approaches resort to disjoint training strategies,\npotentially leading to suboptimal performance. To circumvent this issue, we\npropose to generate captions about spatio-temporally localized entities\nleveraging a state-of-the-art VLM. By extending the LVIS and LV-VIS datasets\nwith our synthetic captions (LVISCap and LV-VISCap), we train MaskCaptioner, an\nend-to-end model capable of jointly detecting, segmenting, tracking and\ncaptioning object trajectories. Moreover, with pretraining on LVISCap and\nLV-VISCap, MaskCaptioner achieves state-of-the-art DVOC results on three\nexisting benchmarks, VidSTG, VLN and BenSMOT. The datasets and code are\navailable at https://www.gabriel.fiastre.fr/maskcaptioner/.",
+        "url": "http://arxiv.org/abs/2510.14904v1",
+        "published_date": "2025-10-16T17:20:22+00:00",
+        "updated_date": "2025-10-16T17:20:22+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Gabriel Fiastre",
+            "Antoine Yang",
+            "Cordelia Schmid"
+        ],
+        "tldr": "The paper introduces MaskCaptioner, an end-to-end model for dense video object captioning, trained on synthetically generated captions, achieving state-of-the-art results on existing benchmarks.",
+        "tldr_zh": "该论文介绍了 MaskCaptioner，一个用于密集视频对象字幕的端到端模型，该模型在合成生成的字幕上进行训练，并在现有基准测试中实现了最先进的结果。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Leveraging Multimodal LLM Descriptions of Activity for Explainable Semi-Supervised Video Anomaly Detection",
+        "summary": "Existing semi-supervised video anomaly detection (VAD) methods often struggle\nwith detecting complex anomalies involving object interactions and generally\nlack explainability. To overcome these limitations, we propose a novel VAD\nframework leveraging Multimodal Large Language Models (MLLMs). Unlike previous\nMLLM-based approaches that make direct anomaly judgments at the frame level,\nour method focuses on extracting and interpreting object activity and\ninteractions over time. By querying an MLLM with visual inputs of object pairs\nat different moments, we generate textual descriptions of the activity and\ninteractions from nominal videos. These textual descriptions serve as a\nhigh-level representation of the activity and interactions of objects in a\nvideo. They are used to detect anomalies during test time by comparing them to\ntextual descriptions found in nominal training videos. Our approach inherently\nprovides explainability and can be combined with many traditional VAD methods\nto further enhance their interpretability. Extensive experiments on benchmark\ndatasets demonstrate that our method not only detects complex interaction-based\nanomalies effectively but also achieves state-of-the-art performance on\ndatasets without interaction anomalies.",
+        "url": "http://arxiv.org/abs/2510.14896v1",
+        "published_date": "2025-10-16T17:13:33+00:00",
+        "updated_date": "2025-10-16T17:13:33+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Furkan Mumcu",
+            "Michael J. Jones",
+            "Anoop Cherian",
+            "Yasin Yilmaz"
+        ],
+        "tldr": "This paper introduces a novel semi-supervised video anomaly detection framework that leverages Multimodal Large Language Models (MLLMs) to extract and interpret object activity and interactions, achieving state-of-the-art performance and inherent explainability.",
+        "tldr_zh": "本文提出了一种新颖的半监督视频异常检测框架，该框架利用多模态大型语言模型 (MLLM) 来提取和解释对象活动和交互，从而实现最先进的性能和固有的可解释性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Benchmarking Multimodal Large Language Models for Face Recognition",
+        "summary": "Multimodal large language models (MLLMs) have achieved remarkable performance\nacross diverse vision-and-language tasks. However, their potential in face\nrecognition remains underexplored. In particular, the performance of\nopen-source MLLMs needs to be evaluated and compared with existing face\nrecognition models on standard benchmarks with similar protocol. In this work,\nwe present a systematic benchmark of state-of-the-art MLLMs for face\nrecognition on several face recognition datasets, including LFW, CALFW, CPLFW,\nCFP, AgeDB and RFW. Experimental results reveal that while MLLMs capture rich\nsemantic cues useful for face-related tasks, they lag behind specialized models\nin high-precision recognition scenarios in zero-shot applications. This\nbenchmark provides a foundation for advancing MLLM-based face recognition,\noffering insights for the design of next-generation models with higher accuracy\nand generalization. The source code of our benchmark is publicly available in\nthe project page.",
+        "url": "http://arxiv.org/abs/2510.14866v1",
+        "published_date": "2025-10-16T16:42:27+00:00",
+        "updated_date": "2025-10-16T16:42:27+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL"
+        ],
+        "authors": [
+            "Hatef Otroshi Shahreza",
+            "Sébastien Marcel"
+        ],
+        "tldr": "This paper benchmarks the performance of state-of-the-art MLLMs on face recognition datasets, finding they lag behind specialized models in zero-shot high-precision scenarios, but capture useful semantic cues. The benchmark provides a foundation for future research in MLLM-based face recognition.",
+        "tldr_zh": "本文对最先进的多模态大语言模型在人脸识别数据集上的性能进行了基准测试，发现它们在零样本高精度场景中落后于专用模型，但捕捉到了有用的语义线索。该基准测试为未来基于多模态大语言模型的人脸识别研究奠定了基础。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "DOS: Directional Object Separation in Text Embeddings for Multi-Object Image Generation",
+        "summary": "Recent progress in text-to-image (T2I) generative models has led to\nsignificant improvements in generating high-quality images aligned with text\nprompts. However, these models still struggle with prompts involving multiple\nobjects, often resulting in object neglect or object mixing. Through extensive\nstudies, we identify four problematic scenarios, Similar Shapes, Similar\nTextures, Dissimilar Background Biases, and Many Objects, where inter-object\nrelationships frequently lead to such failures. Motivated by two key\nobservations about CLIP embeddings, we propose DOS (Directional Object\nSeparation), a method that modifies three types of CLIP text embeddings before\npassing them into text-to-image models. Experimental results show that DOS\nconsistently improves the success rate of multi-object image generation and\nreduces object mixing. In human evaluations, DOS significantly outperforms four\ncompeting methods, receiving 26.24%-43.04% more votes across four benchmarks.\nThese results highlight DOS as a practical and effective solution for improving\nmulti-object image generation.",
+        "url": "http://arxiv.org/abs/2510.14376v1",
+        "published_date": "2025-10-16T07:17:23+00:00",
+        "updated_date": "2025-10-16T07:17:23+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Dongnam Byun",
+            "Jungwon Park",
+            "Jumgmin Ko",
+            "Changin Choi",
+            "Wonjong Rhee"
+        ],
+        "tldr": "The paper introduces DOS, a method to improve multi-object image generation in text-to-image models by modifying CLIP text embeddings to address object neglect and mixing issues. Experiments demonstrate its superior performance compared to other methods.",
+        "tldr_zh": "该论文提出了DOS，一种通过修改CLIP文本嵌入来改进文本到图像模型中多对象图像生成的方法，解决了对象忽略和混合的问题。实验表明，与其它方法相比，该方法表现更优。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Vision-Centric Activation and Coordination for Multimodal Large Language Models",
+        "summary": "Multimodal large language models (MLLMs) integrate image features from visual\nencoders with LLMs, demonstrating advanced comprehension capabilities. However,\nmainstream MLLMs are solely supervised by the next-token prediction of textual\ntokens, neglecting critical vision-centric information essential for analytical\nabilities. To track this dilemma, we introduce VaCo, which optimizes MLLM\nrepresentations through Vision-Centric activation and Coordination from\nmultiple vision foundation models (VFMs). VaCo introduces visual discriminative\nalignment to integrate task-aware perceptual features extracted from VFMs,\nthereby unifying the optimization of both textual and visual outputs in MLLMs.\nSpecifically, we incorporate the learnable Modular Task Queries (MTQs) and\nVisual Alignment Layers (VALs) into MLLMs, activating specific visual signals\nunder the supervision of diverse VFMs. To coordinate representation conflicts\nacross VFMs, the crafted Token Gateway Mask (TGM) restricts the information\nflow among multiple groups of MTQs. Extensive experiments demonstrate that VaCo\nsignificantly improves the performance of different MLLMs on various\nbenchmarks, showcasing its superior capabilities in visual comprehension.",
+        "url": "http://arxiv.org/abs/2510.14349v1",
+        "published_date": "2025-10-16T06:38:39+00:00",
+        "updated_date": "2025-10-16T06:38:39+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yunnan Wang",
+            "Fan Lu",
+            "Kecheng Zheng",
+            "Ziyuan Huang",
+            "Ziqiang Li",
+            "Wenjun Zeng",
+            "Xin Jin"
+        ],
+        "tldr": "The paper introduces VaCo, a method to improve MLLMs by incorporating vision-centric information from multiple VFMs, using task-aware perceptual features and addressing representation conflicts, leading to improved visual comprehension.",
+        "tldr_zh": "该论文介绍了VaCo，一种通过整合多个视觉基础模型（VFM）的以视觉为中心的信息来改进多模态大语言模型（MLLM）的方法，使用任务感知的感知特征并解决表征冲突，从而提高视觉理解能力。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Virtually Being: Customizing Camera-Controllable Video Diffusion Models with Multi-View Performance Captures",
+        "summary": "We introduce a framework that enables both multi-view character consistency\nand 3D camera control in video diffusion models through a novel customization\ndata pipeline. We train the character consistency component with recorded\nvolumetric capture performances re-rendered with diverse camera trajectories\nvia 4D Gaussian Splatting (4DGS), lighting variability obtained with a video\nrelighting model. We fine-tune state-of-the-art open-source video diffusion\nmodels on this data to provide strong multi-view identity preservation, precise\ncamera control, and lighting adaptability. Our framework also supports core\ncapabilities for virtual production, including multi-subject generation using\ntwo approaches: joint training and noise blending, the latter enabling\nefficient composition of independently customized models at inference time; it\nalso achieves scene and real-life video customization as well as control over\nmotion and spatial layout during customization. Extensive experiments show\nimproved video quality, higher personalization accuracy, and enhanced camera\ncontrol and lighting adaptability, advancing the integration of video\ngeneration into virtual production. Our project page is available at:\nhttps://eyeline-labs.github.io/Virtually-Being.",
+        "url": "http://arxiv.org/abs/2510.14179v1",
+        "published_date": "2025-10-16T00:20:57+00:00",
+        "updated_date": "2025-10-16T00:20:57+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yuancheng Xu",
+            "Wenqi Xian",
+            "Li Ma",
+            "Julien Philip",
+            "Ahmet Levent Taşel",
+            "Yiwei Zhao",
+            "Ryan Burgert",
+            "Mingming He",
+            "Oliver Hermann",
+            "Oliver Pilarski",
+            "Rahul Garg",
+            "Paul Debevec",
+            "Ning Yu"
+        ],
+        "tldr": "This paper introduces a framework for customizing video diffusion models with multi-view performance captures, enabling 3D camera control, character consistency, and lighting adaptability, with applications in virtual production.",
+        "tldr_zh": "本文介绍了一个框架，通过多视角的性能捕捉来定制视频扩散模型，从而实现 3D 摄像头控制、角色一致性和光照适应性，并应用于虚拟制作。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Vgent: Graph-based Retrieval-Reasoning-Augmented Generation For Long Video Understanding",
+        "summary": "Understanding and reasoning over long videos pose significant challenges for\nlarge video language models (LVLMs) due to the difficulty in processing\nintensive video tokens beyond context window and retaining long-term sequential\ninformation. Retrieval-Augmented Generation (RAG) has demonstrated\neffectiveness in processing long context for Large Language Models (LLMs);\nhowever, applying RAG to long video faces challenges such as disrupted temporal\ndependencies and inclusion of irrelevant information that can hinder accurate\nreasoning. To address these limitations, we propose Vgent, a novel graph-based\nretrieval-reasoning-augmented generation framework to enhance LVLMs for long\nvideo understanding. Our approach introduces two key innovations: (i) It\nrepresents videos by structured graphs with semantic relationships across video\nclips preserved to improve retrieval effectiveness. (ii) It introduces an\nintermediate reasoning step to mitigate the reasoning limitation of LVLMs,\nwhich leverages structured verification to reduce retrieval noise and\nfacilitate the explicit aggregation of relevant information across clips,\nresulting in more accurate and context-aware responses. We comprehensively\nevaluate our framework with various open-source LVLMs on three long-video\nunderstanding benchmarks. Our approach yielded an overall performance\nimprovement of $3.0\\%\\sim 5.4\\%$ over base models on MLVU, and outperformed\nstate-of-the-art video RAG methods by $8.6\\%$. Our code is publicly available\nat https://xiaoqian-shen.github.io/Vgent.",
+        "url": "http://arxiv.org/abs/2510.14032v1",
+        "published_date": "2025-10-15T19:14:58+00:00",
+        "updated_date": "2025-10-15T19:14:58+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Xiaoqian Shen",
+            "Wenxuan Zhang",
+            "Jun Chen",
+            "Mohamed Elhoseiny"
+        ],
+        "tldr": "Vgent is a graph-based retrieval-reasoning-augmented generation framework that enhances LVLMs for long video understanding by using structured graphs to represent videos and introducing an intermediate reasoning step for noise reduction and information aggregation, achieving performance improvements on long-video benchmarks.",
+        "tldr_zh": "Vgent是一个基于图的检索-推理-增强生成框架，通过使用结构化图表示视频并引入中间推理步骤来减少噪声和聚合信息，从而增强LVLM对长视频的理解，并在长视频基准测试中实现了性能提升。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "BADAS: Context Aware Collision Prediction Using Real-World Dashcam Data",
+        "summary": "Existing collision prediction methods often fail to distinguish between\nego-vehicle threats and random accidents not involving the ego vehicle, leading\nto excessive false alerts in real-world deployment. We present BADAS, a family\nof collision prediction models trained on Nexar's real-world dashcam collision\ndataset -- the first benchmark designed explicitly for ego-centric evaluation.\nWe re-annotate major benchmarks to identify ego involvement, add consensus\nalert-time labels, and synthesize negatives where needed, enabling fair AP/AUC\nand temporal evaluation. BADAS uses a V-JEPA2 backbone trained end-to-end and\ncomes in two variants: BADAS-Open (trained on our 1.5k public videos) and\nBADAS1.0 (trained on 40k proprietary videos). Across DAD, DADA-2000, DoTA, and\nNexar, BADAS achieves state-of-the-art AP/AUC and outperforms a\nforward-collision ADAS baseline while producing more realistic time-to-accident\nestimates. We release our BADAS-Open model weights and code, along with\nre-annotations of all evaluation datasets to promote ego-centric collision\nprediction research.",
+        "url": "http://arxiv.org/abs/2510.14876v1",
+        "published_date": "2025-10-16T16:55:30+00:00",
+        "updated_date": "2025-10-16T16:55:30+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Roni Goldshmidt",
+            "Hamish Scott",
+            "Lorenzo Niccolini",
+            "Shizhan Zhu",
+            "Daniel Moura",
+            "Orly Zvitia"
+        ],
+        "tldr": "The paper introduces BADAS, a collision prediction model family trained on a new ego-centric dashcam collision dataset, achieving state-of-the-art results by distinguishing between ego-vehicle threats and random accidents. They provide a public dataset and open-source model for ego-centric collision prediction research.",
+        "tldr_zh": "该论文介绍了BADAS，一个在新的以自我为中心的行车记录仪碰撞数据集上训练的碰撞预测模型系列。该模型通过区分自我车辆威胁和随机事故，实现了最先进的结果。他们提供了一个公共数据集和开源模型，用于以自我为中心的碰撞预测研究。",
+        "relevance_score": 3,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 6,
+        "overall_priority_score": 5
+    }
+]
