@@ -1,0 +1,523 @@
+[
+    {
+        "title": "Glyph: Scaling Context Windows via Visual-Text Compression",
+        "summary": "Large language models (LLMs) increasingly rely on long-context modeling for\ntasks such as document understanding, code analysis, and multi-step reasoning.\nHowever, scaling context windows to the million-token level brings prohibitive\ncomputational and memory costs, limiting the practicality of long-context LLMs.\nIn this work, we take a different perspective-visual context scaling-to tackle\nthis challenge. Instead of extending token-based sequences, we propose Glyph, a\nframework that renders long texts into images and processes them with\nvision-language models (VLMs). This approach substantially compresses textual\ninput while preserving semantic information, and we further design an\nLLM-driven genetic search to identify optimal visual rendering configurations\nfor balancing accuracy and compression. Through extensive experiments, we\ndemonstrate that our method achieves 3-4x token compression while maintaining\naccuracy comparable to leading LLMs such as Qwen3-8B on various long-context\nbenchmarks. This compression also leads to around 4x faster prefilling and\ndecoding, and approximately 2x faster SFT training. Furthermore, under extreme\ncompression, a 128K-context VLM could scale to handle 1M-token-level text\ntasks. In addition, the rendered text data benefits real-world multimodal\ntasks, such as document understanding. Our code and model are released at\nhttps://github.com/thu-coai/Glyph.",
+        "url": "http://arxiv.org/abs/2510.17800v1",
+        "published_date": "2025-10-20T17:58:56+00:00",
+        "updated_date": "2025-10-20T17:58:56+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL",
+            "cs.LG"
+        ],
+        "authors": [
+            "Jiale Cheng",
+            "Yusen Liu",
+            "Xinyu Zhang",
+            "Yulin Fei",
+            "Wenyi Hong",
+            "Ruiliang Lyu",
+            "Weihan Wang",
+            "Zhe Su",
+            "Xiaotao Gu",
+            "Xiao Liu",
+            "Yushi Bai",
+            "Jie Tang",
+            "Hongning Wang",
+            "Minlie Huang"
+        ],
+        "tldr": "The paper introduces Glyph, a framework that compresses long texts into images processed by vision-language models, achieving 3-4x token compression and faster processing while maintaining accuracy on long-context tasks.",
+        "tldr_zh": "该论文介绍了 Glyph，一个通过视觉语言模型处理压缩成长图像的文本的框架，在保持长文本任务准确性的同时，实现了 3-4 倍的 token 压缩和更快的处理速度。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 9
+    },
+    {
+        "title": "ConsistEdit: Highly Consistent and Precise Training-free Visual Editing",
+        "summary": "Recent advances in training-free attention control methods have enabled\nflexible and efficient text-guided editing capabilities for existing generation\nmodels. However, current approaches struggle to simultaneously deliver strong\nediting strength while preserving consistency with the source. This limitation\nbecomes particularly critical in multi-round and video editing, where visual\nerrors can accumulate over time. Moreover, most existing methods enforce global\nconsistency, which limits their ability to modify individual attributes such as\ntexture while preserving others, thereby hindering fine-grained editing.\nRecently, the architectural shift from U-Net to MM-DiT has brought significant\nimprovements in generative performance and introduced a novel mechanism for\nintegrating text and vision modalities. These advancements pave the way for\novercoming challenges that previous methods failed to resolve. Through an\nin-depth analysis of MM-DiT, we identify three key insights into its attention\nmechanisms. Building on these, we propose ConsistEdit, a novel attention\ncontrol method specifically tailored for MM-DiT. ConsistEdit incorporates\nvision-only attention control, mask-guided pre-attention fusion, and\ndifferentiated manipulation of the query, key, and value tokens to produce\nconsistent, prompt-aligned edits. Extensive experiments demonstrate that\nConsistEdit achieves state-of-the-art performance across a wide range of image\nand video editing tasks, including both structure-consistent and\nstructure-inconsistent scenarios. Unlike prior methods, it is the first\napproach to perform editing across all inference steps and attention layers\nwithout handcraft, significantly enhancing reliability and consistency, which\nenables robust multi-round and multi-region editing. Furthermore, it supports\nprogressive adjustment of structural consistency, enabling finer control.",
+        "url": "http://arxiv.org/abs/2510.17803v1",
+        "published_date": "2025-10-20T17:59:52+00:00",
+        "updated_date": "2025-10-20T17:59:52+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zixin Yin",
+            "Ling-Hao Chen",
+            "Lionel Ni",
+            "Xili Dai"
+        ],
+        "tldr": "ConsistEdit, a training-free attention control method tailored for MM-DiT, achieves state-of-the-art performance in consistent and precise text-guided image and video editing by incorporating vision-only attention control, mask-guided pre-attention fusion, and differentiated manipulation of query, key, and value tokens.",
+        "tldr_zh": "ConsistEdit是一种为MM-DiT量身定制的无需训练的注意力控制方法，通过结合纯视觉注意力控制、掩码引导的预注意力融合以及对查询、键和值标记的差异化操作，在一致且精确的文本引导图像和视频编辑方面实现了最先进的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SparseVILA: Decoupling Visual Sparsity for Efficient VLM Inference",
+        "summary": "Vision Language Models (VLMs) have rapidly advanced in integrating visual and\ntextual reasoning, powering applications across high-resolution image\nunderstanding, long-video analysis, and multi-turn conversation. However, their\nscalability remains limited by the growing number of visual tokens that\ndominate inference latency. We present SparseVILA, a new paradigm for efficient\nVLM inference that decouples visual sparsity across the prefilling and decoding\nstages. SparseVILA distributes sparsity across stages by pruning redundant\nvisual tokens during prefill and retrieving only query-relevant tokens during\ndecoding. This decoupled design matches leading prefill pruning methods while\npreserving multi-turn fidelity by retaining most of the visual cache so that\nquery-aware tokens can be retrieved at each conversation round. Built on an\nAWQ-optimized inference pipeline, SparseVILA achieves up to 4.0 times faster\nprefilling, 2.5 times faster decoding, and an overall 2.6 times end-to-end\nspeedup on long-context video tasks -- while improving accuracy on\ndocument-understanding and reasoning tasks. By decoupling query-agnostic\npruning and query-aware retrieval, SparseVILA establishes a new direction for\nefficient multimodal inference, offering a training-free, architecture-agnostic\nframework for accelerating large VLMs without sacrificing capability.",
+        "url": "http://arxiv.org/abs/2510.17777v1",
+        "published_date": "2025-10-20T17:35:47+00:00",
+        "updated_date": "2025-10-20T17:35:47+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Samir Khaki",
+            "Junxian Guo",
+            "Jiaming Tang",
+            "Shang Yang",
+            "Yukang Chen",
+            "Konstantinos N. Plataniotis",
+            "Yao Lu",
+            "Song Han",
+            "Zhijian Liu"
+        ],
+        "tldr": "SparseVILA decouples visual sparsity in VLMs by pruning redundant tokens during prefill and retrieving query-relevant tokens during decoding, leading to significant speedups and accuracy improvements.",
+        "tldr_zh": "SparseVILA通过在预填充阶段剪枝冗余视觉token，并在解码阶段检索查询相关的token，实现了VLM中视觉稀疏性的解耦，从而显著提高了速度和准确性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Seeing but Not Believing: Probing the Disconnect Between Visual Attention and Answer Correctness in VLMs",
+        "summary": "Vision-Language Models (VLMs) achieve strong results on multimodal tasks such\nas visual question answering, yet they can still fail even when the correct\nvisual evidence is present. In this work, we systematically investigate whether\nthese failures arise from not perceiving the evidence or from not leveraging it\neffectively. By examining layer-wise attention dynamics, we find that shallow\nlayers focus primarily on text, while deeper layers sparsely but reliably\nattend to localized evidence regions. Surprisingly, VLMs often perceive the\nvisual evidence when outputting incorrect answers, a phenomenon we term\n``seeing but not believing'' that widely exists in major VLM families. Building\non this, we introduce an inference-time intervention that highlights deep-layer\nevidence regions through selective attention-based masking. It requires no\ntraining and consistently improves accuracy across multiple families, including\nLLaVA, Qwen, Gemma, and InternVL. These results show that VLMs encode reliable\nevidence internally but under-utilize it, making such signals explicit can\nbridge the gap between perception and reasoning, advancing the diagnostic\nunderstanding and reliability of VLMs.",
+        "url": "http://arxiv.org/abs/2510.17771v1",
+        "published_date": "2025-10-20T17:31:09+00:00",
+        "updated_date": "2025-10-20T17:31:09+00:00",
+        "categories": [
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Zhining Liu",
+            "Ziyi Chen",
+            "Hui Liu",
+            "Chen Luo",
+            "Xianfeng Tang",
+            "Suhang Wang",
+            "Joy Zeng",
+            "Zhenwei Dai",
+            "Zhan Shi",
+            "Tianxin Wei",
+            "Benoit Dumoulin",
+            "Hanghang Tong"
+        ],
+        "tldr": "This paper reveals that VLMs often \"see but not believe\" visual evidence, leading to incorrect answers despite attending to relevant regions. They propose a simple inference-time intervention that improves accuracy by highlighting deep-layer evidence regions.",
+        "tldr_zh": "该论文揭示了视觉语言模型（VLM）经常“看到但不相信”视觉证据，尽管关注了相关区域，仍然导致答案错误。他们提出了一种简单的推理时干预方法，通过突出深层证据区域来提高准确性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "VERA-V: Variational Inference Framework for Jailbreaking Vision-Language Models",
+        "summary": "Vision-Language Models (VLMs) extend large language models with visual\nreasoning, but their multimodal design also introduces new, underexplored\nvulnerabilities. Existing multimodal red-teaming methods largely rely on\nbrittle templates, focus on single-attack settings, and expose only a narrow\nsubset of vulnerabilities. To address these limitations, we introduce VERA-V, a\nvariational inference framework that recasts multimodal jailbreak discovery as\nlearning a joint posterior distribution over paired text-image prompts. This\nprobabilistic view enables the generation of stealthy, coupled adversarial\ninputs that bypass model guardrails. We train a lightweight attacker to\napproximate the posterior, allowing efficient sampling of diverse jailbreaks\nand providing distributional insights into vulnerabilities. VERA-V further\nintegrates three complementary strategies: (i) typography-based text prompts\nthat embed harmful cues, (ii) diffusion-based image synthesis that introduces\nadversarial signals, and (iii) structured distractors to fragment VLM\nattention. Experiments on HarmBench and HADES benchmarks show that VERA-V\nconsistently outperforms state-of-the-art baselines on both open-source and\nfrontier VLMs, achieving up to 53.75% higher attack success rate (ASR) over the\nbest baseline on GPT-4o.",
+        "url": "http://arxiv.org/abs/2510.17759v1",
+        "published_date": "2025-10-20T17:12:10+00:00",
+        "updated_date": "2025-10-20T17:12:10+00:00",
+        "categories": [
+            "cs.CR",
+            "cs.CL",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Qilin Liao",
+            "Anamika Lochab",
+            "Ruqi Zhang"
+        ],
+        "tldr": "The paper introduces VERA-V, a variational inference framework for generating adversarial text-image prompts to jailbreak vision-language models, achieving significant improvements in attack success rate compared to existing methods.",
+        "tldr_zh": "该论文介绍了VERA-V，一个用于生成对抗性文本-图像提示以越狱视觉语言模型的变分推理框架，与现有方法相比，在攻击成功率方面取得了显著提高。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MT-Video-Bench: A Holistic Video Understanding Benchmark for Evaluating Multimodal LLMs in Multi-Turn Dialogues",
+        "summary": "The recent development of Multimodal Large Language Models (MLLMs) has\nsignificantly advanced AI's ability to understand visual modalities. However,\nexisting evaluation benchmarks remain limited to single-turn question\nanswering, overlooking the complexity of multi-turn dialogues in real-world\nscenarios. To bridge this gap, we introduce MT-Video-Bench, a holistic video\nunderstanding benchmark for evaluating MLLMs in multi-turn dialogues.\nSpecifically, our MT-Video-Bench mainly assesses six core competencies that\nfocus on perceptivity and interactivity, encompassing 987 meticulously curated\nmulti-turn dialogues from diverse domains. These capabilities are rigorously\naligned with real-world applications, such as interactive sports analysis and\nmulti-turn video-based intelligent tutoring. With MT-Video-Bench, we\nextensively evaluate various state-of-the-art open-source and closed-source\nMLLMs, revealing their significant performance discrepancies and limitations in\nhandling multi-turn video dialogues. The benchmark will be publicly available\nto foster future research.",
+        "url": "http://arxiv.org/abs/2510.17722v1",
+        "published_date": "2025-10-20T16:38:40+00:00",
+        "updated_date": "2025-10-20T16:38:40+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yaning Pan",
+            "Zekun Wang",
+            "Qianqian Xie",
+            "Yongqian Wen",
+            "Yuanxing Zhang",
+            "Guohui Zhang",
+            "Haoxuan Hu",
+            "Zhiyu Pan",
+            "Yibing Huang",
+            "Zhidong Gan",
+            "Yonghong Lin",
+            "An Ping",
+            "Tianhao Peng",
+            "Jiaheng Liu"
+        ],
+        "tldr": "The paper introduces MT-Video-Bench, a new benchmark for evaluating MLLMs in multi-turn video understanding dialogues, revealing performance discrepancies in current models and aiming to foster future research.",
+        "tldr_zh": "该论文介绍了 MT-Video-Bench，这是一个用于评估 MLLM 在多轮视频理解对话中的新基准，揭示了当前模型的性能差异，旨在促进未来的研究。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Frugal Federated Learning for Violence Detection: A Comparison of LoRA-Tuned VLMs and Personalized CNNs",
+        "summary": "We examine frugal federated learning approaches to violence detection by\ncomparing two complementary strategies: (i) zero-shot and federated fine-tuning\nof vision-language models (VLMs), and (ii) personalized training of a compact\n3D convolutional neural network (CNN3D). Using LLaVA-7B and a 65.8M parameter\nCNN3D as representative cases, we evaluate accuracy, calibration, and energy\nusage under realistic non-IID settings.\n  Both approaches exceed 90% accuracy. CNN3D slightly outperforms Low-Rank\nAdaptation(LoRA)-tuned VLMs in ROC AUC and log loss, while using less energy.\nVLMs remain favorable for contextual reasoning and multimodal inference. We\nquantify energy and CO$_2$ emissions across training and inference, and analyze\nsustainability trade-offs for deployment.\n  To our knowledge, this is the first comparative study of LoRA-tuned\nvision-language models and personalized CNNs for federated violence detection,\nwith an emphasis on energy efficiency and environmental metrics.\n  These findings support a hybrid model: lightweight CNNs for routine\nclassification, with selective VLM activation for complex or descriptive\nscenarios. The resulting framework offers a reproducible baseline for\nresponsible, resource-aware AI in video surveillance, with extensions toward\nreal-time, multimodal, and lifecycle-aware systems.",
+        "url": "http://arxiv.org/abs/2510.17651v1",
+        "published_date": "2025-10-20T15:26:43+00:00",
+        "updated_date": "2025-10-20T15:26:43+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Sébastien Thuau",
+            "Siba Haidar",
+            "Ayush Bajracharya",
+            "Rachid Chelouah"
+        ],
+        "tldr": "This paper compares federated learning approaches for violence detection, specifically LoRA-tuned VLMs and personalized CNNs, considering accuracy, energy usage, and environmental impact, suggesting a hybrid model for optimal performance and resource efficiency.",
+        "tldr_zh": "该论文比较了用于暴力检测的联邦学习方法，特别是LoRA调整的VLMs和个性化的CNN，同时考虑了准确性、能源使用和环境影响，并提出了一个混合模型以实现最佳性能和资源效率。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MIRAGE: Agentic Framework for Multimodal Misinformation Detection with Web-Grounded Reasoning",
+        "summary": "Misinformation spreads across web platforms through billions of daily\nmultimodal posts that combine text and images, overwhelming manual\nfact-checking capacity. Supervised detection models require domain-specific\ntraining data and fail to generalize across diverse manipulation tactics. We\npresent MIRAGE, an inference-time, model-pluggable agentic framework that\ndecomposes multimodal verification into four sequential modules: visual\nveracity assessment detects AI-generated images, cross-modal consistency\nanalysis identifies out-of-context repurposing, retrieval-augmented factual\nchecking grounds claims in web evidence through iterative question generation,\nand a calibrated judgment module integrates all signals. MIRAGE orchestrates\nvision-language model reasoning with targeted web retrieval, outputs structured\nand citation-linked rationales. On MMFakeBench validation set (1,000 samples),\nMIRAGE with GPT-4o-mini achieves 81.65% F1 and 75.1% accuracy, outperforming\nthe strongest zero-shot baseline (GPT-4V with MMD-Agent at 74.0% F1) by 7.65\npoints while maintaining 34.3% false positive rate versus 97.3% for a\njudge-only baseline. Test set results (5,000 samples) confirm generalization\nwith 81.44% F1 and 75.08% accuracy. Ablation studies show visual verification\ncontributes 5.18 F1 points and retrieval-augmented reasoning contributes 2.97\npoints. Our results demonstrate that decomposed agentic reasoning with web\nretrieval can match supervised detector performance without domain-specific\ntraining, enabling misinformation detection across modalities where labeled\ndata remains scarce.",
+        "url": "http://arxiv.org/abs/2510.17590v1",
+        "published_date": "2025-10-20T14:40:26+00:00",
+        "updated_date": "2025-10-20T14:40:26+00:00",
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.CV",
+            "cs.CY",
+            "cs.LG",
+            "I.2.7; H.3.3; I.4.9"
+        ],
+        "authors": [
+            "Mir Nafis Sharear Shopnil",
+            "Sharad Duwal",
+            "Abhishek Tyagi",
+            "Adiba Mahbub Proma"
+        ],
+        "tldr": "The paper introduces MIRAGE, an agentic framework for multimodal misinformation detection that leverages web-grounded reasoning and outperforms zero-shot baselines without domain-specific training data.",
+        "tldr_zh": "本文介绍了MIRAGE，一种用于多模态错误信息检测的代理框架，它利用基于网络的推理，并在没有特定领域训练数据的情况下优于zero-shot基线。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MUG-V 10B: High-efficiency Training Pipeline for Large Video Generation Models",
+        "summary": "In recent years, large-scale generative models for visual content\n(\\textit{e.g.,} images, videos, and 3D objects/scenes) have made remarkable\nprogress. However, training large-scale video generation models remains\nparticularly challenging and resource-intensive due to cross-modal text-video\nalignment, the long sequences involved, and the complex spatiotemporal\ndependencies. To address these challenges, we present a training framework that\noptimizes four pillars: (i) data processing, (ii) model architecture, (iii)\ntraining strategy, and (iv) infrastructure for large-scale video generation\nmodels. These optimizations delivered significant efficiency gains and\nperformance improvements across all stages of data preprocessing, video\ncompression, parameter scaling, curriculum-based pretraining, and\nalignment-focused post-training. Our resulting model, MUG-V 10B, matches recent\nstate-of-the-art video generators overall and, on e-commerce-oriented video\ngeneration tasks, surpasses leading open-source baselines in human evaluations.\nMore importantly, we open-source the complete stack, including model weights,\nMegatron-Core-based large-scale training code, and inference pipelines for\nvideo generation and enhancement. To our knowledge, this is the first public\nrelease of large-scale video generation training code that exploits\nMegatron-Core to achieve high training efficiency and near-linear multi-node\nscaling, details are available in\n\\href{https://github.com/Shopee-MUG/MUG-V}{our webpage}.",
+        "url": "http://arxiv.org/abs/2510.17519v1",
+        "published_date": "2025-10-20T13:20:37+00:00",
+        "updated_date": "2025-10-20T13:20:37+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yongshun Zhang",
+            "Zhongyi Fan",
+            "Yonghang Zhang",
+            "Zhangzikang Li",
+            "Weifeng Chen",
+            "Zhongwei Feng",
+            "Chaoyue Wang",
+            "Peng Hou",
+            "Anxiang Zeng"
+        ],
+        "tldr": "The paper introduces MUG-V 10B, a highly efficient training pipeline and corresponding model for large-scale video generation, achieving SOTA performance on e-commerce videos and releasing the complete training stack with Megatron-Core integration for near-linear scaling.",
+        "tldr_zh": "该论文介绍了MUG-V 10B，一个高效的大规模视频生成训练流水线和相应的模型。它在电商视频上达到了SOTA性能，并开源了完整的训练栈，该栈集成了Megatron-Core以实现近乎线性的扩展。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "From Spatial to Actions: Grounding Vision-Language-Action Model in Spatial Foundation Priors",
+        "summary": "Existing vision-language-action (VLA) models act in 3D real-world but are\ntypically built on 2D encoders, leaving a spatial reasoning gap that limits\ngeneralization and adaptability. Recent 3D integration techniques for VLAs\neither require specialized sensors and transfer poorly across modalities, or\ninject weak cues that lack geometry and degrade vision-language alignment. In\nthis work, we introduce FALCON (From Spatial to Action), a novel paradigm that\ninjects rich 3D spatial tokens into the action head. FALCON leverages spatial\nfoundation models to deliver strong geometric priors from RGB alone, and\nincludes an Embodied Spatial Model that can optionally fuse depth, or pose for\nhigher fidelity when available, without retraining or architectural changes. To\npreserve language reasoning, spatial tokens are consumed by a Spatial-Enhanced\nAction Head rather than being concatenated into the vision-language backbone.\nThese designs enable FALCON to address limitations in spatial representation,\nmodality transferability, and alignment. In comprehensive evaluations across\nthree simulation benchmarks and eleven real-world tasks, our proposed FALCON\nachieves state-of-the-art performance, consistently surpasses competitive\nbaselines, and remains robust under clutter, spatial-prompt conditioning, and\nvariations in object scale and height.",
+        "url": "http://arxiv.org/abs/2510.17439v1",
+        "published_date": "2025-10-20T11:26:45+00:00",
+        "updated_date": "2025-10-20T11:26:45+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Zhengshen Zhang",
+            "Hao Li",
+            "Yalun Dai",
+            "Zhengbang Zhu",
+            "Lei Zhou",
+            "Chenchen Liu",
+            "Dong Wang",
+            "Francis E. H. Tay",
+            "Sijin Chen",
+            "Ziwei Liu",
+            "Yuxiao Liu",
+            "Xinghang Li",
+            "Pan Zhou"
+        ],
+        "tldr": "The paper introduces FALCON, a novel VLA model that injects rich 3D spatial tokens into the action head using spatial foundation models, addressing limitations in spatial reasoning, modality transferability, and alignment, achieving SOTA performance in both simulation and real-world tasks.",
+        "tldr_zh": "该论文介绍了FALCON，一种新型的VLA模型，它使用空间基础模型将丰富的3D空间tokens注入到action head中，解决了空间推理、模态可迁移性和对齐方面的局限性，在模拟和现实世界任务中都实现了SOTA性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Recurrent Attention-based Token Selection for Efficient Streaming Video-LLMs",
+        "summary": "Video Large Language Models (Video-LLMs) excel at understanding videos\nin-context, provided they have full access to the video when answering queries.\nHowever, these models face challenges in streaming scenarios where hour-long\nvideos must be processed online, and questions need timely responses. In this\nwork, we propose a training-free approach compatible with standard Video-LLMs,\nleveraging three key concepts: 1) LLM-informed selection of visual tokens to\nidentify those that the LLM has attended to and contributed to its\nunderstanding of each short clip. Our attention-based selection allows us to\ndiscard up to ~95% of unimportant visual tokens with minimal performance loss;\n2) Recurrent processing of past selected tokens to generate temporally coherent\nunderstanding of each processed clip; 3) Caption-based question answering for\nlightweight and accurate responses. Our method achieves state-of-the-art\nperformance on streaming video benchmarks, striking a balance between\nefficiency and effectiveness.",
+        "url": "http://arxiv.org/abs/2510.17364v1",
+        "published_date": "2025-10-20T10:04:49+00:00",
+        "updated_date": "2025-10-20T10:04:49+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Vaggelis Dorovatas",
+            "Soroush Seifi",
+            "Gunshi Gupta",
+            "Rahaf Aljundi"
+        ],
+        "tldr": "This paper introduces a training-free method for efficient streaming Video-LLMs by selecting important visual tokens based on LLM attention, recurrent processing, and caption-based question answering, achieving state-of-the-art performance.",
+        "tldr_zh": "本文提出了一种无需训练的高效流式视频-LLM方法，通过基于LLM注意力的重要视觉token选择、循环处理和基于字幕的问答，实现了最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Enhanced Motion Forecasting with Plug-and-Play Multimodal Large Language Models",
+        "summary": "Current autonomous driving systems rely on specialized models for perceiving\nand predicting motion, which demonstrate reliable performance in standard\nconditions. However, generalizing cost-effectively to diverse real-world\nscenarios remains a significant challenge. To address this, we propose\nPlug-and-Forecast (PnF), a plug-and-play approach that augments existing motion\nforecasting models with multimodal large language models (MLLMs). PnF builds on\nthe insight that natural language provides a more effective way to describe and\nhandle complex scenarios, enabling quick adaptation to targeted behaviors. We\ndesign prompts to extract structured scene understanding from MLLMs and distill\nthis information into learnable embeddings to augment existing behavior\nprediction models. Our method leverages the zero-shot reasoning capabilities of\nMLLMs to achieve significant improvements in motion prediction performance,\nwhile requiring no fine-tuning -- making it practical to adopt. We validate our\napproach on two state-of-the-art motion forecasting models using the Waymo Open\nMotion Dataset and the nuScenes Dataset, demonstrating consistent performance\nimprovements across both benchmarks.",
+        "url": "http://arxiv.org/abs/2510.17274v1",
+        "published_date": "2025-10-20T08:01:29+00:00",
+        "updated_date": "2025-10-20T08:01:29+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Katie Luo",
+            "Jingwei Ji",
+            "Tong He",
+            "Runsheng Xu",
+            "Yichen Xie",
+            "Dragomir Anguelov",
+            "Mingxing Tan"
+        ],
+        "tldr": "The paper introduces Plug-and-Forecast (PnF), a plug-and-play approach that uses multimodal large language models (MLLMs) to enhance existing motion forecasting models by leveraging natural language to describe complex scenarios, achieving performance improvements without fine-tuning.",
+        "tldr_zh": "该论文介绍了一种名为Plug-and-Forecast (PnF)的即插即用方法，该方法使用多模态大型语言模型(MLLM)来增强现有的运动预测模型，通过利用自然语言描述复杂场景，无需微调即可实现性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "FineVision: Open Data Is All You Need",
+        "summary": "The advancement of vision-language models (VLMs) is hampered by a fragmented\nlandscape of inconsistent and contaminated public datasets. We introduce\nFineVision, a meticulously collected, curated, and unified corpus of 24 million\nsamples - the largest open resource of its kind. We unify more than 200 sources\ninto 185 subsets via a semi-automated, human-in-the-loop pipeline: automation\nperforms bulk ingestion and schema mapping, while reviewers audit mappings and\nspot-check outputs to verify faithful consumption of annotations, appropriate\nformatting and diversity, and safety; issues trigger targeted fixes and\nre-runs. The workflow further applies rigorous de-duplication within and across\nsources and decontamination against 66 public benchmarks. FineVision also\nencompasses agentic/GUI tasks with a unified action space; reviewers validate\nschemas and inspect a sample of trajectories to confirm executable fidelity.\nModels trained on FineVision consistently outperform those trained on existing\nopen mixtures across a broad evaluation suite, underscoring the benefits of\nscale, data hygiene, and balanced automation with human oversight. We release\nthe corpus and curation tools to accelerate data-centric VLM research.",
+        "url": "http://arxiv.org/abs/2510.17269v1",
+        "published_date": "2025-10-20T07:54:46+00:00",
+        "updated_date": "2025-10-20T07:54:46+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Luis Wiedmann",
+            "Orr Zohar",
+            "Amir Mahla",
+            "Xiaohan Wang",
+            "Rui Li",
+            "Thibaud Frere",
+            "Leandro von Werra",
+            "Aritra Roy Gosthipaty",
+            "Andrés Marafioti"
+        ],
+        "tldr": "The paper introduces FineVision, a large, meticulously curated, and unified open dataset of 24 million samples for vision-language models, demonstrating improved performance over existing datasets due to its scale and data hygiene.",
+        "tldr_zh": "该论文介绍了FineVision，一个包含2400万个样本的大型、精心策划和统一的开放数据集，用于视觉-语言模型。它表明，由于其规模和数据质量，FineVision的性能优于现有的数据集。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "$\\mathcal{V}isi\\mathcal{P}runer$: Decoding Discontinuous Cross-Modal Dynamics for Efficient Multimodal LLMs",
+        "summary": "Multimodal Large Language Models (MLLMs) have achieved strong performance\nacross vision-language tasks, but suffer from significant computational\noverhead due to the quadratic growth of attention computations with the number\nof multimodal tokens. Though efforts have been made to prune tokens in MLLMs,\n\\textit{they lack a fundamental understanding of how MLLMs process and fuse\nmultimodal information.} Through systematic analysis, we uncover a\n\\textbf{three-stage} cross-modal interaction process: (1) Shallow layers\nrecognize task intent, with visual tokens acting as passive attention sinks;\n(2) Cross-modal fusion occurs abruptly in middle layers, driven by a few\ncritical visual tokens; (3) Deep layers discard vision tokens, focusing solely\non linguistic refinement. Based on these findings, we propose\n\\emph{VisiPruner}, a training-free pruning framework that reduces up to 99\\% of\nvision-related attention computations and 53.9\\% of FLOPs on LLaVA-v1.5 7B. It\nsignificantly outperforms existing token pruning methods and generalizes across\ndiverse MLLMs. Beyond pruning, our insights further provide actionable\nguidelines for training efficient MLLMs by aligning model architecture with its\nintrinsic layer-wise processing dynamics. Our code is available at:\nhttps://github.com/EIT-NLP/VisiPruner.",
+        "url": "http://arxiv.org/abs/2510.17205v1",
+        "published_date": "2025-10-20T06:40:17+00:00",
+        "updated_date": "2025-10-20T06:40:17+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Yingqi Fan",
+            "Anhao Zhao",
+            "Jinlan Fu",
+            "Junlong Tong",
+            "Hui Su",
+            "Yijie Pan",
+            "Wei Zhang",
+            "Xiaoyu Shen"
+        ],
+        "tldr": "The paper introduces VisiPruner, a training-free pruning framework for MLLMs that leverages insights into cross-modal interaction to significantly reduce computational overhead by pruning vision tokens.",
+        "tldr_zh": "该论文介绍了VisiPruner，一个无需训练的MLLM剪枝框架，它利用对跨模态交互的洞察，通过剪枝视觉tokens来显著降低计算开销。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "ZSPAPrune: Zero-Shot Prompt-Aware Token Pruning for Vision-Language Models",
+        "summary": "As the capabilities of Vision-Language Models (VLMs) advance, they can\nprocess increasingly large inputs, which, unlike in LLMs, generates significant\nvisual token redundancy and leads to prohibitive inference costs. While many\nmethods aim to reduce these costs by pruning visual tokens, existing\napproaches, whether based on attention or diversity, typically neglect the\nguidance of the text prompt and thus fail to prioritize task relevance. In this\nwork, we propose a novel, zero-shot method that reframes the problem by\nintroducing a prompt-aware perspective, explicitly modeling visual token\npruning as a balance between task relevance and information diversity. Our\nhierarchical approach first selects a core set of task-relevant visual tokens\nand then supplements them with diversity tokens to preserve broader context.\nExperiments across multiple models and benchmarks show that our method achieves\nperformance that matches or surpasses the state-of-the-art with only minimal\naccuracy loss, even when pruning up to 90\\% of the tokens. Furthermore, these\ngains are accompanied by significant reductions in GPU memory footprint and\ninference latency.",
+        "url": "http://arxiv.org/abs/2510.17197v1",
+        "published_date": "2025-10-20T06:18:47+00:00",
+        "updated_date": "2025-10-20T06:18:47+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Pu Zhang",
+            "Yuwei Li",
+            "Xingyuan Xian",
+            "Guoming Tang"
+        ],
+        "tldr": "The paper introduces ZSPAPrune, a zero-shot prompt-aware token pruning method for VLMs that balances task relevance and information diversity, achieving significant inference cost reductions with minimal accuracy loss.",
+        "tldr_zh": "该论文介绍了ZSPAPrune，一种用于视觉语言模型的零样本提示感知令牌剪枝方法，该方法平衡了任务相关性和信息多样性，以最小的精度损失实现了显著的推理成本降低。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Video Reasoning without Training",
+        "summary": "Video reasoning using Large Multimodal Models (LMMs) relies on costly\nreinforcement learning (RL) and verbose chain-of-thought, resulting in\nsubstantial computational overhead during both training and inference.\nMoreover, the mechanisms that control the thinking process in these reasoning\nmodels are very limited. In this paper, using entropy of the model's output as\na signal, we discover that the high-quality models go through a series of\nmicro-explorations and micro-exploitations which keep the reasoning process\ngrounded (i.e., avoid excessive randomness while the model is exploring or\nthinking through an answer). We further observe that once this \"thinking\"\nprocess is over, more accurate models demonstrate a better convergence by\nreducing the entropy significantly via a final exploitation phase (i.e., a more\ncertain convergence towards a solution trajectory). We then use these novel,\ntheoretically-grounded insights to tune the model's behavior directly at\ninference, without using any RL or supervised fine-tuning. Specifically, during\ninference, our proposed approach called V-Reason (Video-Reason) adapts the\nvalue cache of the LMM via a few optimization steps on a small, trainable\ncontroller using an entropy-based objective, i.e., no supervision from any\ndataset or RL is necessary. This tuning improves the model's micro-exploration\nand exploitation behavior during inference. Our experiments show that our\nproposed method achieves significant improvements over the base\ninstruction-tuned models across several video reasoning datasets, narrowing the\ngap with RL-trained models to within 0.6% average accuracy without any\ntraining, while offering massive efficiency benefits: output tokens are reduced\nby 58.6% compared to the RL model.",
+        "url": "http://arxiv.org/abs/2510.17045v1",
+        "published_date": "2025-10-19T23:17:13+00:00",
+        "updated_date": "2025-10-19T23:17:13+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Deepak Sridhar",
+            "Kartikeya Bhardwaj",
+            "Jeya Pradha Jeyaraj",
+            "Nuno Vasconcelos",
+            "Ankita Nayak",
+            "Harris Teague"
+        ],
+        "tldr": "The paper presents V-Reason, a training-free approach for video reasoning using LMMs that leverages entropy to improve exploration and exploitation during inference by adapting the value cache. It achieves comparable performance to RL-trained models with significant efficiency gains.",
+        "tldr_zh": "该论文提出了V-Reason，一种无需训练的视频推理方法，使用大型多模态模型，通过利用熵来改进推理过程中的探索和利用，并通过调整价值缓存来实现。它在性能上与经过强化学习训练的模型相当，同时显著提高了效率。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Where, Not What: Compelling Video LLMs to Learn Geometric Causality for 3D-Grounding",
+        "summary": "Multimodal 3D grounding has garnered considerable interest in Vision-Language\nModels (VLMs) \\cite{yin2025spatial} for advancing spatial reasoning in complex\nenvironments. However, these models suffer from a severe \"2D semantic bias\"\nthat arises from over-reliance on 2D image features for coarse localization,\nlargely disregarding 3D geometric inputs and resulting in suboptimal fusion\nperformance. In this paper, we propose a novel training framework called\nWhat-Where Representation Re-Forming (W2R2) to tackle this issue via\ndisentangled representation learning and targeted shortcut suppression. Our\napproach fundamentally reshapes the model's internal space by designating 2D\nfeatures as semantic beacons for \"What\" identification and 3D features as\nspatial anchors for \"Where\" localization, enabling precise 3D grounding without\nmodifying inference architecture. Key components include a dual-objective loss\nfunction with an Alignment Loss that supervises fused predictions using adapted\ncross-entropy for multimodal synergy, and a Pseudo-Label Loss that penalizes\noverly effective 2D-dominant pseudo-outputs via a margin-based mechanism.\nExperiments conducted on ScanRefer and ScanQA demonstrate the effectiveness of\nW2R2, with significant gains in localization accuracy and robustness,\nparticularly in cluttered outdoor scenes.",
+        "url": "http://arxiv.org/abs/2510.17034v1",
+        "published_date": "2025-10-19T22:40:18+00:00",
+        "updated_date": "2025-10-19T22:40:18+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yutong Zhong"
+        ],
+        "tldr": "This paper introduces a novel training framework (W2R2) for Vision-Language Models to improve 3D grounding by disentangling 2D semantic information from 3D spatial information, leading to better localization accuracy.",
+        "tldr_zh": "本文介绍了一种新的视觉语言模型训练框架（W2R2），通过分离2D语义信息和3D空间信息来改进3D定位，从而提高定位精度。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Enrich and Detect: Video Temporal Grounding with Multimodal LLMs",
+        "summary": "We introduce ED-VTG, a method for fine-grained video temporal grounding\nutilizing multi-modal large language models. Our approach harnesses the\ncapabilities of multimodal LLMs to jointly process text and video, in order to\neffectively localize natural language queries in videos through a two-stage\nprocess. Rather than being directly grounded, language queries are initially\ntransformed into enriched sentences that incorporate missing details and cues\nto aid in grounding. In the second stage, these enriched queries are grounded,\nusing a lightweight decoder, which specializes at predicting accurate\nboundaries conditioned on contextualized representations of the enriched\nqueries. To mitigate noise and reduce the impact of hallucinations, our model\nis trained with a multiple-instance-learning objective that dynamically selects\nthe optimal version of the query for each training sample. We demonstrate\nstate-of-the-art results across various benchmarks in temporal video grounding\nand paragraph grounding settings. Experiments reveal that our method\nsignificantly outperforms all previously proposed LLM-based temporal grounding\napproaches and is either superior or comparable to specialized models, while\nmaintaining a clear advantage against them in zero-shot evaluation scenarios.",
+        "url": "http://arxiv.org/abs/2510.17023v1",
+        "published_date": "2025-10-19T22:12:45+00:00",
+        "updated_date": "2025-10-19T22:12:45+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.MM"
+        ],
+        "authors": [
+            "Shraman Pramanick",
+            "Effrosyni Mavroudi",
+            "Yale Song",
+            "Rama Chellappa",
+            "Lorenzo Torresani",
+            "Triantafyllos Afouras"
+        ],
+        "tldr": "The paper introduces ED-VTG, a method leveraging multimodal LLMs for fine-grained video temporal grounding. It enriches language queries before grounding and uses a multiple-instance-learning objective to improve robustness, achieving state-of-the-art results.",
+        "tldr_zh": "该论文介绍了 ED-VTG，一种利用多模态 LLM 进行细粒度视频时间定位的方法。它在定位之前丰富语言查询，并使用多实例学习目标来提高鲁棒性，从而实现了最先进的结果。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "GACO-CAD: Geometry-Augmented and Conciseness-Optimized CAD Model Generation from Single Image",
+        "summary": "Generating editable, parametric CAD models from a single image holds great\npotential to lower the barriers of industrial concept design. However, current\nmulti-modal large language models (MLLMs) still struggle with accurately\ninferring 3D geometry from 2D images due to limited spatial reasoning\ncapabilities. We address this limitation by introducing GACO-CAD, a novel\ntwo-stage post-training framework. It is designed to achieve a joint objective:\nsimultaneously improving the geometric accuracy of the generated CAD models and\nencouraging the use of more concise modeling procedures. First, during\nsupervised fine-tuning, we leverage depth and surface normal maps as dense\ngeometric priors, combining them with the RGB image to form a multi-channel\ninput. In the context of single-view reconstruction, these priors provide\ncomplementary spatial cues that help the MLLM more reliably recover 3D geometry\nfrom 2D observations. Second, during reinforcement learning, we introduce a\ngroup length reward that, while preserving high geometric fidelity, promotes\nthe generation of more compact and less redundant parametric modeling\nsequences. A simple dynamic weighting strategy is adopted to stabilize\ntraining. Experiments on the DeepCAD and Fusion360 datasets show that GACO-CAD\nachieves state-of-the-art performance under the same MLLM backbone,\nconsistently outperforming existing methods in terms of code validity,\ngeometric accuracy, and modeling conciseness.",
+        "url": "http://arxiv.org/abs/2510.17157v1",
+        "published_date": "2025-10-20T04:57:20+00:00",
+        "updated_date": "2025-10-20T04:57:20+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yinghui Wang",
+            "Xinyu Zhang",
+            "Peng Du"
+        ],
+        "tldr": "The paper introduces GACO-CAD, a two-stage post-training framework that improves the geometric accuracy and conciseness of CAD models generated from single images by leveraging depth and surface normal priors during supervised fine-tuning and a group length reward during reinforcement learning.",
+        "tldr_zh": "该论文介绍了GACO-CAD，一个两阶段的后训练框架，通过在监督微调期间利用深度和表面法线先验，以及在强化学习期间利用组长度奖励，来提高从单张图像生成的CAD模型的几何精度和简洁性。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    }
+]
