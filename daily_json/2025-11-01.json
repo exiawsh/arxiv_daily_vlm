@@ -1,0 +1,562 @@
+[
+    {
+        "title": "PETAR: Localized Findings Generation with Mask-Aware Vision-Language Modeling for PET Automated Reporting",
+        "summary": "Recent advances in vision-language models (VLMs) have enabled impressive\nmultimodal reasoning, yet most medical applications remain limited to 2D\nimaging. In this work, we extend VLMs to 3D positron emission tomography and\ncomputed tomography (PET/CT), a domain characterized by large volumetric data,\nsmall and dispersed lesions, and lengthy radiology reports. We introduce a\nlarge-scale dataset comprising over 11,000 lesion-level descriptions paired\nwith 3D segmentations from more than 5,000 PET/CT exams, extracted via a hybrid\nrule-based and large language model (LLM) pipeline. Building upon this dataset,\nwe propose PETAR-4B, a 3D mask-aware vision-language model that integrates PET,\nCT, and lesion contours for spatially grounded report generation. PETAR bridges\nglobal contextual reasoning with fine-grained lesion awareness, producing\nclinically coherent and localized findings. Comprehensive automated and human\nevaluations demonstrate that PETAR substantially improves PET/CT report\ngeneration quality, advancing 3D medical vision-language understanding.",
+        "url": "http://arxiv.org/abs/2510.27680v1",
+        "published_date": "2025-10-31T17:49:01+00:00",
+        "updated_date": "2025-10-31T17:49:01+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Danyal Maqbool",
+            "Changhee Lee",
+            "Zachary Huemann",
+            "Samuel D. Church",
+            "Matthew E. Larson",
+            "Scott B. Perlman",
+            "Tomas A. Romero",
+            "Joshua D. Warner",
+            "Meghan Lubner",
+            "Xin Tie",
+            "Jameson Merkow",
+            "Junjie Hu",
+            "Steve Y. Cho",
+            "Tyler J. Bradshaw"
+        ],
+        "tldr": "The paper introduces PETAR-4B, a 3D mask-aware vision-language model for automated PET/CT report generation, along with a large-scale lesion-level PET/CT dataset, showing substantial improvements in report quality.",
+        "tldr_zh": "该论文介绍了PETAR-4B，一个用于自动PET/CT报告生成的3D掩码感知视觉语言模型，并提出了一个大规模的病灶级别PET/CT数据集，显示了报告质量的显著提高。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Visual Backdoor Attacks on MLLM Embodied Decision Making via Contrastive Trigger Learning",
+        "summary": "Multimodal large language models (MLLMs) have advanced embodied agents by\nenabling direct perception, reasoning, and planning task-oriented actions from\nvisual inputs. However, such vision driven embodied agents open a new attack\nsurface: visual backdoor attacks, where the agent behaves normally until a\nvisual trigger appears in the scene, then persistently executes an\nattacker-specified multi-step policy. We introduce BEAT, the first framework to\ninject such visual backdoors into MLLM-based embodied agents using objects in\nthe environments as triggers. Unlike textual triggers, object triggers exhibit\nwide variation across viewpoints and lighting, making them difficult to implant\nreliably. BEAT addresses this challenge by (1) constructing a training set that\nspans diverse scenes, tasks, and trigger placements to expose agents to trigger\nvariability, and (2) introducing a two-stage training scheme that first applies\nsupervised fine-tuning (SFT) and then our novel Contrastive Trigger Learning\n(CTL). CTL formulates trigger discrimination as preference learning between\ntrigger-present and trigger-free inputs, explicitly sharpening the decision\nboundaries to ensure precise backdoor activation. Across various embodied agent\nbenchmarks and MLLMs, BEAT achieves attack success rates up to 80%, while\nmaintaining strong benign task performance, and generalizes reliably to\nout-of-distribution trigger placements. Notably, compared to naive SFT, CTL\nboosts backdoor activation accuracy up to 39% under limited backdoor data.\nThese findings expose a critical yet unexplored security risk in MLLM-based\nembodied agents, underscoring the need for robust defenses before real-world\ndeployment.",
+        "url": "http://arxiv.org/abs/2510.27623v1",
+        "published_date": "2025-10-31T16:50:49+00:00",
+        "updated_date": "2025-10-31T16:50:49+00:00",
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.CV"
+        ],
+        "authors": [
+            "Qiusi Zhan",
+            "Hyeonjeong Ha",
+            "Rui Yang",
+            "Sirui Xu",
+            "Hanyang Chen",
+            "Liang-Yan Gui",
+            "Yu-Xiong Wang",
+            "Huan Zhang",
+            "Heng Ji",
+            "Daniel Kang"
+        ],
+        "tldr": "This paper introduces BEAT, a framework for injecting visual backdoor attacks into MLLM-based embodied agents, using contrastive trigger learning to improve attack success rates and robustness against trigger variations.",
+        "tldr_zh": "本文介绍了BEAT，一个将视觉后门攻击注入到基于MLLM的具身代理中的框架，它使用对比触发学习来提高攻击成功率和对抗触发变体的鲁棒性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Spatial-SSRL: Enhancing Spatial Understanding via Self-Supervised Reinforcement Learning",
+        "summary": "Spatial understanding remains a weakness of Large Vision-Language Models\n(LVLMs). Existing supervised fine-tuning (SFT) and recent reinforcement\nlearning with verifiable rewards (RLVR) pipelines depend on costly supervision,\nspecialized tools, or constrained environments that limit scale. We introduce\nSpatial-SSRL, a self-supervised RL paradigm that derives verifiable signals\ndirectly from ordinary RGB or RGB-D images. Spatial-SSRL automatically\nformulates five pretext tasks that capture 2D and 3D spatial structure:\nshuffled patch reordering, flipped patch recognition, cropped patch inpainting,\nregional depth ordering, and relative 3D position prediction. These tasks\nprovide ground-truth answers that are easy to verify and require no human or\nLVLM annotation. Training on our tasks substantially improves spatial reasoning\nwhile preserving general visual capabilities. On seven spatial understanding\nbenchmarks in both image and video settings, Spatial-SSRL delivers average\naccuracy gains of 4.63% (3B) and 3.89% (7B) over the Qwen2.5-VL baselines. Our\nresults show that simple, intrinsic supervision enables RLVR at scale and\nprovides a practical route to stronger spatial intelligence in LVLMs.",
+        "url": "http://arxiv.org/abs/2510.27606v1",
+        "published_date": "2025-10-31T16:30:08+00:00",
+        "updated_date": "2025-10-31T16:30:08+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Yuhong Liu",
+            "Beichen Zhang",
+            "Yuhang Zang",
+            "Yuhang Cao",
+            "Long Xing",
+            "Xiaoyi Dong",
+            "Haodong Duan",
+            "Dahua Lin",
+            "Jiaqi Wang"
+        ],
+        "tldr": "The paper introduces Spatial-SSRL, a self-supervised RL method for enhancing spatial understanding in LVLMs using automatically generated pretext tasks from RGB/RGB-D images, achieving improved performance on spatial reasoning benchmarks.",
+        "tldr_zh": "该论文介绍了 Spatial-SSRL，一种自监督强化学习方法，通过使用从 RGB/RGB-D 图像自动生成的预训练任务来增强 LVLM 中的空间理解，并在空间推理基准测试中实现了性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "NAUTILUS: A Large Multimodal Model for Underwater Scene Understanding",
+        "summary": "Underwater exploration offers critical insights into our planet and attracts\nincreasing attention for its broader applications in resource exploration,\nnational security, etc. We study the underwater scene understanding methods,\nwhich aim to achieve automated underwater exploration. The underwater scene\nunderstanding task demands multi-task perceptions from multiple granularities.\nHowever, the absence of large-scale underwater multi-task instruction-tuning\ndatasets hinders the progress of this research. To bridge this gap, we\nconstruct NautData, a dataset containing 1.45 M image-text pairs supporting\neight underwater scene understanding tasks. It enables the development and\nthorough evaluation of the underwater scene understanding models. Underwater\nimage degradation is a widely recognized challenge that interferes with\nunderwater tasks. To improve the robustness of underwater scene understanding,\nwe introduce physical priors derived from underwater imaging models and propose\na plug-and-play vision feature enhancement (VFE) module, which explicitly\nrestores clear underwater information. We integrate this module into renowned\nbaselines LLaVA-1.5 and Qwen2.5-VL and build our underwater LMM, NAUTILUS.\nExperiments conducted on the NautData and public underwater datasets\ndemonstrate the effectiveness of the VFE module, consistently improving the\nperformance of both baselines on the majority of supported tasks, thus ensuring\nthe superiority of NAUTILUS in the underwater scene understanding area. Data\nand models are available at https://github.com/H-EmbodVis/NAUTILUS.",
+        "url": "http://arxiv.org/abs/2510.27481v1",
+        "published_date": "2025-10-31T14:00:35+00:00",
+        "updated_date": "2025-10-31T14:00:35+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Wei Xu",
+            "Cheng Wang",
+            "Dingkang Liang",
+            "Zongchuang Zhao",
+            "Xingyu Jiang",
+            "Peng Zhang",
+            "Xiang Bai"
+        ],
+        "tldr": "The paper introduces NAUTILUS, a large multimodal model for underwater scene understanding, along with a new dataset (NautData) and a Vision Feature Enhancement module to address underwater image degradation.",
+        "tldr_zh": "该论文介绍了NAUTILUS，一个用于水下场景理解的大型多模态模型，以及一个新的数据集（NautData）和一个视觉特征增强模块，以解决水下图像退化问题。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Modality Alignment across Trees on Heterogeneous Hyperbolic Manifolds",
+        "summary": "Modality alignment is critical for vision-language models (VLMs) to\neffectively integrate information across modalities. However, existing methods\nextract hierarchical features from text while representing each image with a\nsingle feature, leading to asymmetric and suboptimal alignment. To address\nthis, we propose Alignment across Trees, a method that constructs and aligns\ntree-like hierarchical features for both image and text modalities.\nSpecifically, we introduce a semantic-aware visual feature extraction framework\nthat applies a cross-attention mechanism to visual class tokens from\nintermediate Transformer layers, guided by textual cues to extract visual\nfeatures with coarse-to-fine semantics. We then embed the feature trees of the\ntwo modalities into hyperbolic manifolds with distinct curvatures to\neffectively model their hierarchical structures. To align across the\nheterogeneous hyperbolic manifolds with different curvatures, we formulate a KL\ndistance measure between distributions on heterogeneous manifolds, and learn an\nintermediate manifold for manifold alignment by minimizing the distance. We\nprove the existence and uniqueness of the optimal intermediate manifold.\nExperiments on taxonomic open-set classification tasks across multiple image\ndatasets demonstrate that our method consistently outperforms strong baselines\nunder few-shot and cross-domain settings.",
+        "url": "http://arxiv.org/abs/2510.27391v1",
+        "published_date": "2025-10-31T11:32:15+00:00",
+        "updated_date": "2025-10-31T11:32:15+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Wu Wei",
+            "Xiaomeng Fan",
+            "Yuwei Wu",
+            "Zhi Gao",
+            "Pengxiang Li",
+            "Yunde Jia",
+            "Mehrtash Harandi"
+        ],
+        "tldr": "This paper proposes a method for aligning image and text modalities in VLMs by constructing tree-like hierarchical features, embedding them into heterogeneous hyperbolic manifolds, and minimizing a KL divergence between distributions on these manifolds. Experiments show improvements in taxonomic open-set classification.",
+        "tldr_zh": "本文提出了一种在视觉语言模型中对齐图像和文本模态的方法，通过构建树状分层特征，将它们嵌入到异构双曲流形中，并最小化这些流形上分布之间的KL散度。实验表明，分类学开放集分类的性能有所提高。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "FOCUS: Efficient Keyframe Selection for Long Video Understanding",
+        "summary": "Multimodal large language models (MLLMs) represent images and video frames as\nvisual tokens. Scaling from single images to hour-long videos, however,\ninflates the token budget far beyond practical limits. Popular pipelines\ntherefore either uniformly subsample or apply keyframe selection with\nretrieval-style scoring using smaller vision-language models. However, these\nkeyframe selection methods still rely on pre-filtering before selection to\nreduce the inference cost and can miss the most informative moments.\n  We propose FOCUS, Frame-Optimistic Confidence Upper-bound Selection, a\ntraining-free, model-agnostic keyframe selection module that selects\nquery-relevant frames under a strict token budget. FOCUS formulates keyframe\nselection as a combinatorial pure-exploration (CPE) problem in multi-armed\nbandits: it treats short temporal clips as arms, and uses empirical means and\nBernstein confidence radius to identify informative regions while preserving\nexploration of uncertain areas. The resulting two-stage\nexploration-exploitation procedure reduces from a sequential policy with\ntheoretical guarantees, first identifying high-value temporal regions, then\nselecting top-scoring frames within each region On two long-video\nquestion-answering benchmarks, FOCUS delivers substantial accuracy improvements\nwhile processing less than 2% of video frames. For videos longer than 20\nminutes, it achieves an 11.9% gain in accuracy on LongVideoBench, demonstrating\nits effectiveness as a keyframe selection method and providing a simple and\ngeneral solution for scalable long-video understanding with MLLMs.",
+        "url": "http://arxiv.org/abs/2510.27280v1",
+        "published_date": "2025-10-31T08:41:13+00:00",
+        "updated_date": "2025-10-31T08:41:13+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Zirui Zhu",
+            "Hailun Xu",
+            "Yang Luo",
+            "Yong Liu",
+            "Kanchan Sarkar",
+            "Zhenheng Yang",
+            "Yang You"
+        ],
+        "tldr": "The paper introduces FOCUS, a training-free keyframe selection method for long videos using a multi-armed bandit approach to improve accuracy and reduce computational cost for MLLMs.",
+        "tldr_zh": "该论文介绍了FOCUS，一种无需训练的关键帧选择方法，用于长视频，使用多臂老虎机方法来提高MLLM的准确性并降低计算成本。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "RegionRAG: Region-level Retrieval-Augumented Generation for Visually-Rich Documents",
+        "summary": "Multi-modal Retrieval-Augmented Generation (RAG) has become a critical method\nfor empowering LLMs by leveraging candidate visual documents. However, current\nmethods consider the entire document as the basic retrieval unit, introducing\nsubstantial irrelevant visual content in two ways: 1) Relevant documents often\ncontain large regions unrelated to the query, diluting the focus on salient\ninformation; 2) Retrieving multiple documents to increase recall further\nintroduces redundant and irrelevant documents. These redundant contexts\ndistract the model's attention and further degrade the performance. To address\nthis challenge, we propose \\modelname, a novel framework that shifts the\nretrieval paradigm from the document level to the region level. During\ntraining, we design a hybrid supervision strategy from both labeled data and\nunlabeled data to pinpoint relevant patches. During inference, we propose a\ndynamic pipeline that intelligently groups salient patches into complete\nsemantic regions. By delegating the task of identifying relevant regions to the\nretriever, \\modelname enables the generator to focus solely on concise visual\ncontent relevant to queries, improving both efficiency and accuracy.\nExperiments on six benchmarks demonstrate that RegionRAG achieves\nstate-of-the-art performance. Improves retrieval accuracy by 10.02\\% in R@1 on\naverage and increases question answering accuracy by 3.56\\% while using only\n71.42\\% visual tokens compared to prior methods. The code will be available at\nhttps://github.com/Aeryn666/RegionRAG.",
+        "url": "http://arxiv.org/abs/2510.27261v1",
+        "published_date": "2025-10-31T08:00:32+00:00",
+        "updated_date": "2025-10-31T08:00:32+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yinglu Li",
+            "Zhiying Lu",
+            "Zhihang Liu",
+            "Chuanbin Liu",
+            "Hongtao Xie"
+        ],
+        "tldr": "The paper introduces RegionRAG, a novel retrieval-augmented generation framework that retrieves and groups visually-rich document regions instead of whole documents, leading to improved accuracy and efficiency in question answering tasks.",
+        "tldr_zh": "该论文介绍了 RegionRAG，一种新颖的检索增强生成框架，它检索并组合富视觉文档区域而不是整个文档，从而提高问答任务的准确性和效率。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Enhancing Spatio-Temporal Zero-shot Action Recognition with Language-driven Description Attributes",
+        "summary": "Vision-Language Models (VLMs) have demonstrated impressive capabilities in\nzero-shot action recognition by learning to associate video embeddings with\nclass embeddings. However, a significant challenge arises when relying solely\non action classes to provide semantic context, particularly due to the presence\nof multi-semantic words, which can introduce ambiguity in understanding the\nintended concepts of actions. To address this issue, we propose an innovative\napproach that harnesses web-crawled descriptions, leveraging a large-language\nmodel to extract relevant keywords. This method reduces the need for human\nannotators and eliminates the laborious manual process of attribute data\ncreation. Additionally, we introduce a spatio-temporal interaction module\ndesigned to focus on objects and action units, facilitating alignment between\ndescription attributes and video content. In our zero-shot experiments, our\nmodel achieves impressive results, attaining accuracies of 81.0%, 53.1%, and\n68.9% on UCF-101, HMDB-51, and Kinetics-600, respectively, underscoring the\nmodel's adaptability and effectiveness across various downstream tasks.",
+        "url": "http://arxiv.org/abs/2510.27255v1",
+        "published_date": "2025-10-31T07:45:44+00:00",
+        "updated_date": "2025-10-31T07:45:44+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yehna Kim andYoung-Eun Kim",
+            "Seong-Whan Lee"
+        ],
+        "tldr": "This paper enhances zero-shot action recognition by using language-driven description attributes extracted from web-crawled descriptions to address ambiguity in action classes and introduces a spatio-temporal interaction module for improved alignment.",
+        "tldr_zh": "该论文通过使用从网络抓取的描述中提取的语言驱动描述属性来解决动作类别中的歧义，从而增强了零样本动作识别，并引入了一个时空交互模块以改进对齐。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Can MLLMs Read the Room? A Multimodal Benchmark for Verifying Truthfulness in Multi-Party Social Interactions",
+        "summary": "As AI systems become increasingly integrated into human lives, endowing them\nwith robust social intelligence has emerged as a critical frontier. A key\naspect of this intelligence is discerning truth from deception, a ubiquitous\nelement of human interaction that is conveyed through a complex interplay of\nverbal language and non-verbal visual cues. However, automatic deception\ndetection in dynamic, multi-party conversations remains a significant\nchallenge. The recent rise of powerful Multimodal Large Language Models\n(MLLMs), with their impressive abilities in visual and textual understanding,\nmakes them natural candidates for this task. Consequently, their capabilities\nin this crucial domain are mostly unquantified. To address this gap, we\nintroduce a new task, Multimodal Interactive Veracity Assessment (MIVA), and\npresent a novel multimodal dataset derived from the social deduction game\nWerewolf. This dataset provides synchronized video, text, with verifiable\nground-truth labels for every statement. We establish a comprehensive benchmark\nevaluating state-of-the-art MLLMs, revealing a significant performance gap:\neven powerful models like GPT-4o struggle to distinguish truth from falsehood\nreliably. Our analysis of failure modes indicates that these models fail to\nground language in visual social cues effectively and may be overly\nconservative in their alignment, highlighting the urgent need for novel\napproaches to building more perceptive and trustworthy AI systems.",
+        "url": "http://arxiv.org/abs/2510.27195v1",
+        "published_date": "2025-10-31T05:36:36+00:00",
+        "updated_date": "2025-10-31T05:36:36+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL",
+            "cs.SI"
+        ],
+        "authors": [
+            "Caixin Kang",
+            "Yifei Huang",
+            "Liangyang Ouyang",
+            "Mingfang Zhang",
+            "Yoichi Sato"
+        ],
+        "tldr": "The paper introduces a new benchmark (MIVA) and dataset derived from the game Werewolf to evaluate the ability of MLLMs to detect deception in multi-party conversations, revealing a performance gap even for strong models like GPT-4o.",
+        "tldr_zh": "该论文介绍了一个新的基准（MIVA）和一个从狼人游戏中导出的数据集，用于评估MLLM在多人对话中检测欺骗的能力，揭示了即使是像GPT-4o这样的强大模型也存在性能差距。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MoME: Mixture of Visual Language Medical Experts for Medical Imaging Segmentation",
+        "summary": "In this study, we propose MoME, a Mixture of Visual Language Medical Experts,\nfor Medical Image Segmentation. MoME adapts the successful Mixture of Experts\n(MoE) paradigm, widely used in Large Language Models (LLMs), for medical\nvision-language tasks. The architecture enables dynamic expert selection by\neffectively utilizing multi-scale visual features tailored to the intricacies\nof medical imagery, enriched with textual embeddings. This work explores a\nnovel integration of vision-language models for this domain. Utilizing an\nassembly of 10 datasets, encompassing 3,410 CT scans, MoME demonstrates strong\nperformance on a comprehensive medical imaging segmentation benchmark. Our\napproach explores the integration of foundation models for medical imaging,\nbenefiting from the established efficacy of MoE in boosting model performance\nby incorporating textual information. Demonstrating competitive precision\nacross multiple datasets, MoME explores a novel architecture for achieving\nrobust results in medical image analysis.",
+        "url": "http://arxiv.org/abs/2510.26996v1",
+        "published_date": "2025-10-30T20:50:15+00:00",
+        "updated_date": "2025-10-30T20:50:15+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Arghavan Rezvani",
+            "Xiangyi Yan",
+            "Anthony T. Wu",
+            "Kun Han",
+            "Pooya Khosravi",
+            "Xiaohui Xie"
+        ],
+        "tldr": "The paper introduces MoME, a Mixture of Visual Language Medical Experts, for medical image segmentation, adapting the MoE paradigm to leverage multi-scale visual features and textual embeddings, demonstrating strong performance across multiple datasets.",
+        "tldr_zh": "本文介绍了一种名为MoME的视觉语言医学专家混合模型，用于医学图像分割。该模型将MoE范式应用于医学视觉-语言任务，利用多尺度视觉特征和文本嵌入，并在多个数据集上表现出强大的性能。",
+        "relevance_score": 9,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Dual-Stream Diffusion for World-Model Augmented Vision-Language-Action Model",
+        "summary": "Recently, augmenting Vision-Language-Action models (VLAs) with world modeling\nhas shown promise in improving robotic policy learning. However, it remains\nchallenging to jointly predict next-state observations and action sequences\nbecause of the inherent difference between the two modalities. To address this,\nwe propose DUal-STream diffusion (DUST), a world-model augmented VLA framework\nthat handles the modality conflict and enhances the performance of VLAs across\ndiverse tasks. Specifically, we propose a multimodal diffusion transformer\narchitecture that explicitly maintains separate modality streams while still\nenabling cross-modal knowledge sharing. In addition, we introduce independent\nnoise perturbations for each modality and a decoupled flow-matching loss. This\ndesign enables the model to learn the joint distribution in a bidirectional\nmanner while avoiding the need for a unified latent space. Based on the\ndecoupling of modalities during training, we also introduce a joint sampling\nmethod that supports test-time scaling, where action and vision tokens evolve\nasynchronously at different rates. Through experiments on simulated benchmarks\nsuch as RoboCasa and GR-1, DUST achieves up to 6% gains over baseline methods,\nwhile our test-time scaling approach provides an additional 2-5% boost. On\nreal-world tasks with the Franka Research 3, DUST improves success rates by\n13%, confirming its effectiveness beyond simulation. Furthermore, pre-training\non action-free videos from BridgeV2 yields significant transfer gains on\nRoboCasa, underscoring DUST's potential for large-scale VLA pretraining.",
+        "url": "http://arxiv.org/abs/2510.27607v1",
+        "published_date": "2025-10-31T16:32:12+00:00",
+        "updated_date": "2025-10-31T16:32:12+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "John Won",
+            "Kyungmin Lee",
+            "Huiwon Jang",
+            "Dongyoung Kim",
+            "Jinwoo Shin"
+        ],
+        "tldr": "The paper introduces DUST, a dual-stream diffusion-based Vision-Language-Action model that improves robotic policy learning by handling modality conflicts between vision and action streams, achieving performance gains in simulated and real-world tasks.",
+        "tldr_zh": "该论文介绍了DUST，一种基于双流扩散的视觉-语言-动作模型，通过处理视觉和动作流之间的模态冲突来提高机器人策略学习，并在模拟和现实世界的任务中取得了性能提升。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Towards Universal Video Retrieval: Generalizing Video Embedding via Synthesized Multimodal Pyramid Curriculum",
+        "summary": "The prevailing video retrieval paradigm is structurally misaligned, as narrow\nbenchmarks incentivize correspondingly limited data and single-task training.\nTherefore, universal capability is suppressed due to the absence of a\ndiagnostic evaluation that defines and demands multi-dimensional\ngeneralization. To break this cycle, we introduce a framework built on the\nco-design of evaluation, data, and modeling. First, we establish the Universal\nVideo Retrieval Benchmark (UVRB), a suite of 16 datasets designed not only to\nmeasure performance but also to diagnose critical capability gaps across tasks\nand domains. Second, guided by UVRB's diagnostics, we introduce a scalable\nsynthesis workflow that generates 1.55 million high-quality pairs to populate\nthe semantic space required for universality. Finally, we devise the Modality\nPyramid, a curriculum that trains our General Video Embedder (GVE) by\nexplicitly leveraging the latent interconnections within our diverse data.\nExtensive experiments show GVE achieves state-of-the-art zero-shot\ngeneralization on UVRB. In particular, our analysis reveals that popular\nbenchmarks are poor predictors of general ability and that partially relevant\nretrieval is a dominant but overlooked scenario. Overall, our co-designed\nframework provides a practical path to escape the limited scope and advance\ntoward truly universal video retrieval.",
+        "url": "http://arxiv.org/abs/2510.27571v1",
+        "published_date": "2025-10-31T15:54:48+00:00",
+        "updated_date": "2025-10-31T15:54:48+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.IR",
+            "cs.LG"
+        ],
+        "authors": [
+            "Zhuoning Guo",
+            "Mingxin Li",
+            "Yanzhao Zhang",
+            "Dingkun Long",
+            "Pengjun Xie",
+            "Xiaowen Chu"
+        ],
+        "tldr": "The paper introduces a universal video retrieval benchmark (UVRB), a data synthesis workflow, and a modality pyramid curriculum to train a general video embedder (GVE) for improved zero-shot generalization across diverse video retrieval tasks.",
+        "tldr_zh": "该论文介绍了一个通用视频检索基准（UVRB），一个数据合成工作流程和一个模态金字塔课程，以训练一个通用视频嵌入器（GVE），从而提高在各种视频检索任务中的零样本泛化能力。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "From Pixels to Paths: A Multi-Agent Framework for Editable Scientific Illustration",
+        "summary": "Scientific illustrations demand both high information density and\npost-editability. However, current generative models have two major\nlimitations: Frist, image generation models output rasterized images lacking\nsemantic structure, making it impossible to access, edit, or rearrange\nindependent visual components in the images. Second, code-based generation\nmethods (TikZ or SVG), although providing element-level control, force users\ninto the cumbersome cycle of \"writing-compiling-reviewing\" and lack the\nintuitiveness of manipulation. Neither of these two approaches can well meet\nthe needs for efficiency, intuitiveness, and iterative modification in\nscientific creation. To bridge this gap, we introduce VisPainter, a multi-agent\nframework for scientific illustration built upon the model context protocol.\nVisPainter orchestrates three specialized modules-a Manager, a Designer, and a\nToolbox-to collaboratively produce diagrams compatible with standard vector\ngraphics software. This modular, role-based design allows each element to be\nexplicitly represented and manipulated, enabling true element-level control and\nany element can be added and modified later. To systematically evaluate the\nquality of scientific illustrations, we introduce VisBench, a benchmark with\nseven-dimensional evaluation metrics. It assesses high-information-density\nscientific illustrations from four aspects: content, layout, visual perception,\nand interaction cost. To this end, we conducted extensive ablation experiments\nto verify the rationality of our architecture and the reliability of our\nevaluation methods. Finally, we evaluated various vision-language models,\npresenting fair and credible model rankings along with detailed comparisons of\ntheir respective capabilities. Additionally, we isolated and quantified the\nimpacts of role division, step control,and description on the quality of\nillustrations.",
+        "url": "http://arxiv.org/abs/2510.27452v1",
+        "published_date": "2025-10-31T13:00:49+00:00",
+        "updated_date": "2025-10-31T13:00:49+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jianwen Sun",
+            "Fanrui Zhang",
+            "Yukang Feng",
+            "Chuanhao Li",
+            "Zizhen Li",
+            "Jiaxin Ai",
+            "Yifan Chang",
+            "Yu Dai",
+            "Kaipeng Zhang"
+        ],
+        "tldr": "The paper introduces VisPainter, a multi-agent framework for creating editable scientific illustrations with element-level control, and VisBench, a benchmark for evaluating these illustrations. It addresses limitations in current generative models and code-based methods.",
+        "tldr_zh": "本文介绍了VisPainter，一个用于创建可编辑的科学插图的多智能体框架，具有元素级别的控制能力；以及VisBench，一个用于评估这些插图的基准。它解决了当前生成模型和基于代码的方法中的局限性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "RzenEmbed: Towards Comprehensive Multimodal Retrieval",
+        "summary": "The rapid advancement of Multimodal Large Language Models (MLLMs) has\nextended CLIP-based frameworks to produce powerful, universal embeddings for\nretrieval tasks. However, existing methods primarily focus on natural images,\noffering limited support for other crucial visual modalities such as videos and\nvisual documents. To bridge this gap, we introduce RzenEmbed, a unified\nframework to learn embeddings across a diverse set of modalities, including\ntext, images, videos, and visual documents. We employ a novel two-stage\ntraining strategy to learn discriminative representations. The first stage\nfocuses on foundational text and multimodal retrieval. In the second stage, we\nintroduce an improved InfoNCE loss, incorporating two key enhancements.\nFirstly, a hardness-weighted mechanism guides the model to prioritize\nchallenging samples by assigning them higher weights within each batch.\nSecondly, we implement an approach to mitigate the impact of false negatives\nand alleviate data noise. This strategy not only enhances the model's\ndiscriminative power but also improves its instruction-following capabilities.\nWe further boost performance with learnable temperature parameter and model\nsouping. RzenEmbed sets a new state-of-the-art on the MMEB benchmark. It not\nonly achieves the best overall score but also outperforms all prior work on the\nchallenging video and visual document retrieval tasks. Our models are available\nin https://huggingface.co/qihoo360/RzenEmbed.",
+        "url": "http://arxiv.org/abs/2510.27350v1",
+        "published_date": "2025-10-31T10:34:51+00:00",
+        "updated_date": "2025-10-31T10:34:51+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Weijian Jian",
+            "Yajun Zhang",
+            "Dawei Liang",
+            "Chunyu Xie",
+            "Yixiao He",
+            "Dawei Leng",
+            "Yuhui Yin"
+        ],
+        "tldr": "RzenEmbed is a unified framework for multimodal embedding learning across text, images, videos, and visual documents, using a novel two-stage training strategy with hardness-weighted InfoNCE loss and false negative mitigation. It achieves state-of-the-art results on MMEB, particularly in video and visual document retrieval.",
+        "tldr_zh": "RzenEmbed是一个统一的框架，用于跨文本、图像、视频和视觉文档的多模态嵌入学习，采用了一种新颖的两阶段训练策略，结合了硬度加权InfoNCE损失和假阴性缓解。它在MMEB上取得了最先进的结果，尤其是在视频和视觉文档检索方面。",
+        "relevance_score": 7,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "HyperClick: Advancing Reliable GUI Grounding via Uncertainty Calibration",
+        "summary": "Autonomous Graphical User Interface (GUI) agents rely on accurate GUI\ngrounding, which maps language instructions to on-screen coordinates, to\nexecute user commands. However, current models, whether trained via supervised\nfine-tuning (SFT) or reinforcement fine-tuning (RFT), lack self-awareness of\ntheir capability boundaries, leading to overconfidence and unreliable\npredictions. We first systematically evaluate probabilistic and verbalized\nconfidence in general and GUI-specific models, revealing a misalignment between\nconfidence and actual accuracy, which is particularly critical in dynamic GUI\nautomation tasks, where single errors can cause task failure. To address this,\nwe propose HyperClick, a novel framework that enhances reliable GUI grounding\nthrough uncertainty calibration. HyperClick introduces a dual reward mechanism,\ncombining a binary reward for correct actions with a truncated Gaussian-based\nspatial confidence modeling, calibrated using the Brier score. This approach\njointly optimizes grounding accuracy and confidence reliability, fostering\nintrospective self-criticism. Extensive experiments on seven challenge\nbenchmarks show that HyperClick achieves state-of-the-art performance while\nproviding well-calibrated confidence. By enabling explicit confidence\ncalibration and introspective self-criticism, HyperClick reduces overconfidence\nand supports more reliable GUI automation.",
+        "url": "http://arxiv.org/abs/2510.27266v1",
+        "published_date": "2025-10-31T08:07:02+00:00",
+        "updated_date": "2025-10-31T08:07:02+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Shaojie Zhang",
+            "Pei Fu",
+            "Ruoceng Zhang",
+            "Jiahui Yang",
+            "Anan Du",
+            "Xiuwen Xi",
+            "Shaokang Wang",
+            "Ying Huang",
+            "Bin Qin",
+            "Zhenbo Luo",
+            "Jian Luan"
+        ],
+        "tldr": "The paper introduces HyperClick, a framework for improving the reliability of GUI grounding by calibrating model confidence using a dual reward mechanism, which leads to state-of-the-art performance and well-calibrated confidence across several benchmarks.",
+        "tldr_zh": "该论文介绍了HyperClick，一种通过双重奖励机制校准模型置信度，从而提高GUI grounding可靠性的框架。该框架在多个基准测试中实现了最先进的性能和良好校准的置信度。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "T3: Test-Time Model Merging in VLMs for Zero-Shot Medical Imaging Analysis",
+        "summary": "In medical imaging, vision-language models face a critical duality:\npretrained networks offer broad robustness but lack subtle, modality-specific\ncharacteristics, while fine-tuned expert models achieve high in-distribution\naccuracy yet falter under modality shift. Existing model-merging techniques,\ndesigned for natural-image benchmarks, are simple and efficient but fail to\ndeliver consistent gains across diverse medical modalities; their static\ninterpolation limits reliability in varied clinical tasks. To address this, we\nintroduce Test-Time Task adaptive merging (T^3), a backpropagation-free\nframework that computes per-sample interpolation coefficients via the\nJensen-Shannon divergence between the two models' output distributions. T^3\ndynamically preserves local precision when models agree and defers to\ngeneralist robustness under drift. To overcome the inference costs of\nsample-wise merging, we further propose a batch-wise extension, T^3_B, that\ncomputes a merging coefficient across a batch of samples, dramatically reducing\ncomputational bottleneck. Recognizing the lack of a standardized\nmedical-merging benchmark, we present a rigorous cross-evaluation protocol\nspanning in-domain, base-to-novel, and corruptions across four modalities.\nEmpirically, T^3 sets new state-of-the-art in Top-1 accuracy and error\nreduction, outperforming strong baselines while maintaining efficiency, paving\nthe way for adaptive MVLM deployment in clinical settings. Our code is\navailable at https://github.com/Razaimam45/TCube.",
+        "url": "http://arxiv.org/abs/2510.27265v1",
+        "published_date": "2025-10-31T08:05:40+00:00",
+        "updated_date": "2025-10-31T08:05:40+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Raza Imam",
+            "Hu Wang",
+            "Dwarikanath Mahapatra",
+            "Mohammad Yaqub"
+        ],
+        "tldr": "The paper introduces T3, a test-time model merging framework for VLMs in medical imaging, which dynamically adapts merging coefficients based on sample-wise or batch-wise Jensen-Shannon divergence to improve accuracy and robustness across diverse medical modalities.",
+        "tldr_zh": "该论文介绍了一种名为T3的测试时模型融合框架，用于医学影像中的视觉语言模型。该框架基于样本级别或批次级别的 Jensen-Shannon 散度动态调整融合系数，从而提高在不同医学模态下的准确性和鲁棒性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "GUI-Rise: Structured Reasoning and History Summarization for GUI Navigation",
+        "summary": "While Multimodal Large Language Models (MLLMs) have advanced GUI navigation\nagents, current approaches face limitations in cross-domain generalization and\neffective history utilization. We present a reasoning-enhanced framework that\nsystematically integrates structured reasoning, action prediction, and history\nsummarization. The structured reasoning component generates coherent\nChain-of-Thought analyses combining progress estimation and decision reasoning,\nwhich inform both immediate action predictions and compact history summaries\nfor future steps. Based on this framework, we train a GUI agent,\n\\textbf{GUI-Rise}, through supervised fine-tuning on pseudo-labeled\ntrajectories and reinforcement learning with Group Relative Policy Optimization\n(GRPO). This framework employs specialized rewards, including a history-aware\nobjective, directly linking summary quality to subsequent action performance.\nComprehensive evaluations on standard benchmarks demonstrate state-of-the-art\nresults under identical training data conditions, with particularly strong\nperformance in out-of-domain scenarios. These findings validate our framework's\nability to maintain robust reasoning and generalization across diverse GUI\nnavigation tasks. Code is available at https://leon022.github.io/GUI-Rise.",
+        "url": "http://arxiv.org/abs/2510.27210v1",
+        "published_date": "2025-10-31T06:10:57+00:00",
+        "updated_date": "2025-10-31T06:10:57+00:00",
+        "categories": [
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Tao Liu",
+            "Chongyu Wang",
+            "Rongjie Li",
+            "Yingchen Yu",
+            "Xuming He",
+            "Bai Song"
+        ],
+        "tldr": "The paper introduces GUI-Rise, a reasoning-enhanced framework for GUI navigation that combines structured reasoning, action prediction, and history summarization to achieve state-of-the-art results and strong out-of-domain generalization.",
+        "tldr_zh": "该论文介绍GUI-Rise，一个用于GUI导航的推理增强框架，它结合了结构化推理、动作预测和历史总结，以实现最先进的结果和强大的领域外泛化能力。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Generating Accurate and Detailed Captions for High-Resolution Images",
+        "summary": "Vision-language models (VLMs) often struggle to generate accurate and\ndetailed captions for high-resolution images since they are typically\npre-trained on low-resolution inputs (e.g., 224x224 or 336x336 pixels).\nDownscaling high-resolution images to these dimensions may result in the loss\nof visual details and the omission of important objects. To address this\nlimitation, we propose a novel pipeline that integrates vision-language models,\nlarge language models (LLMs), and object detection systems to enhance caption\nquality. Our proposed pipeline refines captions through a novel, multi-stage\nprocess. Given a high-resolution image, an initial caption is first generated\nusing a VLM, and key objects in the image are then identified by an LLM. The\nLLM predicts additional objects likely to co-occur with the identified key\nobjects, and these predictions are verified by object detection systems. Newly\ndetected objects not mentioned in the initial caption undergo focused,\nregion-specific captioning to ensure they are incorporated. This process\nenriches caption detail while reducing hallucinations by removing references to\nundetected objects. We evaluate the enhanced captions using pairwise comparison\nand quantitative scoring from large multimodal models, along with a benchmark\nfor hallucination detection. Experiments on a curated dataset of\nhigh-resolution images demonstrate that our pipeline produces more detailed and\nreliable image captions while effectively minimizing hallucinations.",
+        "url": "http://arxiv.org/abs/2510.27164v1",
+        "published_date": "2025-10-31T04:22:22+00:00",
+        "updated_date": "2025-10-31T04:22:22+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Hankyeol Lee",
+            "Gawon Seo",
+            "Kyounggyu Lee",
+            "Dogun Kim",
+            "Kyungwoo Song",
+            "Jiyoung Jung"
+        ],
+        "tldr": "This paper proposes a pipeline that combines VLMs, LLMs, and object detection to generate more accurate and detailed captions for high-resolution images by identifying and incorporating previously omitted objects and reducing hallucinations.",
+        "tldr_zh": "该论文提出了一种结合VLM、LLM和目标检测的流程，通过识别和包含先前忽略的对象并减少幻觉，为高分辨率图像生成更准确和详细的描述。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "E-MMDiT: Revisiting Multimodal Diffusion Transformer Design for Fast Image Synthesis under Limited Resources",
+        "summary": "Diffusion models have shown strong capabilities in generating high-quality\nimages from text prompts. However, these models often require large-scale\ntraining data and significant computational resources to train, or suffer from\nheavy structure with high latency. To this end, we propose Efficient Multimodal\nDiffusion Transformer (E-MMDiT), an efficient and lightweight multimodal\ndiffusion model with only 304M parameters for fast image synthesis requiring\nlow training resources. We provide an easily reproducible baseline with\ncompetitive results. Our model for 512px generation, trained with only 25M\npublic data in 1.5 days on a single node of 8 AMD MI300X GPUs, achieves 0.66 on\nGenEval and easily reaches to 0.72 with some post-training techniques such as\nGRPO. Our design philosophy centers on token reduction as the computational\ncost scales significantly with the token count. We adopt a highly compressive\nvisual tokenizer to produce a more compact representation and propose a novel\nmulti-path compression module for further compression of tokens. To enhance our\ndesign, we introduce Position Reinforcement, which strengthens positional\ninformation to maintain spatial coherence, and Alternating Subregion Attention\n(ASA), which performs attention within subregions to further reduce\ncomputational cost. In addition, we propose AdaLN-affine, an efficient\nlightweight module for computing modulation parameters in transformer blocks.\nOur code is available at https://github.com/AMD-AGI/Nitro-E and we hope E-MMDiT\nserves as a strong and practical baseline for future research and contributes\nto democratization of generative AI models.",
+        "url": "http://arxiv.org/abs/2510.27135v1",
+        "published_date": "2025-10-31T03:13:08+00:00",
+        "updated_date": "2025-10-31T03:13:08+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Tong Shen",
+            "Jingai Yu",
+            "Dong Zhou",
+            "Dong Li",
+            "Emad Barsoum"
+        ],
+        "tldr": "The paper introduces E-MMDiT, a lightweight multimodal diffusion transformer for fast image synthesis with limited resources, achieving competitive results with only 304M parameters and 1.5 days of training on a single node with 8 AMD MI300X GPUs.",
+        "tldr_zh": "该论文介绍了E-MMDiT，一个轻量级多模态扩散Transformer，用于在有限资源下快速图像合成，仅使用304M参数和在单个包含8个AMD MI300X GPU的节点上进行1.5天的训练即可获得具有竞争力的结果。",
+        "relevance_score": 6,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Semantic Frame Aggregation-based Transformer for Live Video Comment Generation",
+        "summary": "Live commenting on video streams has surged in popularity on platforms like\nTwitch, enhancing viewer engagement through dynamic interactions. However,\nautomatically generating contextually appropriate comments remains a\nchallenging and exciting task. Video streams can contain a vast amount of data\nand extraneous content. Existing approaches tend to overlook an important\naspect of prioritizing video frames that are most relevant to ongoing viewer\ninteractions. This prioritization is crucial for producing contextually\nappropriate comments. To address this gap, we introduce a novel Semantic Frame\nAggregation-based Transformer (SFAT) model for live video comment generation.\nThis method not only leverages CLIP's visual-text multimodal knowledge to\ngenerate comments but also assigns weights to video frames based on their\nsemantic relevance to ongoing viewer conversation. It employs an efficient\nweighted sum of frames technique to emphasize informative frames while focusing\nless on irrelevant ones. Finally, our comment decoder with a cross-attention\nmechanism that attends to each modality ensures that the generated comment\nreflects contextual cues from both chats and video. Furthermore, to address the\nlimitations of existing datasets, which predominantly focus on Chinese-language\ncontent with limited video categories, we have constructed a large scale,\ndiverse, multimodal English video comments dataset. Extracted from Twitch, this\ndataset covers 11 video categories, totaling 438 hours and 3.2 million\ncomments. We demonstrate the effectiveness of our SFAT model by comparing it to\nexisting methods for generating comments from live video and ongoing dialogue\ncontexts.",
+        "url": "http://arxiv.org/abs/2510.26978v1",
+        "published_date": "2025-10-30T20:01:04+00:00",
+        "updated_date": "2025-10-30T20:01:04+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Anam Fatima",
+            "Yi Yu",
+            "Janak Kapuriya",
+            "Julien Lalanne",
+            "Jainendra Shukla"
+        ],
+        "tldr": "The paper introduces a Semantic Frame Aggregation-based Transformer (SFAT) for live video comment generation, which prioritizes relevant video frames and leverages CLIP's multimodal knowledge, and contributes a large-scale English video comment dataset from Twitch.",
+        "tldr_zh": "该论文介绍了一种基于语义帧聚合的Transformer (SFAT) 用于生成直播视频评论，该方法优先考虑相关的视频帧并利用CLIP的多模态知识，同时贡献了一个来自Twitch的大规模英文视频评论数据集。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "AD-SAM: Fine-Tuning the Segment Anything Vision Foundation Model for Autonomous Driving Perception",
+        "summary": "This paper presents the Autonomous Driving Segment Anything Model (AD-SAM), a\nfine-tuned vision foundation model for semantic segmentation in autonomous\ndriving (AD). AD-SAM extends the Segment Anything Model (SAM) with a\ndual-encoder and deformable decoder tailored to spatial and geometric\ncomplexity of road scenes. The dual-encoder produces multi-scale fused\nrepresentations by combining global semantic context from SAM's pretrained\nVision Transformer (ViT-H) with local spatial detail from a trainable\nconvolutional deep learning backbone (i.e., ResNet-50). A deformable fusion\nmodule aligns heterogeneous features across scales and object geometries. The\ndecoder performs progressive multi-stage refinement using deformable attention.\nTraining is guided by a hybrid loss that integrates Focal, Dice,\nLovasz-Softmax, and Surface losses, improving semantic class balance, boundary\nprecision, and optimization stability. Experiments on the Cityscapes and\nBerkeley DeepDrive 100K (BDD100K) benchmarks show that AD-SAM surpasses SAM,\nGeneralized SAM (G-SAM), and a deep learning baseline (DeepLabV3) in\nsegmentation accuracy. It achieves 68.1 mean Intersection over Union (mIoU) on\nCityscapes and 59.5 mIoU on BDD100K, outperforming SAM, G-SAM, and DeepLabV3 by\nmargins of up to +22.9 and +19.2 mIoU in structured and diverse road scenes,\nrespectively. AD-SAM demonstrates strong cross-domain generalization with a\n0.87 retention score (vs. 0.76 for SAM), and faster, more stable learning\ndynamics, converging within 30-40 epochs, enjoying double the learning speed of\nbenchmark models. It maintains 0.607 mIoU with only 1000 samples, suggesting\ndata efficiency critical for reducing annotation costs. These results confirm\nthat targeted architectural and optimization enhancements to foundation models\nenable reliable and scalable AD perception.",
+        "url": "http://arxiv.org/abs/2510.27047v1",
+        "published_date": "2025-10-30T23:30:33+00:00",
+        "updated_date": "2025-10-30T23:30:33+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Mario Camarena",
+            "Het Patel",
+            "Fatemeh Nazari",
+            "Evangelos Papalexakis",
+            "Mohamadhossein Noruzoliaee",
+            "Jia Chen"
+        ],
+        "tldr": "The paper presents AD-SAM, a fine-tuned Segment Anything Model (SAM) with a dual-encoder and deformable decoder for improved semantic segmentation in autonomous driving scenarios, achieving state-of-the-art results on Cityscapes and BDD100K.",
+        "tldr_zh": "该论文提出了AD-SAM，一种微调的Segment Anything Model (SAM)，具有双编码器和可变形解码器，用于改进自动驾驶场景中的语义分割，在Cityscapes和BDD100K上取得了最先进的结果。",
+        "relevance_score": 4,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 6
+    }
+]
