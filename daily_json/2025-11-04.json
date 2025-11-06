@@ -1,0 +1,444 @@
+[
+    {
+        "title": "3EED: Ground Everything Everywhere in 3D",
+        "summary": "Visual grounding in 3D is the key for embodied agents to localize\nlanguage-referred objects in open-world environments. However, existing\nbenchmarks are limited to indoor focus, single-platform constraints, and small\nscale. We introduce 3EED, a multi-platform, multi-modal 3D grounding benchmark\nfeaturing RGB and LiDAR data from vehicle, drone, and quadruped platforms. We\nprovide over 128,000 objects and 22,000 validated referring expressions across\ndiverse outdoor scenes -- 10x larger than existing datasets. We develop a\nscalable annotation pipeline combining vision-language model prompting with\nhuman verification to ensure high-quality spatial grounding. To support\ncross-platform learning, we propose platform-aware normalization and\ncross-modal alignment techniques, and establish benchmark protocols for\nin-domain and cross-platform evaluations. Our findings reveal significant\nperformance gaps, highlighting the challenges and opportunities of\ngeneralizable 3D grounding. The 3EED dataset and benchmark toolkit are released\nto advance future research in language-driven 3D embodied perception.",
+        "url": "http://arxiv.org/abs/2511.01755v1",
+        "published_date": "2025-11-03T17:05:22+00:00",
+        "updated_date": "2025-11-03T17:05:22+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Rong Li",
+            "Yuhao Dong",
+            "Tianshuai Hu",
+            "Ao Liang",
+            "Youquan Liu",
+            "Dongyue Lu",
+            "Liang Pan",
+            "Lingdong Kong",
+            "Junwei Liang",
+            "Ziwei Liu"
+        ],
+        "tldr": "The paper introduces 3EED, a large-scale, multi-platform 3D visual grounding benchmark featuring RGB and LiDAR data across diverse outdoor scenes, addressing limitations of existing indoor-focused and single-platform datasets.",
+        "tldr_zh": "本文介绍了3EED，一个大规模、多平台的3D视觉定位基准，包含来自不同户外场景的RGB和LiDAR数据，解决了现有室内和单平台数据集的局限性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Unified Diffusion VLA: Vision-Language-Action Model via Joint Discrete Denoising Diffusion Process",
+        "summary": "Vision-language-action (VLA) models aim to understand natural language\ninstructions and visual observations and to execute corresponding actions as an\nembodied agent. Recent work integrates future images into the\nunderstanding-acting loop, yielding unified VLAs that jointly understand,\ngenerate, and act -- reading text and images and producing future images and\nactions. However, these models either rely on external experts for modality\nunification or treat image generation and action prediction as separate\nprocesses, limiting the benefits of direct synergy between these tasks. Our\ncore philosophy is to optimize generation and action jointly through a\nsynchronous denoising process, where the iterative refinement enables actions\nto evolve from initialization, under constant and sufficient visual guidance.\nWe ground this philosophy in our proposed Unified Diffusion VLA and Joint\nDiscrete Denoising Diffusion Process (JD3P), which is a joint diffusion process\nthat integrates multiple modalities into a single denoising trajectory to serve\nas the key mechanism enabling understanding, generation, and acting to be\nintrinsically synergistic. Our model and theory are built on a unified\ntokenized space of all modalities and a hybrid attention mechanism. We further\npropose a two-stage training pipeline and several inference-time techniques\nthat optimize performance and efficiency. Our approach achieves\nstate-of-the-art performance on benchmarks such as CALVIN, LIBERO, and\nSimplerEnv with 4$\\times$ faster inference than autoregressive methods, and we\ndemonstrate its effectiveness through in-depth analysis and real-world\nevaluations. Our project page is available at\nhttps://irpn-eai.github.io/UD-VLA.github.io/.",
+        "url": "http://arxiv.org/abs/2511.01718v1",
+        "published_date": "2025-11-03T16:26:54+00:00",
+        "updated_date": "2025-11-03T16:26:54+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.CV"
+        ],
+        "authors": [
+            "Jiayi Chen",
+            "Wenxuan Song",
+            "Pengxiang Ding",
+            "Ziyang Zhou",
+            "Han Zhao",
+            "Feilong Tang",
+            "Donglin Wang",
+            "Haoang Li"
+        ],
+        "tldr": "This paper introduces a Unified Diffusion Vision-Language-Action (VLA) model using a Joint Discrete Denoising Diffusion Process (JD3P) for synergistic understanding, generation, and action, achieving SOTA results with faster inference.",
+        "tldr_zh": "该论文介绍了一种统一的扩散视觉-语言-动作 (VLA) 模型，使用联合离散去噪扩散过程 (JD3P) 实现协同理解、生成和动作，并在推理速度更快的情况下实现了 SOTA 结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Vote-in-Context: Turning VLMs into Zero-Shot Rank Fusers",
+        "summary": "In the retrieval domain, candidates' fusion from heterogeneous retrievers is\na long-standing challenge, particularly for complex, multi-modal data such as\nvideos. While typical fusion techniques are training-free, they rely solely on\nrank or score signals, disregarding candidates' representations. This work\nintroduces Vote-in-Context (ViC), a generalized, training-free framework that\nre-thinks list-wise reranking and fusion as a zero-shot reasoning task for a\nVision-Language Model (VLM). The core insight is to serialize both content\nevidence and retriever metadata directly within the VLM's prompt, allowing the\nmodel to adaptively weigh retriever consensus against visual-linguistic\ncontent. We demonstrate the generality of this framework by applying it to the\nchallenging domain of cross-modal video retrieval. To this end, we introduce\nthe S-Grid, a compact serialization map that represents each video as an image\ngrid, optionally paired with subtitles to enable list-wise reasoning over video\ncandidates. ViC is evaluated both as a single-list reranker, where it\ndramatically improves the precision of individual retrievers, and as an\nensemble fuser, where it consistently outperforms strong baselines like\nCombSUM. Across video retrieval benchmarks including ActivityNet and VATEX, the\nframework establishes new state-of-the-art zero-shot retrieval performance,\ndemonstrating its effectiveness in handling complex visual and temporal signals\nalongside text. In zero-shot settings, ViC achieves Recall@1 scores of 87.1%\n(t2v) / 89.0% (v2t) on MSR-VTT and 99.6% (v2t) on VATEX, representing massive\ngains of up to +40 Recall@1 over previous state-of-the-art baselines. We\npresent ViC as a simple, reproducible, and highly effective recipe for turning\nmodern VLMs into powerful zero-shot rerankers and fusers. Code and resources\nare publicly available at: https://github.com/mohammad2012191/ViC",
+        "url": "http://arxiv.org/abs/2511.01617v1",
+        "published_date": "2025-11-03T14:25:12+00:00",
+        "updated_date": "2025-11-03T14:25:12+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.IR"
+        ],
+        "authors": [
+            "Mohamed Eltahir",
+            "Ali Habibullah",
+            "Lama Ayash",
+            "Tanveer Hussain",
+            "Naeemullah Khan"
+        ],
+        "tldr": "This paper introduces Vote-in-Context (ViC), a novel, training-free framework that leverages Vision-Language Models (VLMs) for zero-shot rank fusion in cross-modal video retrieval, achieving state-of-the-art performance by prompting VLMs with serialized content and metadata.",
+        "tldr_zh": "本文介绍了Vote-in-Context (ViC)，一种新颖的、免训练的框架，利用视觉语言模型 (VLM) 在跨模态视频检索中进行零样本排序融合。它通过使用序列化内容和元数据提示 VLM，实现了最先进的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MARS: Multi-Agent Robotic System with Multimodal Large Language Models for Assistive Intelligence",
+        "summary": "Multimodal large language models (MLLMs) have shown remarkable capabilities\nin cross-modal understanding and reasoning, offering new opportunities for\nintelligent assistive systems, yet existing systems still struggle with\nrisk-aware planning, user personalization, and grounding language plans into\nexecutable skills in cluttered homes. We introduce MARS - a Multi-Agent Robotic\nSystem powered by MLLMs for assistive intelligence and designed for smart home\nrobots supporting people with disabilities. The system integrates four agents:\na visual perception agent for extracting semantic and spatial features from\nenvironment images, a risk assessment agent for identifying and prioritizing\nhazards, a planning agent for generating executable action sequences, and an\nevaluation agent for iterative optimization. By combining multimodal perception\nwith hierarchical multi-agent decision-making, the framework enables adaptive,\nrisk-aware, and personalized assistance in dynamic indoor environments.\nExperiments on multiple datasets demonstrate the superior overall performance\nof the proposed system in risk-aware planning and coordinated multi-agent\nexecution compared with state-of-the-art multimodal models. The proposed\napproach also highlights the potential of collaborative AI for practical\nassistive scenarios and provides a generalizable methodology for deploying\nMLLM-enabled multi-agent systems in real-world environments.",
+        "url": "http://arxiv.org/abs/2511.01594v1",
+        "published_date": "2025-11-03T13:58:37+00:00",
+        "updated_date": "2025-11-03T13:58:37+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.CV",
+            "I.2.9; I.2.11; I.2.6; I.4.8"
+        ],
+        "authors": [
+            "Renjun Gao",
+            "Peiyan Zhong"
+        ],
+        "tldr": "The paper introduces MARS, a multi-agent robotic system leveraging MLLMs for assistive intelligence in smart homes, focusing on risk-aware planning and personalization. It demonstrates superior performance in experiments compared to state-of-the-art multimodal models.",
+        "tldr_zh": "该论文介绍了MARS，一个利用多模态大语言模型的多智能体机器人系统，用于智能家居中的辅助智能，重点关注风险感知规划和个性化。实验表明，与最先进的多模态模型相比，它表现出卓越的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Wave-Particle (Continuous-Discrete) Dualistic Visual Tokenization for Unified Understanding and Generation",
+        "summary": "The unification of understanding and generation within a single multi-modal\nlarge model (MLLM) remains one significant challenge, largely due to the\ndichotomy between continuous and discrete visual tokenizations. Continuous\ntokenizer (CT) achieves strong performance by bridging multiple\nindependently-trained understanding modules and generation modules, but suffers\nfrom complex multi-stage pipelines and substantial engineering overhead.\nConversely, discrete tokenizers (DT) offer a conceptually elegant idea by\nquantizing each image into a primitive, but inevitably leading to information\nloss and performance degradation. To resolve this tension, we question the\nbinary choice between CT and DT, inspired by the wave-particle duality of\nlight, and propose the Continuous-Discrete Dualistic Visual Tokenizer (CDD-VT).\nWe treat visual data as a flexible composition of image primitives derived from\nquantized codebooks, with the crucial insight that the primitive number\nassigned to each visual sample is adaptively determined according to its\ncomplexity: simple instances use a few primitives, emulating discrete\ntokenization, while complex instances use many, approximating continuous\ntokenization. Two core components are designed: Diverse Quantitative\nPrimitives, which encourage primitives orthogonality to better populate\ninformation space, and Dynamic Primitive Allocator, which assesses sample\ncomplexity to determine the optimal set of primitives. Extensive experiments on\nreconstruction, retrieval and classification show that CDD-VT achieves superior\nperformance over to specialized CT and DT, effectively getting strong result\nwithin a concise and scalable MLLM.",
+        "url": "http://arxiv.org/abs/2511.01593v1",
+        "published_date": "2025-11-03T13:58:32+00:00",
+        "updated_date": "2025-11-03T13:58:32+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yizhu Chen",
+            "Chen Ju",
+            "Zhicheng Wang",
+            "Shuai Xiao",
+            "Xu Chen",
+            "Jinsong Lan",
+            "Xiaoyong Zhu",
+            "Ying Chen"
+        ],
+        "tldr": "This paper introduces a novel visual tokenizer, CDD-VT, that unifies continuous and discrete tokenization approaches for multi-modal large models by adaptively allocating a number of primitives based on image complexity, leading to improved performance in understanding and generation tasks.",
+        "tldr_zh": "该论文介绍了一种新的视觉标记器CDD-VT，它通过基于图像复杂度自适应地分配基元数量，统一了多模态大型模型的连续和离散标记化方法，从而提高了理解和生成任务的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Explore More, Learn Better: Parallel MLLM Embeddings under Mutual Information Minimization",
+        "summary": "Embedding models are a cornerstone of modern AI. Driven by Multimodal Large\nLanguage Models (MLLMs), they have made great progress in architecture and data\ncuration, while the holistic paradigm is still limited to SSC, i.e., single\ninput, singular embedding, contrastive supervision, which collapses rich,\nmultifaceted inputs into monolithic embeddings and fails to fully exploit MLLM\ncapabilities. In this paper, we tailor one Parallel Decoupling Framework (PDF)\nfor multimodal embedding learning, by utilizing the proprietary steerability of\nMLLMs, i.e., their ability to flexibly generate quite differentiated response\nunder explicit instructions. Concretely, PDF conditions a shared MLLM backbone\non distinct, learnable prefixes to roll out multiple parallel paths for one\ninput, then relies on these paths to obtain parallel embeddings. To promote\nfull parallel diversity, we employ Mutual Information Minimization (MIM) as an\nexplicit constraint, coupled with per-path contrastive supervision to maintain\nsemantic alignment. Such dual-objectives force PDF to yield robust semantic\ncoverage and a generalizable embedding space. Ultimately, the remarkable\nembedding space are accessible at inference via one single forward pass,\nincurring negligible computational overhead. We instantiate PDF on multiple\nMLLM backbones and prove its effectiveness on MMEB benchmark. Significant gains\nare consistently achieved across various resolutions and model sizes, e.g.,\nboosting the VLM2Vec-LLaVA-1.6-LR model by a remarkable +8.9% (7B), while the\nVLM2Vec-Qwen2VL models by +4.2% (2B) and +3.1% (7B). In terms of efficiency,\nour 2B model surpasses its baseline by +2.6% using only half the computational\nbudget.",
+        "url": "http://arxiv.org/abs/2511.01588v1",
+        "published_date": "2025-11-03T13:57:08+00:00",
+        "updated_date": "2025-11-03T13:57:08+00:00",
+        "categories": [
+            "cs.LG",
+            "cs.CV"
+        ],
+        "authors": [
+            "Zhicheng Wang",
+            "Chen Ju",
+            "Xu Chen",
+            "Shuai Xiao",
+            "Jinsong Lan",
+            "Xiaoyong Zhu",
+            "Ying Chen",
+            "Zhiguo Cao"
+        ],
+        "tldr": "The paper introduces a Parallel Decoupling Framework (PDF) for multimodal embedding learning using MLLMs, employing mutual information minimization to enhance diversity and achieve significant performance gains on the MMEB benchmark with minimal inference overhead.",
+        "tldr_zh": "该论文介绍了一个用于多模态嵌入学习的并行解耦框架（PDF），该框架利用MLLM，采用互信息最小化来增强多样性，并在MMEB基准测试中实现了显著的性能提升，且推理开销极小。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Reg-DPO: SFT-Regularized Direct Preference Optimization with GT-Pair for Improving Video Generation",
+        "summary": "Recent studies have identified Direct Preference Optimization (DPO) as an\nefficient and reward-free approach to improving video generation quality.\nHowever, existing methods largely follow image-domain paradigms and are mainly\ndeveloped on small-scale models (approximately 2B parameters), limiting their\nability to address the unique challenges of video tasks, such as costly data\nconstruction, unstable training, and heavy memory consumption. To overcome\nthese limitations, we introduce a GT-Pair that automatically builds\nhigh-quality preference pairs by using real videos as positives and\nmodel-generated videos as negatives, eliminating the need for any external\nannotation. We further present Reg-DPO, which incorporates the SFT loss as a\nregularization term into the DPO loss to enhance training stability and\ngeneration fidelity. Additionally, by combining the FSDP framework with\nmultiple memory optimization techniques, our approach achieves nearly three\ntimes higher training capacity than using FSDP alone. Extensive experiments on\nboth I2V and T2V tasks across multiple datasets demonstrate that our method\nconsistently outperforms existing approaches, delivering superior video\ngeneration quality.",
+        "url": "http://arxiv.org/abs/2511.01450v2",
+        "published_date": "2025-11-03T11:04:22+00:00",
+        "updated_date": "2025-11-05T16:11:43+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Jie Du",
+            "Xinyu Gong",
+            "Qingshan Tan",
+            "Wen Li",
+            "Yangming Cheng",
+            "Weitao Wang",
+            "Chenlu Zhan",
+            "Suhui Wu",
+            "Hao Zhang",
+            "Jun Zhang"
+        ],
+        "tldr": "The paper introduces Reg-DPO, a method that enhances video generation by using automatically generated preference pairs (GT-Pair) and SFT regularization within a DPO framework, demonstrating superior performance with increased training capacity.",
+        "tldr_zh": "该论文介绍了Reg-DPO，一种通过在DPO框架内使用自动生成的偏好对（GT-Pair）和SFT正则化来增强视频生成的方法，并展示了卓越的性能和更高的训练容量。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Privacy Preserving Ordinal-Meta Learning with VLMs for Fine-Grained Fruit Quality Prediction",
+        "summary": "To effectively manage the wastage of perishable fruits, it is crucial to\naccurately predict their freshness or shelf life using non-invasive methods\nthat rely on visual data. In this regard, deep learning techniques can offer a\nviable solution. However, obtaining fine-grained fruit freshness labels from\nexperts is costly, leading to a scarcity of data. Closed proprietary Vision\nLanguage Models (VLMs), such as Gemini, have demonstrated strong performance in\nfruit freshness detection task in both zero-shot and few-shot settings.\nNonetheless, food retail organizations are unable to utilize these proprietary\nmodels due to concerns related to data privacy, while existing open-source VLMs\nyield sub-optimal performance for the task. Fine-tuning these open-source\nmodels with limited data fails to achieve the performance levels of proprietary\nmodels. In this work, we introduce a Model-Agnostic Ordinal Meta-Learning\n(MAOML) algorithm, designed to train smaller VLMs. This approach utilizes\nmeta-learning to address data sparsity and leverages label ordinality, thereby\nachieving state-of-the-art performance in the fruit freshness classification\ntask under both zero-shot and few-shot settings. Our method achieves an\nindustry-standard accuracy of 92.71%, averaged across all fruits.\n  Keywords: Fruit Quality Prediction, Vision Language Models, Meta Learning,\nOrdinal Regression",
+        "url": "http://arxiv.org/abs/2511.01449v1",
+        "published_date": "2025-11-03T11:03:54+00:00",
+        "updated_date": "2025-11-03T11:03:54+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Riddhi Jain",
+            "Manasi Patwardhan",
+            "Aayush Mishra",
+            "Parijat Deshpande",
+            "Beena Rai"
+        ],
+        "tldr": "The paper introduces a Model-Agnostic Ordinal Meta-Learning (MAOML) algorithm to train smaller VLMs for fine-grained fruit freshness classification, addressing data sparsity and privacy concerns with proprietary models, achieving industry-standard accuracy.",
+        "tldr_zh": "该论文介绍了一种模型无关的有序元学习（MAOML）算法，用于训练较小的VLM，以进行细粒度的水果新鲜度分类，解决数据稀疏性和专有模型的隐私问题，并达到行业标准精度。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SEPS: Semantic-enhanced Patch Slimming Framework for fine-grained cross-modal alignment",
+        "summary": "Fine-grained cross-modal alignment aims to establish precise local\ncorrespondences between vision and language, forming a cornerstone for visual\nquestion answering and related multimodal applications. Current approaches face\nchallenges in addressing patch redundancy and ambiguity, which arise from the\ninherent information density disparities across modalities. Recently,\nMultimodal Large Language Models (MLLMs) have emerged as promising solutions to\nbridge this gap through their robust semantic generation capabilities. However,\nthe dense textual outputs from MLLMs may introduce conflicts with the original\nsparse captions. Furthermore, accurately quantifying semantic relevance between\nrich visual patches and concise textual descriptions remains a core challenge.\nTo overcome these limitations, we introduce the Semantic-Enhanced Patch\nSlimming (SEPS) framework, which systematically addresses patch redundancy and\nambiguity. Our approach employs a two-stage mechanism to integrate unified\nsemantics from both dense and sparse texts, enabling the identification of\nsalient visual patches. Additionally, it leverages relevance-aware selection\nwith mean value computation to highlight crucial patch-word correspondences,\nthereby improving cross-modal similarity assessment. Comprehensive experiments\non Flickr30K and MS-COCO datasets validate that SEPS achieves superior\nperformance, surpassing existing approaches by 23\\%-86\\% in rSum across diverse\nmodel architectures, with notable enhancements in text-to-image retrieval\nscenarios. Our implementation is available at\nhttps://github.com/Sweet4tars/seps.git.",
+        "url": "http://arxiv.org/abs/2511.01390v1",
+        "published_date": "2025-11-03T09:41:32+00:00",
+        "updated_date": "2025-11-03T09:41:32+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.MM"
+        ],
+        "authors": [
+            "Xinyu Mao",
+            "Junsi Li",
+            "Haoji Zhang",
+            "Yu Liang",
+            "Ming Sun"
+        ],
+        "tldr": "The paper introduces SEPS, a Semantic-Enhanced Patch Slimming framework that addresses patch redundancy and ambiguity in fine-grained cross-modal alignment using unified semantics and relevance-aware selection, achieving significant performance gains on standard datasets.",
+        "tldr_zh": "该论文介绍了SEPS，一种语义增强的补丁修剪框架，通过统一语义和相关性感知选择解决细粒度跨模态对齐中的补丁冗余和歧义问题，并在标准数据集上实现了显著的性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "$\\left|\\,\\circlearrowright\\,\\boxed{\\text{BUS}}\\,\\right|$: A Large and Diverse Multimodal Benchmark for evaluating the ability of Vision-Language Models to understand Rebus Puzzles",
+        "summary": "Understanding Rebus Puzzles (Rebus Puzzles use pictures, symbols, and letters\nto represent words or phrases creatively) requires a variety of skills such as\nimage recognition, cognitive skills, commonsense reasoning, multi-step\nreasoning, image-based wordplay, etc., making this a challenging task for even\ncurrent Vision-Language Models. In this paper, we present\n$\\left|\\,\\circlearrowright\\,\\boxed{\\text{BUS}}\\,\\right|$, a large and diverse\nbenchmark of $1,333$ English Rebus Puzzles containing different artistic styles\nand levels of difficulty, spread across 18 categories such as food, idioms,\nsports, finance, entertainment, etc. We also propose $RebusDescProgICE$, a\nmodel-agnostic framework which uses a combination of an unstructured\ndescription and code-based, structured reasoning, along with better,\nreasoning-based in-context example selection, improving the performance of\nVision-Language Models on\n$\\left|\\,\\circlearrowright\\,\\boxed{\\text{BUS}}\\,\\right|$ by $2.1-4.1\\%$ and\n$20-30\\%$ using closed-source and open-source models respectively compared to\nChain-of-Thought Reasoning.",
+        "url": "http://arxiv.org/abs/2511.01340v1",
+        "published_date": "2025-11-03T08:42:59+00:00",
+        "updated_date": "2025-11-03T08:42:59+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.CL"
+        ],
+        "authors": [
+            "Trishanu Das",
+            "Abhilash Nandy",
+            "Khush Bajaj",
+            "Deepiha S"
+        ],
+        "tldr": "The paper introduces a new multimodal benchmark, BUS, for evaluating VLMs on Rebus puzzles, and proposes a new reasoning framework, RebusDescProgICE, that improves VLM performance on this benchmark.",
+        "tldr_zh": "该论文介绍了一个新的多模态基准测试，BUS，用于评估VLM在Rebus谜题上的表现，并提出了一个新的推理框架RebusDescProgICE，提高了VLM在该基准测试上的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "OmniVLA: Unifiying Multi-Sensor Perception for Physically-Grounded Multimodal VLA",
+        "summary": "Vision-language-action (VLA) models have shown strong generalization for\naction prediction through large-scale vision-language pretraining. However,\nmost existing models rely solely on RGB cameras, limiting their perception and,\nconsequently, manipulation capabilities. We present OmniVLA, an omni-modality\nVLA model that integrates novel sensing modalities for physically-grounded\nspatial intelligence beyond RGB perception. The core of our approach is the\nsensor-masked image, a unified representation that overlays spatially grounded\nand physically meaningful masks onto the RGB images, derived from sensors\nincluding an infrared camera, a mmWave radar, and a microphone array. This\nimage-native unification keeps sensor input close to RGB statistics to\nfacilitate training, provides a uniform interface across sensor hardware, and\nenables data-efficient learning with lightweight per-sensor projectors. Built\non this, we present a multisensory vision-language-action model architecture\nand train the model based on an RGB-pretrained VLA backbone. We evaluate\nOmniVLA on challenging real-world tasks where sensor-modality perception is\nneeded to guide the manipulation. OmniVLA achieves an average task success rate\nof 84%, significantly outperforms both RGB-only and raw-sensor-input baseline\nmodels by 59% and 28% respectively, meanwhile showing higher learning\nefficiency and stronger generalization capability.",
+        "url": "http://arxiv.org/abs/2511.01210v1",
+        "published_date": "2025-11-03T04:10:44+00:00",
+        "updated_date": "2025-11-03T04:10:44+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Heyu Guo",
+            "Shanmu Wang",
+            "Ruichun Ma",
+            "Shiqi Jiang",
+            "Yasaman Ghasempour",
+            "Omid Abari",
+            "Baining Guo",
+            "Lili Qi"
+        ],
+        "tldr": "OmniVLA introduces a multi-sensory vision-language-action model that incorporates infrared, mmWave radar, and microphone array data via a unified \"sensor-masked image\" representation, significantly improving performance in real-world manipulation tasks compared to RGB-only approaches.",
+        "tldr_zh": "OmniVLA 引入了一种多感官视觉-语言-动作模型，通过统一的“传感器掩蔽图像”表示，整合了红外、毫米波雷达和麦克风阵列数据，与仅使用 RGB 的方法相比，显著提高了在现实世界操作任务中的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "PixelVLA: Advancing Pixel-level Understanding in Vision-Language-Action Model",
+        "summary": "Vision-Language-Action models (VLAs) are emerging as powerful tools for\nlearning generalizable visuomotor control policies. However, current VLAs are\nmostly trained on large-scale image-text-action data and remain limited in two\nkey ways: (i) they struggle with pixel-level scene understanding, and (ii) they\nrely heavily on textual prompts, which reduces their flexibility in real-world\nsettings. To address these challenges, we introduce PixelVLA, the first VLA\nmodel designed to support both pixel-level reasoning and multimodal prompting\nwith text and visual inputs. Our approach is built on a new visuomotor\ninstruction tuning framework that integrates a multiscale pixel-aware encoder\nwith a visual prompting encoder. To train PixelVLA effectively, we further\npropose a two-stage automated annotation pipeline that generates Pixel-160K, a\nlarge-scale dataset with pixel-level annotations derived from existing robot\ndata. Experiments on three standard VLA benchmarks and two VLA model variants\nshow that PixelVLA improves manipulation success rates by 10.1%-17.8% over\nOpenVLA, while requiring only 1.5% of its pretraining cost. These results\ndemonstrate that PixelVLA can be integrated into existing VLAs to enable more\naccurate, efficient, and versatile robot control in complex environments. The\ndataset and code will be released as open source.",
+        "url": "http://arxiv.org/abs/2511.01571v1",
+        "published_date": "2025-11-03T13:39:37+00:00",
+        "updated_date": "2025-11-03T13:39:37+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Wenqi Liang",
+            "Gan Sun",
+            "Yao He",
+            "Jiahua Dong",
+            "Suyan Dai",
+            "Ivan Laptev",
+            "Salman Khan",
+            "Yang Cong"
+        ],
+        "tldr": "The paper introduces PixelVLA, a novel Vision-Language-Action model incorporating pixel-level reasoning and multimodal prompting, trained on a new large-scale pixel-annotated dataset, Pixel-160K, demonstrating improved manipulation success rates in robot control.",
+        "tldr_zh": "该论文介绍了PixelVLA，一种新型的视觉-语言-动作模型，它结合了像素级推理和多模态提示，并在一个新的大型像素注释数据集Pixel-160K上进行训练，展示了在机器人控制中更高的操作成功率。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "NSYNC: Negative Synthetic Image Generation for Contrastive Training to Improve Stylized Text-To-Image Translation",
+        "summary": "Current text conditioned image generation methods output realistic looking\nimages, but they fail to capture specific styles. Simply finetuning them on the\ntarget style datasets still struggles to grasp the style features. In this\nwork, we present a novel contrastive learning framework to improve the\nstylization capability of large text-to-image diffusion models. Motivated by\nthe astonishing advance in image generation models that makes synthetic data an\nintrinsic part of model training in various computer vision tasks, we exploit\nsynthetic image generation in our approach. Usually, the generated synthetic\ndata is dependent on the task, and most of the time it is used to enlarge the\navailable real training dataset. With NSYNC, alternatively, we focus on\ngenerating negative synthetic sets to be used in a novel contrastive training\nscheme along with real positive images. In our proposed training setup, we\nforward negative data along with positive data and obtain negative and positive\ngradients, respectively. We then refine the positive gradient by subtracting\nits projection onto the negative gradient to get the orthogonal component,\nbased on which the parameters are updated. This orthogonal component eliminates\nthe trivial attributes that are present in both positive and negative data and\ndirects the model towards capturing a more unique style. Experiments on various\nstyles of painters and illustrators show that our approach improves the\nperformance over the baseline methods both quantitatively and qualitatively.\nOur code is available at https://github.com/giddyyupp/NSYNC.",
+        "url": "http://arxiv.org/abs/2511.01517v1",
+        "published_date": "2025-11-03T12:27:33+00:00",
+        "updated_date": "2025-11-03T12:27:33+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Serkan Ozturk",
+            "Samet Hicsonmez",
+            "Pinar Duygulu"
+        ],
+        "tldr": "The paper introduces NSYNC, a novel contrastive learning framework that uses negative synthetic images to improve the stylization capability of text-to-image diffusion models by refining gradients to capture unique style attributes.",
+        "tldr_zh": "该论文介绍了NSYNC，一种新颖的对比学习框架，它使用负合成图像来提高文本到图像扩散模型的风格化能力，通过细化梯度来捕捉独特的风格属性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "HMVLM: Human Motion-Vision-Lanuage Model via MoE LoRA",
+        "summary": "The expansion of instruction-tuning data has enabled foundation language\nmodels to exhibit improved instruction adherence and superior performance\nacross diverse downstream tasks. Semantically-rich 3D human motion is being\nprogressively integrated with these foundation models to enhance multimodal\nunderstanding and cross-modal generation capabilities. However, the modality\ngap between human motion and text raises unresolved concerns about catastrophic\nforgetting during this integration. In addition, developing\nautoregressive-compatible pose representations that preserve generalizability\nacross heterogeneous downstream tasks remains a critical technical barrier. To\naddress these issues, we propose the Human Motion-Vision-Language Model\n(HMVLM), a unified framework based on the Mixture of Expert Low-Rank\nAdaption(MoE LoRA) strategy. The framework leverages the gating network to\ndynamically allocate LoRA expert weights based on the input prompt, enabling\nsynchronized fine-tuning of multiple tasks. To mitigate catastrophic forgetting\nduring instruction-tuning, we introduce a novel zero expert that preserves the\npre-trained parameters for general linguistic tasks. For pose representation,\nwe implement body-part-specific tokenization by partitioning the human body\ninto different joint groups, enhancing the spatial resolution of the\nrepresentation. Experiments show that our method effectively alleviates\nknowledge forgetting during instruction-tuning and achieves remarkable\nperformance across diverse human motion downstream tasks.",
+        "url": "http://arxiv.org/abs/2511.01463v1",
+        "published_date": "2025-11-03T11:22:10+00:00",
+        "updated_date": "2025-11-03T11:22:10+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.GR",
+            "68T45",
+            "I.2.10; I.3.7"
+        ],
+        "authors": [
+            "Lei Hu",
+            "Yongjing Ye",
+            "Shihong Xia"
+        ],
+        "tldr": "The paper introduces HMVLM, a Human Motion-Vision-Language Model utilizing MoE LoRA and body-part-specific tokenization to improve multimodal understanding and cross-modal generation while mitigating catastrophic forgetting during instruction-tuning.",
+        "tldr_zh": "该论文介绍了HMVLM，一种人类运动-视觉-语言模型，它利用MoE LoRA和身体部位特定的标记化来提高多模态理解和跨模态生成能力，同时减轻指令调整期间的灾难性遗忘。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "A Generative Adversarial Approach to Adversarial Attacks Guided by Contrastive Language-Image Pre-trained Model",
+        "summary": "The rapid growth of deep learning has brought about powerful models that can\nhandle various tasks, like identifying images and understanding language.\nHowever, adversarial attacks, an unnoticed alteration, can deceive models,\nleading to inaccurate predictions. In this paper, a generative adversarial\nattack method is proposed that uses the CLIP model to create highly effective\nand visually imperceptible adversarial perturbations. The CLIP model's ability\nto align text and image representation helps incorporate natural language\nsemantics with a guided loss to generate effective adversarial examples that\nlook identical to the original inputs. This integration allows extensive scene\nmanipulation, creating perturbations in multi-object environments specifically\ndesigned to deceive multilabel classifiers. Our approach integrates the\nconcentrated perturbation strategy from Saliency-based Auto-Encoder (SSAE) with\nthe dissimilar text embeddings similar to Generative Adversarial Multi-Object\nScene Attacks (GAMA), resulting in perturbations that both deceive\nclassification models and maintain high structural similarity to the original\nimages. The model was tested on various tasks across diverse black-box victim\nmodels. The experimental results show that our method performs competitively,\nachieving comparable or superior results to existing techniques, while\npreserving greater visual fidelity.",
+        "url": "http://arxiv.org/abs/2511.01317v1",
+        "published_date": "2025-11-03T08:02:48+00:00",
+        "updated_date": "2025-11-03T08:02:48+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Sampriti Soor",
+            "Alik Pramanick",
+            "Jothiprakash K",
+            "Arijit Sur"
+        ],
+        "tldr": "This paper proposes a generative adversarial attack method using CLIP to create visually imperceptible perturbations that deceive multi-label classifiers while maintaining high structural similarity to the original images.",
+        "tldr_zh": "本文提出了一种使用CLIP的生成对抗攻击方法，该方法能够创建视觉上难以察觉的扰动，欺骗多标签分类器，同时保持与原始图像的高度结构相似性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "GeoToken: Hierarchical Geolocalization of Images via Next Token Prediction",
+        "summary": "Image geolocalization, the task of determining an image's geographic origin,\nposes significant challenges, largely due to visual similarities across\ndisparate locations and the large search space. To address these issues, we\npropose a hierarchical sequence prediction approach inspired by how humans\nnarrow down locations from broad regions to specific addresses. Analogously,\nour model predicts geographic tokens hierarchically, first identifying a\ngeneral region and then sequentially refining predictions to increasingly\nprecise locations. Rather than relying on explicit semantic partitions, our\nmethod uses S2 cells, a nested, multiresolution global grid, and sequentially\npredicts finer-level cells conditioned on visual inputs and previous\npredictions. This procedure mirrors autoregressive text generation in large\nlanguage models. Much like in language modeling, final performance depends not\nonly on training but also on inference-time strategy. We investigate multiple\ntop-down traversal methods for autoregressive sampling, incorporating\ntechniques from test-time compute scaling used in language models.\nSpecifically, we integrate beam search and multi-sample inference while\nexploring various selection strategies to determine the final output. This\nenables the model to manage uncertainty by exploring multiple plausible paths\nthrough the hierarchy. We evaluate our method on the Im2GPS3k and YFCC4k\ndatasets against two distinct sets of baselines: those that operate without a\nMultimodal Large Language Model (MLLM) and those that leverage one. In the\nMLLM-free setting, our model surpasses other comparable baselines on nearly all\nmetrics, achieving state-of-the-art performance with accuracy gains of up to\n13.9%. When augmented with an MLLM, our model outperforms all baselines,\nsetting a new state-of-the-art across all metrics. The source code is available\nat https://github.com/NNargesNN/GeoToken.",
+        "url": "http://arxiv.org/abs/2511.01082v1",
+        "published_date": "2025-11-02T21:30:06+00:00",
+        "updated_date": "2025-11-02T21:30:06+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Narges Ghasemi",
+            "Amir Ziashahabi",
+            "Salman Avestimehr",
+            "Cyrus Shahabi"
+        ],
+        "tldr": "The paper presents GeoToken, a hierarchical geolocalization method that uses next-token prediction on S2 cells, achieving state-of-the-art results on Im2GPS3k and YFCC4k datasets, both with and without MLLM augmentation.",
+        "tldr_zh": "该论文提出了一种名为GeoToken的层级地理定位方法，该方法使用S2单元上的下一个令牌预测，在Im2GPS3k和YFCC4k数据集上实现了最先进的结果，无论是否使用MLLM增强。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Thought-For-Food: Reasoning Chain Induced Food Visual Question Answering",
+        "summary": "The immense diversity in the culture and culinary of Indian cuisines calls\nattention to the major shortcoming of the existing Visual Question\nAnswering(VQA) systems which are inclined towards the foods from Western\nregion. Recent attempt towards building a VQA dataset for Indian food is a step\ntowards addressing this challenge. However, their approach towards VQA follows\na two-step process in which the answer is generated first, followed by the\nexplanation of the expected answer. In this work, we claim that food VQA\nrequires to follow a multi-step reasoning process to arrive at an accurate\nanswer, especially in the context of India food, which involves understanding\ncomplex culinary context and identifying relationships between various food\nitems. With this hypothesis we create reasoning chains upon the QA with minimal\nhuman intervention. We fine-tune smaller LLMs and VLMs with auto-validated\nreasoning chains and further train them using reinforcement learning with\nlarger data. With augmentation of reasoning chains, we observed accuracy\nimprovement of an average 10 percentage points on the baseline. We provide\ndetailed analysis in terms the effect of addition of reasoning chains for the\nIndian Food VQA task.\n  Index Terms - FoodVQA, Reasoning Chains, Reinforcement Learning, Knowledge\nGraph.",
+        "url": "http://arxiv.org/abs/2511.01213v1",
+        "published_date": "2025-11-03T04:13:24+00:00",
+        "updated_date": "2025-11-03T04:13:24+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Riddhi Jain",
+            "Manasi Patwardhan",
+            "Parijat Deshpande",
+            "Venkataramana Runkana"
+        ],
+        "tldr": "The paper introduces a method to improve Visual Question Answering (VQA) for Indian food by incorporating reasoning chains and reinforcement learning to fine-tune smaller LLMs/VLMs, achieving a 10% accuracy improvement.",
+        "tldr_zh": "该论文提出了一种通过结合推理链和强化学习来改进印度食物视觉问答 (VQA) 的方法，通过微调较小的 LLM/VLM，实现了 10% 的准确率提升。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 8,
+        "potential_impact_score": 6,
+        "overall_priority_score": 6
+    }
+]
