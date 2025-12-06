@@ -1,0 +1,163 @@
+[
+    {
+        "title": "DraCo: Draft as CoT for Text-to-Image Preview and Rare Concept Generation",
+        "summary": "Recent unified multimodal large language models (MLLMs) have shown impressive capabilities, incorporating chain-of-thought (CoT) reasoning for enhanced text-to-image generation. However, existing approaches remain limited, either treating the model merely as a standalone generator or relying on abstract textual planning. To this end, we propose Draft-as-CoT (DraCo), a novel interleaved reasoning paradigm that fully leverages both textual and visual contents in CoT for better planning and verification. Our method first generates a low-resolution draft image as preview, providing more concrete and structural visual planning and guidance. Then, we employ the model's inherent understanding capability to verify potential semantic misalignments between the draft and input prompt, and performs refinement through selective corrections with super-resolution. In this way, our approach addresses two fundamental challenges: the coarse-grained nature of textual planning and the difficulty in generating rare attribute combinations. To support training, we curate DraCo-240K, aiming to enhance three atomic capabilities spanning general correction, instance manipulation, and layout reorganization. Supported by DraCo-CFG, a specialized classifier-free guidance (CFG) strategy for interleaved reasoning, DraCo achieves a tremendous increase on GenEval (+8%), Imagine-Bench (+0.91), and GenEval++ (+3%), significantly outperforming direct generation and other generation methods empowered by CoT.",
+        "url": "http://arxiv.org/abs/2512.05112v1",
+        "published_date": "2025-12-04T18:59:53+00:00",
+        "updated_date": "2025-12-04T18:59:53+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.LG"
+        ],
+        "authors": [
+            "Dongzhi Jiang",
+            "Renrui Zhang",
+            "Haodong Li",
+            "Zhuofan Zong",
+            "Ziyu Guo",
+            "Jun He",
+            "Claire Guo",
+            "Junyan Ye",
+            "Rongyao Fang",
+            "Weijia Li",
+            "Rui Liu",
+            "Hongsheng Li"
+        ],
+        "tldr": "The paper introduces DraCo, a novel interleaved reasoning paradigm for text-to-image generation that leverages both textual and visual content by generating a low-resolution draft image as a preview and then refining it with super-resolution, significantly improving performance on multiple benchmarks.",
+        "tldr_zh": "该论文介绍了一种名为DraCo的新型交错推理范例，用于文本到图像的生成，通过生成低分辨率草图作为预览，然后通过超分辨率进行细化，从而利用文本和视觉内容，并在多个基准测试中显著提高了性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "ARM-Thinker: Reinforcing Multimodal Generative Reward Models with Agentic Tool Use and Visual Reasoning",
+        "summary": "Reward models are critical for aligning vision-language systems with human preferences, yet current approaches suffer from hallucination, weak visual grounding, and an inability to use tools for verification, limiting their reliability on complex multimodal reasoning tasks. We present ARM-Thinker, an A}gentic multimodal Reward Model that autonomously invokes external tools (e.g., image cropping, doc page retrieval) to ground judgments in verifiable evidence, replacing static, non-interactive reward scoring. This enables the model to verify fine-grained visual details, cross-reference multi-page evidence, and validate reasoning claims, which are capabilities absent in existing reward models. We train ARM-Thinker with multi-stage reinforcement learning, jointly optimizing tool-calling decisions and judgment accuracy. To evaluate agentic reward modeling, we introduce ARMBench-VL, comprising three benchmarks that assess fine-grained visual grounding (image-level tools), multi-page document understanding (retrieval tools), and instruction following (text-level verification). ARM-Thinker achieves +16.2% average improvement on reward modeling benchmarks, +9.6% on tool-use tasks, and outperforms baselines on multimodal math and logical reasoning benchmarks. Our results demonstrate that agentic capabilities significantly enhance both accuracy and interpretability of reward models.",
+        "url": "http://arxiv.org/abs/2512.05111v1",
+        "published_date": "2025-12-04T18:59:52+00:00",
+        "updated_date": "2025-12-04T18:59:52+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Shengyuan Ding",
+            "Xinyu Fang",
+            "Ziyu Liu",
+            "Yuhang Zang",
+            "Yuhang Cao",
+            "Xiangyu Zhao",
+            "Haodong Duan",
+            "Xiaoyi Dong",
+            "Jianze Liang",
+            "Bin Wang",
+            "Conghui He",
+            "Dahua Lin",
+            "Jiaqi Wang"
+        ],
+        "tldr": "The paper introduces ARM-Thinker, an agentic multimodal reward model that utilizes external tools to improve visual grounding, document understanding, and reasoning in vision-language models, demonstrating significant performance gains on various benchmarks.",
+        "tldr_zh": "该论文介绍了一种名为ARM-Thinker的代理式多模态奖励模型，该模型利用外部工具来提高视觉语言模型中的视觉基础、文档理解和推理能力，并在各种基准测试中表现出显著的性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "TV2TV: A Unified Framework for Interleaved Language and Video Generation",
+        "summary": "Video generation models are rapidly advancing, but can still struggle with complex video outputs that require significant semantic branching or repeated high-level reasoning about what should happen next. In this paper, we introduce a new class of omni video-text models that integrate ideas from recent LM reasoning advances to address this challenge. More specifically, we present TV2TV, a unified generative modeling framework which decomposes video generation into an interleaved text and video generation process. TV2TV jointly learns language modeling (next-token prediction) and video flow matching (next-frame prediction) using a Mixture-of-Transformers (MoT) architecture. At inference time, TV2TV decides when to alternate between generating text and video frames, allowing the model to \"think in words\" about subsequent content before ``acting in pixels'' to produce frames. This design offloads much of the responsibility for deciding what should happen next to the language modeling tower, enabling improved visual quality and prompt alignment of generated videos. It also enables fine-grained controllability, allowing users to modify the video generation trajectory through text interventions at any point in the process. In controlled experiments on video game data, TV2TV demonstrates substantial improvements in both visual quality and controllability. TV2TV also scales to natural videos, as we show by augmenting sports videos with interleaved natural language action descriptions using vision-language models (VLMs). Training TV2TV on this corpus yields strong visual quality and prompt alignment, showcasing the model's ability to reason about and generate complex real-world action sequences. Together, these results highlight TV2TV as a promising step toward video generation with open-ended textual reasoning and control.",
+        "url": "http://arxiv.org/abs/2512.05103v1",
+        "published_date": "2025-12-04T18:59:09+00:00",
+        "updated_date": "2025-12-04T18:59:09+00:00",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Xiaochuang Han",
+            "Youssef Emad",
+            "Melissa Hall",
+            "John Nguyen",
+            "Karthik Padthe",
+            "Liam Robbins",
+            "Amir Bar",
+            "Delong Chen",
+            "Michal Drozdzal",
+            "Maha Elbayad",
+            "Yushi Hu",
+            "Shang-Wen Li",
+            "Sreya Dutta Roy",
+            "Jakob Verbeek",
+            "XuDong Wang",
+            "Marjan Ghazvininejad",
+            "Luke Zettlemoyer",
+            "Emily Dinan"
+        ],
+        "tldr": "The paper introduces TV2TV, a unified framework for video generation that interleaves text and video generation using a Mixture-of-Transformers architecture, enabling improved visual quality, prompt alignment, and fine-grained controllability through text interventions.",
+        "tldr_zh": "该论文介绍了一种名为TV2TV的统一视频生成框架，它使用混合Transformer架构交错进行文本和视频生成，从而通过文本干预实现更高的视觉质量、提示对齐和细粒度可控性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Visual Reasoning Tracer: Object-Level Grounded Reasoning Benchmark",
+        "summary": "Recent advances in Multimodal Large Language Models (MLLMs) have significantly improved performance on tasks such as visual grounding and visual question answering. However, the reasoning processes of these models remain largely opaque; they typically output only final predictions without revealing the intermediate steps or fine-grained evidence (e.g., pixels, locations) that lead to the result. This contrasts with human intelligence, which naturally operates through a chain of visual reasoning. To address this limitation, we introduce the Visual Reasoning Tracer (VRT) task, which requires models to not only localize the target object but also explicitly predict the intermediate objects that form the reasoning path. To advance research in this area, we contribute: (1) VRT-Bench, a human-annotated benchmark for evaluating visual reasoning; (2) a new metric for assessing the quality of reasoning traces; and (3) VRT-80k, a large-scale dataset for reasoning model training. Our experiments reveal that while existing models often produce the correct final output, they struggle to ground their intermediate reasoning. In contrast, models trained on VRT-80k achieve substantial improvements in tracing the reasoning path.",
+        "url": "http://arxiv.org/abs/2512.05091v1",
+        "published_date": "2025-12-04T18:55:34+00:00",
+        "updated_date": "2025-12-04T18:55:34+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Haobo Yuan",
+            "Yueyi Sun",
+            "Yanwei Li",
+            "Tao Zhang",
+            "Xueqing Deng",
+            "Henghui Ding",
+            "Lu Qi",
+            "Anran Wang",
+            "Xiangtai Li",
+            "Ming-Hsuan Yang"
+        ],
+        "tldr": "The paper introduces the Visual Reasoning Tracer (VRT) task and benchmark (VRT-Bench, VRT-80k) to evaluate and improve the interpretability of visual reasoning in Multimodal Large Language Models (MLLMs), focusing on grounding intermediate reasoning steps.",
+        "tldr_zh": "该论文介绍了视觉推理追踪器(VRT)任务和基准(VRT-Bench, VRT-80k)，旨在评估和提高多模态大型语言模型(MLLM)中视觉推理的可解释性，重点在于中间推理步骤的定位。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "4DLangVGGT: 4D Language-Visual Geometry Grounded Transformer",
+        "summary": "Constructing 4D language fields is crucial for embodied AI, augmented/virtual reality, and 4D scene understanding, as they provide enriched semantic representations of dynamic environments and enable open-vocabulary querying in complex scenarios. However, existing approaches to 4D semantic field construction primarily rely on scene-specific Gaussian splatting, which requires per-scene optimization, exhibits limited generalization, and is difficult to scale to real-world applications. To address these limitations, we propose 4DLangVGGT, the first Transformer-based feed-forward unified framework for 4D language grounding, that jointly integrates geometric perception and language alignment within a single architecture. 4DLangVGGT has two key components: the 4D Visual Geometry Transformer, StreamVGGT, which captures spatio-temporal geometric representations of dynamic scenes; and the Semantic Bridging Decoder (SBD), which projects geometry-aware features into a language-aligned semantic space, thereby enhancing semantic interpretability while preserving structural fidelity. Unlike prior methods that depend on costly per-scene optimization, 4DLangVGGT can be jointly trained across multiple dynamic scenes and directly applied during inference, achieving both deployment efficiency and strong generalization. This design significantly improves the practicality of large-scale deployment and establishes a new paradigm for open-vocabulary 4D scene understanding. Experiments on HyperNeRF and Neu3D datasets demonstrate that our approach not only generalizes effectively but also achieves state-of-the-art performance, achieving up to 2% gains under per-scene training and 1% improvements under multi-scene training. Our code released in https://github.com/hustvl/4DLangVGGT",
+        "url": "http://arxiv.org/abs/2512.05060v1",
+        "published_date": "2025-12-04T18:15:27+00:00",
+        "updated_date": "2025-12-04T18:15:27+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Xianfeng Wu",
+            "Yajing Bai",
+            "Minghan Li",
+            "Xianzu Wu",
+            "Xueqi Zhao",
+            "Zhongyuan Lai",
+            "Wenyu Liu",
+            "Xinggang Wang"
+        ],
+        "tldr": "The paper introduces 4DLangVGGT, a Transformer-based framework for 4D language grounding that integrates geometric perception and language alignment for improved generalization and efficiency in dynamic scene understanding, achieving state-of-the-art performance without per-scene optimization.",
+        "tldr_zh": "该论文介绍了 4DLangVGGT，一个基于 Transformer 的 4D 语言接地框架，它集成了几何感知和语言对齐，以提高动态场景理解的泛化能力和效率，无需对每个场景进行优化即可实现最先进的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    }
+]
