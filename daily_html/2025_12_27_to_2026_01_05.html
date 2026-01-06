@@ -1,0 +1,3256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArXiv CS.CV Papers (Image/Video Generation) - December 27, 2025 - January 05, 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.dev.js"></script>
+    <!-- Example using Font Awesome (replace with your preferred icon library if needed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            /* New Palette: Light, Clean, Futuristic with Teal/Aqua accents */
+            --bg-color: #f8fafc; /* Tailwind slate-50 (Very Light Gray) */
+            --card-bg-color: #ffffff; /* White */
+            --text-color: #1e293b; /* Tailwind slate-800 (Dark Gray-Blue) */
+            --text-muted-color: #64748b; /* Tailwind slate-500 (Medium Gray-Blue) */
+            --header-color: #0f172a; /* Tailwind slate-900 (Very Dark Blue) */
+            --highlight-primary: #14b8a6; /* Tailwind teal-500 */
+            --highlight-secondary: #67e8f9; /* Tailwind cyan-300 */
+            --border-color: #e2e8f0; /* Tailwind slate-200 (Light Gray) */
+            --shadow-color: rgba(15, 23, 42, 0.08); /* Subtle shadow based on slate-900 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+        }
+
+        .bento-grid {
+            display: grid;
+            gap: 1.5rem; /* Tailwind gap-6 */
+            grid-template-columns: 1fr; /* Force single column */
+            padding-bottom: 4rem; /* Add padding at the bottom */
+        }
+
+        .bento-item {
+            /* Apply semi-transparent white background and blur */
+            background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari prefix */
+            border-radius: 1rem; /* Slightly larger radius */
+            padding: 1.75rem; /* Slightly more padding */
+            border: 1px solid rgba(226, 232, 240, 0.5); /* Lighter border with transparency */
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+            overflow: hidden; /* Ensure content doesn't overflow */
+            position: relative; /* For potential pseudo-elements */
+        }
+
+        /* Removed ::before pseudo-element for a cleaner look */
+
+
+        .bento-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px var(--shadow-color), 0 4px 8px rgba(15, 23, 42, 0.06); /* Adjusted hover shadow */
+        }
+
+        .paper-title {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            font-weight: 600; /* Tailwind font-semibold */
+            color: var(--highlight-primary); /* Use new primary highlight */
+            margin-bottom: 0.75rem; /* Tailwind mb-3 */
+            line-height: 1.4;
+        }
+
+        .paper-summary {
+            font-size: 0.875rem; /* Tailwind text-sm */
+            color: var(--text-muted-color);
+            margin-bottom: 1.25rem; /* Tailwind mb-5 */
+            line-height: 1.6;
+        }
+
+        .paper-link {
+            display: inline-flex; /* Use flex for icon alignment */
+            align-items: center;
+            font-size: 0.875rem; /* Tailwind text-sm */
+            font-weight: 600;
+            color: var(--highlight-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem; /* Add padding */
+            border-radius: 0.5rem; /* Slightly rounder */
+            background-color: rgba(20, 184, 166, 0.08); /* Subtle teal background */
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .paper-link i {
+            margin-right: 0.5rem; /* Tailwind mr-2 */
+            transition: transform 0.3s ease;
+        }
+
+        .paper-link:hover {
+            background-color: rgba(20, 184, 166, 0.15);
+            color: #0d9488; /* Darker teal on hover */
+            transform: translateY(-1px);
+        }
+        .paper-link:hover i {
+             transform: translateX(2px);
+        }
+
+        .paper-authors {
+            font-size: 0.75rem; /* Tailwind text-xs */
+            color: var(--text-muted-color);
+            margin-top: 1rem; /* Tailwind mt-4 */
+            font-style: italic;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem; /* Tailwind mb-12 */
+            padding-top: 3rem; /* Tailwind pt-12 */
+        }
+
+        .header h1 {
+            font-size: 2.5rem; /* Tailwind text-4xl or 5xl */
+            font-weight: 700; /* Tailwind font-bold */
+            color: var(--header-color);
+            letter-spacing: -0.025em; /* Tailwind tracking-tight */
+            margin-bottom: 0.5rem;
+            /* Optional: Add a subtle text gradient */
+            /* background: linear-gradient(90deg, var(--highlight-primary), var(--highlight-secondary)); */
+            /* -webkit-background-clip: text; */
+            /* -webkit-text-fill-color: transparent; */
+        }
+
+        .header p {
+            font-size: 1.125rem; /* Tailwind text-lg */
+            color: var(--text-muted-color);
+            margin-top: 0.5rem; /* Tailwind mt-2 */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-muted-color);
+            font-size: 0.875rem; /* Tailwind text-sm */
+            padding-top: 2rem;
+            padding-bottom: 2rem; /* Tailwind py-8 */
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Simple line graphic element (optional) */
+        .line-graphic {
+            height: 1px; /* Thinner line */
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0), var(--highlight-primary), rgba(20, 184, 166, 0));
+            opacity: 0.6;
+            margin: 1.5rem 0; /* Adjust margin */
+        }
+
+        /* Framer Motion requires the script, styles enhance appearance */
+        [data-motion-element] {
+             /* Base styles for elements animated by Framer Motion */
+        }
+
+        .paper-tldr {
+            font-size: 0.95rem; /* Slightly bigger than summary */
+            color: #475569; /* Changed to Tailwind slate-600 (slightly darker than summary) */
+            margin-top: 0.75rem; /* Tailwind mt-3 */
+            margin-bottom: 0.75rem; /* Tailwind mb-2 */
+            /* font-style: italic; */
+            font-weight: bold;
+        }
+
+        .paper-rating {
+            margin-top: 1rem; /* Tailwind mt-4 */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+            color: #f59e0b; /* Tailwind amber-500 */
+        }
+
+        .paper-rating i {
+            margin-right: 0.125rem; /* Tailwind mr-0.5 */
+        }
+
+        /* Apply consistent star color to sub-ratings */
+        .paper-sub-ratings .rating-item i {
+            color: #f59e0b; /* Match overall rating star color (amber-500) */
+            margin-right: 0.125rem; /* Consistent spacing */
+        }
+
+    </style>
+</head>
+<body class="container mx-auto px-4 antialiased">
+
+    <motion.div
+        initial="{ opacity: 0, y: -30 }"
+        animate="{ opacity: 1, y: 0 }"
+        transition="{ duration: 0.6, ease: 'easeOut' }"
+        class="header"
+        data-motion-element
+    >
+        <h1>VLM Daily Papers</h1>
+        <p>Daily papers related to Video/Language/Multimodal Understanding from cs.CV</p>
+        
+            <p>10 days: January 05, 2026 - December 27, 2025</p>
+            <p>Total: 31 papers</p>
+        
+        <div class="line-graphic mt-4 mb-8 mx-auto w-1/4"></div> <!-- Added line graphic -->
+    </motion.div>
+
+    <div class="bento-grid" id="paper-grid">
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">FastV-RAG: Towards Fast and Fine-Grained Video QA with Retrieval-Augmented Generation</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 05, 2026
+            </p>
+            
+            <p class="paper-summary">Vision-Language Models (VLMs) excel at visual reasoning but still struggle with integrating external knowledge. Retrieval-Augmented Generation (RAG) is a promising solution, but current methods remain inefficient and often fail to maintain high answer quality. To address these challenges, we propose VideoSpeculateRAG, an efficient VLM-based RAG framework built on two key ideas. First, we introduce a speculative decoding pipeline: a lightweight draft model quickly generates multiple answer candidates, which are then verified and refined by a more accurate heavyweight model, substantially reducing inference latency without sacrificing correctness. Second, we identify a major source of error - incorrect entity recognition in retrieved knowledge - and mitigate it with a simple yet effective similarity-based filtering strategy that improves entity alignment and boosts overall answer accuracy. Experiments demonstrate that VideoSpeculateRAG achieves comparable or higher accuracy than standard RAG approaches while accelerating inference by approximately 2x. Our framework highlights the potential of combining speculative decoding with retrieval-augmented reasoning to enhance efficiency and reliability in complex, knowledge-intensive multimodal tasks.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces VideoSpeculateRAG, a novel and efficient VLM-based RAG framework for video QA, which uses speculative decoding and similarity-based filtering to accelerate inference and improve answer accuracy.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了 VideoSpeculateRAG，一种新颖高效的基于 VLM 的 RAG 框架，用于视频问答，它使用推测解码和基于相似性的过滤来加速推理并提高答案准确性。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.01513v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Gen Li, Peiyu Liu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Unified Generation and Self-Verification for Vision-Language Models via Advantage Decoupled Preference Optimization</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 05, 2026
+            </p>
+            
+            <p class="paper-summary">Parallel test-time scaling typically trains separate generation and verification models, incurring high training and inference costs. We propose Advantage Decoupled Preference Optimization (ADPO), a unified reinforcement learning framework that jointly learns answer generation and self-verification within a single policy. ADPO introduces two innovations: a preference verification reward improving verification capability and a decoupled optimization mechanism enabling synergistic optimization of generation and verification. Specifically, the preference verification reward computes mean verification scores from positive and negative samples as decision thresholds, providing positive feedback when prediction correctness aligns with answer correctness. Meanwhile, the advantage decoupled optimization computes separate advantages for generation and verification, applies token masks to isolate gradients, and combines masked GRPO objectives, preserving generation quality while calibrating verification scores. ADPO achieves up to +34.1% higher verification AUC and -53.5% lower inference time, with significant gains of +2.8%/+1.4% accuracy on MathVista/MMMU, +1.9 cIoU on ReasonSeg, and +1.7%/+1.0% step success rate on AndroidControl/GUI Odyssey.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces Advantage Decoupled Preference Optimization (ADPO), a reinforcement learning framework for jointly training generation and self-verification within a VLM, improving verification AUC and accuracy while reducing inference time.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文提出了一种名为优势解耦偏好优化（ADPO）的强化学习框架，用于在视觉语言模型中联合训练生成和自我验证，从而提高验证AUC和准确率，同时减少推理时间。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.01483v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Xinyu Qiu, Heng Jia, Zhengwen Zeng, Shuheng Shen, Changhua Meng, Yi Yang, Linchao Zhu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">AirSpatialBot: A Spatially-Aware Aerial Agent for Fine-Grained Vehicle Attribute Recognization and Retrieval</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 05, 2026
+            </p>
+            
+            <p class="paper-summary">Despite notable advancements in remote sensing vision-language models (VLMs), existing models often struggle with spatial understanding, limiting their effectiveness in real-world applications. To push the boundaries of VLMs in remote sensing, we specifically address vehicle imagery captured by drones and introduce a spatially-aware dataset AirSpatial, which comprises over 206K instructions and introduces two novel tasks: Spatial Grounding and Spatial Question Answering. It is also the first remote sensing grounding dataset to provide 3DBB. To effectively leverage existing image understanding of VLMs to spatial domains, we adopt a two-stage training strategy comprising Image Understanding Pre-training and Spatial Understanding Fine-tuning. Utilizing this trained spatially-aware VLM, we develop an aerial agent, AirSpatialBot, which is capable of fine-grained vehicle attribute recognition and retrieval. By dynamically integrating task planning, image understanding, spatial understanding, and task execution capabilities, AirSpatialBot adapts to diverse query requirements. Experimental results validate the effectiveness of our approach, revealing the spatial limitations of existing VLMs while providing valuable insights. The model, code, and datasets will be released at https://github.com/VisionXLab/AirSpatialBot</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces AirSpatialBot, a spatially-aware aerial agent for fine-grained vehicle attribute recognition and retrieval, along with a new dataset, AirSpatial, to address the spatial understanding limitations of existing VLMs in remote sensing.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了AirSpatialBot，一个用于细粒度车辆属性识别和检索的空间感知空中智能体，以及一个新的数据集AirSpatial，旨在解决现有VLM在遥感中空间理解的局限性。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.01416v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Yue Zhou, Ran Ding, Xue Yang, Xue Jiang, Xingzhao Liu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.15000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">LinMU: Multimodal Understanding Made Linear</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 05, 2026
+            </p>
+            
+            <p class="paper-summary">Modern Vision-Language Models (VLMs) achieve impressive performance but are limited by the quadratic complexity of self-attention, which prevents their deployment on edge devices and makes their understanding of high-resolution images and long-context videos prohibitively expensive. To address this challenge, we introduce LinMU (Linear-complexity Multimodal Understanding), a VLM design that achieves linear complexity without using any quadratic-complexity modules while maintaining the performance of global-attention-based VLMs. LinMU replaces every self-attention layer in the VLM with the M-MATE block: a dual-branch module that combines a bidirectional state-space model for global context (Flex-MA branch) with localized Swin-style window attention (Local-Swin branch) for adjacent correlations. To transform a pre-trained VLM into the LinMU architecture, we propose a three-stage distillation framework that (i) initializes both branches with self-attention weights and trains the Flex-MA branch alone, (ii) unfreezes the Local-Swin branch and fine-tunes it jointly with the Flex-MA branch, and (iii) unfreezes the remaining blocks and fine-tunes them using LoRA adapters, while regressing on hidden states and token-level logits of the frozen VLM teacher. On MMMU, TextVQA, LongVideoBench, Video-MME, and other benchmarks, LinMU matches the performance of teacher models, yet reduces Time-To-First-Token (TTFT) by up to 2.7$\times$ and improves token throughput by up to 9.0$\times$ on minute-length videos. Ablations confirm the importance of each distillation stage and the necessity of the two branches of the M-MATE block. The proposed framework demonstrates that state-of-the-art multimodal reasoning can be achieved without quadratic attention, thus opening up avenues for long-context VLMs that can deal with high-resolution images and long videos.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: LinMU presents a linear-complexity VLM architecture using a novel M-MATE block and a three-stage distillation framework to achieve comparable performance to quadratic-complexity VLMs while significantly improving speed and throughput, especially for long-context videos.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: LinMU提出了一种线性复杂度的VLM架构，使用新型的M-MATE模块和一个三阶段的蒸馏框架，在实现与二次复杂度VLM相当的性能的同时，显著提高了速度和吞吐量，尤其是在长上下文视频方面。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.01322v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Hongjie Wang, Niraj K. Jha</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.2, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">FedHypeVAE: Federated Learning with Hypernetwork Generated Conditional VAEs for Differentially Private Embedding Sharing</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 04, 2026
+            </p>
+            
+            <p class="paper-summary">Federated data sharing promises utility without centralizing raw data, yet existing embedding-level generators struggle under non-IID client heterogeneity and provide limited formal protection against gradient leakage. We propose FedHypeVAE, a differentially private, hypernetwork-driven framework for synthesizing embedding-level data across decentralized clients. Building on a conditional VAE backbone, we replace the single global decoder and fixed latent prior with client-aware decoders and class-conditional priors generated by a shared hypernetwork from private, trainable client codes. This bi-level design personalizes the generative layerrather than the downstream modelwhile decoupling local data from communicated parameters. The shared hypernetwork is optimized under differential privacy, ensuring that only noise-perturbed, clipped gradients are aggregated across clients. A local MMD alignment between real and synthetic embeddings and a Lipschitz regularizer on hypernetwork outputs further enhance stability and distributional coherence under non-IID conditions. After training, a neutral meta-code enables domain agnostic synthesis, while mixtures of meta-codes provide controllable multi-domain coverage. FedHypeVAE unifies personalization, privacy, and distribution alignment at the generator level, establishing a principled foundation for privacy-preserving data synthesis in federated settings. Code: github.com/sunnyinAI/FedHypeVAE</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: FedHypeVAE introduces a differentially private federated learning framework using hypernetworks to generate client-specific conditional VAEs for embedding sharing, addressing non-IID data and gradient leakage issues.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: FedHypeVAE 提出了一种使用超网络生成客户端特定条件 VAE 的差分隐私联邦学习框架，用于嵌入共享，解决了非 IID 数据和梯度泄漏问题。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00785v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Sunny Gupta, Amit Sethi</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Detecting Performance Degradation under Data Shift in Pathology Vision-Language Model</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 03, 2026
+            </p>
+            
+            <p class="paper-summary">Vision-Language Models have demonstrated strong potential in medical image analysis and disease diagnosis. However, after deployment, their performance may deteriorate when the input data distribution shifts from that observed during development. Detecting such performance degradation is essential for clinical reliability, yet remains challenging for large pre-trained VLMs operating without labeled data. In this study, we investigate performance degradation detection under data shift in a state-of-the-art pathology VLM. We examine both input-level data shift and output-level prediction behavior to understand their respective roles in monitoring model reliability. To facilitate systematic analysis of input data shift, we develop DomainSAT, a lightweight toolbox with a graphical interface that integrates representative shift detection algorithms and enables intuitive exploration of data shift. Our analysis shows that while input data shift detection is effective at identifying distributional changes and providing early diagnostic signals, it does not always correspond to actual performance degradation. Motivated by this observation, we further study output-based monitoring and introduce a label-free, confidence-based degradation indicator that directly captures changes in model prediction confidence. We find that this indicator exhibits a close relationship with performance degradation and serves as an effective complement to input shift detection. Experiments on a large-scale pathology dataset for tumor classification demonstrate that combining input data shift detection and output confidence-based indicators enables more reliable detection and interpretation of performance degradation in VLMs under data shift. These findings provide a practical and complementary framework for monitoring the reliability of foundation models in digital pathology.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper investigates performance degradation detection in pathology Vision-Language Models (VLMs) under data shift, proposing a framework combining input shift detection and output confidence-based indicators to improve reliability monitoring.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文研究了病理视觉语言模型（VLMs）在数据偏移下的性能退化检测问题，提出了一个结合输入偏移检测和基于输出置信度的指标的框架，以提高可靠性监控。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00716v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Hao Guan, Li Zhou</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.30000000000000004, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">CRoPS: A Training-Free Hallucination Mitigation Framework for Vision-Language Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 03, 2026
+            </p>
+            
+            <p class="paper-summary">Despite the rapid success of Large Vision-Language Models (LVLMs), a persistent challenge is their tendency to generate hallucinated content, undermining reliability in real-world use. Existing training-free methods address hallucinations but face two limitations: (i) they rely on narrow assumptions about hallucination sources, and (ii) their effectiveness declines toward the end of generation, where hallucinations are most likely to occur. A common strategy is to build hallucinated models by completely or partially removing visual tokens and contrasting them with the original model. Yet, this alone proves insufficient, since visual information still propagates into generated text. Building on this insight, we propose a novel hallucinated model that captures hallucination effects by selectively removing key text tokens. We further introduce Generalized Contrastive Decoding, which integrates multiple hallucinated models to represent diverse hallucination sources. Together, these ideas form CRoPS, a training-free hallucination mitigation framework that improves CHAIR scores by 20% and achieves consistent gains across six benchmarks and three LVLM families, outperforming state-of-the-art training-free methods.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces CRoPS, a training-free framework to mitigate hallucinations in Vision-Language Models (LVLMs) by selectively removing key text tokens and using Generalized Contrastive Decoding with multiple hallucinated models. It outperforms existing training-free methods on multiple benchmarks.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了一个名为CRoPS的免训练框架，通过选择性地移除关键文本标记并使用带有多个幻觉模型的广义对比解码，来缓解视觉语言模型（LVLM）中的幻觉问题。 并在多个基准测试中优于现有的免训练方法。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00659v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Neeraj Anand, Samyak Jha, Udbhav Bamba, Rahul Rahaman</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.35000000000000003, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">AEGIS: Exploring the Limit of World Knowledge Capabilities for Unified Mulitmodal Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 03, 2026
+            </p>
+            
+            <p class="paper-summary">The capability of Unified Multimodal Models (UMMs) to apply world knowledge across diverse tasks remains a critical, unresolved challenge. Existing benchmarks fall short, offering only siloed, single-task evaluations with limited diagnostic power. To bridge this gap, we propose AEGIS (\emph{i.e.}, \textbf{A}ssessing \textbf{E}diting, \textbf{G}eneration, \textbf{I}nterpretation-Understanding for \textbf{S}uper-intelligence), a comprehensive multi-task benchmark covering visual understanding, generation, editing, and interleaved generation. AEGIS comprises 1,050 challenging, manually-annotated questions spanning 21 topics (including STEM, humanities, daily life, etc.) and 6 reasoning types. To concretely evaluate the performance of UMMs in world knowledge scope without ambiguous metrics, we further propose Deterministic Checklist-based Evaluation (DCE), a protocol that replaces ambiguous prompt-based scoring with atomic ``Y/N'' judgments, to enhance evaluation reliability. Our extensive experiments reveal that most UMMs exhibit severe world knowledge deficits and that performance degrades significantly with complex reasoning. Additionally, simple plug-in reasoning modules can partially mitigate these vulnerabilities, highlighting a promising direction for future research. These results highlight the importance of world-knowledge-based reasoning as a critical frontier for UMMs.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces AEGIS, a new multi-task benchmark and evaluation protocol (DCE) for assessing world knowledge capabilities in Unified Multimodal Models, revealing significant deficiencies and suggesting potential improvements.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了AEGIS，一个新的多任务基准和评估协议(DCE)，用于评估统一多模态模型中的世界知识能力，揭示了显著的不足，并提出了潜在的改进。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00561v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Jintao Lin, Bowen Dong, Weikang Shi, Chenyang Lei, Suiyun Zhang, Rui Liu, Xihui Liu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.4, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">CPPO: Contrastive Perception for Vision Language Policy Optimization</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 03, 2026
+            </p>
+            
+            <p class="paper-summary">We introduce CPPO, a Contrastive Perception Policy Optimization method for finetuning vision-language models (VLMs). While reinforcement learning (RL) has advanced reasoning in language models, extending it to multimodal reasoning requires improving both the perception and reasoning aspects. Prior works tackle this challenge mainly with explicit perception rewards, but disentangling perception tokens from reasoning tokens is difficult, requiring extra LLMs, ground-truth data, forced separation of perception from reasoning by policy model, or applying rewards indiscriminately to all output tokens. CPPO addresses this problem by detecting perception tokens via entropy shifts in the model outputs under perturbed input images. CPPO then extends the RL objective function with a Contrastive Perception Loss (CPL) that enforces consistency under information-preserving perturbations and sensitivity under information-removing ones. Experiments show that CPPO surpasses previous perception-rewarding methods, while avoiding extra models, making training more efficient and scalable.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces CPPO, a method that uses contrastive learning to improve perception in vision-language models during reinforcement learning finetuning, achieving better performance and efficiency compared to existing perception-rewarding techniques.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了CPPO，一种使用对比学习在强化学习微调期间提高视觉语言模型感知能力的方法，与现有的感知奖励技术相比，实现了更好的性能和效率。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00501v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Ahmad Rezaei, Mohsen Gholami, Saeed Ranjbar Alvar, Kevin Cannons, Mohammad Asiful Hossain, Zhou Weimin, Shunbo Zhou, Yong Zhang, Mohammad Akbari</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.45, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">DarkEQA: Benchmarking Vision-Language Models for Embodied Question Answering in Low-Light Indoor Environments</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">Vision Language Models (VLMs) are increasingly adopted as central reasoning modules for embodied agents. Existing benchmarks evaluate their capabilities under ideal, well-lit conditions, yet robust 24/7 operation demands performance under a wide range of visual degradations, including low-light conditions at night or in dark environments--a core necessity that has been largely overlooked. To address this underexplored challenge, we present DarkEQA, an open-source benchmark for evaluating EQA-relevant perceptual primitives under multi-level low-light conditions. DarkEQA isolates the perception bottleneck by evaluating question answering from egocentric observations under controlled degradations, enabling attributable robustness analysis. A key design feature of DarkEQA is its physical fidelity: visual degradations are modeled in linear RAW space, simulating physics-based illumination drop and sensor noise followed by an ISP-inspired rendering pipeline. We demonstrate the utility of DarkEQA by evaluating a wide range of state-of-the-art VLMs and Low-Light Image Enhancement (LLIE) models. Our analysis systematically reveals VLMs' limitations when operating under these challenging visual conditions. Our code and benchmark dataset will be released upon acceptance.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces DarkEQA, a new benchmark for evaluating Vision-Language Models in low-light embodied question answering scenarios, highlighting performance limitations of current VLMs under such conditions.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了 DarkEQA，一个新的基准，用于评估视觉语言模型在弱光具身问答场景中的表现，突出了当前视觉语言模型在这些条件下的性能限制。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24985v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Yohan Park, Hyunwoo Ha, Wonjun Jo, Tae-Hyun Oh</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">CPJ: Explainable Agricultural Pest Diagnosis via Caption-Prompt-Judge with LLM-Judged Refinement</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">Accurate and interpretable crop disease diagnosis is essential for agricultural decision-making, yet existing methods often rely on costly supervised fine-tuning and perform poorly under domain shifts. We propose Caption--Prompt--Judge (CPJ), a training-free few-shot framework that enhances Agri-Pest VQA through structured, interpretable image captions. CPJ employs large vision-language models to generate multi-angle captions, refined iteratively via an LLM-as-Judge module, which then inform a dual-answer VQA process for both recognition and management responses. Evaluated on CDDMBench, CPJ significantly improves performance: using GPT-5-mini captions, GPT-5-Nano achieves \textbf{+22.7} pp in disease classification and \textbf{+19.5} points in QA score over no-caption baselines. The framework provides transparent, evidence-based reasoning, advancing robust and explainable agricultural diagnosis without fine-tuning. Our code and data are publicly available at: https://github.com/CPJ-Agricultural/CPJ-Agricultural-Diagnosis.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces CPJ, a training-free, few-shot framework for agricultural pest diagnosis that uses captioning and LLM-judged refinement to improve VQA performance without fine-tuning, achieving significant improvements on the CDDMBench dataset.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了一种名为CPJ的免训练、小样本农业病虫害诊断框架，该框架利用图像描述和LLM判决的优化来提高VQA性能，无需微调，并在CDDMBench数据集上取得了显著改进。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24947v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Wentao Zhang, Tao Fang, Lina Lu, Lifei Wang, Weihe Zhong</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Evolving, Not Training: Zero-Shot Reasoning Segmentation via Evolutionary Prompting</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">Reasoning Segmentation requires models to interpret complex, context-dependent linguistic queries to achieve pixel-level localization. Current dominant approaches rely heavily on Supervised Fine-Tuning (SFT) or Reinforcement Learning (RL). However, SFT suffers from catastrophic forgetting and domain dependency, while RL is often hindered by training instability and rigid reliance on predefined reward functions. Although recent training-free methods circumvent these training burdens, they are fundamentally limited by a static inference paradigm. These methods typically rely on a single-pass "generate-then-segment" chain, which suffers from insufficient reasoning depth and lacks the capability to self-correct linguistic hallucinations or spatial misinterpretations. In this paper, we challenge these limitations and propose EVOL-SAM3, a novel zero-shot framework that reformulates reasoning segmentation as an inference-time evolutionary search process. Instead of relying on a fixed prompt, EVOL-SAM3 maintains a population of prompt hypotheses and iteratively refines them through a "Generate-Evaluate-Evolve" loop. We introduce a Visual Arena to assess prompt fitness via reference-free pairwise tournaments, and a Semantic Mutation operator to inject diversity and correct semantic errors. Furthermore, a Heterogeneous Arena module integrates geometric priors with semantic reasoning to ensure robust final selection. Extensive experiments demonstrate that EVOL-SAM3 not only substantially outperforms static baselines but also significantly surpasses fully supervised state-of-the-art methods on the challenging ReasonSeg benchmark in a zero-shot setting. The code is available at https://github.com/AHideoKuzeA/Evol-SAM3.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces EVOL-SAM3, a zero-shot reasoning segmentation framework that uses an evolutionary approach to iteratively refine prompts, outperforming both static baselines and supervised methods on the ReasonSeg benchmark.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了EVOL-SAM3，一个零样本推理分割框架，它使用进化方法迭代优化提示，在ReasonSeg基准测试上优于静态基线和监督方法。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24702v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Kai Ye, Xiaotong You, Jianghang Lin, Jiayi Ji, Pingyang Dai, Liujuan Cao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.6000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SliceLens: Fine-Grained and Grounded Error Slice Discovery for Multi-Instance Vision Tasks</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">Systematic failures of computer vision models on subsets with coherent visual patterns, known as error slices, pose a critical challenge for robust model evaluation. Existing slice discovery methods are primarily developed for image classification, limiting their applicability to multi-instance tasks such as detection, segmentation, and pose estimation. In real-world scenarios, error slices often arise from corner cases involving complex visual relationships, where existing instance-level approaches lacking fine-grained reasoning struggle to yield meaningful insights. Moreover, current benchmarks are typically tailored to specific algorithms or biased toward image classification, with artificial ground truth that fails to reflect real model failures. To address these limitations, we propose SliceLens, a hypothesis-driven framework that leverages LLMs and VLMs to generate and verify diverse failure hypotheses through grounded visual reasoning, enabling reliable identification of fine-grained and interpretable error slices. We further introduce FeSD (Fine-grained Slice Discovery), the first benchmark specifically designed for evaluating fine-grained error slice discovery across instance-level vision tasks, featuring expert-annotated and carefully refined ground-truth slices with precise grounding to local error regions. Extensive experiments on both existing benchmarks and FeSD demonstrate that SliceLens achieves state-of-the-art performance, improving Precision@10 by 0.42 (0.73 vs. 0.31) on FeSD, and identifies interpretable slices that facilitate actionable model improvements, as validated through model repair experiments.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces SliceLens, a framework using LLMs and VLMs for discovering fine-grained error slices in multi-instance vision tasks, along with a new benchmark (FeSD) for evaluating such methods. It claims state-of-the-art performance and actionable model improvements.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了SliceLens，一个利用LLMs和VLMs来发现多实例视觉任务中细粒度错误切片的框架，以及一个新的用于评估此类方法的基准(FeSD)。它声称具有最先进的性能和可操作的模型改进。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24592v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Wei Zhang, Chaoqun Wang, Zixuan Guan, Sam Kao, Pengfei Zhao, Peng Wu, Sifeng He</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.65, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">See Less, See Right: Bi-directional Perceptual Shaping For Multimodal Reasoning</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 28, 2025
+            </p>
+            
+            <p class="paper-summary">Large vision-language models (VLMs) often benefit from intermediate visual cues, either injected via external tools or generated as latent visual tokens during reasoning, but these mechanisms still overlook fine-grained visual evidence (e.g., polylines in charts), generalize poorly across domains, and incur high inference-time cost. In this paper, we propose Bi-directional Perceptual Shaping (BiPS), which transforms question-conditioned masked views into bidirectional where-to-look signals that shape perception during training. BiPS first applies a KL-consistency constraint between the original image and an evidence-preserving view that keeps only question-relevant regions, encouraging coarse but complete coverage of supporting pixels. It then applies a KL-separation constraint between the original and an evidence-ablated view where critical pixels are masked so the image no longer supports the original answer, discouraging text-only shortcuts (i.e., answering from text alone) and enforcing fine-grained visual reliance. Across eight benchmarks, BiPS boosts Qwen2.5-VL-7B by 8.2% on average and shows strong out-of-domain generalization to unseen datasets and image types.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces Bi-directional Perceptual Shaping (BiPS), a training method for VLMs that uses question-conditioned masked views to improve fine-grained visual reasoning and generalization, achieving significant performance gains across multiple benchmarks.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍了一种名为双向感知塑造（BiPS）的VLM训练方法，该方法使用问题条件下的掩蔽视图来提高细粒度视觉推理和泛化能力，并在多个基准测试中取得了显著的性能提升。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.22120v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Shuoshuo Zhang, Yizhen Zhang, Jingjing Fu, Lei Song, Jiang Bian, Yujiu Yang, Rui Wang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.7000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">MAI-UI Technical Report: Real-World Centric Foundation GUI Agents</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">The development of GUI agents could revolutionize the next generation of human-computer interaction. Motivated by this vision, we present MAI-UI, a family of foundation GUI agents spanning the full spectrum of sizes, including 2B, 8B, 32B, and 235B-A22B variants. We identify four key challenges to realistic deployment: the lack of native agent-user interaction, the limits of UI-only operation, the absence of a practical deployment architecture, and brittleness in dynamic environments. MAI-UI addresses these issues with a unified methodology: a self-evolving data pipeline that expands the navigation data to include user interaction and MCP tool calls, a native device-cloud collaboration system routes execution by task state, and an online RL framework with advanced optimizations to scale parallel environments and context length. MAI-UI establishes new state-of-the-art across GUI grounding and mobile navigation. On grounding benchmarks, it reaches 73.5% on ScreenSpot-Pro, 91.3% on MMBench GUI L2, 70.9% on OSWorld-G, and 49.2% on UI-Vision, surpassing Gemini-3-Pro and Seed1.8 on ScreenSpot-Pro. On mobile GUI navigation, it sets a new SOTA of 76.7% on AndroidWorld, surpassing UI-Tars-2, Gemini-2.5-Pro and Seed1.8. On MobileWorld, MAI-UI obtains 41.7% success rate, significantly outperforming end-to-end GUI models and competitive with Gemini-3-Pro based agentic frameworks. Our online RL experiments show significant gains from scaling parallel environments from 32 to 512 (+5.2 points) and increasing environment step budget from 15 to 50 (+4.3 points). Finally, the native device-cloud collaboration system improves on-device performance by 33%, reduces cloud model calls by over 40%, and preserves user privacy.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces MAI-UI, a family of foundation GUI agents addressing key challenges in real-world deployment through a self-evolving data pipeline, device-cloud collaboration, and online RL. It achieves state-of-the-art performance on GUI grounding and mobile navigation benchmarks.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了MAI-UI，一系列基础GUI代理，通过自进化数据管道、设备-云协作和在线RL，解决了现实部署中的关键挑战。 在GUI grounding和移动导航基准测试中，它实现了最先进的性能。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.22047v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Hanzhang Zhou, Xu Zhang, Panrong Tong, Jianan Zhang, Liangyu Chen, Quyu Kong, Chenglin Cai, Chen Liu, Yue Wang, Jingren Zhou, Steven Hoi</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">iSHIFT: Lightweight Slow-Fast GUI Agent with Adaptive Perception</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">Multimodal Large Language Models (MLLMs) show strong potential for interpreting and interacting with complex, pixel-rich Graphical User Interface (GUI) environments. However, building agents that are both efficient for high-level tasks and precise for fine-grained interactions remains challenging. GUI agents must perform routine actions efficiently while also handling tasks that demand exact visual grounding, yet existing approaches struggle when accuracy depends on identifying specific interface elements. These MLLMs also remain large and cannot adapt their reasoning depth to the task at hand. In this work, we introduce iSHIFT: Implicit Slow-fast Hybrid Inference with Flexible Tokens, a lightweight agent that integrates latent thinking (implicit chain-of-thought) with a perception control module. iSHIFT enables an MLLM to switch between a slow mode, which leverages detailed visual grounding for high precision and a fast mode that uses global cues for efficiency. Special perception tokens guide attention to relevant screen regions, allowing the model to decide both how to reason and where to focus. Despite its compact 2.5B size, iSHIFT matches state-of-the-art performance on multiple benchmark datasets.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces iSHIFT, a lightweight (2.5B) GUI agent with a slow-fast inference mechanism and adaptive perception tokens, achieving SOTA performance on benchmark datasets while being efficient.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了 iSHIFT，一个轻量级 (2.5B) 的 GUI 代理，具有慢速-快速推理机制和自适应感知令牌，在基准数据集上实现了 SOTA 性能，同时保持了效率。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.22009v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Sarthak Mehrotra, Sairam V C Rebbapragada, Mani Hemanth Reddy Bonthu, Vineeth N Balasubramanian</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Look Closer! An Adversarial Parametric Editing Framework for Hallucination Mitigation in VLMs</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">While Vision-Language Models (VLMs) have garnered increasing attention in the AI community due to their promising practical applications, they exhibit persistent hallucination issues, generating outputs misaligned with visual inputs. Recent studies attribute these hallucinations to VLMs' over-reliance on linguistic priors and insufficient visual feature integration, proposing heuristic decoding calibration strategies to mitigate them. However, the non-trainable nature of these strategies inherently limits their optimization potential. To this end, we propose an adversarial parametric editing framework for Hallucination mitigation in VLMs, which follows an \textbf{A}ctivate-\textbf{L}ocate-\textbf{E}dit \textbf{A}dversarially paradigm. Specifically, we first construct an activation dataset that comprises grounded responses (positive samples attentively anchored in visual features) and hallucinatory responses (negative samples reflecting LLM prior bias and internal knowledge artifacts). Next, we identify critical hallucination-prone parameter clusters by analyzing differential hidden states of response pairs. Then, these clusters are fine-tuned using prompts injected with adversarial tuned prefixes that are optimized to maximize visual neglect, thereby forcing the model to prioritize visual evidence over inherent parametric biases. Evaluations on both generative and discriminative VLM tasks demonstrate the significant effectiveness of ALEAHallu in alleviating hallucinations. Our code is available at https://github.com/hujiayu1223/ALEAHallu.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper proposes an adversarial parametric editing framework, ALEAHallu, to mitigate hallucinations in VLMs by fine-tuning hallucination-prone parameters using adversarial prompts to force the model to prioritize visual evidence.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文提出了一种对抗参数编辑框架ALEAHallu，通过使用对抗性提示微调容易产生幻觉的参数，从而缓解VLM中的幻觉问题，迫使模型优先考虑视觉证据。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.21999v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Jiayu Hu, Beibei Li, Jiangwei Xia, Yanjun Qin, Bing Ji, Zhongshi He</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">LVLM-Aided Alignment of Task-Specific Vision Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">In high-stakes domains, small task-specific vision models are crucial due to their low computational requirements and the availability of numerous methods to explain their results. However, these explanations often reveal that the models do not align well with human domain knowledge, relying instead on spurious correlations. This might result in brittle behavior once deployed in the real-world. To address this issue, we introduce a novel and efficient method for aligning small task-specific vision models with human domain knowledge by leveraging the generalization capabilities of a Large Vision Language Model (LVLM). Our LVLM-Aided Visual Alignment (LVLM-VA) method provides a bidirectional interface that translates model behavior into natural language and maps human class-level specifications to image-level critiques, enabling effective interaction between domain experts and the model. Our method demonstrates substantial improvement in aligning model behavior with human specifications, as validated on both synthetic and real-world datasets. We show that it effectively reduces the model's dependence on spurious features and on group-specific biases, without requiring fine-grained feedback.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper presents a method (LVLM-VA) to align task-specific vision models with human domain knowledge using a Large Vision Language Model, improving model reliability and reducing reliance on spurious correlations.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文提出了一种方法 (LVLM-VA)，利用大型视觉语言模型将特定任务的视觉模型与人类领域知识对齐，从而提高模型的可靠性并减少对虚假相关的依赖。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.21985v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Alexander Koebler, Lukas Kuhn, Ingo Thon, Florian Buettner</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Perceive and Calibrate: Analyzing and Enhancing Robustness of Medical Multi-Modal Large Language Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">Medical Multi-modal Large Language Models (MLLMs) have shown promising clinical performance. However, their sensitivity to real-world input perturbations, such as imaging artifacts and textual errors, critically undermines their clinical applicability. Systematic analysis of such noise impact on medical MLLMs remains largely unexplored. Furthermore, while several works have investigated the MLLMs' robustness in general domains, they primarily focus on text modality and rely on costly fine-tuning. They are inadequate to address the complex noise patterns and fulfill the strict safety standards in medicine. To bridge this gap, this work systematically analyzes the impact of various perturbations on medical MLLMs across both visual and textual modalities. Building on our findings, we introduce a training-free Inherent-enhanced Multi-modal Calibration (IMC) framework that leverages MLLMs' inherent denoising capabilities following the perceive-and-calibrate principle for cross-modal robustness enhancement. For the visual modality, we propose a Perturbation-aware Denoising Calibration (PDC) which leverages MLLMs' own vision encoder to identify noise patterns and perform prototype-guided feature calibration. For text denoising, we design a Self-instantiated Multi-agent System (SMS) that exploits the MLLMs' self-assessment capabilities to refine noisy text through a cooperative hierarchy of agents. We construct a benchmark containing 11 types of noise across both image and text modalities on 2 datasets. Experimental results demonstrate our method achieves the state-of-the-art performance across multiple modalities, showing potential to enhance MLLMs' robustness in real clinical scenarios.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper analyzes the robustness of medical MLLMs to real-world noise and proposes a training-free calibration framework (IMC) involving visual and textual denoising methods to enhance robustness without fine-tuning.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文分析了医学多模态大型语言模型（MLLM）对真实世界噪声的鲁棒性，并提出了一种无需训练的校准框架（IMC），该框架包括视觉和文本去噪方法，旨在无需微调即可提高鲁棒性。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.21964v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Dunyuan XU, Xikai Yang, Yaoqian Li, Juzheng Miao, Jinpeng Li, Pheng-Ann Heng</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Training-free Conditional Image Embedding Framework Leveraging Large Vision Language Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">Conditional image embeddings are feature representations that focus on specific aspects of an image indicated by a given textual condition (e.g., color, genre), which has been a challenging problem. Although recent vision foundation models, such as CLIP, offer rich representations of images, they are not designed to focus on a specified condition. In this paper, we propose DIOR, a method that leverages a large vision-language model (LVLM) to generate conditional image embeddings. DIOR is a training-free approach that prompts the LVLM to describe an image with a single word related to a given condition. The hidden state vector of the LVLM's last token is then extracted as the conditional image embedding. DIOR provides a versatile solution that can be applied to any image and condition without additional training or task-specific priors. Comprehensive experimental results on conditional image similarity tasks demonstrate that DIOR outperforms existing training-free baselines, including CLIP. Furthermore, DIOR achieves superior performance compared to methods that require additional training across multiple settings.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces DIOR, a training-free method leveraging LVLMs to generate conditional image embeddings by prompting the LVLM to describe an image with a single word related to a given condition. DIOR outperforms existing training-free and training-based baselines on conditional image similarity tasks.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍了一种名为DIOR的免训练方法，该方法利用大型视觉语言模型(LVLM)，通过提示LVLM用一个与给定条件相关的词来描述图像，从而生成条件图像嵌入。DIOR在条件图像相似性任务上优于现有的免训练和基于训练的基线。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.21860v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Masayuki Kawarada, Kosuke Yamada, Antonio Tejero-de-Pablos, Naoto Inoue</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Few Tokens Matter: Entropy Guided Attacks on Vision-Language Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">Vision-language models (VLMs) achieve remarkable performance but remain vulnerable to adversarial attacks. Entropy, a measure of model uncertainty, is strongly correlated with the reliability of VLM. Prior entropy-based attacks maximize uncertainty at all decoding steps, implicitly assuming that every token contributes equally to generation instability. We show instead that a small fraction (about 20%) of high-entropy tokens, i.e., critical decision points in autoregressive generation, disproportionately governs output trajectories. By concentrating adversarial perturbations on these positions, we achieve semantic degradation comparable to global methods while using substantially smaller budgets. More importantly, across multiple representative VLMs, such selective attacks convert 35-49% of benign outputs into harmful ones, exposing a more critical safety risk. Remarkably, these vulnerable high-entropy forks recur across architecturally diverse VLMs, enabling feasible transferability (17-26% harmful rates on unseen targets). Motivated by these findings, we propose Entropy-bank Guided Adversarial attacks (EGA), which achieves competitive attack success rates (93-95%) alongside high harmful conversion, thereby revealing new weaknesses in current VLM safety mechanisms.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper introduces an entropy-guided adversarial attack (EGA) targeting vision-language models (VLMs), demonstrating that focusing perturbations on high-entropy tokens significantly degrades performance and exposes critical safety risks with improved transferability.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍了一种针对视觉语言模型 (VLM) 的熵引导对抗攻击 (EGA)，表明将扰动集中在高熵 token 上可以显著降低性能，暴露关键安全风险，并提高可迁移性。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.21815v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Mengqi He, Xinyu Tian, Xin Shen, Jinhong Ni, Shu Zou, Zhaoyuan Yang, Jing Zhang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Scene-VLM: Multimodal Video Scene Segmentation via Vision-Language Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> December 27, 2025
+            </p>
+            
+            <p class="paper-summary">Segmenting long-form videos into semantically coherent scenes is a fundamental task in large-scale video understanding. Existing encoder-based methods are limited by visual-centric biases, classify each shot in isolation without leveraging sequential dependencies, and lack both narrative understanding and explainability. In this paper, we present Scene-VLM, the first fine-tuned vision-language model (VLM) framework for video scene segmentation. Scene-VLM jointly processes visual and textual cues including frames, transcriptions, and optional metadata to enable multimodal reasoning across consecutive shots. The model generates predictions sequentially with causal dependencies among shots and introduces a context-focus window mechanism to ensure sufficient temporal context for each shot-level decision. In addition, we propose a scheme to extract confidence scores from the token-level logits of the VLM, enabling controllable precision-recall trade-offs that were previously limited to encoder-based methods. Furthermore, we demonstrate that our model can be aligned to generate coherent natural-language rationales for its boundary decisions through minimal targeted supervision. Our approach achieves state-of-the-art performance on standard scene segmentation benchmarks. On MovieNet, for example, Scene-VLM yields significant improvements of +6 AP and +13.7 F1 over the previous leading method.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces Scene-VLM, a fine-tuned vision-language model for video scene segmentation that leverages multimodal inputs and sequential reasoning to achieve state-of-the-art performance, also providing explainability through natural language rationales.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了一种名为Scene-VLM的微调视觉语言模型，用于视频场景分割。该模型利用多模态输入和序列推理，实现了最先进的性能，并通过自然语言的理由提供了解释性。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.21778v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Nimrod Berman, Adam Botach, Emanuel Ben-Baruch, Shunit Haviv Hakimi, Asaf Gendler, Ilan Naiman, Erez Yosef, Igor Kviatkovsky</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Slot-ID: Identity-Preserving Video Generation from Reference Videos via Slot-Based Temporal Identity Encoding</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 05, 2026
+            </p>
+            
+            <p class="paper-summary">Producing prompt-faithful videos that preserve a user-specified identity remains challenging: models need to extrapolate facial dynamics from sparse reference while balancing the tension between identity preservation and motion naturalness. Conditioning on a single image completely ignores the temporal signature, which leads to pose-locked motions, unnatural warping, and "average" faces when viewpoints and expressions change. To this end, we introduce an identity-conditioned variant of a diffusion-transformer video generator which uses a short reference video rather than a single portrait. Our key idea is to incorporate the dynamics in the reference. A short clip reveals subject-specific patterns, e.g., how smiles form, across poses and lighting. From this clip, a Sinkhorn-routed encoder learns compact identity tokens that capture characteristic dynamics while remaining pretrained backbone-compatible. Despite adding only lightweight conditioning, the approach consistently improves identity retention under large pose changes and expressive facial behavior, while maintaining prompt faithfulness and visual realism across diverse subjects and prompts.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper presents a method for generating identity-preserving videos from short reference videos using a diffusion-transformer architecture with a novel identity encoding scheme that captures temporal dynamics.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文提出了一种从短参考视频生成身份保持视频的方法，该方法使用扩散-Transformer架构和一种新颖的身份编码方案来捕获时间动态。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.01352v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Yixuan Lai, He Wang, Kun Zhou, Tianjia Shao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Investigating the Viability of Employing Multi-modal Large Language Models in the Context of Audio Deepfake Detection</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 04, 2026
+            </p>
+            
+            <p class="paper-summary">While Vision-Language Models (VLMs) and Multimodal Large Language Models (MLLMs) have shown strong generalisation in detecting image and video deepfakes, their use for audio deepfake detection remains largely unexplored. In this work, we aim to explore the potential of MLLMs for audio deepfake detection. Combining audio inputs with a range of text prompts as queries to find out the viability of MLLMs to learn robust representations across modalities for audio deepfake detection. Therefore, we attempt to explore text-aware and context-rich, question-answer based prompts with binary decisions. We hypothesise that such a feature-guided reasoning will help in facilitating deeper multimodal understanding and enable robust feature learning for audio deepfake detection. We evaluate the performance of two MLLMs, Qwen2-Audio-7B-Instruct and SALMONN, in two evaluation modes: (a) zero-shot and (b) fine-tuned. Our experiments demonstrate that combining audio with a multi-prompt approach could be a viable way forward for audio deepfake detection. Our experiments show that the models perform poorly without task-specific training and struggle to generalise to out-of-domain data. However, they achieve good performance on in-domain data with minimal supervision, indicating promising potential for audio deepfake detection.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper investigates the use of Multi-modal Large Language Models (MLLMs) for audio deepfake detection, finding promising results with fine-tuning but poor generalization without it. It suggests a multi-prompt approach combined with audio might be viable.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文研究了多模态大型语言模型（MLLMs）在音频深度伪造检测中的应用，发现通过微调可以获得有希望的结果，但在没有微调的情况下泛化能力较差。它表明，将多提示方法与音频结合使用可能是可行的。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(6/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00777v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Akanksha Chuchra, Shukesh Reddy, Sudeepta Mishra, Abhijit Das, Abhinav Dhall</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.2000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Grading Handwritten Engineering Exams with Multimodal Large Language Models</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 03, 2026
+            </p>
+            
+            <p class="paper-summary">Handwritten STEM exams capture open-ended reasoning and diagrams, but manual grading is slow and difficult to scale. We present an end-to-end workflow for grading scanned handwritten engineering quizzes with multimodal large language models (LLMs) that preserves the standard exam process (A4 paper, unconstrained student handwriting). The lecturer provides only a handwritten reference solution (100%) and a short set of grading rules; the reference is converted into a text-only summary that conditions grading without exposing the reference scan. Reliability is achieved through a multi-stage design with a format/presence check to prevent grading blank answers, an ensemble of independent graders, supervisor aggregation, and rigid templates with deterministic validation to produce auditable, machine-parseable reports. We evaluate the frozen pipeline in a clean-room protocol on a held-out real course quiz in Slovenian, including hand-drawn circuit schematics. With state-of-the-art backends (GPT-5.2 and Gemini-3 Pro), the full pipeline achieves $\approx$8-point mean absolute difference to lecturer grades with low bias and an estimated manual-review trigger rate of $\approx$17% at $D_{\max}=40$. Ablations show that trivial prompting and removing the reference solution substantially degrade accuracy and introduce systematic over-grading, confirming that structured prompting and reference grounding are essential.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper presents a multimodal LLM pipeline for grading handwritten engineering exams, using a handwritten reference solution and structured prompting for improved accuracy and reduced bias.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文提出了一种多模态LLM流程，用于批改手写工程考试试卷，利用手写参考答案和结构化提示，以提高准确率并降低偏差。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(6/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00730v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Janez Perš, Jon Muhovič, Andrej Košir, Boštjan Murovec</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">GranAlign: Granularity-Aware Alignment Framework for Zero-Shot Video Moment Retrieval</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 03, 2026
+            </p>
+            
+            <p class="paper-summary">Zero-shot video moment retrieval (ZVMR) is the task of localizing a temporal moment within an untrimmed video using a natural language query without relying on task-specific training data. The primary challenge in this setting lies in the mismatch in semantic granularity between textual queries and visual content. Previous studies in ZVMR have attempted to achieve alignment by leveraging high-quality pre-trained knowledge that represents video and language in a joint space. However, these approaches failed to balance the semantic granularity between the pre-trained knowledge provided by each modality for a given scene. As a result, despite the high quality of each modality's representations, the mismatch in granularity led to inaccurate retrieval. In this paper, we propose a training-free framework, called Granularity-Aware Alignment (GranAlign), that bridges this gap between coarse and fine semantic representations. Our approach introduces two complementary techniques: granularity-based query rewriting to generate varied semantic granularities, and query-aware caption generation to embed query intent into video content. By pairing multi-level queries with both query-agnostic and query-aware captions, we effectively resolve semantic mismatches. As a result, our method sets a new state-of-the-art across all three major benchmarks (QVHighlights, Charades-STA, ActivityNet-Captions), with a notable 3.23% mAP@avg improvement on the challenging QVHighlights dataset.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces GranAlign, a training-free framework for zero-shot video moment retrieval that addresses semantic granularity mismatch between text queries and video content using granularity-based query rewriting and query-aware caption generation, achieving state-of-the-art results on multiple benchmarks.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了一种名为 GranAlign 的免训练框架，用于零样本视频片段检索，通过使用基于粒度的查询重写和查询感知的标题生成来解决文本查询和视频内容之间语义粒度不匹配的问题，并在多个基准测试中实现了最先进的结果。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(6/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2601.00584v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Mingyu Jeon, Sunjae Yoon, Jonghee Kim, Junyeoung Kim</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.3, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">FinMMDocR: Benchmarking Financial Multimodal Reasoning with Scenario Awareness, Document Understanding, and Multi-Step Computation</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">We introduce FinMMDocR, a novel bilingual multimodal benchmark for evaluating multimodal large language models (MLLMs) on real-world financial numerical reasoning. Compared to existing benchmarks, our work delivers three major advancements. (1) Scenario Awareness: 57.9% of 1,200 expert-annotated problems incorporate 12 types of implicit financial scenarios (e.g., Portfolio Management), challenging models to perform expert-level reasoning based on assumptions; (2) Document Understanding: 837 Chinese/English documents spanning 9 types (e.g., Company Research) average 50.8 pages with rich visual elements, significantly surpassing existing benchmarks in both breadth and depth of financial documents; (3) Multi-Step Computation: Problems demand 11-step reasoning on average (5.3 extraction + 5.7 calculation steps), with 65.0% requiring cross-page evidence (2.4 pages average). The best-performing MLLM achieves only 58.0% accuracy, and different retrieval-augmented generation (RAG) methods show significant performance variations on this task. We expect FinMMDocR to drive improvements in MLLMs and reasoning-enhanced methods on complex multimodal reasoning tasks in real-world scenarios.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces FinMMDocR, a new challenging bilingual multimodal benchmark for financial numerical reasoning, emphasizing scenario awareness, document understanding, and multi-step computation.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍 FinMMDocR，这是一个新的具有挑战性的双语多模态基准，用于金融数值推理，强调场景感知、文档理解和多步计算。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(6/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24903v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Zichen Tang, Haihong E, Rongjin Li, Jiacheng Liu, Linwei Jia, Zhuodi Hao, Zhongjun Yang, Yuanze Li, Haolin Tian, Xinyi Hu, Peizhi Zhao, Yuan Liu, Zhengyu Wang, Xianghe Wang, Yiling Huang, Xueyuan Lin, Ruofei Bai, Zijian Xie, Qian Huang, Ruining Cao, Haocheng Gao</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.35, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">VLN-MME: Diagnosing MLLMs as Language-guided Visual Navigation agents</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">Multimodal Large Language Models (MLLMs) have demonstrated remarkable capabilities across a wide range of vision-language tasks. However, their performance as embodied agents, which requires multi-round dialogue spatial reasoning and sequential action prediction, needs further exploration. Our work investigates this potential in the context of Vision-and-Language Navigation (VLN) by introducing a unified and extensible evaluation framework to probe MLLMs as zero-shot agents by bridging traditional navigation datasets into a standardized benchmark, named VLN-MME. We simplify the evaluation with a highly modular and accessible design. This flexibility streamlines experiments, enabling structured comparisons and component-level ablations across diverse MLLM architectures, agent designs, and navigation tasks. Crucially, enabled by our framework, we observe that enhancing our baseline agent with Chain-of-Thought (CoT) reasoning and self-reflection leads to an unexpected performance decrease. This suggests MLLMs exhibit poor context awareness in embodied navigation tasks; although they can follow instructions and structure their output, their 3D spatial reasoning fidelity is low. VLN-MME lays the groundwork for systematic evaluation of general-purpose MLLMs in embodied navigation settings and reveals limitations in their sequential decision-making capabilities. We believe these findings offer crucial guidance for MLLM post-training as embodied agents.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces VLN-MME, a benchmark for evaluating MLLMs in Vision-and-Language Navigation (VLN), revealing limitations in their spatial reasoning and sequential decision-making despite instruction following abilities.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了VLN-MME，一个用于评估MLLM在视觉语言导航（VLN）中表现的基准，揭示了MLLM虽然能遵循指令，但在空间推理和序列决策方面存在局限性。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24851v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Xunyi Zhao, Gengze Zhou, Qi Wu</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Improving Few-Shot Change Detection Visual Question Answering via Decision-Ambiguity-guided Reinforcement Fine-Tuning</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">Change detection visual question answering (CDVQA) requires answering text queries by reasoning about semantic changes in bi-temporal remote sensing images. A straightforward approach is to boost CDVQA performance with generic vision-language models via supervised fine-tuning (SFT). Despite recent progress, we observe that a significant portion of failures do not stem from clearly incorrect predictions, but from decision ambiguity, where the model assigns similar confidence to the correct answer and strong distractors. To formalize this challenge, we define Decision-Ambiguous Samples (DAS) as instances with a small probability margin between the ground-truth answer and the most competitive alternative. We argue that explicitly optimizing DAS is crucial for improving the discriminability and robustness of CDVQA models. To this end, we propose DARFT, a Decision-Ambiguity-guided Reinforcement Fine-Tuning framework that first mines DAS using an SFT-trained reference policy and then applies group-relative policy optimization on the mined subset. By leveraging multi-sample decoding and intra-group relative advantages, DARFT suppresses strong distractors and sharpens decision boundaries without additional supervision. Extensive experiments demonstrate consistent gains over SFT baselines, particularly under few-shot settings.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper introduces DARFT, a reinforcement learning fine-tuning framework to improve Change Detection Visual Question Answering (CDVQA) performance by explicitly addressing decision ambiguity, particularly in few-shot settings.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍了一种名为DARFT的强化学习微调框架，通过明确解决决策模糊性来提高变化检测视觉问答（CDVQA）的性能，尤其是在少样本设置中。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24591v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Fuyu Dong, Ke Li, Di Wang, Nan Luo, Yiming Zhang, Kaiyu Li, Jianfei Yang, Quan Wang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4500000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">PhyGDPO: Physics-Aware Groupwise Direct Preference Optimization for Physically Consistent Text-to-Video Generation</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">Recent advances in text-to-video (T2V) generation have achieved good visual quality, yet synthesizing videos that faithfully follow physical laws remains an open challenge. Existing methods mainly based on graphics or prompt extension struggle to generalize beyond simple simulated environments or learn implicit physical reasoning. The scarcity of training data with rich physics interactions and phenomena is also a problem. In this paper, we first introduce a Physics-Augmented video data construction Pipeline, PhyAugPipe, that leverages a vision-language model (VLM) with chain-of-thought reasoning to collect a large-scale training dataset, PhyVidGen-135K. Then we formulate a principled Physics-aware Groupwise Direct Preference Optimization, PhyGDPO, framework that builds upon the groupwise Plackett-Luce probabilistic model to capture holistic preferences beyond pairwise comparisons. In PhyGDPO, we design a Physics-Guided Rewarding (PGR) scheme that embeds VLM-based physics rewards to steer optimization toward physical consistency. We also propose a LoRA-Switch Reference (LoRA-SR) scheme that eliminates memory-heavy reference duplication for efficient training. Experiments show that our method significantly outperforms state-of-the-art open-source methods on PhyGenBench and VideoPhy2. Please check our project page at https://caiyuanhao1998.github.io/project/PhyGDPO for more video results. Our code, models, and data will be released at https://github.com/caiyuanhao1998/Open-PhyGDPO</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: This paper introduces PhyGDPO, a physics-aware text-to-video generation framework utilizing a physics-augmented dataset and groupwise direct preference optimization to improve physical consistency in generated videos.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍了PhyGDPO，一个物理感知文本到视频生成框架，它利用物理增强数据集和分组直接偏好优化来提高生成视频中的物理一致性。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24551v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Yuanhao Cai, Kunpeng Li, Menglin Jia, Jialiang Wang, Junzhe Sun, Feng Liang, Weifeng Chen, Felix Juefei-Xu, Chu Wang, Ali Thabet, Xiaoliang Dai, Xuan Ju, Alan Yuille, Ji Hou</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">OFL-SAM2: Prompt SAM2 with Online Few-shot Learner for Efficient Medical Image Segmentation</h2>
+            
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-style: italic;">
+                <i class="fas fa-calendar-alt"></i> January 01, 2026
+            </p>
+            
+            <p class="paper-summary">The Segment Anything Model 2 (SAM2) has demonstrated remarkable promptable visual segmentation capabilities in video data, showing potential for extension to medical image segmentation (MIS) tasks involving 3D volumes and temporally correlated 2D image sequences. However, adapting SAM2 to MIS presents several challenges, including the need for extensive annotated medical data for fine-tuning and high-quality manual prompts, which are both labor-intensive and require intervention from medical experts. To address these challenges, we introduce OFL-SAM2, a prompt-free SAM2 framework for label-efficient MIS. Our core idea is to leverage limited annotated samples to train a lightweight mapping network that captures medical knowledge and transforms generic image features into target features, thereby providing additional discriminative target representations for each frame and eliminating the need for manual prompts. Crucially, the mapping network supports online parameter update during inference, enhancing the model's generalization across test sequences. Technically, we introduce two key components: (1) an online few-shot learner that trains the mapping network to generate target features using limited data, and (2) an adaptive fusion module that dynamically integrates the target features with the memory-attention features generated by frozen SAM2, leading to accurate and robust target representation. Extensive experiments on three diverse MIS datasets demonstrate that OFL-SAM2 achieves state-of-the-art performance with limited training data.</p>
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces OFL-SAM2, a prompt-free adaptation of SAM2 for medical image segmentation, leveraging an online few-shot learner to generate target features from limited annotated data, achieving state-of-the-art performance with minimal training data.</p>
+            
+            
+            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了OFL-SAM2，一种无需提示的SAM2在医学图像分割中的应用，利用在线小样本学习器从有限的标注数据中生成目标特征，以最小的训练数据实现了最先进的性能。</p>
+            
+
+            
+            
+            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
+                
+                <div class="rating-item">
+                    <span class="rating-label">Relevance:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(4/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Novelty:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Clarity:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
+                </div>
+                
+                
+                <div class="rating-item">
+                    <span class="rating-label">Potential Impact:</span>
+                    
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    <span class="text-xs text-gray-500 ml-1">(6/10)</span>
+                </div>
+                
+            </div>
+            
+            
+
+            
+            <div class="paper-rating">
+                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
+                
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star"></i>
+                    
+                
+                    
+                        <i class="fas fa-star-half-alt"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                    
+                        <i class="far fa-star"></i>
+                    
+                
+                <span class="text-xs text-gray-500 ml-1">(5/10)</span>
+            </div>
+            
+
+            <a href="http://arxiv.org/abs/2512.24861v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Meng Lan, Lefei Zhang, Xiaomeng Li</p>
+            
+        </motion.div>
+        
+    </div>
+
+    <footer class="footer">
+        Generated on 2026-01-06 02:51:29 UTC. Powered by <a href="https://github.com/onion-liu" target="_blank">onion-liu</a>.
+    </footer>
+
+</body>
+</html>
