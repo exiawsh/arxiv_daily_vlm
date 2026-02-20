@@ -1,0 +1,372 @@
+[
+    {
+        "title": "EntropyPrune: Matrix Entropy Guided Visual Token Pruning for Multimodal Large Language Models",
+        "summary": "Multimodal large language models (MLLMs) incur substantial inference cost due to the processing of hundreds of visual tokens per image. Although token pruning has proven effective for accelerating inference, determining when and where to prune remains largely heuristic. Existing approaches typically rely on static, empirically selected layers, which limit interpretability and transferability across models. In this work, we introduce a matrix-entropy perspective and identify an \"Entropy Collapse Layer\" (ECL), where the information content of visual representations exhibits a sharp and consistent drop, which provides a principled criterion for selecting the pruning stage. Building on this observation, we propose EntropyPrune, a novel matrix-entropy-guided token pruning framework that quantifies the information value of individual visual tokens and prunes redundant ones without relying on attention maps. Moreover, to enable efficient computation, we exploit the spectral equivalence of dual Gram matrices, reducing the complexity of entropy computation and yielding up to a 64x theoretical speedup. Extensive experiments on diverse multimodal benchmarks demonstrate that EntropyPrune consistently outperforms state-of-the-art pruning methods in both accuracy and efficiency. On LLaVA-1.5-7B, our method achieves a 68.2% reduction in FLOPs while preserving 96.0% of the original performance. Furthermore, EntropyPrune generalizes effectively to high-resolution and video-based models, highlighting the strong robustness and scalability in practical MLLM acceleration. The code will be publicly available at https://github.com/YahongWang1/EntropyPrune.",
+        "url": "http://arxiv.org/abs/2602.17196v1",
+        "published_date": "2026-02-19T09:29:43+00:00",
+        "updated_date": "2026-02-19T09:29:43+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yahong Wang",
+            "Juncheng Wu",
+            "Zhangkai Ni",
+            "Chengmei Yang",
+            "Yihang Liu",
+            "Longzhen Yang",
+            "Yuyin Zhou",
+            "Ying Wen",
+            "Lianghua He"
+        ],
+        "tldr": "This paper introduces EntropyPrune, a novel token pruning framework for MLLMs that utilizes matrix entropy to identify and prune redundant visual tokens, leading to significant FLOPs reduction with minimal performance loss and good generalization.",
+        "tldr_zh": "本文介绍了一种名为EntropyPrune的新型MLLM视觉token剪枝框架，该框架利用矩阵熵来识别和剪枝冗余的视觉token，从而在性能损失最小的情况下显著减少FLOPs，并具有良好的泛化能力。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Selective Training for Large Vision Language Models via Visual Information Gain",
+        "summary": "Large Vision Language Models (LVLMs) have achieved remarkable progress, yet they often suffer from language bias, producing answers without relying on visual evidence. While prior work attempts to mitigate this issue through decoding strategies, architectural modifications, or curated instruction data, they typically lack a quantitative measure of how much individual training samples or tokens actually benefit from the image. In this work, we introduce Visual Information Gain (VIG), a perplexity-based metric that measures the reduction in prediction uncertainty provided by visual input. VIG enables fine-grained analysis at both sample and token levels, effectively highlighting visually grounded elements such as colors, spatial relations, and attributes. Leveraging this, we propose a VIG-guided selective training scheme that prioritizes high-VIG samples and tokens. This approach improves visual grounding and mitigates language bias, achieving superior performance with significantly reduced supervision by focusing exclusively on visually informative samples and tokens.",
+        "url": "http://arxiv.org/abs/2602.17186v1",
+        "published_date": "2026-02-19T09:12:21+00:00",
+        "updated_date": "2026-02-19T09:12:21+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Seulbi Lee",
+            "Sangheum Hwang"
+        ],
+        "tldr": "This paper introduces Visual Information Gain (VIG), a perplexity-based metric to quantify the benefit of visual input in LVLMs, and uses it for selective training to improve visual grounding and reduce language bias.",
+        "tldr_zh": "本文提出了一种名为视觉信息增益（VIG）的基于困惑度的指标，用于量化视觉输入在大型视觉语言模型（LVLM）中的益处，并利用它进行选择性训练，以提高视觉基础并减少语言偏差。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "BadCLIP++: Stealthy and Persistent Backdoors in Multimodal Contrastive Learning",
+        "summary": "Research on backdoor attacks against multimodal contrastive learning models faces two key challenges: stealthiness and persistence. Existing methods often fail under strong detection or continuous fine-tuning, largely due to (1) cross-modal inconsistency that exposes trigger patterns and (2) gradient dilution at low poisoning rates that accelerates backdoor forgetting. These coupled causes remain insufficiently modeled and addressed. We propose BadCLIP++, a unified framework that tackles both challenges. For stealthiness, we introduce a semantic-fusion QR micro-trigger that embeds imperceptible patterns near task-relevant regions, preserving clean-data statistics while producing compact trigger distributions. We further apply target-aligned subset selection to strengthen signals at low injection rates. For persistence, we stabilize trigger embeddings via radius shrinkage and centroid alignment, and stabilize model parameters through curvature control and elastic weight consolidation, maintaining solutions within a low-curvature wide basin resistant to fine-tuning. We also provide the first theoretical analysis showing that, within a trust region, gradients from clean fine-tuning and backdoor objectives are co-directional, yielding a non-increasing upper bound on attack success degradation. Experiments demonstrate that with only 0.3% poisoning, BadCLIP++ achieves 99.99% attack success rate (ASR) in digital settings, surpassing baselines by 11.4 points. Across nineteen defenses, ASR remains above 99.90% with less than 0.8% drop in clean accuracy. The method further attains 65.03% success in physical attacks and shows robustness against watermark removal defenses.",
+        "url": "http://arxiv.org/abs/2602.17168v1",
+        "published_date": "2026-02-19T08:31:16+00:00",
+        "updated_date": "2026-02-19T08:31:16+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Siyuan Liang",
+            "Yongcheng Jing",
+            "Yingjie Wang",
+            "Jiaxing Huang",
+            "Ee-chien Chang",
+            "Dacheng Tao"
+        ],
+        "tldr": "BadCLIP++ introduces a novel backdoor attack framework against multimodal contrastive learning models that improves stealthiness and persistence via semantic-fusion triggers and stability techniques, achieving high attack success rates even with minimal poisoning and robust defenses.",
+        "tldr_zh": "BadCLIP++ 提出了一种新的针对多模态对比学习模型的后门攻击框架，通过语义融合触发器和稳定性技术提高了隐蔽性和持久性，即使在极少投毒和强大防御的情况下也能实现高攻击成功率。",
+        "relevance_score": 7,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Xray-Visual Models: Scaling Vision models on Industry Scale Data",
+        "summary": "We present Xray-Visual, a unified vision model architecture for large-scale image and video understanding trained on industry-scale social media data. Our model leverages over 15 billion curated image-text pairs and 10 billion video-hashtag pairs from Facebook and Instagram, employing robust data curation pipelines that incorporate balancing and noise suppression strategies to maximize semantic diversity while minimizing label noise. We introduce a three-stage training pipeline that combines self-supervised MAE, semi-supervised hashtag classification, and CLIP-style contrastive learning to jointly optimize image and video modalities. Our architecture builds on a Vision Transformer backbone enhanced with efficient token reorganization (EViT) for improved computational efficiency. Extensive experiments demonstrate that Xray-Visual achieves state-of-the-art performance across diverse benchmarks, including ImageNet for image classification, Kinetics and HMDB51 for video understanding, and MSCOCO for cross-modal retrieval. The model exhibits strong robustness to domain shift and adversarial perturbations. We further demonstrate that integrating large language models as text encoders (LLM2CLIP) significantly enhances retrieval performance and generalization capabilities, particularly in real-world environments. Xray-Visual establishes new benchmarks for scalable, multimodal vision models, while maintaining superior accuracy and computational efficiency.",
+        "url": "http://arxiv.org/abs/2602.16918v1",
+        "published_date": "2026-02-18T22:22:44+00:00",
+        "updated_date": "2026-02-18T22:22:44+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Shlok Mishra",
+            "Tsung-Yu Lin",
+            "Linda Wang",
+            "Hongli Xu",
+            "Yimin Liu",
+            "Michael Hsu",
+            "Chaitanya Ahuja",
+            "Hao Yuan",
+            "Jianpeng Cheng",
+            "Hong-You Chen",
+            "Haoyuan Xu",
+            "Chao Li",
+            "Abhijeet Awasthi",
+            "Jihye Moon",
+            "Don Husa",
+            "Michael Ge",
+            "Sumedha Singla",
+            "Arkabandhu Chowdhury",
+            "Phong Dingh",
+            "Satya Narayan Shukla",
+            "Yonghuan Yang",
+            "David Jacobs",
+            "Qi Guo",
+            "Jun Xiao",
+            "Xiangjun Fan",
+            "Aashu Singh"
+        ],
+        "tldr": "Xray-Visual is a unified vision model trained on industry-scale data, achieving state-of-the-art performance across diverse benchmarks and demonstrating robustness and efficiency with a three-stage training pipeline and efficient token reorganization.",
+        "tldr_zh": "Xray-Visual 是一个在工业规模数据上训练的统一视觉模型，在各种基准测试中实现了最先进的性能，并通过三阶段训练流程和高效的令牌重组展示了鲁棒性和效率。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MALLVI: a multi agent framework for integrated generalized robotics manipulation",
+        "summary": "Task planning for robotic manipulation with large language models (LLMs) is an emerging area. Prior approaches rely on specialized models, fine tuning, or prompt tuning, and often operate in an open loop manner without robust environmental feedback, making them fragile in dynamic settings.We present MALLVi, a Multi Agent Large Language and Vision framework that enables closed loop feedback driven robotic manipulation. Given a natural language instruction and an image of the environment, MALLVi generates executable atomic actions for a robot manipulator. After action execution, a Vision Language Model (VLM) evaluates environmental feedback and decides whether to repeat the process or proceed to the next step.Rather than using a single model, MALLVi coordinates specialized agents, Decomposer, Localizer, Thinker, and Reflector, to manage perception, localization, reasoning, and high level planning. An optional Descriptor agent provides visual memory of the initial state. The Reflector supports targeted error detection and recovery by reactivating only relevant agents, avoiding full replanning.Experiments in simulation and real world settings show that iterative closed loop multi agent coordination improves generalization and increases success rates in zero shot manipulation tasks.Code available at https://github.com/iman1234ahmadi/MALLVI.",
+        "url": "http://arxiv.org/abs/2602.16898v1",
+        "published_date": "2026-02-18T21:28:56+00:00",
+        "updated_date": "2026-02-18T21:28:56+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Iman Ahmadi",
+            "Mehrshad Taji",
+            "Arad Mahdinezhad Kashani",
+            "AmirHossein Jadidi",
+            "Saina Kashani",
+            "Babak Khalaj"
+        ],
+        "tldr": "The paper introduces MALLVi, a multi-agent LLM and vision framework for closed-loop robotic manipulation, achieving improved generalization and success rates in zero-shot tasks through specialized agents and error detection.",
+        "tldr_zh": "该论文介绍了MALLVi，一个用于闭环机器人操作的多智能体LLM和视觉框架，通过专用智能体和错误检测，提高了零样本任务的泛化能力和成功率。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "DODO: Discrete OCR Diffusion Models",
+        "summary": "Optical Character Recognition (OCR) is a fundamental task for digitizing information, serving as a critical bridge between visual data and textual understanding. While modern Vision-Language Models (VLM) have achieved high accuracy in this domain, they predominantly rely on autoregressive decoding, which becomes computationally expensive and slow for long documents as it requires a sequential forward pass for every generated token. We identify a key opportunity to overcome this bottleneck: unlike open-ended generation, OCR is a highly deterministic task where the visual input strictly dictates a unique output sequence, theoretically enabling efficient, parallel decoding via diffusion models. However, we show that existing masked diffusion models fail to harness this potential; those introduce structural instabilities that are benign in flexible tasks, like captioning, but catastrophic for the rigid, exact-match requirements of OCR. To bridge this gap, we introduce DODO, the first VLM to utilize block discrete diffusion and unlock its speedup potential for OCR. By decomposing generation into blocks, DODO mitigates the synchronization errors of global diffusion. Empirically, our method achieves near state-of-the-art accuracy while enabling up to 3x faster inference compared to autoregressive baselines.",
+        "url": "http://arxiv.org/abs/2602.16872v1",
+        "published_date": "2026-02-18T20:59:22+00:00",
+        "updated_date": "2026-02-18T20:59:22+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Sean Man",
+            "Roy Ganz",
+            "Roi Ronen",
+            "Shahar Tsiper",
+            "Shai Mazor",
+            "Niv Nayman"
+        ],
+        "tldr": "The paper introduces DODO, a novel Vision-Language Model (VLM) leveraging block discrete diffusion for OCR, achieving near state-of-the-art accuracy with up to 3x faster inference compared to autoregressive methods.",
+        "tldr_zh": "该论文介绍了DODO，一种新的视觉-语言模型(VLM)，利用块离散扩散进行OCR，实现了接近最先进的精度，并且比自回归方法快3倍。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Saliency-Aware Multi-Route Thinking: Revisiting Vision-Language Reasoning",
+        "summary": "Vision-language models (VLMs) aim to reason by jointly leveraging visual and textual modalities. While allocating additional inference-time computation has proven effective for large language models (LLMs), achieving similar scaling in VLMs remains challenging. A key obstacle is that visual inputs are typically provided only once at the start of generation, while textual reasoning (e.g., early visual summaries) is generated autoregressively, causing reasoning to become increasingly text-dominated and allowing early visual grounding errors to accumulate. Moreover, vanilla guidance for visual grounding during inference is often coarse and noisy, making it difficult to steer reasoning over long texts. To address these challenges, we propose \\emph{Saliency-Aware Principle} (SAP) selection. SAP operates on high-level reasoning principles rather than token-level trajectories, which enable stable control over discrete generation under noisy feedback while allowing later reasoning steps to re-consult visual evidence when renewed grounding is required. In addition, SAP supports multi-route inference, enabling parallel exploration of diverse reasoning behaviors. SAP is model-agnostic and data-free, requiring no additional training. Empirical results show that SAP achieves competitive performance, especially in reducing object hallucination, under comparable token-generation budgets while yielding more stable reasoning and lower response latency than CoT-style long sequential reasoning.",
+        "url": "http://arxiv.org/abs/2602.16702v1",
+        "published_date": "2026-02-18T18:49:56+00:00",
+        "updated_date": "2026-02-18T18:49:56+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Mingjia Shi",
+            "Yinhan He",
+            "Yaochen Zhu",
+            "Jundong Li"
+        ],
+        "tldr": "This paper introduces a Saliency-Aware Principle (SAP) for Vision-Language Models (VLMs) to improve visual grounding and reduce object hallucination during inference, enabling multi-route reasoning without additional training.",
+        "tldr_zh": "该论文介绍了一种用于视觉语言模型（VLM）的显著性感知原则（SAP），以改善推理过程中的视觉基础并减少对象幻觉，从而实现无需额外训练的多路径推理。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "RetouchIQ: MLLM Agents for Instruction-Based Image Retouching with Generalist Reward",
+        "summary": "Recent advances in multimodal large language models (MLLMs) have shown great potential for extending vision-language reasoning to professional tool-based image editing, enabling intuitive and creative editing. A promising direction is to use reinforcement learning (RL) to enable MLLMs to reason about and execute optimal tool-use plans within professional image-editing software. However, training remains challenging due to the lack of reliable, verifiable reward signals that can reflect the inherently subjective nature of creative editing. In this work, we introduce RetouchIQ, a framework that performs instruction-based executable image editing through MLLM agents guided by a generalist reward model. RetouchIQ interprets user-specified editing intentions and generates corresponding, executable image adjustments, bridging high-level aesthetic goals with precise parameter control. To move beyond conventional, rule-based rewards that compute similarity against a fixed reference image using handcrafted metrics, we propose a generalist reward model, an RL fine-tuned MLLM that evaluates edited results through a set of generated metrics on a case-by-case basis. Then, the reward model provides scalar feedback through multimodal reasoning, enabling reinforcement learning with high-quality, instruction-consistent gradients. We curate an extended dataset with 190k instruction-reasoning pairs and establish a new benchmark for instruction-based image editing. Experiments show that RetouchIQ substantially improves both semantic consistency and perceptual quality over previous MLLM-based and diffusion-based editing systems. Our findings demonstrate the potential of generalist reward-driven MLLM agents as flexible, explainable, and executable assistants for professional image editing.",
+        "url": "http://arxiv.org/abs/2602.17558v1",
+        "published_date": "2026-02-19T17:11:59+00:00",
+        "updated_date": "2026-02-19T17:11:59+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Qiucheng Wu",
+            "Jing Shi",
+            "Simon Jenni",
+            "Kushal Kafle",
+            "Tianyu Wang",
+            "Shiyu Chang",
+            "Handong Zhao"
+        ],
+        "tldr": "RetouchIQ uses MLLM agents and a generalist reward model for instruction-based image retouching, achieving improved semantic consistency and perceptual quality compared to existing methods. It introduces a new benchmark dataset for this task.",
+        "tldr_zh": "RetouchIQ使用MLLM代理和通用奖励模型进行基于指令的图像修饰，与现有方法相比，实现了更好的语义一致性和感知质量。它还引入了一个用于此任务的新的基准数据集。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "GraphThinker: Reinforcing Video Reasoning with Event Graph Thinking",
+        "summary": "Video reasoning requires understanding the causal relationships between events in a video. However, such relationships are often implicit and costly to annotate manually. While existing multimodal large language models (MLLMs) often infer event relations through dense captions or video summaries for video reasoning, such modeling still lacks causal understanding. Without explicit causal structure modeling within and across video events, these models suffer from hallucinations during the video reasoning. In this work, we propose GraphThinker, a reinforcement finetuning-based method that constructs structural event-level scene graphs and enhances visual grounding to jointly reduce hallucinations in video reasoning. Specifically, we first employ an MLLM to construct an event-based video scene graph (EVSG) that explicitly models both intra- and inter-event relations, and incorporate these formed scene graphs into the MLLM as an intermediate thinking process. We also introduce a visual attention reward during reinforcement finetuning, which strengthens video grounding and further mitigates hallucinations. We evaluate GraphThinker on two datasets, RexTime and VidHalluc, where it shows superior ability to capture object and event relations with more precise event localization, reducing hallucinations in video reasoning compared to prior methods.",
+        "url": "http://arxiv.org/abs/2602.17555v1",
+        "published_date": "2026-02-19T17:09:30+00:00",
+        "updated_date": "2026-02-19T17:09:30+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zixu Cheng",
+            "Da Li",
+            "Jian Hu",
+            "Ziquan Liu",
+            "Wei Li",
+            "Shaogang Gong"
+        ],
+        "tldr": "The paper introduces GraphThinker, a reinforcement learning approach that constructs event-based scene graphs to improve video reasoning and reduce hallucinations in MLLMs, demonstrating superior performance on RexTime and VidHalluc datasets.",
+        "tldr_zh": "该论文介绍了GraphThinker，一种基于强化学习的方法，它构建基于事件的场景图来改进视频推理并减少MLLM中的幻觉，并在RexTime和VidHalluc数据集上展示了卓越的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "LATA: Laplacian-Assisted Transductive Adaptation for Conformal Uncertainty in Medical VLMs",
+        "summary": "Medical vision-language models (VLMs) are strong zero-shot recognizers for medical imaging, but their reliability under domain shift hinges on calibrated uncertainty with guarantees. Split conformal prediction (SCP) offers finite-sample coverage, yet prediction sets often become large (low efficiency) and class-wise coverage unbalanced-high class-conditioned coverage gap (CCV), especially in few-shot, imbalanced regimes; moreover, naively adapting to calibration labels breaks exchangeability and voids guarantees. We propose \\texttt{\\textbf{LATA}} (Laplacian-Assisted Transductive Adaptation), a \\textit{training- and label-free} refinement that operates on the joint calibration and test pool by smoothing zero-shot probabilities over an image-image k-NN graph using a small number of CCCP mean-field updates, preserving SCP validity via a deterministic transform. We further introduce a \\textit{failure-aware} conformal score that plugs into the vision-language uncertainty (ViLU) framework, providing instance-level difficulty and label plausibility to improve prediction set efficiency and class-wise balance at fixed coverage. \\texttt{\\textbf{LATA}} is black-box (no VLM updates), compute-light (windowed transduction, no backprop), and includes an optional prior knob that can run strictly label-free or, if desired, in a label-informed variant using calibration marginals once. Across \\textbf{three} medical VLMs and \\textbf{nine} downstream tasks, \\texttt{\\textbf{LATA}} consistently reduces set size and CCV while matching or tightening target coverage, outperforming prior transductive baselines and narrowing the gap to label-using methods, while using far less compute. Comprehensive ablations and qualitative analyses show that \\texttt{\\textbf{LATA}} sharpens zero-shot predictions without compromising exchangeability.",
+        "url": "http://arxiv.org/abs/2602.17535v1",
+        "published_date": "2026-02-19T16:45:38+00:00",
+        "updated_date": "2026-02-19T16:45:38+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Behzad Bozorgtabar",
+            "Dwarikanath Mahapatra",
+            "Sudipta Roy",
+            "Muzammal Naseer",
+            "Imran Razzak",
+            "Zongyuan Ge"
+        ],
+        "tldr": "The paper introduces LATA, a training- and label-free refinement method for medical VLMs that enhances uncertainty calibration and prediction set efficiency by smoothing zero-shot probabilities using a Laplacian-assisted transductive approach, improving performance across multiple medical VLMs and tasks.",
+        "tldr_zh": "该论文介绍了一种名为LATA的医学VLM改进方法，无需训练和标签，通过拉普拉斯辅助的传递方法平滑零样本概率，从而增强不确定性校准和预测集效率，并在多个医学VLM和任务中提高了性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "EAGLE: Expert-Augmented Attention Guidance for Tuning-Free Industrial Anomaly Detection in Multimodal Large Language Models",
+        "summary": "Industrial anomaly detection is important for smart manufacturing, but many deep learning approaches produce only binary decisions and provide limited semantic explanations. Multimodal large language models (MLLMs) can potentially generate fine-grained, language-based analyses, yet existing methods often require costly fine-tuning and do not consistently improve anomaly detection accuracy compared to lightweight specialist detectors. We propose expert-augmented attention guidance for industrial anomaly detection in MLLMs (EAGLE), a tuning-free framework that integrates outputs from expert model to guide MLLMs toward both accurate detection and interpretable anomaly descriptions. We further study how EAGLE affects MLLMs internals by examining the attention distribution of MLLMs to the anomalous image regions in the intermediate layers. We observe that successful anomaly detection is associated with increased attention concentration on anomalous regions, and EAGLE tends to encourage this alignment. Experiments on MVTec-AD and VisA show that EAGLE improves anomaly detection performance across multiple MLLMs without any parameter updates, achieving results comparable to fine-tuning based methods. Code is available at \\href{https://github.com/shengtun/Eagle}{https://github.com/shengtun/Eagle}",
+        "url": "http://arxiv.org/abs/2602.17419v1",
+        "published_date": "2026-02-19T14:50:58+00:00",
+        "updated_date": "2026-02-19T14:50:58+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Xiaomeng Peng",
+            "Xilang Huang",
+            "Seon Han Choi"
+        ],
+        "tldr": "The paper introduces EAGLE, a tuning-free framework for industrial anomaly detection using MLLMs, which leverages expert model outputs to guide the MLLM's attention and improve both detection accuracy and interpretability without fine-tuning.",
+        "tldr_zh": "本文介绍了一种名为EAGLE的无需微调的工业异常检测框架，该框架利用专家模型的输出来指导多模态大型语言模型（MLLM）的注意力，从而在不进行微调的情况下提高检测准确性和可解释性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "SpectralGCD: Spectral Concept Selection and Cross-modal Representation Learning for Generalized Category Discovery",
+        "summary": "Generalized Category Discovery (GCD) aims to identify novel categories in unlabeled data while leveraging a small labeled subset of known classes. Training a parametric classifier solely on image features often leads to overfitting to old classes, and recent multimodal approaches improve performance by incorporating textual information. However, they treat modalities independently and incur high computational cost. We propose SpectralGCD, an efficient and effective multimodal approach to GCD that uses CLIP cross-modal image-concept similarities as a unified cross-modal representation. Each image is expressed as a mixture over semantic concepts from a large task-agnostic dictionary, which anchors learning to explicit semantics and reduces reliance on spurious visual cues. To maintain the semantic quality of representations learned by an efficient student, we introduce Spectral Filtering which exploits a cross-modal covariance matrix over the softmaxed similarities measured by a strong teacher model to automatically retain only relevant concepts from the dictionary. Forward and reverse knowledge distillation from the same teacher ensures that the cross-modal representations of the student remain both semantically sufficient and well-aligned. Across six benchmarks, SpectralGCD delivers accuracy comparable to or significantly superior to state-of-the-art methods at a fraction of the computational cost. The code is publicly available at: https://github.com/miccunifi/SpectralGCD.",
+        "url": "http://arxiv.org/abs/2602.17395v1",
+        "published_date": "2026-02-19T14:18:50+00:00",
+        "updated_date": "2026-02-19T14:18:50+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "authors": [
+            "Lorenzo Caselli",
+            "Marco Mistretta",
+            "Simone Magistri",
+            "Andrew D. Bagdanov"
+        ],
+        "tldr": "The paper introduces SpectralGCD, an efficient multimodal approach for Generalized Category Discovery (GCD) that leverages CLIP cross-modal similarities and knowledge distillation to achieve state-of-the-art accuracy with reduced computational cost.",
+        "tldr_zh": "该论文介绍了SpectralGCD，一种高效的多模态广义类别发现（GCD）方法，它利用CLIP跨模态相似性和知识蒸馏，以降低的计算成本实现最先进的准确性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Cross Pseudo Labeling For Weakly Supervised Video Anomaly Detection",
+        "summary": "Weakly supervised video anomaly detection aims to detect anomalies and identify abnormal categories with only video-level labels. We propose CPL-VAD, a dual-branch framework with cross pseudo labeling. The binary anomaly detection branch focuses on snippet-level anomaly localization, while the category classification branch leverages vision-language alignment to recognize abnormal event categories. By exchanging pseudo labels, the two branches transfer complementary strengths, combining temporal precision with semantic discrimination. Experiments on XD-Violence and UCF-Crime demonstrate that CPL-VAD achieves state-of-the-art performance in both anomaly detection and abnormal category classification.",
+        "url": "http://arxiv.org/abs/2602.17077v1",
+        "published_date": "2026-02-19T04:42:13+00:00",
+        "updated_date": "2026-02-19T04:42:13+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Lee Dayeon",
+            "Kim Dongheyong",
+            "Park Chaewon",
+            "Woo Sungmin",
+            "Lee Sangyoun"
+        ],
+        "tldr": "The paper introduces CPL-VAD, a dual-branch framework for weakly supervised video anomaly detection that uses cross pseudo labeling between anomaly detection and category classification branches to achieve state-of-the-art performance.",
+        "tldr_zh": "本文提出了CPL-VAD，一个双分支框架，用于弱监督视频异常检测，通过在异常检测和类别分类分支之间使用交叉伪标签来实现最先进的性能。",
+        "relevance_score": 4,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 6,
+        "overall_priority_score": 5
+    },
+    {
+        "title": "VETime: Vision Enhanced Zero-Shot Time Series Anomaly Detection",
+        "summary": "Time-series anomaly detection (TSAD) requires identifying both immediate Point Anomalies and long-range Context Anomalies. However, existing foundation models face a fundamental trade-off: 1D temporal models provide fine-grained pointwise localization but lack a global contextual perspective, while 2D vision-based models capture global patterns but suffer from information bottlenecks due to a lack of temporal alignment and coarse-grained pointwise detection. To resolve this dilemma, we propose VETime, the first TSAD framework that unifies temporal and visual modalities through fine-grained visual-temporal alignment and dynamic fusion. VETime introduces a Reversible Image Conversion and a Patch-Level Temporal Alignment module to establish a shared visual-temporal timeline, preserving discriminative details while maintaining temporal sensitivity. Furthermore, we design an Anomaly Window Contrastive Learning mechanism and a Task-Adaptive Multi-Modal Fusion to adaptively integrate the complementary perceptual strengths of both modalities. Extensive experiments demonstrate that VETime significantly outperforms state-of-the-art models in zero-shot scenarios, achieving superior localization precision with lower computational overhead than current vision-based approaches. Code available at: https://github.com/yyyangcoder/VETime.",
+        "url": "http://arxiv.org/abs/2602.16681v1",
+        "published_date": "2026-02-18T18:22:22+00:00",
+        "updated_date": "2026-02-18T18:22:22+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yingyuan Yang",
+            "Tian Lan",
+            "Yifei Gao",
+            "Yimeng Lu",
+            "Wenjun He",
+            "Meng Wang",
+            "Chenghao Liu",
+            "Chen Zhang"
+        ],
+        "tldr": "VETime is a novel zero-shot time series anomaly detection framework that unifies temporal and visual modalities through fine-grained alignment and dynamic fusion, outperforming state-of-the-art methods with lower computational overhead.",
+        "tldr_zh": "VETime 是一种新颖的零样本时间序列异常检测框架，它通过细粒度的对齐和动态融合统一了时间和视觉模式，优于最先进的方法，并且计算开销更低。",
+        "relevance_score": 3,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 5
+    }
+]
