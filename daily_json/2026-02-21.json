@@ -1,0 +1,87 @@
+[
+    {
+        "title": "OpenEarthAgent: A Unified Framework for Tool-Augmented Geospatial Agents",
+        "summary": "Recent progress in multimodal reasoning has enabled agents that can interpret imagery, connect it with language, and perform structured analytical tasks. Extending such capabilities to the remote sensing domain remains challenging, as models must reason over spatial scale, geographic structures, and multispectral indices while maintaining coherent multi-step logic. To bridge this gap, OpenEarthAgent introduces a unified framework for developing tool-augmented geospatial agents trained on satellite imagery, natural-language queries, and detailed reasoning traces. The training pipeline relies on supervised fine-tuning over structured reasoning trajectories, aligning the model with verified multistep tool interactions across diverse analytical contexts. The accompanying corpus comprises 14,538 training and 1,169 evaluation instances, with more than 100K reasoning steps in the training split and over 7K reasoning steps in the evaluation split. It spans urban, environmental, disaster, and infrastructure domains, and incorporates GIS-based operations alongside index analyses such as NDVI, NBR, and NDBI. Grounded in explicit reasoning traces, the learned agent demonstrates structured reasoning, stable spatial understanding, and interpretable behaviour through tool-driven geospatial interactions across diverse conditions. We report consistent improvements over a strong baseline and competitive performance relative to recent open and closed-source models.",
+        "url": "http://arxiv.org/abs/2602.17665v1",
+        "published_date": "2026-02-19T18:59:54+00:00",
+        "updated_date": "2026-02-19T18:59:54+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Akashah Shabbir",
+            "Muhammad Umer Sheikh",
+            "Muhammad Akhtar Munir",
+            "Hiyam Debary",
+            "Mustansar Fiaz",
+            "Muhammad Zaigham Zaheer",
+            "Paolo Fraccaro",
+            "Fahad Shahbaz Khan",
+            "Muhammad Haris Khan",
+            "Xiao Xiang Zhu",
+            "Salman Khan"
+        ],
+        "tldr": "OpenEarthAgent introduces a framework and dataset for training tool-augmented geospatial agents that can reason over satellite imagery and language queries, demonstrating improvements over existing methods in diverse analytical contexts.",
+        "tldr_zh": "OpenEarthAgent 提出了一个框架和数据集，用于训练工具增强型地理空间代理，使其能够推理卫星图像和语言查询，并在各种分析环境中展示出优于现有方法的改进。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "When Vision Overrides Language: Evaluating and Mitigating Counterfactual Failures in VLAs",
+        "summary": "Vision-Language-Action models (VLAs) promise to ground language instructions in robot control, yet in practice often fail to faithfully follow language. When presented with instructions that lack strong scene-specific supervision, VLAs suffer from counterfactual failures: they act based on vision shortcuts induced by dataset biases, repeatedly executing well-learned behaviors and selecting objects frequently seen during training regardless of language intent. To systematically study it, we introduce LIBERO-CF, the first counterfactual benchmark for VLAs that evaluates language following capability by assigning alternative instructions under visually plausible LIBERO layouts. Our evaluation reveals that counterfactual failures are prevalent yet underexplored across state-of-the-art VLAs. We propose Counterfactual Action Guidance (CAG), a simple yet effective dual-branch inference scheme that explicitly regularizes language conditioning in VLAs. CAG combines a standard VLA policy with a language-unconditioned Vision-Action (VA) module, enabling counterfactual comparison during action selection. This design reduces reliance on visual shortcuts, improves robustness on under-observed tasks, and requires neither additional demonstrations nor modifications to existing architectures or pretrained models. Extensive experiments demonstrate its plug-and-play integration across diverse VLAs and consistent improvements. For example, on LIBERO-CF, CAG improves $π_{0.5}$ by 9.7% in language following accuracy and 3.6% in task success on under-observed tasks using a training-free strategy, with further gains of 15.5% and 8.5%, respectively, when paired with a VA model. In real-world evaluations, CAG reduces counterfactual failures of 9.4% and improves task success by 17.2% on average.",
+        "url": "http://arxiv.org/abs/2602.17659v1",
+        "published_date": "2026-02-19T18:59:20+00:00",
+        "updated_date": "2026-02-19T18:59:20+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.RO"
+        ],
+        "authors": [
+            "Yu Fang",
+            "Yuchun Feng",
+            "Dong Jing",
+            "Jiaqi Liu",
+            "Yue Yang",
+            "Zhenyu Wei",
+            "Daniel Szafir",
+            "Mingyu Ding"
+        ],
+        "tldr": "The paper identifies and mitigates counterfactual failures in Vision-Language-Action models (VLAs) using a novel benchmark (LIBERO-CF) and a Counterfactual Action Guidance (CAG) method, improving language following and task success.",
+        "tldr_zh": "该论文通过一个新的基准测试(LIBERO-CF)和反事实行动引导(CAG)方法，识别并缓解了视觉-语言-动作模型(VLA)中的反事实失败，提高了语言遵循和任务成功率。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Pushing the Frontier of Black-Box LVLM Attacks via Fine-Grained Detail Targeting",
+        "summary": "Black-box adversarial attacks on Large Vision-Language Models (LVLMs) are challenging due to missing gradients and complex multimodal boundaries. While prior state-of-the-art transfer-based approaches like M-Attack perform well using local crop-level matching between source and target images, we find this induces high-variance, nearly orthogonal gradients across iterations, violating coherent local alignment and destabilizing optimization. We attribute this to (i) ViT translation sensitivity that yields spike-like gradients and (ii) structural asymmetry between source and target crops. We reformulate local matching as an asymmetric expectation over source transformations and target semantics, and build a gradient-denoising upgrade to M-Attack. On the source side, Multi-Crop Alignment (MCA) averages gradients from multiple independently sampled local views per iteration to reduce variance. On the target side, Auxiliary Target Alignment (ATA) replaces aggressive target augmentation with a small auxiliary set from a semantically correlated distribution, producing a smoother, lower-variance target manifold. We further reinterpret momentum as Patch Momentum, replaying historical crop gradients; combined with a refined patch-size ensemble (PE+), this strengthens transferable directions. Together these modules form M-Attack-V2, a simple, modular enhancement over M-Attack that substantially improves transfer-based black-box attacks on frontier LVLMs: boosting success rates on Claude-4.0 from 8% to 30%, Gemini-2.5-Pro from 83% to 97%, and GPT-5 from 98% to 100%, outperforming prior black-box LVLM attacks. Code and data are publicly available at: https://github.com/vila-lab/M-Attack-V2.",
+        "url": "http://arxiv.org/abs/2602.17645v1",
+        "published_date": "2026-02-19T18:54:32+00:00",
+        "updated_date": "2026-02-19T18:54:32+00:00",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CL",
+            "cs.CV"
+        ],
+        "authors": [
+            "Xiaohan Zhao",
+            "Zhaoyi Li",
+            "Yaxin Luo",
+            "Jiacheng Cui",
+            "Zhiqiang Shen"
+        ],
+        "tldr": "This paper introduces M-Attack-V2, an improved transfer-based black-box attack on Large Vision-Language Models (LVLMs) that significantly outperforms existing methods by using multi-crop and auxiliary target alignment. It achieves substantial gains in attack success rates on models like Claude-4.0, Gemini-2.5-Pro, and GPT-5.",
+        "tldr_zh": "本文介绍了M-Attack-V2，一种改进的基于迁移的黑盒攻击方法，用于大型视觉语言模型（LVLM）。该方法通过使用多裁剪和辅助目标对齐，显著优于现有方法，并在Claude-4.0、Gemini-2.5-Pro和GPT-5等模型上的攻击成功率方面取得了显著提高。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    }
+]
