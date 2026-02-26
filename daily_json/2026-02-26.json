@@ -1,0 +1,804 @@
+[
+    {
+        "title": "MMLoP: Multi-Modal Low-Rank Prompting for Efficient Vision-Language Adaptation",
+        "summary": "Prompt learning has become a dominant paradigm for adapting vision-language models (VLMs) such as CLIP to downstream tasks without modifying pretrained weights. While extending prompts to both vision and text encoders across multiple transformer layers significantly boosts performance, it dramatically increases the number of trainable parameters, with state-of-the-art methods requiring millions of parameters and abandoning the parameter efficiency that makes prompt tuning attractive. In this work, we propose \\textbf{MMLoP} (\\textbf{M}ulti-\\textbf{M}odal \\textbf{Lo}w-Rank \\textbf{P}rompting), a framework that achieves deep multi-modal prompting with only \\textbf{11.5K trainable parameters}, comparable to early text-only methods like CoOp. MMLoP parameterizes vision and text prompts at each transformer layer through a low-rank factorization, which serves as an implicit regularizer against overfitting on few-shot training data. To further close the accuracy gap with state-of-the-art methods, we introduce three complementary components: a self-regulating consistency loss that anchors prompted representations to frozen zero-shot CLIP features at both the feature and logit levels, a uniform drift correction that removes the global embedding shift induced by prompt tuning to preserve class-discriminative structure, and a shared up-projection that couples vision and text prompts through a common low-rank factor to enforce cross-modal alignment. Extensive experiments across three benchmarks and 11 diverse datasets demonstrate that MMLoP achieves a highly favorable accuracy-efficiency tradeoff, outperforming the majority of existing methods including those with orders of magnitude more parameters, while achieving a harmonic mean of 79.70\\% on base-to-novel generalization.",
+        "url": "http://arxiv.org/abs/2602.21397v1",
+        "published_date": "2026-02-24T22:00:34+00:00",
+        "updated_date": "2026-02-24T22:00:34+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Sajjad Ghiasvand",
+            "Haniyeh Ehsani Oskouie",
+            "Mahnoosh Alizadeh",
+            "Ramtin Pedarsani"
+        ],
+        "tldr": "The paper introduces MMLoP, a parameter-efficient multi-modal prompting method for VLMs that achieves high accuracy with only 11.5K trainable parameters by using low-rank factorization and several complementary components to improve generalization.",
+        "tldr_zh": "该论文介绍了MMLoP，一种参数高效的多模态提示方法，用于视觉语言模型。通过低秩分解和几个互补组件来提高泛化能力，仅用11.5K个可训练参数即可实现高精度。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 9
+    },
+    {
+        "title": "NoLan: Mitigating Object Hallucinations in Large Vision-Language Models via Dynamic Suppression of Language Priors",
+        "summary": "Object hallucination is a critical issue in Large Vision-Language Models (LVLMs), where outputs include objects that do not appear in the input image. A natural question arises from this phenomenon: Which component of the LVLM pipeline primarily contributes to object hallucinations? The vision encoder to perceive visual information, or the language decoder to generate text responses? In this work, we strive to answer this question through designing a systematic experiment to analyze the roles of the vision encoder and the language decoder in hallucination generation. Our observations reveal that object hallucinations are predominantly associated with the strong priors from the language decoder. Based on this finding, we propose a simple and training-free framework, No-Language-Hallucination Decoding, NoLan, which refines the output distribution by dynamically suppressing language priors, modulated based on the output distribution difference between multimodal and text-only inputs. Experimental results demonstrate that NoLan effectively reduces object hallucinations across various LVLMs on different tasks. For instance, NoLan achieves substantial improvements on POPE, enhancing the accuracy of LLaVA-1.5 7B and Qwen-VL 7B by up to 6.45 and 7.21, respectively. The code is publicly available at: https://github.com/lingfengren/NoLan.",
+        "url": "http://arxiv.org/abs/2602.22144v1",
+        "published_date": "2026-02-25T17:50:41+00:00",
+        "updated_date": "2026-02-25T17:50:41+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL"
+        ],
+        "authors": [
+            "Lingfeng Ren",
+            "Weihao Yu",
+            "Runpeng Yu",
+            "Xinchao Wang"
+        ],
+        "tldr": "This paper identifies language priors in LVLMs as a primary cause of object hallucination and proposes NoLan, a training-free method that dynamically suppresses these priors, achieving significant improvements in hallucination reduction across various LVLMs.",
+        "tldr_zh": "该论文指出LVLM中的语言先验是物体幻觉的主要原因，并提出了一种名为NoLan的免训练方法，该方法通过动态抑制这些先验来减少幻觉，并在各种LVLM中取得了显著的改善。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MedTri: A Platform for Structured Medical Report Normalization to Enhance Vision-Language Pretraining",
+        "summary": "Medical vision-language pretraining increasingly relies on medical reports as large-scale supervisory signals; however, raw reports often exhibit substantial stylistic heterogeneity, variable length, and a considerable amount of image-irrelevant content. Although text normalization is frequently adopted as a preprocessing step in prior work, its design principles and empirical impact on vision-language pretraining remain insufficiently and systematically examined. In this study, we present MedTri, a deployable normalization framework for medical vision-language pretraining that converts free-text reports into a unified [Anatomical Entity: Radiologic Description + Diagnosis Category] triplet. This structured, anatomy-grounded normalization preserves essential morphological and spatial information while removing stylistic noise and image-irrelevant content, providing consistent and image-grounded textual supervision at scale. Across multiple datasets spanning both X-ray and computed tomography (CT) modalities, we demonstrate that structured, anatomy-grounded text normalization is an important factor in medical vision-language pretraining quality, yielding consistent improvements over raw reports and existing normalization baselines. In addition, we illustrate how this normalization can easily support modular text-level augmentation strategies, including knowledge enrichment and anatomy-grounded counterfactual supervision, which provide complementary gains in robustness and generalization without altering the core normalization process. Together, our results position structured text normalization as a critical and generalizable preprocessing component for medical vision-language learning, while MedTri provides this normalization platform. Code and data will be released at https://github.com/Arturia-Pendragon-Iris/MedTri.",
+        "url": "http://arxiv.org/abs/2602.22143v1",
+        "published_date": "2026-02-25T17:49:03+00:00",
+        "updated_date": "2026-02-25T17:49:03+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yuetan Chu",
+            "Xinhua Ma",
+            "Xinran Jin",
+            "Gongning Luo",
+            "Xin Gao"
+        ],
+        "tldr": "The paper introduces MedTri, a structured medical report normalization framework that converts free-text reports into anatomy-grounded triplets for enhanced medical vision-language pretraining, demonstrating improved performance and supporting modular augmentation strategies.",
+        "tldr_zh": "该论文介绍了MedTri，一个结构化的医疗报告规范化框架，将自由文本报告转换为基于解剖学的 triplets，以增强医学视觉-语言预训练，展示了改进的性能并支持模块化的增强策略。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "WeaveTime: Stream from Earlier Frames into Emergent Memory in VideoLLMs",
+        "summary": "Recent advances in Multimodal Large Language Models have greatly improved visual understanding and reasoning, yet their quadratic attention and offline training protocols make them ill-suited for streaming settings where frames arrive sequentially and future observations are inaccessible. We diagnose a core limitation of current Video-LLMs, namely Time-Agnosticism, in which videos are treated as an unordered bag of evidence rather than a causally ordered sequence, yielding two failures in streams: temporal order ambiguity, in which the model cannot follow or reason over the correct chronological order, and past-current focus blindness where it fails to distinguish present observations from accumulated history. We present WeaveTime, a simple, efficient, and model agnostic framework that first teaches order and then uses order. We introduce a lightweight Temporal Reconstruction objective-our Streaming Order Perception enhancement-that instills order aware representations with minimal finetuning and no specialized streaming data. At inference, a Past-Current Dynamic Focus Cache performs uncertainty triggered, coarse-to-fine retrieval, expanding history only when needed. Plugged into exsiting Video-LLM without architectural changes, WeaveTime delivers consistent gains on representative streaming benchmarks, improving accuracy while reducing latency. These results establish WeaveTime as a practical path toward time aware stream Video-LLMs under strict online, time causal constraints. Code and weights will be made publicly available. Project Page: https://zhangyl4.github.io/publications/weavetime/",
+        "url": "http://arxiv.org/abs/2602.22142v1",
+        "published_date": "2026-02-25T17:45:45+00:00",
+        "updated_date": "2026-02-25T17:45:45+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yulin Zhang",
+            "Cheng Shi",
+            "Sibei Yang"
+        ],
+        "tldr": "WeaveTime addresses the time-agnostic limitation of Video-LLMs in streaming settings by introducing a temporal reconstruction objective and a dynamic focus cache, improving accuracy and reducing latency without architectural changes.",
+        "tldr_zh": "WeaveTime通过引入时间重建目标和动态焦点缓存，解决了视频LLM在流式传输设置中的时间不可知限制，提高了准确性并降低了延迟，且无需架构更改。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Brain3D: Brain Report Automation via Inflated Vision Transformers in 3D",
+        "summary": "Current medical vision-language models (VLMs) process volumetric brain MRI using 2D slice-based approximations, fragmenting the spatial context required for accurate neuroradiological interpretation. We developed \\textbf{Brain3D}, a staged vision-language framework for automated radiology report generation from 3D brain tumor MRI. Our approach inflates a pretrained 2D medical encoder into a native 3D architecture and progressively aligns it with a causal language model through three stages: contrastive grounding, supervised projector warmup, and LoRA-based linguistic specialization. Unlike generalist 3D medical VLMs, \\textbf{Brain3D} is tailored to neuroradiology, where hemispheric laterality, tumor infiltration patterns, and anatomical localization are critical. Evaluated on 468 subjects (BraTS pathological cases plus healthy controls), our model achieves a Clinical Pathology F1 of 0.951 versus 0.413 for a strong 2D baseline while maintaining perfect specificity on healthy scans. The staged alignment proves essential: contrastive grounding establishes visual-textual correspondence, projector warmup stabilizes conditioning, and LoRA adaptation shifts output from verbose captions to structured clinical reports\\footnote{Our code is publicly available for transparency and reproducibility",
+        "url": "http://arxiv.org/abs/2602.22098v1",
+        "published_date": "2026-02-25T16:46:45+00:00",
+        "updated_date": "2026-02-25T16:46:45+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Mariano Barone",
+            "Francesco Di Serio",
+            "Giuseppe Riccio",
+            "Antonio Romano",
+            "Marco Postiglione",
+            "Antonino Ferraro",
+            "Vincenzo Moscato"
+        ],
+        "tldr": "The paper introduces Brain3D, a staged vision-language framework for automated radiology report generation from 3D brain tumor MRI, achieving significant performance gains over 2D baselines by leveraging inflated 3D Vision Transformers and staged alignment.",
+        "tldr_zh": "该论文介绍了Brain3D，一个用于从3D脑肿瘤MRI自动生成放射学报告的分阶段视觉语言框架，通过利用膨胀的3D视觉Transformer和分阶段对齐，实现了相对于2D基线的显著性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "RobustVisRAG: Causality-Aware Vision-Based Retrieval-Augmented Generation under Visual Degradations",
+        "summary": "Vision-based Retrieval-Augmented Generation (VisRAG) leverages vision-language models (VLMs) to jointly retrieve relevant visual documents and generate grounded answers based on multimodal evidence. However, existing VisRAG models degrade in performance when visual inputs suffer from distortions such as blur, noise, low light, or shadow, where semantic and degradation factors become entangled within pretrained visual encoders, leading to errors in both retrieval and generation stages. To address this limitation, we introduce RobustVisRAG, a causality-guided dual-path framework that improves VisRAG robustness while preserving efficiency and zero-shot generalization. RobustVisRAG uses a non-causal path to capture degradation signals through unidirectional attention and a causal path to learn purified semantics guided by these signals. Together with the proposed Non-Causal Distortion Modeling and Causal Semantic Alignment objectives, the framework enforces a clear separation between semantics and degradations, enabling stable retrieval and generation under challenging visual conditions. To evaluate robustness under realistic conditions, we introduce the Distortion-VisRAG dataset, a large-scale benchmark containing both synthetic and real-world degraded documents across seven domains, with 12 synthetic and 5 real distortion types that comprehensively reflect practical visual degradations. Experimental results show that RobustVisRAG improves retrieval, generation, and end-to-end performance by 7.35%, 6.35%, and 12.40%, respectively, on real-world degradations, while maintaining comparable accuracy on clean inputs.",
+        "url": "http://arxiv.org/abs/2602.22013v1",
+        "published_date": "2026-02-25T15:27:57+00:00",
+        "updated_date": "2026-02-25T15:27:57+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "I-Hsiang Chen",
+            "Yu-Wei Liu",
+            "Tse-Yu Wu",
+            "Yu-Chien Chiang",
+            "Jen-Chien Yang",
+            "Wei-Ting Chen"
+        ],
+        "tldr": "This paper introduces RobustVisRAG, a causality-guided framework to improve the robustness of Vision-based Retrieval-Augmented Generation (VisRAG) models under visual distortions, along with a new benchmark dataset for evaluation.",
+        "tldr_zh": "本文介绍了 RobustVisRAG，一个因果引导的框架，旨在提高基于视觉的检索增强生成 (VisRAG) 模型在视觉失真下的鲁棒性，并提出了一个新的基准数据集用于评估。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "World Guidance: World Modeling in Condition Space for Action Generation",
+        "summary": "Leveraging future observation modeling to facilitate action generation presents a promising avenue for enhancing the capabilities of Vision-Language-Action (VLA) models. However, existing approaches struggle to strike a balance between maintaining efficient, predictable future representations and preserving sufficient fine-grained information to guide precise action generation. To address this limitation, we propose WoG (World Guidance), a framework that maps future observations into compact conditions by injecting them into the action inference pipeline. The VLA is then trained to simultaneously predict these compressed conditions alongside future actions, thereby achieving effective world modeling within the condition space for action inference. We demonstrate that modeling and predicting this condition space not only facilitates fine-grained action generation but also exhibits superior generalization capabilities. Moreover, it learns effectively from substantial human manipulation videos. Extensive experiments across both simulation and real-world environments validate that our method significantly outperforms existing methods based on future prediction. Project page is available at: https://selen-suyue.github.io/WoGNet/",
+        "url": "http://arxiv.org/abs/2602.22010v1",
+        "published_date": "2026-02-25T15:27:09+00:00",
+        "updated_date": "2026-02-25T15:27:09+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.CV"
+        ],
+        "authors": [
+            "Yue Su",
+            "Sijin Chen",
+            "Haixin Shi",
+            "Mingyu Liu",
+            "Zhengshen Zhang",
+            "Ningyuan Huang",
+            "Weiheng Zhong",
+            "Zhengbang Zhu",
+            "Yuxiao Liu",
+            "Xihui Liu"
+        ],
+        "tldr": "The paper introduces WoG, a framework that models future observations as compact conditions injected into the action inference pipeline of Vision-Language-Action models, improving fine-grained action generation and generalization.",
+        "tldr_zh": "该论文介绍了一个名为WoG的框架，该框架将未来的观察结果建模为紧凑的条件，并将其注入到视觉-语言-动作模型的动作推断流程中，从而改进了细粒度的动作生成和泛化能力。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "PanoEnv: Exploring 3D Spatial Intelligence in Panoramic Environments with Reinforcement Learning",
+        "summary": "360 panoramic images are increasingly used in virtual reality, autonomous driving, and robotics for holistic scene understanding. However, current Vision-Language Models (VLMs) struggle with 3D spatial reasoning on Equirectangular Projection (ERP) images due to geometric distortion and limited 3D supervision. We introduce PanoEnv, a large-scale VQA benchmark built from synthetic 3D environments, containing 14.8K questions across five categories (e.g., relative position, volume comparison) grounded in accurate 3D annotations including depth, segmentation, and bounding boxes. Benchmarking 14 state-of-the-art VLMs reveals limited 3D understanding, achieving only 49.34% overall accuracy and 8.36% on open-ended (OE) questions. To enhance 3D reasoning, we propose a reinforcement learning post-training framework based on Group Relative Policy Optimization (GRPO) with a ground-truth-guided reward that incorporates five geometry-aware strategies such as distance tolerance and spatial consistency. A two-stage curriculum further mitigates catastrophic forgetting: Stage 1 trains on structured tasks (true/false and multiple choice), and Stage 2 fine-tunes on mixed open-ended data to improve generalization. Our 7B model achieves new state-of-the-art performance, improving overall accuracy to 52.93% (+3.59%) and open-ended accuracy to 14.83% while maintaining structured-task performance. It also achieves top semantic evaluation scores (Q-Score 6.24, P-Score 5.95), surpassing 32B models. These results demonstrate that PanoEnv-QA and our curriculum-based RL framework effectively instill 3D spatial intelligence in VLMs for omnidirectional perception.",
+        "url": "http://arxiv.org/abs/2602.21992v1",
+        "published_date": "2026-02-25T15:12:17+00:00",
+        "updated_date": "2026-02-25T15:12:17+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zekai Lin",
+            "Xu Zheng"
+        ],
+        "tldr": "This paper introduces PanoEnv, a new VQA benchmark for 3D spatial reasoning in panoramic images, and proposes a reinforcement learning framework to improve VLM performance on this task, achieving state-of-the-art results.",
+        "tldr_zh": "该论文介绍了PanoEnv，一个新的用于全景图像中3D空间推理的VQA基准，并提出了一个强化学习框架来提高VLM在此任务上的性能，实现了最先进的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MindDriver: Introducing Progressive Multimodal Reasoning for Autonomous Driving",
+        "summary": "Vision-Language Models (VLM) exhibit strong reasoning capabilities, showing promise for end-to-end autonomous driving systems. Chain-of-Thought (CoT), as VLM's widely used reasoning strategy, is facing critical challenges. Existing textual CoT has a large gap between text semantic space and trajectory physical space. Although the recent approach utilizes future image to replace text as CoT process, it lacks clear planning-oriented objective guidance to generate images with accurate scene evolution. To address these, we innovatively propose MindDriver, a progressive multimodal reasoning framework that enables VLM to imitate human-like progressive thinking for autonomous driving. MindDriver presents semantic understanding, semantic-to-physical space imagination, and physical-space trajectory planning. To achieve aligned reasoning processes in MindDriver, we develop a feedback-guided automatic data annotation pipeline to generate aligned multimodal reasoning training data. Furthermore, we develop a progressive reinforcement fine-tuning method to optimize the alignment through progressive high- level reward-based learning. MindDriver demonstrates superior performance in both nuScences open-loop and Bench2Drive closed-loop evaluation. Codes are available at https://github.com/hotdogcheesewhite/MindDriver.",
+        "url": "http://arxiv.org/abs/2602.21952v1",
+        "published_date": "2026-02-25T14:34:50+00:00",
+        "updated_date": "2026-02-25T14:34:50+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Lingjun Zhang",
+            "Yujian Yuan",
+            "Changjie Wu",
+            "Xinyuan Chang",
+            "Xin Cai",
+            "Shuang Zeng",
+            "Linzhe Shi",
+            "Sijin Wang",
+            "Hang Zhang",
+            "Mu Xu"
+        ],
+        "tldr": "The paper introduces MindDriver, a progressive multimodal reasoning framework for autonomous driving using VLMs, addressing limitations of existing Chain-of-Thought approaches by incorporating semantic understanding, imagination, and trajectory planning. It includes a novel data annotation pipeline and reinforcement fine-tuning method, demonstrating superior performance in driving benchmarks.",
+        "tldr_zh": "该论文介绍了MindDriver，一种用于自动驾驶的渐进式多模态推理框架，它使用VLM，通过结合语义理解、想象和轨迹规划来解决现有思维链方法的局限性。它包括一个新的数据标注管道和强化微调方法，并在驾驶基准测试中表现出卓越的性能。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "DynamicGTR: Leveraging Graph Topology Representation Preferences to Boost VLM Capabilities on Graph QAs",
+        "summary": "Vision-Language Models (VLMs) have emerged as versatile solutions for zero-shot question answering (QA) across various domains. However, enabling VLMs to effectively comprehend structured graphs and perform accurate, efficient QA remains challenging. Existing approaches typically rely on one single graph topology representation (GTR), such as fixed-style visual images or unified text descriptions. This ``one-size-fits-all'' strategy often neglects model-specific and task-specific preferences, resulting in inaccurate or over-lengthy responses to graph-related queries. To address this, we propose the $\\mbox{DynamicGTR}$ framework, which dynamically selects the optimal GTR for each query during inference, thereby enhancing the zero-shot graph QA capabilities of VLMs with a customizable accuracy and brevity trade-off. Extensive experiments show that DynamicGTR not only improves VLM-based graph algorithm QA performance but also successfully transfers the experience trained from synthetic graph algorithm tasks to real-world applications like link prediction and node classification, without any additional training. Additionally, DynamicGTR demonstrates strong transferability across tasks, domains, and models, suggesting its potential as a flexible solution for broad graph scenarios.",
+        "url": "http://arxiv.org/abs/2602.21864v1",
+        "published_date": "2026-02-25T12:45:45+00:00",
+        "updated_date": "2026-02-25T12:45:45+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.GR"
+        ],
+        "authors": [
+            "Yanbin Wei",
+            "Jiangyue Yan",
+            "Chun Kang",
+            "Yang Chen",
+            "Hua Liu",
+            "James Kwok",
+            "Yu Zhang"
+        ],
+        "tldr": "The paper introduces DynamicGTR, a framework that dynamically selects the optimal graph topology representation for each query to improve VLM-based zero-shot graph QA across tasks and domains without additional training.",
+        "tldr_zh": "该论文介绍了 DynamicGTR 框架，该框架动态选择每个查询的最佳图拓扑表示，以提高基于 VLM 的零样本图 QA 的性能，且无需额外训练，适用于各种任务和领域。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SkyReels-V4: Multi-modal Video-Audio Generation, Inpainting and Editing model",
+        "summary": "SkyReels V4 is a unified multi modal video foundation model for joint video audio generation, inpainting, and editing. The model adopts a dual stream Multimodal Diffusion Transformer (MMDiT) architecture, where one branch synthesizes video and the other generates temporally aligned audio, while sharing a powerful text encoder based on the Multimodal Large Language Models (MMLM). SkyReels V4 accepts rich multi modal instructions, including text, images, video clips, masks, and audio references. By combining the MMLMs multi modal instruction following capability with in context learning in the video branch MMDiT, the model can inject fine grained visual guidance under complex conditioning, while the audio branch MMDiT simultaneously leverages audio references to guide sound generation. On the video side, we adopt a channel concatenation formulation that unifies a wide range of inpainting style tasks, such as image to video, video extension, and video editing under a single interface, and naturally extends to vision referenced inpainting and editing via multi modal prompts. SkyReels V4 supports up to 1080p resolution, 32 FPS, and 15 second duration, enabling high fidelity, multi shot, cinema level video generation with synchronized audio. To make such high resolution, long-duration generation computationally feasible, we introduce an efficiency strategy: Joint generation of low resolution full sequences and high-resolution keyframes, followed by dedicated super-resolution and frame interpolation models. To our knowledge, SkyReels V4 is the first video foundation model that simultaneously supports multi-modal input, joint video audio generation, and a unified treatment of generation, inpainting, and editing, while maintaining strong efficiency and quality at cinematic resolutions and durations.",
+        "url": "http://arxiv.org/abs/2602.21818v1",
+        "published_date": "2026-02-25T11:47:00+00:00",
+        "updated_date": "2026-02-25T11:47:00+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Guibin Chen",
+            "Dixuan Lin",
+            "Jiangping Yang",
+            "Youqiang Zhang",
+            "Zhengcong Fei",
+            "Debang Li",
+            "Sheng Chen",
+            "Chaofeng Ao",
+            "Nuo Pang",
+            "Yiming Wang",
+            "Yikun Dou",
+            "Zheng Chen",
+            "Mingyuan Fan",
+            "Tuanhui Li",
+            "Mingshan Chang",
+            "Hao Zhang",
+            "Xiaopeng Sun",
+            "Jingtao Xu",
+            "Yuqiang Xie",
+            "Jiahua Wang",
+            "Zhiheng Xu",
+            "Weiming Xiong",
+            "Yuzhe Jin",
+            "Baoxuan Gu",
+            "Binjie Mao",
+            "Yunjie Yu",
+            "Jujie He",
+            "Yuhao Feng",
+            "Shiwen Tu",
+            "Chaojie Wang",
+            "Rui Yan",
+            "Wei Shen",
+            "Jingchen Wu",
+            "Peng Zhao",
+            "Xuanyue Zhong",
+            "Zhuangzhuang Liu",
+            "Kaifei Wang",
+            "Fuxiang Zhang",
+            "Weikai Xu",
+            "Wenyan Liu",
+            "Binglu Zhang",
+            "Yu Shen",
+            "Tianhui Xiong",
+            "Bin Peng",
+            "Liang Zeng",
+            "Xuchen Song",
+            "Haoxiang Guo",
+            "Peiyu Wang",
+            "Yahui Zhou"
+        ],
+        "tldr": "SkyReels-V4 is a multi-modal video foundation model for joint video-audio generation, inpainting, and editing, supporting high-resolution, long-duration cinematic videos with synchronized audio through a dual-stream Multimodal Diffusion Transformer architecture and efficient generation strategies.",
+        "tldr_zh": "SkyReels-V4是一个多模态视频基础模型，用于联合视频音频生成、修复和编辑。它通过双流多模态扩散Transformer架构和高效的生成策略，支持高分辨率、长时间的电影级视频以及同步音频。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 8,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Beyond Static Artifacts: A Forensic Benchmark for Video Deepfake Reasoning in Vision Language Models",
+        "summary": "Current Vision-Language Models (VLMs) for deepfake detection excel at identifying spatial artifacts but overlook a critical dimension: temporal inconsistencies in video forgeries. Adapting VLMs to reason about these dynamic cues remains a distinct challenge. To bridge this gap, we propose Forensic Answer-Questioning (FAQ), a large-scale benchmark that formulates temporal deepfake analysis as a multiple-choice task. FAQ introduces a three-level hierarchy to progressively evaluate and equip VLMs with forensic capabilities: (1) Facial Perception, testing the ability to identify static visual artifacts; (2) Temporal Deepfake Grounding, requiring the localization of dynamic forgery artifacts across frames; and (3) Forensic Reasoning, challenging models to synthesize evidence for final authenticity verdicts. We evaluate a range of VLMs on FAQ and generate a corresponding instruction-tuning set, FAQ-IT. Extensive experiments show that models fine-tuned on FAQ-IT achieve advanced performance on both in-domain and cross-dataset detection benchmarks. Ablation studies further validate the impact of our key design choices, confirming that FAQ is the driving force behind the temporal reasoning capabilities of these VLMs.",
+        "url": "http://arxiv.org/abs/2602.21779v1",
+        "published_date": "2026-02-25T10:54:55+00:00",
+        "updated_date": "2026-02-25T10:54:55+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Zheyuan Gu",
+            "Qingsong Zhao",
+            "Yusong Wang",
+            "Zhaohong Huang",
+            "Xinqi Li",
+            "Cheng Yuan",
+            "Jiaowei Shao",
+            "Chi Zhang",
+            "Xuelong Li"
+        ],
+        "tldr": "The paper introduces FAQ, a benchmark for evaluating and improving VLMs' ability to detect temporal inconsistencies in deepfake videos, along with a corresponding instruction-tuning set (FAQ-IT) that significantly enhances performance.",
+        "tldr_zh": "该论文介绍了FAQ，一个用于评估和提高VLM检测深度伪造视频中时间不一致性的基准，以及相应的指令微调数据集(FAQ-IT)，该数据集显著提高了性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Enhancing Multi-Modal LLMs Reasoning via Difficulty-Aware Group Normalization",
+        "summary": "Reinforcement Learning with Verifiable Rewards (RLVR) and Group Relative Policy Optimization (GRPO) have significantly advanced the reasoning capabilities of large language models. Extending these methods to multimodal settings, however, faces a critical challenge: the instability of std-based normalization, which is easily distorted by extreme samples with nearly positive or negative rewards. Unlike pure-text LLMs, multimodal models are particularly sensitive to such distortions, as both perceptual and reasoning errors influence their responses. To address this, we characterize each sample by its difficulty, defined through perceptual complexity (measured via visual entropy) and reasoning uncertainty (captured by model confidence). Building on this characterization, we propose difficulty-aware group normalization (Durian), which re-groups samples by difficulty levels and shares the std within each group. Our approach preserves GRPO's intra-group distinctions while eliminating sensitivity to extreme cases, yielding significant performance gains across multiple multimodal reasoning benchmarks.",
+        "url": "http://arxiv.org/abs/2602.21743v1",
+        "published_date": "2026-02-25T09:52:50+00:00",
+        "updated_date": "2026-02-25T09:52:50+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jinghan Li",
+            "Junfeng Fang",
+            "Jinda Lu",
+            "Yuan Wang",
+            "Xiaoyan Guo",
+            "Tianyu Zhang",
+            "Xiang Wang",
+            "Xiangnan He"
+        ],
+        "tldr": "This paper introduces a difficulty-aware group normalization technique (Durian) to stabilize training and improve performance of multi-modal LLMs in reinforcement learning settings, specifically addressing the issue of extreme sample distortion when extending methods like GRPO to multimodal contexts.",
+        "tldr_zh": "本文介绍了一种难度感知分组归一化技术 (Durian)，旨在稳定多模态 LLM 在强化学习环境中的训练并提高其性能，特别解决在将 GRPO 等方法扩展到多模态环境时出现的极端样本失真问题。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 8,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "SurGo-R1: Benchmarking and Modeling Contextual Reasoning for Operative Zone in Surgical Video",
+        "summary": "Minimally invasive surgery has dramatically improved patient operative outcomes, yet identifying safe operative zones remains challenging in critical phases, requiring surgeons to integrate visual cues, procedural phase, and anatomical context under high cognitive load. Existing AI systems offer binary safety verification or static detection, ignoring the phase-dependent nature of intraoperative reasoning. We introduce ResGo, a benchmark of laparoscopic frames annotated with Go Zone bounding boxes and clinician-authored rationales covering phase, exposure quality reasoning, next action and risk reminder. We introduce evaluation metrics that treat correct grounding under incorrect phase as failures, revealing that most vision-language models cannot handle such tasks and perform poorly. We then present SurGo-R1, a model optimized via RLHF with a multi-turn phase-then-go architecture where the model first identifies the surgical phase, then generates reasoning and Go Zone coordinates conditioned on that context. On unseen procedures, SurGo-R1 achieves 76.6% phase accuracy, 32.7 mIoU, and 54.8% hardcore accuracy, a 6.6$\\times$ improvement over the mainstream generalist VLMs. Code, model and benchmark will be available at https://github.com/jinlab-imvr/SurGo-R1",
+        "url": "http://arxiv.org/abs/2602.21706v1",
+        "published_date": "2026-02-25T09:11:45+00:00",
+        "updated_date": "2026-02-25T09:11:45+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Guanyi Qin",
+            "Xiaozhen Wang",
+            "Zhu Zhuo",
+            "Chang Han Low",
+            "Yuancan Xiao",
+            "Yibing Fu",
+            "Haofeng Liu",
+            "Kai Wang",
+            "Chunjiang Li",
+            "Yueming Jin"
+        ],
+        "tldr": "The paper introduces SurGo-R1, a benchmark and RLHF-optimized model for contextual reasoning about safe operative zones in surgical videos, demonstrating significant improvements over generalist VLMs by explicitly modeling surgical phases.",
+        "tldr_zh": "该论文介绍了SurGo-R1，一个用于手术视频中安全手术区域上下文推理的基准和RLHF优化模型，通过显式建模手术阶段，比通用VLM有了显著改进。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Dynamic Multimodal Activation Steering for Hallucination Mitigation in Large Vision-Language Models",
+        "summary": "Large Vision-Language Models (LVLMs) exhibit outstanding performance on vision-language tasks but struggle with hallucination problems. Through in-depth analysis of LVLM activation patterns, we reveal two key findings: 1) truthfulness and visual perception capabilities predominantly engage different subsets of attention heads within the model architecture; and 2) truthfulness steering vectors vary significantly across different semantic contexts. Based on these observations, we propose Dynamic Multimodal Activation Steering, a training-free approach for hallucination mitigation. Our method constructs a semantic-based truthfulness steering vector database and computes visual perception steering vectors, enabling context-aware interventions during inference by dynamically selecting the most relevant steering vectors based on input semantic similarity and applying them to the most influential attention heads. We conduct comprehensive experiments across multiple models and datasets, demonstrating that our approach significantly enhances model performance, outperforming existing state-of-the-art methods.",
+        "url": "http://arxiv.org/abs/2602.21704v1",
+        "published_date": "2026-02-25T09:10:00+00:00",
+        "updated_date": "2026-02-25T09:10:00+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Jianghao Yin",
+            "Qin Chen",
+            "Kedi Chen",
+            "Jie Zhou",
+            "Xingjiao Wu",
+            "Liang He"
+        ],
+        "tldr": "This paper introduces a training-free Dynamic Multimodal Activation Steering method to mitigate hallucination in LVLMs by dynamically applying context-aware steering vectors to influential attention heads, demonstrating superior performance compared to existing methods.",
+        "tldr_zh": "该论文提出了一种无需训练的动态多模态激活引导方法，通过将上下文感知的引导向量动态应用于有影响力的注意力头，来缓解LVLM中的幻觉问题，并展示了优于现有方法的性能。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "CCCaption: Dual-Reward Reinforcement Learning for Complete and Correct Image Captioning",
+        "summary": "Image captioning remains a fundamental task for vision language understanding, yet ground-truth supervision still relies predominantly on human-annotated references. Because human annotations reflect subjective preferences and expertise, ground-truth captions are often incomplete or even incorrect, which in turn limits caption models. We argue that caption quality should be assessed by two objective aspects: completeness (does the caption cover all salient visual facts?) and correctness (are the descriptions true with respect to the image?). To this end, we introduce CCCaption: a dual-reward reinforcement learning framework with a dedicated fine-tuning corpus that explicitly optimizes these properties to generate \\textbf{C}omplete and \\textbf{C}orrect \\textbf{Captions}. For completeness, we use diverse LVLMs to disentangle the image into a set of visual queries, and reward captions that answer more of these queries, with a dynamic query sampling strategy to improve training efficiency. For correctness, we penalize captions that contain hallucinations by validating the authenticity of sub-caption queries, which are derived from the caption decomposition. Our symmetric dual-reward optimization jointly maximizes completeness and correctness, guiding models toward captions that better satisfy these objective criteria. Extensive experiments across standard captioning benchmarks show consistent improvements, offering a principled path to training caption models beyond human-annotation imitation.",
+        "url": "http://arxiv.org/abs/2602.21655v1",
+        "published_date": "2026-02-25T07:34:26+00:00",
+        "updated_date": "2026-02-25T07:34:26+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Zhijiang Tang",
+            "Linhua Wang",
+            "Jiaxin Qi",
+            "Weihao Jiang",
+            "Peng Hou",
+            "Anxiang Zeng",
+            "Jianqiang Huang"
+        ],
+        "tldr": "The paper introduces CCCaption, a dual-reward reinforcement learning framework that optimizes image captioning for completeness and correctness by using LVLMs and a fine-tuning corpus, outperforming imitation of human annotations.",
+        "tldr_zh": "该论文介绍了 CCCaption，一个双重奖励强化学习框架，通过使用 LVLMs 和微调语料库来优化图像字幕的完整性和正确性，优于模仿人类注释。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Virtual Biopsy for Intracranial Tumors Diagnosis on MRI",
+        "summary": "Deep intracranial tumors situated in eloquent brain regions controlling vital functions present critical diagnostic challenges. Clinical practice has shifted toward stereotactic biopsy for pathological confirmation before treatment. Yet biopsy carries inherent risks of hemorrhage and neurological deficits and struggles with sampling bias due to tumor spatial heterogeneity, because pathological changes are typically region-selective rather than tumor-wide. Therefore, advancing non-invasive MRI-based pathology prediction is essential for holistic tumor assessment and modern clinical decision-making.\n  The primary challenge lies in data scarcity: low tumor incidence requires long collection cycles, and annotation demands biopsy-verified pathology from neurosurgical experts. Additionally, tiny lesion volumes lacking segmentation masks cause critical features to be overwhelmed by background noise. To address these challenges, we construct the ICT-MRI dataset - the first public biopsy-verified benchmark with 249 cases across four categories. We propose a Virtual Biopsy framework comprising: MRI-Processor for standardization; Tumor-Localizer employing vision-language models for coarse-to-fine localization via weak supervision; and Adaptive-Diagnoser with a Masked Channel Attention mechanism fusing local discriminative features with global contexts. Experiments demonstrate over 90% accuracy, outperforming baselines by more than 20%.",
+        "url": "http://arxiv.org/abs/2602.21613v1",
+        "published_date": "2026-02-25T06:14:30+00:00",
+        "updated_date": "2026-02-25T06:14:30+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Xinzhe Luo",
+            "Shuai Shao",
+            "Yan Wang",
+            "Jiangtao Wang",
+            "Yutong Bai",
+            "Jianguo Zhang"
+        ],
+        "tldr": "The paper introduces a new biopsy-verified MRI dataset (ICT-MRI) for intracranial tumor diagnosis and proposes a Virtual Biopsy framework using vision-language models for tumor localization and a masked channel attention mechanism for accurate diagnosis, achieving over 90% accuracy.",
+        "tldr_zh": "该论文介绍了一个新的经过活检验证的MRI数据集（ICT-MRI），用于颅内肿瘤诊断，并提出了一个虚拟活检框架，使用视觉-语言模型进行肿瘤定位，以及一个掩蔽通道注意力机制来实现准确诊断，准确率超过90%。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "LiLo-VLA: Compositional Long-Horizon Manipulation via Linked Object-Centric Policies",
+        "summary": "General-purpose robots must master long-horizon manipulation, defined as tasks involving multiple kinematic structure changes (e.g., attaching or detaching objects) in unstructured environments. While Vision-Language-Action (VLA) models offer the potential to master diverse atomic skills, they struggle with the combinatorial complexity of sequencing them and are prone to cascading failures due to environmental sensitivity. To address these challenges, we propose LiLo-VLA (Linked Local VLA), a modular framework capable of zero-shot generalization to novel long-horizon tasks without ever being trained on them. Our approach decouples transport from interaction: a Reaching Module handles global motion, while an Interaction Module employs an object-centric VLA to process isolated objects of interest, ensuring robustness against irrelevant visual features and invariance to spatial configurations. Crucially, this modularity facilitates robust failure recovery through dynamic replanning and skill reuse, effectively mitigating the cascading errors common in end-to-end approaches. We introduce a 21-task simulation benchmark consisting of two challenging suites: LIBERO-Long++ and Ultra-Long. In these simulations, LiLo-VLA achieves a 69% average success rate, outperforming Pi0.5 by 41% and OpenVLA-OFT by 67%. Furthermore, real-world evaluations across 8 long-horizon tasks demonstrate an average success rate of 85%. Project page: https://yy-gx.github.io/LiLo-VLA/.",
+        "url": "http://arxiv.org/abs/2602.21531v1",
+        "published_date": "2026-02-25T03:33:39+00:00",
+        "updated_date": "2026-02-25T03:33:39+00:00",
+        "categories": [
+            "cs.RO",
+            "cs.AI",
+            "cs.CV",
+            "cs.LG",
+            "eess.SY"
+        ],
+        "authors": [
+            "Yue Yang",
+            "Shuo Cheng",
+            "Yu Fang",
+            "Homanga Bharadhwaj",
+            "Mingyu Ding",
+            "Gedas Bertasius",
+            "Daniel Szafir"
+        ],
+        "tldr": "The paper introduces LiLo-VLA, a modular Vision-Language-Action framework for long-horizon robotic manipulation that decouples transport and interaction, achieving robust zero-shot generalization and failure recovery in complex simulated and real-world tasks.",
+        "tldr_zh": "该论文介绍了LiLo-VLA，一种用于长时程机器人操作的模块化视觉-语言-动作框架，它将运输和交互分离，在复杂的模拟和现实世界任务中实现了强大的零样本泛化和故障恢复。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "See It, Say It, Sorted: An Iterative Training-Free Framework for Visually-Grounded Multimodal Reasoning in LVLMs",
+        "summary": "Recent large vision-language models (LVLMs) have demonstrated impressive reasoning ability by generating long chain-of-thought (CoT) responses. However, CoT reasoning in multimodal contexts is highly vulnerable to visual hallucination propagation: once an intermediate reasoning step becomes inconsistent with the visual evidence, subsequent steps-even if logically valid-can still lead to incorrect final answers. Existing solutions attempt to mitigate this issue by training models to \"think with images\" via reinforcement learning (RL). While effective, these methods are costly, model-specific, and difficult to generalize across architectures. Differently, we present a lightweight method that bypasses RL training and provides an iterative, training-free, plug-and-play framework for visually-grounded multimodal reasoning. Our key idea is to supervise each reasoning step at test time with visual evidence, ensuring that every decoded token is justified by corresponding visual cues. Concretely, we construct a textual visual-evidence pool that guides the model's reasoning generation. When existing evidence is insufficient, a visual decider module dynamically extracts additional relevant evidence from the image based on the ongoing reasoning context, expanding the pool until the model achieves sufficient visual certainty to terminate reasoning and produce the final answer. Extensive experiments on multiple LVLM backbones and benchmarks demonstrate the effectiveness of our approach. Our method achieves 16.5%-29.5% improvements on TreeBench and 13.7% RH-AUC gains on RH-Bench, substantially reducing hallucination rates while improving reasoning accuracy without additional training.",
+        "url": "http://arxiv.org/abs/2602.21497v1",
+        "published_date": "2026-02-25T02:13:59+00:00",
+        "updated_date": "2026-02-25T02:13:59+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yongchang Zhang",
+            "Xianzheng Ma",
+            "Tianyi Liu",
+            "Guangquan Zhou",
+            "Yang Chen"
+        ],
+        "tldr": "The paper introduces a training-free, iterative framework to mitigate visual hallucination in LVLMs by supervising each reasoning step with visual evidence, achieving significant performance improvements on benchmark datasets.",
+        "tldr_zh": "该论文介绍了一种无需训练的迭代框架，通过用视觉证据监督每个推理步骤来减轻LVLM中的视觉幻觉，并在基准数据集上实现了显着的性能改进。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Causal Decoding for Hallucination-Resistant Multimodal Large Language Models",
+        "summary": "Multimodal Large Language Models (MLLMs) deliver detailed responses on vision-language tasks, yet remain susceptible to object hallucination (introducing objects not present in the image), undermining reliability in practice. Prior efforts often rely on heuristic penalties, post-hoc correction, or generic decoding tweaks, which do not directly intervene in the mechanisms that trigger object hallucination and thus yield limited gains. To address this challenge, we propose a causal decoding framework that applies targeted causal interventions during generation to curb spurious object mentions. By reshaping the decoding dynamics to attenuate spurious dependencies, our approach reduces false object tokens while maintaining descriptive quality. Across captioning and QA benchmarks, our framework substantially lowers object-hallucination rates and achieves state-of-the-art faithfulness without degrading overall output quality.",
+        "url": "http://arxiv.org/abs/2602.21441v1",
+        "published_date": "2026-02-24T23:35:46+00:00",
+        "updated_date": "2026-02-24T23:35:46+00:00",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Shiwei Tan",
+            "Hengyi Wang",
+            "Weiyi Qin",
+            "Qi Xu",
+            "Zhigang Hua",
+            "Hao Wang"
+        ],
+        "tldr": "This paper introduces a causal decoding framework to reduce object hallucination in Multimodal Large Language Models (MLLMs), achieving state-of-the-art faithfulness without compromising output quality.",
+        "tldr_zh": "本文介绍了一种因果解码框架，旨在减少多模态大型语言模型（MLLM）中的对象幻觉现象，并在不影响输出质量的前提下，实现了最先进的真实性。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Synergizing Understanding and Generation with Interleaved Analyzing-Drafting Thinking",
+        "summary": "Unified Vision-Language Models (UVLMs) aim to advance multimodal learning by supporting both understanding and generation within a single framework. However, existing approaches largely focus on architectural unification while overlooking the need for explicit interaction between the two capabilities during task solving. As a result, current models treat understanding and generation as parallel skills rather than synergistic processes. To achieve real synergy, we introduce the interleaved Analyzing-Drafting problem-solving loop (AD-Loop), a new think paradigm that dynamically alternates between analytic and drafting operations. By interleaving textual thoughts with visual thoughts, AD-Loop enables models to iteratively refine both comprehension and outputs, fostering genuine synergy. To train this mechanism, we design a two-stage strategy: supervised learning on interleaved thought data to initialize alternation, followed by reinforcement learning to promote adaptive and autonomous control. Extensive experiments demonstrate that AD-Loop consistently improves performance across standard benchmarks for both understanding and generation, with strong transferability to various UVLMs architectures. Visual analyses further validate the effectiveness of implicit visual thoughts. These results highlight AD-Loop as a principled and broadly applicable strategy for synergizing comprehension and creation. The project page is at https://sqwu.top/AD-Loop.",
+        "url": "http://arxiv.org/abs/2602.21435v1",
+        "published_date": "2026-02-24T23:26:09+00:00",
+        "updated_date": "2026-02-24T23:26:09+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Shengqiong Wu",
+            "Bobo Li",
+            "Xinkai Wang",
+            "Xiangtai Li",
+            "Lei Cui",
+            "Furu Wei",
+            "Shuicheng Yan",
+            "Hao Fei",
+            "Tat-seng Chua"
+        ],
+        "tldr": "This paper introduces AD-Loop, a novel training paradigm for Vision-Language Models that interleaves analyzing and drafting operations to synergize understanding and generation, achieving performance gains on standard benchmarks.",
+        "tldr_zh": "本文介绍了一种名为 AD-Loop 的新型视觉语言模型训练范式，它通过交错分析和起草操作来协同理解和生成，从而在标准基准测试中实现了性能提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "PSF-Med: Measuring and Explaining Paraphrase Sensitivity in Medical Vision Language Models",
+        "summary": "Medical Vision Language Models (VLMs) can change their answers when clinicians rephrase the same question, which raises deployment risks. We introduce Paraphrase Sensitivity Failure (PSF)-Med, a benchmark of 19,748 chest Xray questions paired with about 92,000 meaningpreserving paraphrases across MIMIC-CXR and PadChest. Across six medical VLMs, we measure yes/no flips for the same image and find flip rates from 8% to 58%. However, low flip rate does not imply visual grounding: text-only baselines show that some models stay consistent even when the image is removed, suggesting they rely on language priors. To study mechanisms in one model, we apply GemmaScope 2 Sparse Autoencoders (SAEs) to MedGemma 4B and analyze FlipBank, a curated set of 158 flip cases. We identify a sparse feature at layer 17 that correlates with prompt framing and predicts decision margin shifts. In causal patching, removing this feature's contribution recovers 45% of the yesminus-no logit margin on average and fully reverses 15% of flips. Acting on this finding, we show that clamping the identified feature at inference reduces flip rates by 31% relative with only a 1.3 percentage-point accuracy cost, while also decreasing text-prior reliance. These results suggest that flip rate alone is not enough; robustness evaluations should test both paraphrase stability and image reliance.",
+        "url": "http://arxiv.org/abs/2602.21428v1",
+        "published_date": "2026-02-24T23:03:50+00:00",
+        "updated_date": "2026-02-24T23:03:50+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "authors": [
+            "Binesh Sadanandan",
+            "Vahid Behzadan"
+        ],
+        "tldr": "The paper introduces PSF-Med, a benchmark for measuring paraphrase sensitivity in medical VLMs, finding significant flip rates and identifying a feature correlating with prompt framing that influences decision margins, allowing for mitigation strategies.",
+        "tldr_zh": "该论文介绍了PSF-Med，一个用于测量医学VLM中释义敏感性的基准。研究发现显著的翻转率，并识别出一个与提示框架相关的特征，该特征影响决策边界，并由此提出了缓解策略。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Exploring Vision-Language Models for Open-Vocabulary Zero-Shot Action Segmentation",
+        "summary": "Temporal Action Segmentation (TAS) requires dividing videos into action segments, yet the vast space of activities and alternative breakdowns makes collecting comprehensive datasets infeasible. Existing methods remain limited to closed vocabularies and fixed label sets. In this work, we explore the largely unexplored problem of Open-Vocabulary Zero-Shot Temporal Action Segmentation (OVTAS) by leveraging the strong zero-shot capabilities of Vision-Language Models (VLMs). We introduce a training-free pipeline that follows a segmentation-by-classification design: Frame-Action Embedding Similarity (FAES) matches video frames to candidate action labels, and Similarity-Matrix Temporal Segmentation (SMTS) enforces temporal consistency. Beyond proposing OVTAS, we present a systematic study across 14 diverse VLMs, providing the first broad analysis of their suitability for open-vocabulary action segmentation. Experiments on standard benchmarks show that OVTAS achieves strong results without task-specific supervision, underscoring the potential of VLMs for structured temporal understanding.",
+        "url": "http://arxiv.org/abs/2602.21406v1",
+        "published_date": "2026-02-24T22:23:22+00:00",
+        "updated_date": "2026-02-24T22:23:22+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Asim Unmesh",
+            "Kaki Ramesh",
+            "Mayank Patel",
+            "Rahul Jain",
+            "Karthik Ramani"
+        ],
+        "tldr": "This paper introduces a training-free pipeline for Open-Vocabulary Zero-Shot Temporal Action Segmentation (OVTAS) using Vision-Language Models (VLMs), demonstrating strong performance on standard benchmarks without task-specific supervision.",
+        "tldr_zh": "本文介绍了一种利用视觉语言模型 (VLM) 进行开放词汇零样本时间动作分割 (OVTAS) 的免训练流程，并在标准基准测试中展示了强大的性能，无需特定于任务的监督。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Spa3R: Predictive Spatial Field Modeling for 3D Visual Reasoning",
+        "summary": "While Vision-Language Models (VLMs) exhibit exceptional 2D visual understanding, their ability to comprehend and reason about 3D space--a cornerstone of spatial intelligence--remains superficial. Current methodologies attempt to bridge this domain gap either by relying on explicit 3D modalities or by augmenting VLMs with partial, view-conditioned geometric priors. However, such approaches hinder scalability and ultimately burden the language model with the ill-posed task of implicitly reconstructing holistic 3D geometry from sparse cues. In this paper, we argue that spatial intelligence can emerge inherently from 2D vision alone, rather than being imposed via explicit spatial instruction tuning. To this end, we introduce Spa3R, a self-supervised framework that learns a unified, view-invariant spatial representation directly from unposed multi-view images. Spa3R is built upon the proposed Predictive Spatial Field Modeling (PSFM) paradigm, where Spa3R learns to synthesize feature fields for arbitrary unseen views conditioned on a compact latent representation, thereby internalizing a holistic and coherent understanding of the underlying 3D scene. We further integrate the pre-trained Spa3R Encoder into existing VLMs via a lightweight adapter to form Spa3-VLM, effectively grounding language reasoning in a global spatial context. Experiments on the challenging VSI-Bench demonstrate that Spa3-VLM achieves state-of-the-art accuracy of 58.6% on 3D VQA, significantly outperforming prior methods. These results highlight PSFM as a scalable path toward advancing spatial intelligence. Code is available at https://github.com/hustvl/Spa3R.",
+        "url": "http://arxiv.org/abs/2602.21186v1",
+        "published_date": "2026-02-24T18:37:34+00:00",
+        "updated_date": "2026-02-24T18:37:34+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Haoyi Jiang",
+            "Liu Liu",
+            "Xinjie Wang",
+            "Yonghao He",
+            "Wei Sui",
+            "Zhizhong Su",
+            "Wenyu Liu",
+            "Xinggang Wang"
+        ],
+        "tldr": "The paper introduces Spa3R, a self-supervised framework for learning view-invariant spatial representations from multi-view images, enhancing VLM's 3D reasoning capabilities without explicit 3D modalities, achieving SOTA results on VSI-Bench.",
+        "tldr_zh": "该论文介绍了 Spa3R，一个自监督框架，用于从多视角图像中学习视角不变的空间表示，增强 VLM 的 3D 推理能力，无需显式的 3D 模态，并在 VSI-Bench 上实现了 SOTA 结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Seeing Through Words: Controlling Visual Retrieval Quality with Language Models",
+        "summary": "Text-to-image retrieval is a fundamental task in vision-language learning, yet in real-world scenarios it is often challenged by short and underspecified user queries. Such queries are typically only one or two words long, rendering them semantically ambiguous, prone to collisions across diverse visual interpretations, and lacking explicit control over the quality of retrieved images. To address these issues, we propose a new paradigm of quality-controllable retrieval, which enriches short queries with contextual details while incorporating explicit notions of image quality. Our key idea is to leverage a generative language model as a query completion function, extending underspecified queries into descriptive forms that capture fine-grained visual attributes such as pose, scene, and aesthetics. We introduce a general framework that conditions query completion on discretized quality levels, derived from relevance and aesthetic scoring models, so that query enrichment is not only semantically meaningful but also quality-aware. The resulting system provides three key advantages: 1) flexibility, it is compatible with any pretrained vision-language model (VLMs) without modification; 2) transparency, enriched queries are explicitly interpretable by users; and 3) controllability, enabling retrieval results to be steered toward user-preferred quality levels. Extensive experiments demonstrate that our proposed approach significantly improves retrieval results and provides effective quality control, bridging the gap between the expressive capacity of modern VLMs and the underspecified nature of short user queries. Our code is available at https://github.com/Jianglin954/QCQC.",
+        "url": "http://arxiv.org/abs/2602.21175v1",
+        "published_date": "2026-02-24T18:20:57+00:00",
+        "updated_date": "2026-02-24T18:20:57+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Jianglin Lu",
+            "Simon Jenni",
+            "Kushal Kafle",
+            "Jing Shi",
+            "Handong Zhao",
+            "Yun Fu"
+        ],
+        "tldr": "This paper proposes a quality-controllable text-to-image retrieval framework that enriches short, ambiguous queries using a language model conditioned on discretized quality levels, improving retrieval accuracy and user control.",
+        "tldr_zh": "本文提出了一种质量可控的文本到图像检索框架，该框架利用语言模型对离散质量水平进行调节，从而丰富了简短、模糊的查询，提高了检索准确性和用户控制。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "NoRD: A Data-Efficient Vision-Language-Action Model that Drives without Reasoning",
+        "summary": "Vision-Language-Action (VLA) models are advancing autonomous driving by replacing modular pipelines with unified end-to-end architectures. However, current VLAs face two expensive requirements: (1) massive dataset collection, and (2) dense reasoning annotations. In this work, we address both challenges with \\modelname (\\textbf{No} \\textbf{R}easoning for \\textbf{D}riving). Compared to existing VLAs, \\modelname achieves competitive performance while being fine-tuned on $<$60\\% of the data and no reasoning annotations, resulting in 3$\\times$ fewer tokens. We identify that standard Group Relative Policy Optimization (GRPO) fails to yield significant improvements when applied to policies trained on such small, reasoning-free datasets. We show that this limitation stems from difficulty bias, which disproportionately penalizes reward signals from scenarios that produce high-variance rollouts within GRPO. \\modelname overcomes this by incorporating Dr.~GRPO, a recent algorithm designed to mitigate difficulty bias in LLMs. As a result, \\modelname achieves competitive performance on Waymo and NAVSIM with a fraction of the training data and no reasoning overhead, enabling more efficient autonomous systems.",
+        "url": "http://arxiv.org/abs/2602.21172v1",
+        "published_date": "2026-02-24T18:17:21+00:00",
+        "updated_date": "2026-02-24T18:17:21+00:00",
+        "categories": [
+            "cs.AI",
+            "cs.CV"
+        ],
+        "authors": [
+            "Ishaan Rawal",
+            "Shubh Gupta",
+            "Yihan Hu",
+            "Wei Zhan"
+        ],
+        "tldr": "The paper introduces NoRD, a Vision-Language-Action model for autonomous driving that achieves competitive performance with significantly less data and without reasoning annotations, by addressing difficulty bias in Group Relative Policy Optimization.",
+        "tldr_zh": "该论文介绍了NoRD，一种用于自动驾驶的视觉-语言-动作模型，通过解决群体相对策略优化中的难度偏差，以更少的数据和无需推理注释实现了具有竞争力的性能。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Overview of the CXR-LT 2026 Challenge: Multi-Center Long-Tailed and Zero Shot Chest X-ray Classification",
+        "summary": "Chest X-ray (CXR) interpretation is hindered by the long-tailed distribution of pathologies and the open-world nature of clinical environments. Existing benchmarks often rely on closed-set classes from single institutions, failing to capture the prevalence of rare diseases or the appearance of novel findings. To address this, we present the CXR-LT 2026 challenge. This third iteration of the benchmark introduces a multi-center dataset comprising over 145,000 images from PadChest and NIH Chest X-ray datasets. The challenge defines two core tasks: (1) Robust Multi-Label Classification on 30 known classes and (2) Open-World Generalization to 6 unseen (out-of-distribution) rare disease classes. We report the results of the top-performing teams, evaluating them via mean Average Precision (mAP), AUROC, and F1-score. The winning solutions achieved an mAP of 0.5854 on Task 1 and 0.4315 on Task 2, demonstrating that large-scale vision-language pre-training significantly mitigates the performance drop typically associated with zero-shot diagnosis.",
+        "url": "http://arxiv.org/abs/2602.22092v1",
+        "published_date": "2026-02-25T16:39:21+00:00",
+        "updated_date": "2026-02-25T16:39:21+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Hexin Dong",
+            "Yi Lin",
+            "Pengyu Zhou",
+            "Fengnian Zhao",
+            "Alan Clint Legasto",
+            "Mingquan Lin",
+            "Hao Chen",
+            "Yuzhe Yang",
+            "George Shih",
+            "Yifan Peng"
+        ],
+        "tldr": "The CXR-LT 2026 challenge introduces a multi-center chest X-ray dataset and benchmarks for robust multi-label classification and open-world generalization to rare diseases, demonstrating vision-language pre-training benefits.",
+        "tldr_zh": "CXR-LT 2026挑战引入了一个多中心胸部X光数据集，并为稳健的多标签分类和对罕见疾病的开放世界泛化设定了基准，证明了视觉-语言预训练的优势。",
+        "relevance_score": 7,
+        "novelty_claim_score": 6,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Global-Local Dual Perception for MLLMs in High-Resolution Text-Rich Image Translation",
+        "summary": "Text Image Machine Translation (TIMT) aims to translate text embedded in images in the source-language into target-language, requiring synergistic integration of visual perception and linguistic understanding. Existing TIMT methods, whether cascaded pipelines or end-to-end multimodal large language models (MLLMs),struggle with high-resolution text-rich images due to cluttered layouts, diverse fonts, and non-textual distractions, resulting in text omission, semantic drift, and contextual inconsistency. To address these challenges, we propose GLoTran, a global-local dual visual perception framework for MLLM-based TIMT. GLoTran integrates a low-resolution global image with multi-scale region-level text image slices under an instruction-guided alignment strategy, conditioning MLLMs to maintain scene-level contextual consistency while faithfully capturing fine-grained textual details. Moreover, to realize this dual-perception paradigm, we construct GLoD, a large-scale text-rich TIMT dataset comprising 510K high-resolution global-local image-text pairs covering diverse real-world scenarios. Extensive experiments demonstrate that GLoTran substantially improves translation completeness and accuracy over state-of-the-art MLLMs, offering a new paradigm for fine-grained TIMT under high-resolution and text-rich conditions.",
+        "url": "http://arxiv.org/abs/2602.21956v1",
+        "published_date": "2026-02-25T14:38:47+00:00",
+        "updated_date": "2026-02-25T14:38:47+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Junxin Lu",
+            "Tengfei Song",
+            "Zhanglin Wu",
+            "Pengfei Li",
+            "Xiaowei Liang",
+            "Hui Yang",
+            "Kun Chen",
+            "Ning Xie",
+            "Yunfei Lu",
+            "Jing Zhao",
+            "Shiliang Sun",
+            "Daimeng Wei"
+        ],
+        "tldr": "The paper introduces GLoTran, a global-local dual perception framework for MLLMs to improve text image machine translation (TIMT) in high-resolution, text-rich images, along with a new dataset GLoD.",
+        "tldr_zh": "该论文提出了GLoTran，一个用于多模态大语言模型(MLLM)的全局-局部双重感知框架，以改进高分辨率、富文本图像中的文本图像机器翻译(TIMT)，同时还构建了一个新的数据集GLoD。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "How to Take a Memorable Picture? Empowering Users with Actionable Feedback",
+        "summary": "Image memorability, i.e., how likely an image is to be remembered, has traditionally been studied in computer vision either as a passive prediction task, with models regressing a scalar score, or with generative methods altering the visual input to boost the image likelihood of being remembered. Yet, none of these paradigms supports users at capture time, when the crucial question is how to improve a photo memorability. We introduce the task of Memorability Feedback (MemFeed), where an automated model should provide actionable, human-interpretable guidance to users with the goal to enhance an image future recall. We also present MemCoach, the first approach designed to provide concrete suggestions in natural language for memorability improvement (e.g., \"emphasize facial expression,\" \"bring the subject forward\"). Our method, based on Multimodal Large Language Models (MLLMs), is training-free and employs a teacher-student steering strategy, aligning the model internal activations toward more memorable patterns learned from a teacher model progressing along least-to-most memorable samples. To enable systematic evaluation on this novel task, we further introduce MemBench, a new benchmark featuring sequence-aligned photoshoots with annotated memorability scores. Our experiments, considering multiple MLLMs, demonstrate the effectiveness of MemCoach, showing consistently improved performance over several zero-shot models. The results indicate that memorability can not only be predicted but also taught and instructed, shifting the focus from mere prediction to actionable feedback for human creators.",
+        "url": "http://arxiv.org/abs/2602.21877v1",
+        "published_date": "2026-02-25T13:02:35+00:00",
+        "updated_date": "2026-02-25T13:02:35+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Francesco Laiti",
+            "Davide Talon",
+            "Jacopo Staiano",
+            "Elisa Ricci"
+        ],
+        "tldr": "This paper introduces MemCoach, a training-free MLLM-based approach for providing actionable, natural language feedback to users to improve the memorability of their photos, along with MemBench, a new benchmark for evaluation.",
+        "tldr_zh": "本文介绍MemCoach，一种基于多模态大型语言模型（MLLM）的无需训练的方法，旨在为用户提供可操作的自然语言反馈，以提高照片的记忆性。同时，论文还提出了MemBench，一个新的用于评估的基准。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    }
+]
