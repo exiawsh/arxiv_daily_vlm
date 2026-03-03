@@ -1,0 +1,361 @@
+[
+    {
+        "title": "VisNec: Measuring and Leveraging Visual Necessity for Multimodal Instruction Tuning",
+        "summary": "The effectiveness of multimodal instruction tuning depends not only on dataset scale, but critically on whether training samples genuinely require visual reasoning. However, existing instruction datasets often contain a substantial portion of visually redundant samples (solvable from text alone), as well as multimodally misaligned supervision that can degrade learning. To address this, we propose VisNec (Visual Necessity Score), a principled data selection framework that measures the marginal contribution of visual input during instruction tuning. By comparing predictive loss with and without visual context, VisNec identifies whether a training instance is vision-critical, redundant, or misaligned. To preserve task diversity, we combine VisNec with semantic clustering and select high-necessity samples within each cluster. Across 10 downstream benchmarks, training on only 15% of the LLaVA-665K dataset selected by VisNec achieves 100.2% of full-data performance. On the smaller Vision-Flan-186K dataset, our selection not only further reduces data size but also surpasses full-data training by 15.8%. These results demonstrate that measuring and leveraging visual necessity provides an effective solution for both efficient and robust multimodal instruction tuning. Codes and selected subsets will be released upon acceptance.",
+        "url": "http://arxiv.org/abs/2603.01195v1",
+        "published_date": "2026-03-01T17:26:02+00:00",
+        "updated_date": "2026-03-01T17:26:02+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Mingkang Dong",
+            "Hongyi Cai",
+            "Jie Li",
+            "Sifan Zhou",
+            "Bin Ren",
+            "Kunyu Peng",
+            "Yuqian Fu"
+        ],
+        "tldr": "This paper introduces VisNec, a framework for selecting visually necessary data for multimodal instruction tuning, achieving comparable or superior performance to full dataset training with significantly less data.",
+        "tldr_zh": "本文介绍了VisNec，一个用于选择多模态指令微调中视觉必要数据的框架，仅使用少量数据即可达到与完整数据集训练相当甚至更优的性能。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 9
+    },
+    {
+        "title": "TC-SSA: Token Compression via Semantic Slot Aggregation for Gigapixel Pathology Reasoning",
+        "summary": "The application of large vision-language models to computational pathology holds great promise for diagnostic assistants but faces a critical computational bottleneck: the gigapixel scale of Whole Slide Images (WSIs). A single WSI typically contains over 105 patches, creating sequence lengths that exceed the constraints of standard Transformer architectures. Existing solutions often resort to spatial sampling, which risks discarding diagnostically critical evidence. To address this, we propose TC-SSA (Token Compression via Semantic Slot Aggregation), a learnable token compression framework that aggregates patch features into a fixed number of semantic slots. A gated routing module assigns patches to slots using sparse Top-2 routing, followed by weighted aggregation, enabling global slide coverage under a strict token budget. The resulting representation retains diagnostically relevant information while reducing the number of visual tokens to 1.7% of the original sequence. On the SlideBench(TCGA), our model achieves 78.34% overall accuracy and 77.14% on the diagnosis subset, outperforming sampling-based baselines under comparable token budgets. The method also generalizes to MIL classification, reaching AUC of 95.83% on TCGA-BRCA, 98.27% on TCGA-NSCLC and 79.80% on PANDA. These results suggest that learnable semantic aggregation provides an effective trade-off between efficiency and diagnostic performance for gigapixel pathology reasoning.",
+        "url": "http://arxiv.org/abs/2603.01143v1",
+        "published_date": "2026-03-01T15:07:57+00:00",
+        "updated_date": "2026-03-01T15:07:57+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Zhuo Chen",
+            "Shawn Young",
+            "Lijian Xu"
+        ],
+        "tldr": "The paper introduces TC-SSA, a learnable token compression framework for gigapixel pathology images that aggregates patch features into semantic slots, achieving high accuracy with significantly reduced computational cost.",
+        "tldr_zh": "本文介绍了一种名为TC-SSA的可学习token压缩框架，用于处理千兆像素的病理图像。该框架将图像块特征聚合成语义槽，以显著降低计算成本并实现高精度。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "ClinCoT: Clinical-Aware Visual Chain-of-Thought for Medical Vision Language Models",
+        "summary": "Medical Vision-Language Models have shown promising potential in clinical decision support, yet they remain prone to factual hallucinations due to insufficient grounding in localized pathological evidence. Existing medical alignment methods primarily operate at the response level through preference optimization, improving output correctness but leaving intermediate reasoning weakly connected to visual regions. Although chain-of-thought (CoT) enhances multimodal reasoning, it remains largely text-centric, limiting effective integration of clinical visual cues. To address this gap, we propose ClinCoT, a clinical-aware visual chain-of-thought framework that transforms preference optimization from response-level correction to visual-driven reasoning. We introduce an automatic data generation pipeline that constructs clinically grounded preference pairs through reasoning with hypotheses-driven region proposals. Multiple Med-LLMs evaluators rank and assign scores to each response, and these rankings serve as supervision to train the target model. We further introduce a scoring-based margin-aware optimization strategy that incorporates both preference ranking and score difference to refine region-level reasoning trajectories. To maintain alignment as the model's policy evolves during training, we adopt an iterative learning scheme that dynamically regenerates preference data. Extensive experiments on three medical VQA and report generation benchmarks demonstrate that ClinCoT consistently improves factual grounding and achieves superior performance compared with existing preference-based alignment methods.",
+        "url": "http://arxiv.org/abs/2603.01124v1",
+        "published_date": "2026-03-01T14:15:54+00:00",
+        "updated_date": "2026-03-01T14:15:54+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Xiwei Liu",
+            "Yulong Li",
+            "Xinlin Zhuang",
+            "Xuhui Li",
+            "Jianxu Chen",
+            "Haolin Yang",
+            "Imran Razzak",
+            "Yutong Xie"
+        ],
+        "tldr": "The paper introduces ClinCoT, a clinical-aware visual chain-of-thought framework for medical VLMs, addressing factual hallucinations by grounding reasoning in localized pathological evidence through automatic data generation and scoring-based margin-aware optimization.",
+        "tldr_zh": "该论文介绍了ClinCoT，一个临床感知的视觉链式思考框架，用于医学视觉语言模型。该框架通过自动数据生成和基于评分的边际感知优化，将推理建立在局部病理证据的基础上，从而解决事实幻觉问题。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "DeAR: Fine-Grained VLM Adaptation by Decomposing Attention Head Roles",
+        "summary": "Prompt learning is a dominant paradigm for adapting pre-trained Vision-Language Models (VLMs) to downstream tasks. However, existing methods often rely on a simplistic, layer-centric view, assuming shallow layers capture general features while deep layers handle task-specific knowledge. This assumption results in uncontrolled interactions between learnable tokens and original tokens. Task-specific knowledge could degrades the model's core generalization and creates a trade-off between task adaptation and the preservation of zero-shot generalization. To address this, we challenge the layer-centric view and propose \\textbf{DeAR}, a framework that achieves fine-grained VLM adaptation by \\textbf{De}composing \\textbf{A}ttention head \\textbf{R}oles. We posit that the functional specialization within VLMs occurs not between layers, but at the finer-grained level of individual attention heads in the deeper layers. Based on this insight, we introduce a novel metric, Concept Entropy, to systematically classify attention heads into distinct functional roles: \\textit{Attribute}, \\textit{Generalization}, and \\textit{Mixed}. Guided by these roles, we introduce specialized attribute tokens and a Role-Based Attention Mask mechanism to precisely control information flow, ensuring generalization heads remain isolated from task-specific knowledge. We further incorporate a Task-Adaptive Fusion Strategy for inference. Extensive experiments on fifteen datasets show that DeAR achieves a strong balance between task adaptation and generalization, outperforming previous methods across various tasks.",
+        "url": "http://arxiv.org/abs/2603.01111v1",
+        "published_date": "2026-03-01T13:52:51+00:00",
+        "updated_date": "2026-03-01T13:52:51+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Yiming Ma",
+            "Hongkun Yang",
+            "Lionel Z. Wang",
+            "Bin Chen",
+            "Weizhi Xian",
+            "Jianzhi Teng"
+        ],
+        "tldr": "The paper introduces DeAR, a framework that adapts VLMs by decomposing attention head roles into Attribute, Generalization, and Mixed, using a novel metric called Concept Entropy. This approach achieves a better balance between task adaptation and generalization compared to previous methods.",
+        "tldr_zh": "该论文介绍了DeAR，一个通过将注意力头角色分解为属性、泛化和混合来调整VLM的框架，使用了一种名为概念熵的新指标。与以前的方法相比，这种方法在任务适应和泛化之间取得了更好的平衡。",
+        "relevance_score": 9,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "GroundedSurg: A Multi-Procedure Benchmark for Language-Conditioned Surgical Tool Segmentation",
+        "summary": "Clinically reliable perception of surgical scenes is essential for advancing intelligent, context-aware intraoperative assistance such as instrument handoff guidance, collision avoidance, and workflow-aware robotic support. Existing surgical tool benchmarks primarily evaluate category-level segmentation, requiring models to detect all instances of predefined instrument classes. However, real-world clinical decisions often require resolving references to a specific instrument instance based on its functional role, spatial relation, or anatomical interaction capabilities not captured by current evaluation paradigms. We introduce GroundedSurg, the first language-conditioned, instance-level surgical grounding benchmark. Each instance pairs a surgical image with a natural-language description targeting a single instrument, accompanied by structured spatial grounding annotations including bounding boxes and point-level anchors. The dataset spans ophthalmic, laparoscopic, robotic, and open procedures, encompassing diverse instrument types, imaging conditions, and operative complexities. By jointly evaluating linguistic reference resolution and pixel-level localization, GroundedSurg enables a systematic and realistic evaluation of vision-language models in clinically realistic multi-instrument scenes. Extensive experiments demonstrate substantial performance gaps across modern segmentation and VLMs, highlighting the urgent need for clinically grounded vision-language reasoning in surgical AI systems. Code and data are publicly available at https://github.com/gaash-lab/GroundedSurg",
+        "url": "http://arxiv.org/abs/2603.01108v1",
+        "published_date": "2026-03-01T13:49:53+00:00",
+        "updated_date": "2026-03-01T13:49:53+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Tajamul Ashraf",
+            "Abrar Ul Riyaz",
+            "Wasif Tak",
+            "Tavaheed Tariq",
+            "Sonia Yadav",
+            "Moloud Abdar",
+            "Janibul Bashir"
+        ],
+        "tldr": "The paper introduces GroundedSurg, a new language-conditioned, instance-level surgical grounding benchmark dataset for evaluating vision-language models in surgical scenes, highlighting performance gaps and the need for clinically grounded reasoning.",
+        "tldr_zh": "该论文介绍了GroundedSurg，这是一个新的语言条件下的实例级别手术场景分割基准数据集，用于评估视觉-语言模型在手术场景中的性能，突出了性能差距以及对临床环境下的视觉-语言推理的需求。",
+        "relevance_score": 8,
+        "novelty_claim_score": 9,
+        "clarity_score": 10,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Unified Vision-Language Modeling via Concept Space Alignment",
+        "summary": "We introduce V-SONAR, a vision-language embedding space extended from the text-only embedding space SONAR (Omnilingual Embeddings Team et al., 2026), which supports 1500 text languages and 177 speech languages. To construct V-SONAR, we propose a post-hoc alignment pipeline that maps the representations of an existing vision encoder into the SONAR space. We thoroughly evaluate V-SONAR and show that its embeddings achieve competitive performance on text-to-video retrieval. Equipped with the OMNISONAR text decoder, V-SONAR further surpasses state-of-the-art vision-language models on video captioning tasks, including DREAM-1K (BLEU 23.9 vs. 19.6) and PE-VIDEO (BLEU 39.0 vs. 30.0).\n  Leveraging V-SONAR, we first demonstrate that the Large Concept Model (LCM; LCM team et al. 2024) operating in SONAR and trained with English text only, can perform both single- and multi-visual concept understanding in a zero-shot manner. Finally, we introduce V-LCM, which extends the LCM with vision-language instruction tuning. V-LCM encodes vision and language inputs into an unified sequence of latent embeddings via V-SONAR and SONAR, and it is trained with the same latent diffusion objective for next-embedding prediction as in LCM's text-only pre-training. Experiments on a large-scale multilingual and -modal instruction-tuning data mixture highlight the potential of V-LCM: V-LCM matches state-of-the-art vision-language models on tasks covering image/video captioning and question answering, while significantly outperforming them across 61 rich- to low-resource languages out of all 62 tested languages.",
+        "url": "http://arxiv.org/abs/2603.01096v1",
+        "published_date": "2026-03-01T13:22:44+00:00",
+        "updated_date": "2026-03-01T13:22:44+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL",
+            "cs.LG"
+        ],
+        "authors": [
+            "Yifu Qiu",
+            "Paul-Ambroise Duquenne",
+            "Holger Schwenk"
+        ],
+        "tldr": "The paper introduces V-SONAR, a vision-language embedding space aligned with a multilingual text space, and V-LCM, a vision-language model instruction-tuned using this space, demonstrating strong performance, especially in multilingual settings.",
+        "tldr_zh": "该论文介绍了V-SONAR，一个与多语言文本空间对齐的视觉-语言嵌入空间，以及V-LCM，一个使用该空间进行指令调优的视觉-语言模型，展示了强大的性能，尤其是在多语言环境中。",
+        "relevance_score": 8,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Beyond Global Similarity: Towards Fine-Grained, Multi-Condition Multimodal Retrieval",
+        "summary": "Recent advances in multimodal large language models (MLLMs) have substantially expanded the capabilities of multimodal retrieval, enabling systems to align and retrieve information across visual and textual modalities. Yet, existing benchmarks largely focus on coarse-grained or single-condition alignment, overlooking real-world scenarios where user queries specify multiple interdependent constraints across modalities. To bridge this gap, we introduce MCMR (Multi-Conditional Multimodal Retrieval): a large-scale benchmark designed to evaluate fine-grained, multi-condition cross-modal retrieval under natural-language queries. MCMR spans five product domains: upper and bottom clothing, jewelry, shoes, and furniture. It also preserves rich long-form metadata essential for compositional matching. Each query integrates complementary visual and textual attributes, requiring models to jointly satisfy all specified conditions for relevance. We benchmark a diverse suite of MLLM-based multimodal retrievers and vision-language rerankers to assess their condition-aware reasoning abilities. Experimental results reveal: (i) distinct modality asymmetries across models; (ii) visual cues dominate early-rank precision, while textual metadata stabilizes long-tail ordering; and (iii) MLLM-based pointwise rerankers markedly improve fine-grained matching by explicitly verifying query-candidate consistency. Overall, MCMR establishes a challenging and diagnostic benchmark for advancing multimodal retrieval toward compositional, constraint-aware, and interpretable understanding. Our code and dataset is available at https://github.com/EIT-NLP/MCMR",
+        "url": "http://arxiv.org/abs/2603.01082v1",
+        "published_date": "2026-03-01T12:53:47+00:00",
+        "updated_date": "2026-03-01T12:53:47+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.IR"
+        ],
+        "authors": [
+            "Xuan Lu",
+            "Kangle Li",
+            "Haohang Huang",
+            "Rui Meng",
+            "Wenjun Zeng",
+            "Xiaoyu Shen"
+        ],
+        "tldr": "This paper introduces MCMR, a new large-scale benchmark for evaluating fine-grained, multi-condition cross-modal retrieval using MLLMs, highlighting limitations of current models in handling complex, compositional queries.",
+        "tldr_zh": "本文介绍了MCMR，一个新的大规模基准，用于评估使用MLLM的细粒度、多条件跨模态检索，强调了当前模型在处理复杂、组合查询方面的局限性。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "MM-DeepResearch: A Simple and Effective Multimodal Agentic Search Baseline",
+        "summary": "We aim to develop a multimodal research agent capable of explicit reasoning and planning, multi-tool invocation, and cross-modal information synthesis, enabling it to conduct deep research tasks. However, we observe three main challenges in developing such agents: (1) scarcity of search-intensive multimodal QA data, (2) lack of effective search trajectories, and (3) prohibitive cost of training with online search APIs. To tackle them, we first propose Hyper-Search, a hypergraph-based QA generation method that models and connects visual and textual nodes within and across modalities, enabling to generate search-intensive multimodal QA pairs that require invoking various search tools to solve. Second, we introduce DR-TTS, which first decomposes search-involved tasks into several categories according to search tool types, and respectively optimize specialized search tool experts for each tool. It then recomposes tool experts to jointly explore search trajectories via tree search, producing trajectories that successfully solve complex tasks using various search tools. Third, we build an offline search engine supporting multiple search tools, enabling agentic reinforcement learning without using costly online search APIs. With the three designs, we develop MM-DeepResearch, a powerful multimodal deep research agent, and extensive results shows its superiority across benchmarks. Code is available at https://github.com/HJYao00/MM-DeepResearch",
+        "url": "http://arxiv.org/abs/2603.01050v1",
+        "published_date": "2026-03-01T11:13:22+00:00",
+        "updated_date": "2026-03-01T11:13:22+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Huanjin Yao",
+            "Qixiang Yin",
+            "Min Yang",
+            "Ziwang Zhao",
+            "Yibo Wang",
+            "Haotian Luo",
+            "Jingyi Zhang",
+            "Jiaxing Huang"
+        ],
+        "tldr": "The paper introduces MM-DeepResearch, a multimodal agent designed for deep research tasks, which addresses challenges in data scarcity, search trajectory optimization, and training costs through Hyper-Search, DR-TTS, and an offline search engine.",
+        "tldr_zh": "本文介绍了MM-DeepResearch，一个用于深度研究任务的多模态代理，它通过Hyper-Search、DR-TTS和一个离线搜索引擎解决了数据稀缺、搜索轨迹优化和训练成本等方面的挑战。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Vision-Language Feature Alignment for Road Anomaly Segmentation",
+        "summary": "Safe autonomous systems in complex environments require robust road anomaly segmentation to identify unknown obstacles. However, existing approaches often rely on pixel-level statistics to determine whether a region appears anomalous. This reliance leads to high false-positive rates on semantically normal background regions such as sky or vegetation, and poor recall of true Out-of-distribution (OOD) instances, thereby posing safety risks for robotic perception and decision-making. To address these challenges, we propose VL-Anomaly, a vision-language anomaly segmentation framework that incorporates semantic priors from pre-trained Vision-Language Models (VLMs). Specifically, we design a prompt learning-driven alignment module that adapts Mask2Forme's visual features to CLIP text embeddings of known categories, effectively suppressing spurious anomaly responses in background regions. At inference time, we further introduce a multi-source inference strategy that integrates text-guided similarity, CLIP-based image-text similarity and detector confidence, enabling more reliable anomaly prediction by leveraging complementary information sources. Extensive experiments demonstrate that VL-Anomaly achieves state-of-the-art performance on benchmark datasets including RoadAnomaly, SMIYC and Fishyscapes.Code is released on https://github.com/NickHezhuolin/VL-aligner-Road-anomaly-segment.",
+        "url": "http://arxiv.org/abs/2603.01029v1",
+        "published_date": "2026-03-01T10:17:00+00:00",
+        "updated_date": "2026-03-01T10:17:00+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Zhuolin He",
+            "Jiacheng Tang",
+            "Jian Pu",
+            "Xiangyang Xue"
+        ],
+        "tldr": "The paper introduces VL-Anomaly, a vision-language framework for road anomaly segmentation that leverages semantic priors from pre-trained VLMs to improve performance and reduce false positives, achieving state-of-the-art results on benchmark datasets.",
+        "tldr_zh": "该论文介绍了一种名为VL-Anomaly的视觉-语言框架，用于道路异常分割，它利用预训练的VLMs的语义先验来提高性能并减少误报，在基准数据集上实现了最先进的结果。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Event-Anchored Frame Selection for Effective Long-Video Understanding",
+        "summary": "Massive frame redundancy and limited context window make efficient frame selection crucial for long-video understanding with large vision-language models (LVLMs). Prevailing approaches, however, adopt a flat sampling paradigm which treats the video as an unstructured collection of frames. In this paper, we introduce Event-Anchored Frame Selection (EFS), a hierarchical, event-aware pipeline. Leveraging self-supervised DINO embeddings, EFS first partitions the video stream into visually homogeneous temporal segments, which serve as proxies for semantic events. Within each event, it then selects the most query-relevant frame as an anchor. These anchors act as structural priors that guide a global refinement stage using an adaptive Maximal Marginal Relevance (MMR) scheme. This pipeline ensures the final keyframe set jointly optimizes for event coverage, query relevance, and visual diversity. As a training-free, plug-and-play module, EFS can be seamlessly integrated into off-the-shelf LVLMs, yielding substantial gains on challenging video understanding benchmarks. Specifically, when applied to LLaVA-Video-7B, EFS improves accuracy by 4.7%, 4.9%, and 8.8% on VideoMME, LongVideoBench, and MLVU, respectively.",
+        "url": "http://arxiv.org/abs/2603.00983v1",
+        "published_date": "2026-03-01T08:25:37+00:00",
+        "updated_date": "2026-03-01T08:25:37+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Wang Chen",
+            "Yongdong Luo",
+            "Yuhui Zeng",
+            "Luojun Lin",
+            "Tianyu Xie",
+            "Fei Chao",
+            "Rongrong Ji",
+            "Xiawu Zheng"
+        ],
+        "tldr": "This paper introduces Event-Anchored Frame Selection (EFS), a training-free method for improving long-video understanding with LVLMs by selecting keyframes based on event segmentation and query relevance, leading to accuracy gains on multiple benchmarks.",
+        "tldr_zh": "该论文介绍了事件锚定帧选择 (EFS)，这是一种无需训练的方法，通过基于事件分割和查询相关性选择关键帧来提高 LVLM 对长视频的理解，从而在多个基准测试中获得准确性提升。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 8,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "The Aftermath of DrawEduMath: Vision Language Models Underperform with Struggling Students and Misdiagnose Errors",
+        "summary": "Effective mathematics education requires identifying and responding to students' mistakes. For AI to support pedagogical applications, models must perform well across different levels of student proficiency. Our work provides an extensive, year-long snapshot of how 11 vision-language models (VLMs) perform on DrawEduMath, a QA benchmark involving real students' handwritten, hand-drawn responses to math problems. We find that models' weaknesses concentrate on a core component of math education: student error. All evaluated VLMs underperform when describing work from students who require more pedagogical help, and across all QA, they struggle the most on questions related to assessing student error. Thus, while VLMs may be optimized to be math problem solving experts, our results suggest that they require alternative development incentives to adequately support educational use cases.",
+        "url": "http://arxiv.org/abs/2603.00925v1",
+        "published_date": "2026-03-01T05:15:12+00:00",
+        "updated_date": "2026-03-01T05:15:12+00:00",
+        "categories": [
+            "cs.CL",
+            "cs.CV",
+            "cs.CY"
+        ],
+        "authors": [
+            "Li Lucy",
+            "Albert Zhang",
+            "Nathan Anderson",
+            "Ryan Knight",
+            "Kyle Lo"
+        ],
+        "tldr": "This paper evaluates VLMs on a math QA dataset (DrawEduMath) with real student data, finding that they struggle with identifying and addressing student errors, particularly for struggling students.",
+        "tldr_zh": "本文评估了视觉语言模型（VLMs）在包含真实学生数据的数学问答数据集 (DrawEduMath) 上的表现，发现模型在识别和解决学生错误方面存在困难，尤其是在针对学习困难的学生时。",
+        "relevance_score": 8,
+        "novelty_claim_score": 7,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 8
+    },
+    {
+        "title": "Can Vision Language Models Assess Graphic Design Aesthetics? A Benchmark, Evaluation, and Dataset Perspective",
+        "summary": "Assessing the aesthetic quality of graphic design is central to visual communication, yet remains underexplored in vision language models (VLMs). We investigate whether VLMs can evaluate design aesthetics in ways comparable to humans. Prior work faces three key limitations: benchmarks restricted to narrow principles and coarse evaluation protocols, a lack of systematic VLM comparisons, and limited training data for model improvement. In this work, we introduce AesEval-Bench, a comprehensive benchmark spanning four dimensions, twelve indicators, and three fully quantifiable tasks: aesthetic judgment, region selection, and precise localization. Then, we systematically evaluate proprietary, open-source, and reasoning-augmented VLMs, revealing clear performance gaps against the nuanced demands of aesthetic assessment. Moreover, we construct a training dataset to fine-tune VLMs for this domain, leveraging human-guided VLM labeling to produce task labels at scale and indicator-grounded reasoning to tie abstract indicators to concrete design regions.Together, our work establishes the first systematic framework for aesthetic quality assessment in graphic design. Our code and dataset will be released at: \\href{https://github.com/arctanxarc/AesEval-Bench}{https://github.com/arctanxarc/AesEval-Bench}",
+        "url": "http://arxiv.org/abs/2603.01083v1",
+        "published_date": "2026-03-01T12:55:39+00:00",
+        "updated_date": "2026-03-01T12:55:39+00:00",
+        "categories": [
+            "cs.CV"
+        ],
+        "authors": [
+            "Arctanx An",
+            "Shizhao Sun",
+            "Danqing Huang",
+            "Mingxi Cheng",
+            "Yan Gao",
+            "Ji Li",
+            "Yu Qiao",
+            "Jiang Bian"
+        ],
+        "tldr": "This paper introduces AesEval-Bench, a new benchmark for evaluating VLMs on graphic design aesthetics, and systematically evaluates several VLMs, highlighting their shortcomings and providing a training dataset for improvement using human-guided VLM labeling.",
+        "tldr_zh": "本文介绍了 AesEval-Bench，这是一个用于评估 VLM 在图形设计美学方面的新基准。该文系统地评估了多个 VLM，强调了它们的不足，并提供了一个训练数据集，该数据集使用人工引导的 VLM 标注来改进模型。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Seeing Beyond 8bits: Subjective and Objective Quality Assessment of HDR-UGC Videos",
+        "summary": "High Dynamic Range (HDR) user-generated (UGC) videos are rapidly proliferating across social platforms, yet most perceptual video quality assessment (VQA) systems remain tailored to Standard Dynamic Range (SDR). HDR has a higher bit depth, wide color gamut, and elevated luminance range, exposing distortions such as near-black crushing, highlight clipping, banding, and exposure flicker that amplify UGC artifacts and challenge SDR models. To catalyze progress, we curate Beyond8Bits, a large-scale subjective dataset of 44K videos from 6.5K sources with over 1.5M crowd ratings, spanning diverse scenes, capture conditions, and compression settings. We further introduce HDR-Q, the first Multimodal Large Language Model (MLLM) for HDR-UGC VQA. We propose (i) a novel HDR-aware vision encoder to produce HDR-sensitive embeddings, and (ii) HDR-Aware Policy Optimization (HAPO), an RL finetuning framework that anchors reasoning to HDR cues. HAPO augments GRPO via an HDR-SDR contrastive KL that encourages token reliance on HDR inputs and a Gaussian weighted regression reward for fine-grained MOS calibration. Across Beyond8Bits and public HDR-VQA benchmarks, HDR-Q delivers state-of-the-art performance.",
+        "url": "http://arxiv.org/abs/2603.00938v1",
+        "published_date": "2026-03-01T06:02:40+00:00",
+        "updated_date": "2026-03-01T06:02:40+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Shreshth Saini",
+            "Bowen Chen",
+            "Neil Birkbeck",
+            "Yilin Wang",
+            "Balu Adsumilli",
+            "Alan C. Bovik"
+        ],
+        "tldr": "The paper introduces Beyond8Bits, a large-scale HDR-UGC video quality dataset, and HDR-Q, a novel Multimodal Large Language Model (MLLM) tailored for HDR-UGC VQA with HDR-aware components, achieving state-of-the-art results.",
+        "tldr_zh": "该论文介绍了Beyond8Bits，一个大规模的HDR-UGC视频质量数据集，以及HDR-Q，一种为HDR-UGC VQA量身定制的、具有HDR感知组件的新型多模态大型语言模型（MLLM），并取得了最先进的结果。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    },
+    {
+        "title": "Improving Text-to-Image Generation with Intrinsic Self-Confidence Rewards",
+        "summary": "Text-to-image generation powers content creation across design, media, and data augmentation. Post-training of text-to-image generative models is a promising path to better match human preferences, factuality, and improved aesthetics. We introduce ARC (Adaptive Rewarding by self-Confidence), a post-training framework that replaces external reward supervision with an internal self-confidence signal, obtained by evaluating how accurately the model recovers injected noise under self-denoising probes. ARC converts this intrinsic signal into scalar rewards, enabling fully unsupervised optimization without additional datasets, annotators, or reward models. Empirically, by reinforcing high-confidence generations, ARC delivers consistent gains in compositional generation, text rendering and text-image alignment over the baseline. We also find that integrating ARC with external rewards results in a complementary improvement, with alleviated reward hacking.",
+        "url": "http://arxiv.org/abs/2603.00918v1",
+        "published_date": "2026-03-01T04:39:09+00:00",
+        "updated_date": "2026-03-01T04:39:09+00:00",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "authors": [
+            "Seungwook Kim",
+            "Minsu Cho"
+        ],
+        "tldr": "The paper introduces ARC, a post-training framework for text-to-image generation that uses the model's self-confidence as an intrinsic reward signal to improve image quality and text alignment without external data or reward models.",
+        "tldr_zh": "该论文介绍了一种名为ARC的文本到图像生成模型的后训练框架，该框架利用模型的自信程度作为内在奖励信号，以提高图像质量和文本对齐，而无需外部数据或奖励模型。",
+        "relevance_score": 7,
+        "novelty_claim_score": 8,
+        "clarity_score": 9,
+        "potential_impact_score": 7,
+        "overall_priority_score": 7
+    }
+]
